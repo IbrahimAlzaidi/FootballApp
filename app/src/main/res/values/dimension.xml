@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    // margin and padding dimensions
+    <dimen name="margin0X">4dp</dimen>
+    <dimen name="margin1X">8dp</dimen>
+    <dimen name="margin2X">12dp</dimen>
+    <dimen name="margin3X">16dp</dimen>
+    <dimen name="margin4X">20dp</dimen>
+    <dimen name="margin5X">24dp</dimen>
+    <dimen name="margin6X">28dp</dimen>
+    <dimen name="margin7X">32dp</dimen>
+    <dimen name="margin8X">40dp</dimen>
+    <dimen name="margin9X">48dp</dimen>
+
+    // text size dimensions
+    <dimen name="size0X">4sp</dimen>
+    <dimen name="size1X">8sp</dimen>
+    <dimen name="size2X">12sp</dimen>
+    <dimen name="size3X">16sp</dimen>
+    <dimen name="size4X">20sp</dimen>
+    <dimen name="size5X">24sp</dimen>
+    <dimen name="size6X">32sp</dimen>
+    <dimen name="size7X">48sp</dimen>
+</resources>
