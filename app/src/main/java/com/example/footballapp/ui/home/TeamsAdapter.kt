@@ -6,7 +6,5 @@ import com.example.footballapp.ui.base.BaseAdapter
 import com.example.footballapp.ui.base.BaseInteractionListener
 
 class TeamsAdapter(items: List<Squad>, listener: Nothing?) :
-    BaseAdapter<Squad>(items, listener) {
-    override val layoutId: Int
-        get() = R.layout.item
+    BaseAdapter<Squad>(items, listener,R.layout.item) {
 }

@@ -1,19 +1,20 @@
 package com.example.footballapp.ui.base
 
 import android.annotation.SuppressLint
-import android.view.*
-import androidx.databinding.*
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.example.footballapp.BR
-import com.example.footballapp.viewModel.HomeFragmentViewModel
-
 
 
 abstract class BaseAdapter<T>(
     private var items: List<T>,
-    private val listener: HomeFragmentViewModel?
+    private val listener: BaseInteractionListener?,
+    private val layoutId: Int,
 ) : RecyclerView.Adapter<BaseAdapter.BaseViewHolder>() {
-    abstract val layoutId: Int
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder =
         ItemViewHolder(
             DataBindingUtil.inflate(
@@ -23,7 +24,6 @@ abstract class BaseAdapter<T>(
                 false
             )
         )
-
 
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
         val current = items[position]
@@ -49,6 +49,6 @@ abstract class BaseAdapter<T>(
 
     class ItemViewHolder(val binding: ViewDataBinding) : BaseViewHolder(binding)
 
-    abstract class BaseViewHolder(bindning: ViewDataBinding) :
-        RecyclerView.ViewHolder(bindning.root)
+    abstract class BaseViewHolder(bindings: ViewDataBinding) :
+        RecyclerView.ViewHolder(bindings.root)
 }
