@@ -1,8 +1,9 @@
 package com.example.footballapp.model
 
-import com.example.footballapp.model.response.teams_response.competitions.competitions
-import com.example.footballapp.model.response.teams_response.standings.Standings
-import com.example.footballapp.model.response.teams_response.teams.Teams
+import com.example.footballapp.model.network.Api
+import com.example.footballapp.model.response.competitions.competitions
+import com.example.footballapp.model.response.standings.Standings
+import com.example.footballapp.model.response.teams.Teams
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import retrofit2.Response

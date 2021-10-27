@@ -1,9 +1,9 @@
-package com.example.footballapp.model.response.teams_response.teams
+package com.example.footballapp.model.response.teams
 
 
 import com.google.gson.annotations.SerializedName
 
-data class AreaX(
+data class Area(
     @SerializedName("id")
     val id: Int?,
     @SerializedName("name")

@@ -1,8 +1,8 @@
-package com.example.footballapp.model
+package com.example.footballapp.model.network
 
-import com.example.footballapp.model.response.teams_response.competitions.competitions
-import com.example.footballapp.model.response.teams_response.standings.Standings
-import com.example.footballapp.model.response.teams_response.teams.Teams
+import com.example.footballapp.model.response.competitions.competitions
+import com.example.footballapp.model.response.standings.Standings
+import com.example.footballapp.model.response.teams.Teams
 import retrofit2.Response
 import retrofit2.http.*
 
