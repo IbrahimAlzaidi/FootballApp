@@ -1,4 +1,4 @@
-package com.example.footballapp.model
+package com.example.footballapp.model.network
 
 import android.util.Log
 import com.example.footballapp.util.Constant.API_TOKEN

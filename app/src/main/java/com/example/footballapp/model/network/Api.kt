@@ -1,4 +1,4 @@
-package com.example.footballapp.model
+package com.example.footballapp.model.network
 
 import com.example.footballapp.util.Constant
 import okhttp3.OkHttpClient

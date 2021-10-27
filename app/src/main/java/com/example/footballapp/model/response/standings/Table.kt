@@ -1,4 +1,4 @@
-package com.example.footballapp.model.response.teams_response.standings
+package com.example.footballapp.model.response.standings
 
 
 import com.google.gson.annotations.SerializedName

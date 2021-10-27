@@ -20,8 +20,8 @@ abstract class BaseFragment<VDB : ViewDataBinding>(@LayoutRes private val layout
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        setup()
        _binding = DataBindingUtil.inflate(inflater,layoutResId,container,false)
+        setup()
         return _binding.root
     }
 }
