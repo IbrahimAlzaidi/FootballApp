@@ -7,5 +7,70 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.footballapp.ui.home.HomeFragment"
-        android:label="HomeFragment" />
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_leagueDetailsFragment"
+            app:destination="@id/leagueDetailsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_matchDetailsFragment"
+            app:destination="@id/matchDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/leagueDetailsFragment"
+        android:name="com.example.footballapp.ui.leagueDetails.LeagueDetailsFragment"
+        android:label="LeagueDetailsFragment" >
+        <action
+            android:id="@+id/action_leagueDetailsFragment_to_standingFragment"
+            app:destination="@id/standingFragment" />
+        <action
+            android:id="@+id/action_leagueDetailsFragment_to_scorersFragment"
+            app:destination="@id/scorersFragment" />
+        <action
+            android:id="@+id/action_leagueDetailsFragment_to_matchesFragment"
+            app:destination="@id/matchesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/clubDetailsFragment"
+        android:name="com.example.footballapp.ui.clubDetails.ClubDetailsFragment"
+        android:label="ClubDetailsFragment" />
+    <fragment
+        android:id="@+id/matchDayFragment"
+        android:name="com.example.footballapp.ui.matchDay.MatchDayFragment"
+        android:label="MatchDayFragment" >
+        <action
+            android:id="@+id/action_matchDayFragment_to_matchDetailsFragment"
+            app:destination="@id/matchDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/matchDetailsFragment"
+        android:name="com.example.footballapp.ui.matchDetails.MatchDetailsFragment"
+        android:label="MatchDetailsFragment" />
+    <fragment
+        android:id="@+id/matchesFragment"
+        android:name="com.example.footballapp.ui.matches.MatchesFragment"
+        android:label="MatchesFragment" >
+        <action
+            android:id="@+id/action_matchesFragment_to_matchDayFragment"
+            app:destination="@id/matchDayFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/playerDetailsFragment"
+        android:name="com.example.footballapp.ui.playerDetails.PlayerDetailsFragment"
+        android:label="PlayerDetailsFragment" />
+    <fragment
+        android:id="@+id/scorersFragment"
+        android:name="com.example.footballapp.ui.scorers.ScorersFragment"
+        android:label="ScorersFragment" >
+        <action
+            android:id="@+id/action_scorersFragment_to_playerDetailsFragment"
+            app:destination="@id/playerDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/standingFragment"
+        android:name="com.example.footballapp.ui.standing.StandingFragment"
+        android:label="StandingFragment" >
+        <action
+            android:id="@+id/action_standingFragment_to_clubDetailsFragment"
+            app:destination="@id/clubDetailsFragment" />
+    </fragment>
 </navigation>
