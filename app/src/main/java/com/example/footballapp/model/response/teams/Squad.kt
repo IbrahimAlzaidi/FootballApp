@@ -19,5 +19,5 @@ data class Squad(
     @SerializedName("role")
     val role: String?,
     @SerializedName("shirtNumber")
-    val shirtNumber: Any?
+    val shirtNumber: String?
 )

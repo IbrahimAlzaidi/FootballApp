@@ -4,8 +4,8 @@ package com.example.footballapp.model.response.standings
 import com.google.gson.annotations.SerializedName
 
 data class Season(
-    @SerializedName("currentMatchday")
-    val currentMatchday: Int?,
+    @SerializedName("currentMatchDay")
+    val currentMatchDay: Int?,
     @SerializedName("endDate")
     val endDate: String?,
     @SerializedName("id")
@@ -13,5 +13,5 @@ data class Season(
     @SerializedName("startDate")
     val startDate: String?,
     @SerializedName("winner")
-    val winner: Any?
+    val winner: String?
 )

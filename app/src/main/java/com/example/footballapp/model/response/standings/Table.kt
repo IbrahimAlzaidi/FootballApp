@@ -7,7 +7,7 @@ data class Table(
     @SerializedName("draw")
     val draw: Int?,
     @SerializedName("form")
-    val form: Any?,
+    val form: String?,
     @SerializedName("goalDifference")
     val goalDifference: Int?,
     @SerializedName("goalsAgainst")
@@ -23,7 +23,7 @@ data class Table(
     @SerializedName("position")
     val position: Int?,
     @SerializedName("team")
-    val team: Team?,
+    val team: List<Team>?,
     @SerializedName("won")
     val won: Int?
 )

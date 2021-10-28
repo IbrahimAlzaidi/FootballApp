@@ -7,7 +7,7 @@ data class Area(
     @SerializedName("countryCode")
     val countryCode: String?,
     @SerializedName("ensignUrl")
-    val ensignUrl: Any?,
+    val ensignUrl: String?,
     @SerializedName("id")
     val id: Int?,
     @SerializedName("name")

@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class ActiveCompetition(
     @SerializedName("area")
-    val area: Area?,
+    val area: List<Area>?,
     @SerializedName("code")
     val code: String?,
     @SerializedName("id")
