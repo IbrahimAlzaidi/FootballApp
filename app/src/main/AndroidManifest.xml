@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FootballApp">
         <activity
-            android:name=".ui.home_activity.HomeActivity"
+            android:name=".ui.homeActivity.HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

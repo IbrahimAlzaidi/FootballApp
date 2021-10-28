@@ -1,4 +1,4 @@
-package com.example.footballapp.ui.home_activity
+package com.example.footballapp.ui.homeActivity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

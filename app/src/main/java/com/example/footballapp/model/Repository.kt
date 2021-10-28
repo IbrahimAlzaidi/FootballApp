@@ -1,7 +1,7 @@
 package com.example.footballapp.model
 
 import com.example.footballapp.model.network.Api
-import com.example.footballapp.model.response.competitions.competitions
+import com.example.footballapp.model.response.competitions.Competitions
 import com.example.footballapp.model.response.standings.Standings
 import com.example.footballapp.model.response.teams.Teams
 import kotlinx.coroutines.flow.Flow
@@ -14,7 +14,7 @@ class Repository {
     fun getTeamsInfo(teamId: Int): Flow<State<Teams?>> =
         wrapWithFlow { Api.apiService.getTeamsInfo(teamId) }
 
-    fun getCompetitions(): Flow<State<competitions?>> =
+    fun getCompetitions(): Flow<State<Competitions?>> =
         wrapWithFlow { Api.apiService.getCompetitions() }
 
     fun getStandings(standingsId: Int): Flow<State<Standings?>> =
