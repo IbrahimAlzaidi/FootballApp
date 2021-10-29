@@ -5,12 +5,12 @@
     <data>
         <variable
             name="item"
-            type="com.example.footballapp.model.response.teams.Squad" />
+            type="com.example.footballapp.model.response.competitions.Competition" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/text_view"
@@ -21,6 +21,16 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/text_view2"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            app:ImageUrl="@{String.valueOf(item.emblemUrl)}"
+            android:textSize="@dimen/size5X"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_view" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

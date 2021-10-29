@@ -5,7 +5,7 @@ import com.example.footballapp.model.response.teams.Squad
 import com.example.footballapp.ui.home.TeamInteractionListener
 
 class HomeViewModel: BaseViewModel() , TeamInteractionListener {
-    val teamInfo = repository.getTeamsInfo(1).asLiveData()
+    val teamInfo = repository.getCompetitions().asLiveData()
     override fun onItemClick(squad: Squad) {
 
     }
