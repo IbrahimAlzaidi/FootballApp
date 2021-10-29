@@ -6,8 +6,9 @@ import com.example.footballapp.ui.base.BaseFragment
 import com.example.footballapp.viewModel.MatchDetailsViewModel
 
 class MatchDetailsFragment: BaseFragment<FragmentMatchDetailsBinding>(R.layout.fragment_match_details){
+    private val viewModel = MatchDetailsViewModel()
     override fun setup() {
-        binding.viewModel = viewModel as MatchDetailsViewModel?
+        binding.viewModel = viewModel
     }
 
 }

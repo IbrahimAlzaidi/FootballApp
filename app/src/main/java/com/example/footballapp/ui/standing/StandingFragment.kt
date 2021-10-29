@@ -6,7 +6,8 @@ import com.example.footballapp.ui.base.BaseFragment
 import com.example.footballapp.viewModel.StandingViewModel
 
 class StandingFragment: BaseFragment<FragmentStandingBinding>(R.layout.fragment_standing){
+    private val viewModel = StandingViewModel()
     override fun setup() {
-        binding.viewModel = viewModel as StandingViewModel?
+        binding.viewModel = viewModel
     }
 }

@@ -5,13 +5,13 @@ import com.google.gson.annotations.SerializedName
 
 data class Competition(
     @SerializedName("area")
-    val area: List<Area>?,
+    val area: Area?,
     @SerializedName("code")
-    val code: String?,
+    val code: Any?,
     @SerializedName("currentSeason")
-    val currentSeason: List<CurrentSeason>?,
+    val currentSeason: CurrentSeason?,
     @SerializedName("emblemUrl")
-    val emblemUrl: String?,
+    val emblemUrl: Any?,
     @SerializedName("id")
     val id: Int?,
     @SerializedName("lastUpdated")

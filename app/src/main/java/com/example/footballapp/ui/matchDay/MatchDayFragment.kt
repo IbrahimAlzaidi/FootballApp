@@ -6,8 +6,8 @@ import com.example.footballapp.ui.base.BaseFragment
 import com.example.footballapp.viewModel.MatchDayViewModel
 
 class MatchDayFragment: BaseFragment<FragmentMatchDayBinding>(R.layout.fragment_match_day){
+    private val viewModel = MatchDayViewModel()
     override fun setup() {
-        binding.viewModel = viewModel as MatchDayViewModel?
+        binding.viewModel = viewModel
     }
-
 }
