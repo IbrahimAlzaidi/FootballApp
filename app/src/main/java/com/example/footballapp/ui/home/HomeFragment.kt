@@ -11,7 +11,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home){
     override fun setup() {
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
-        val adapter = TeamsAdapter(mutableListOf(),null)
-        binding.recycleView.adapter = adapter
+        val leaguesAdapter = LeaguesAdapter(mutableListOf(),null)
+        val matchAdapter = MatchAdapter(mutableListOf(),null)
+        binding.recycleView.adapter = leaguesAdapter
+        binding.matchRecycler.adapter = matchAdapter
     }
 }

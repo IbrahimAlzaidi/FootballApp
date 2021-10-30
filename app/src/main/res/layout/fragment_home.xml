@@ -13,28 +13,57 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.home.HomeFragment">
-
         <TextView
-            android:id="@+id/text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{viewModel.teamInfo.toData().count.toString()}"
-            android:textSize="@dimen/size7X"
+            android:text="Leagues :"
+            android:textStyle="bold"
+            android:layout_marginStart="@dimen/margin4X"
+            android:layout_marginTop="@dimen/margin2X"
+            android:textSize="@dimen/size4X"
+            android:elevation="@dimen/size0X"
+            app:layout_constraintStart_toStartOf="@id/cardView"
+            app:layout_constraintTop_toTopOf="@id/cardView"
+            />
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            app:cardCornerRadius="@dimen/size1X"
+            android:layout_margin="@dimen/margin3X"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycle_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:paddingTop="@dimen/size6X"
+                app:items="@{viewModel.leaguesInfo.toData().response}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_leagues" />
+        </androidx.cardview.widget.CardView>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycle_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:items="@{viewModel.teamInfo.toData().competitions}"
+            android:id="@+id/matchRecycler"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/margin2X"
+            tools:listitem="@layout/item_matches"
+            android:orientation="horizontal"
+            app:items="@{viewModel.matchLive.toData().response}"
+            android:layout_marginHorizontal="@dimen/margin1X"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardView"
+
+            />
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
