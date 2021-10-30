@@ -52,7 +52,7 @@
             android:layout_height="0dp"
             android:layout_marginTop="@dimen/margin2X"
             tools:listitem="@layout/item_matches"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             app:items="@{viewModel.matchLive.toData().response}"
             android:layout_marginHorizontal="@dimen/margin1X"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
