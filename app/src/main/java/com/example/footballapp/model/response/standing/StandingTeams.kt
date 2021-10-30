@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class StandingTeams(
     @SerializedName("errors")
-    val errors: List<Any>?,
+    val errors: List<String>?,
     @SerializedName("get")
     val `get`: String?,
     @SerializedName("paging")
@@ -13,7 +13,7 @@ data class StandingTeams(
     @SerializedName("parameters")
     val parameters: Parameters?,
     @SerializedName("response")
-    val response: List<Response>?,
+    val response: Response?,
     @SerializedName("results")
     val results: Int?
 )

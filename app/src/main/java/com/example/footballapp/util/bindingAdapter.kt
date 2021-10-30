@@ -3,11 +3,13 @@ package com.example.footballapp.util
 import android.view.View
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.footballapp.R
 import com.example.footballapp.model.State
 import com.example.footballapp.ui.base.BaseAdapter
+import com.example.footballapp.ui.home.HomeFragmentDirections
 import com.github.twocoffeesoneteam.glidetovectoryou.GlideApp
 
 @BindingAdapter(value = ["app:whenError"])
@@ -42,3 +44,9 @@ fun <T> setRecyclerView(view: RecyclerView,items: List<T>?){
         (view.adapter as BaseAdapter<T>?)?.setItems(emptyList())
     }
 }
+
+//@BindingAdapter(value = ["app:navigateHomeToLeagueDetails"])
+//fun setHomeNavigateToLeagueDetails(view: View, leagueId: Int?){
+//    val action = HomeFragmentDirections.actionHomeFragmentToLeagueDetailsFragment(leagueId)
+//    Navigation.findNavController(view).navigate(action)
+//}

@@ -28,6 +28,7 @@
         <action
             android:id="@+id/action_leagueDetailsFragment_to_matchesFragment"
             app:destination="@id/matchesFragment" />
+        />
     </fragment>
     <fragment
         android:id="@+id/clubDetailsFragment"

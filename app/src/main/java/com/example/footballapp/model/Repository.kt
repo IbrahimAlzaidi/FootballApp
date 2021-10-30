@@ -70,10 +70,10 @@ class Repository {
 
     private fun <T> wrapWithFlow(function: suspend () -> Response<T>): Flow<State<T?>> = flow {
         emit(State.Loading)
-        emit(check(function()))
+        emit(checkRequest(function()))
     }
 
-    private fun <T> check(response: Response<T>): State<T?> =
+    private fun <T> checkRequest(response: Response<T>): State<T?> =
         try {
             if (response.isSuccessful) State.Success(response.body())
             else State.Error(response.message())

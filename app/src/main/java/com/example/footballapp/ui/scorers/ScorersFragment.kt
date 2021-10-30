@@ -9,6 +9,7 @@ class ScorersFragment: BaseFragment<FragmentScorersBinding>(R.layout.fragment_sc
     private val viewModel = ScorersViewModel()
     override fun setup() {
         binding.viewModel = viewModel
+        binding.lifecycleOwner = this
     }
 
 }

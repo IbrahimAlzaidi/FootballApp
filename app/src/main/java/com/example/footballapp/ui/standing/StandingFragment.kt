@@ -9,5 +9,6 @@ class StandingFragment: BaseFragment<FragmentStandingBinding>(R.layout.fragment_
     private val viewModel = StandingViewModel()
     override fun setup() {
         binding.viewModel = viewModel
+        binding.lifecycleOwner = this
     }
 }

@@ -9,6 +9,7 @@ class MatchesFragment: BaseFragment<FragmentMatchesBinding>(R.layout.fragment_ma
     private val viewModel = MatchesViewModel()
     override fun setup() {
         binding.viewModel = viewModel
+        binding.lifecycleOwner = this
     }
 
 }
