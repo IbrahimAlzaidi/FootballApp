@@ -1,9 +1,8 @@
 package com.example.footballapp.model
 
 import com.example.footballapp.model.network.Api
-import com.example.footballapp.model.response.competitions.Competitions
-import com.example.footballapp.model.response.standings.Standings
-import com.example.footballapp.model.response.teams.Teams
+import com.example.footballapp.model.response.leagues.LeaguesResponse
+import com.example.footballapp.model.response.liveMatches.LiveMatches
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import retrofit2.Response
@@ -11,14 +10,11 @@ import retrofit2.Response
 
 class Repository {
 
-    fun getTeamsInfo(teamId: Int): Flow<State<Teams?>> =
-        wrapWithFlow { Api.apiService.getTeamsInfo(teamId) }
+    fun getLeaguesInfo(): Flow<State<LeaguesResponse?>> =
+        wrapWithFlow { Api.apiService.getLeaguesInfo() }
 
-    fun getCompetitions(): Flow<State<Competitions?>> =
-        wrapWithFlow { Api.apiService.getCompetitions() }
-
-    fun getStandings(standingsId: Int): Flow<State<Standings?>> =
-        wrapWithFlow { Api.apiService.getStandings(standingsId) }
+    fun getMatchesLive(): Flow<State<LiveMatches?>> =
+        wrapWithFlow { Api.apiService.getMatchesLive() }
 
     private fun <T> wrapWithFlow(function: suspend () -> Response<T>): Flow<State<T?>> = flow {
         emit(State.Loading)
