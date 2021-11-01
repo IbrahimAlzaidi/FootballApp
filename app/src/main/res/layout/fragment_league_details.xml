@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -12,6 +13,85 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.leagueDetails.LeagueDetailsFragment">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/leaguesStandingRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="vertical"
+            app:items="@{viewModel.standingTeams.toData().response}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/leagues_info_items" />
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            app:ImageUrl="@{viewModel.standingTeams2.team.logo}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/leaguesStandingRecycler"
+            />
+        <TextView
+            android:id="@+id/rank"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            tools:text="Hello"
+            android:text="@{String.valueOf(viewModel.standingTeams2.rank)}"
+            android:textSize="28sp"
+            android:gravity="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/logo"
+            />
+        <TextView
+            android:id="@+id/point"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            tools:text="point"
+            android:textSize="28sp"
+            android:text="@{String.valueOf(viewModel.standingTeams2.points)}"
+            android:gravity="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rank"
+            />
+        <TextView
+            android:id="@+id/play"
+            android:layout_width="120dp"
+            android:layout_height="80dp"
+            tools:text="play"
+            android:textSize="28sp"
+            android:gravity="center"
+            android:text="@{String.valueOf(viewModel.standingTeams2.all.played)}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/point"
+            />
+        <TextView
+            android:id="@+id/win"
+            android:layout_width="120dp"
+            android:layout_height="80dp"
+            tools:text="win"
+            android:text="@{String.valueOf(viewModel.standingTeams2.all.win)}"
+            android:textSize="28sp"
+            android:gravity="center"
+            app:layout_constraintStart_toEndOf="@id/play"
+            app:layout_constraintTop_toBottomOf="@id/point"
+            />
+        <TextView
+            android:id="@+id/lose"
+            android:layout_width="120dp"
+            android:layout_height="80dp"
+            tools:text="lose"
+            android:text="@{String.valueOf(viewModel.standingTeams2.all.lose)}"
+            android:textSize="28sp"
+            android:gravity="center"
+            app:layout_constraintStart_toEndOf="@id/win"
+            app:layout_constraintTop_toBottomOf="@id/point"
+            />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,9 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+<!--        <variable-->
+<!--            name="view"-->
+<!--            type="android.view.View" />-->
         <variable
             name="item"
             type="com.example.footballapp.model.response.leagues.Response" />
+<!--        <variable-->
+<!--            name="item"-->
+<!--            type="com.example.footballapp.model.response.leagues.Season" />-->
+        <variable
+            name="listener"
+            type="com.example.footballapp.ui.home.LeaguesInteractionListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,6 +28,7 @@
             android:layout_marginHorizontal="@dimen/margin4X"
             android:scaleType="centerInside"
             app:ImageUrl="@{item.league.logo}"
+            android:onClick="@{()->listener.onLeagueSelected(item.league.id,2021)}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

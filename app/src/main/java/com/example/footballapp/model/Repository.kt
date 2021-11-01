@@ -3,6 +3,7 @@ package com.example.footballapp.model
 import com.example.footballapp.model.network.Api
 import com.example.footballapp.model.response.leagues.LeaguesResponse
 import com.example.footballapp.model.response.liveMatches.LiveMatches
+import com.example.footballapp.model.response.standingTeam.StandingTeams
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import retrofit2.Response
@@ -15,6 +16,9 @@ class Repository {
 
     fun getMatchesLive(): Flow<State<LiveMatches?>> =
         wrapWithFlow { Api.apiService.getMatchesLive() }
+
+    fun getStandingTeams(season: Int = 2021 , leagueId: Int): Flow<State<StandingTeams?>> =
+        wrapWithFlow { Api.apiService.getStandingTeams(season = season , leagueId = leagueId) }
 
     private fun <T> wrapWithFlow(function: suspend () -> Response<T>): Flow<State<T?>> = flow {
         emit(State.Loading)

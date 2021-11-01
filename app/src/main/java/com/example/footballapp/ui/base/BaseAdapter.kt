@@ -7,15 +7,17 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.example.footballapp.BR
+import com.example.footballapp.model.response.standingTeam.Standing
+import com.example.footballapp.model.response.standingTeam.StandingTeams
 
 
 abstract class BaseAdapter<T>(
     private var items: List<T>,
     private val listener: BaseInteractionListener?,
     private val layoutId: Int,
-) : RecyclerView.Adapter<BaseAdapter.BaseViewHolder>() {
+) : RecyclerView.Adapter<BaseAdapter.ItemViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder =
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder =
         ItemViewHolder(
             DataBindingUtil.inflate(
                 LayoutInflater.from(parent.context),
@@ -25,13 +27,13 @@ abstract class BaseAdapter<T>(
             )
         )
 
-    override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val current = items[position]
         when (holder) {
             is ItemViewHolder -> {
                 holder.binding.apply {
                     setVariable(BR.item, current)
-//                    setVariable(BR.listener,listener) setListener Here
+                    setVariable(BR.listener,listener)
                 }
             }
         }
@@ -47,8 +49,8 @@ abstract class BaseAdapter<T>(
 
     fun getItems() = items
 
-    class ItemViewHolder(val binding: ViewDataBinding) : BaseViewHolder(binding)
+    class ItemViewHolder(val binding: ViewDataBinding) : RecyclerView.ViewHolder(binding.root)
 
-    abstract class BaseViewHolder(bindings: ViewDataBinding) :
-        RecyclerView.ViewHolder(bindings.root)
+//    abstract class BaseViewHolder(bindings: ViewDataBinding) :
+//        RecyclerView.ViewHolder(bindings.root)
 }
