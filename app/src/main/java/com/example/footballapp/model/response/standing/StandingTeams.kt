@@ -7,7 +7,7 @@ data class StandingTeams(
     @SerializedName("errors")
     val errors: List<Any>?,
     @SerializedName("get")
-    val `get`: String?,
+    val get: String?,
     @SerializedName("paging")
     val paging: Paging?,
     @SerializedName("parameters")

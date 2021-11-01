@@ -29,7 +29,7 @@ class Repository {
         wrapWithFlow { Api.apiService.getMatchesLive() }
 
     // function to get standing for current leagues
-    fun getStandingTeams(season: Int = 2021 , leagueId: Int): Flow<State<StandingTeams?>> =
+    fun getStandingTeams(season: Int = 2021, leagueId: Int): Flow<State<StandingTeams?>> =
         wrapWithFlow { Api.apiService.getStandingTeams(season = season , leagueId = leagueId) }
 
     // function to get team information

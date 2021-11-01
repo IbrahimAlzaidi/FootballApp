@@ -7,6 +7,9 @@
         <variable
             name="item"
             type="com.example.footballapp.model.response.leagues.Response" />
+        <variable
+            name="listener"
+            type="com.example.footballapp.ui.home.LeagueInteractionListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,6 +22,7 @@
             android:layout_marginHorizontal="@dimen/margin4X"
             android:scaleType="centerInside"
             app:ImageUrl="@{item.league.logo}"
+            android:onClick="@{()-> listener.onLeagueSelected(item.league.id)}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

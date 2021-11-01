@@ -31,7 +31,7 @@ abstract class BaseAdapter<T>(
             is ItemViewHolder -> {
                 holder.binding.apply {
                     setVariable(BR.item, current)
-//                    setVariable(BR.listener,listener) setListener Here
+                    setVariable(BR.listener,listener)
                 }
             }
         }
