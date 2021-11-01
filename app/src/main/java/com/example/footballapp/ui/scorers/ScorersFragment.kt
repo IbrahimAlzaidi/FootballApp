@@ -5,10 +5,11 @@ import com.example.footballapp.databinding.FragmentScorersBinding
 import com.example.footballapp.ui.base.BaseFragment
 import com.example.footballapp.viewModel.ScorersViewModel
 
-class ScorersFragment: BaseFragment<FragmentScorersBinding>(R.layout.fragment_scorers){
-    private val viewModel = ScorersViewModel()
+class ScorersFragment: BaseFragment<FragmentScorersBinding, ScorersViewModel>(R.layout.fragment_scorers){
     override fun setup() {
         binding.viewModel = viewModel
     }
+
+    override fun getViewModel()= ScorersViewModel::class.java
 
 }

@@ -6,9 +6,10 @@ import com.example.footballapp.ui.base.BaseFragment
 import com.example.footballapp.viewModel.LeagueDetailsViewModel
 
 
-class LeagueDetailsFragment : BaseFragment<FragmentLeagueDetailsBinding>(R.layout.fragment_league_details) {
-    private val viewModel = LeagueDetailsViewModel()
+class LeagueDetailsFragment : BaseFragment<FragmentLeagueDetailsBinding, LeagueDetailsViewModel>(R.layout.fragment_league_details) {
     override fun setup() {
         binding.viewModel = viewModel
     }
+
+    override fun getViewModel()= LeagueDetailsViewModel::class.java
 }

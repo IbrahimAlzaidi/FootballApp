@@ -1,4 +1,4 @@
-package com.example.footballapp.viewModel
+package com.example.footballapp.viewModel.base
 
 import androidx.lifecycle.ViewModel
 import com.example.footballapp.model.Repository

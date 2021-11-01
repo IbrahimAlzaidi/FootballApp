@@ -8,12 +8,20 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import com.example.footballapp.viewModel.base.ViewModelFactory
+import com.example.footballapp.viewModel.base.BaseViewModel
 
-abstract class BaseFragment<VDB : ViewDataBinding>(@LayoutRes private val layoutResId: Int) : Fragment() {
+abstract class BaseFragment<VDB : ViewDataBinding, VM: BaseViewModel>(@LayoutRes private val layoutResId: Int) : Fragment() {
     abstract fun setup()
+    abstract fun getViewModel(): Class<VM>
     private lateinit var _binding: VDB
     protected val binding: VDB
         get() = _binding
+
+    private lateinit var _viewModel: VM
+    protected val viewModel: VM
+        get() = _viewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -21,6 +29,9 @@ abstract class BaseFragment<VDB : ViewDataBinding>(@LayoutRes private val layout
         savedInstanceState: Bundle?
     ): View? {
         _binding = DataBindingUtil.inflate(inflater, layoutResId, container, false)
+        val factory = ViewModelFactory()
+        _viewModel = ViewModelProvider(this,factory).get(getViewModel())
+        _binding.lifecycleOwner = this
         setup()
         return _binding.root
     }
