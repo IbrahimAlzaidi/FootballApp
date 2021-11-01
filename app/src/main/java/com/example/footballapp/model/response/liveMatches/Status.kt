@@ -7,7 +7,7 @@ data class Status(
     @SerializedName("elapsed")
     val elapsed: Int?,
     @SerializedName("long")
-    val long: String?,
+    val longMatch: String?,
     @SerializedName("short")
     val short: String?
 )
