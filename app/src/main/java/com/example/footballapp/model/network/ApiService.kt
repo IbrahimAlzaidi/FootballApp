@@ -1,17 +1,17 @@
 package com.example.footballapp.model.network
 
-import com.example.footballapp.model.response.leagueSearch.LeagueSearch
+import com.example.footballapp.model.response.leagueSearch.LeagueSearchResponse
 import com.example.footballapp.model.response.leagues.LeaguesResponse
-import com.example.footballapp.model.response.lineup.LineupInfo
-import com.example.footballapp.model.response.liveMatches.LiveMatches
-import com.example.footballapp.model.response.matchStatistic.MatchStatistic
-import com.example.footballapp.model.response.matches.MatchesResults
-import com.example.footballapp.model.response.playerStatistic.PlayerStatistic
-import com.example.footballapp.model.response.playerTrophies.PlayerTrophies
-import com.example.footballapp.model.response.stadiumInfo.StadiumInfo
-import com.example.footballapp.model.response.standing.StandingTeams
-import com.example.footballapp.model.response.teamInfo.TeamInformation
-import com.example.footballapp.model.response.topScorers.TopScorers
+import com.example.footballapp.model.response.lineup.LineupInfoResponse
+import com.example.footballapp.model.response.liveMatches.LiveMatchesResponse
+import com.example.footballapp.model.response.matchStatistic.MatchStatisticResponse
+import com.example.footballapp.model.response.matches.MatchesResponse
+import com.example.footballapp.model.response.playerStatistic.PlayerStatisticResponse
+import com.example.footballapp.model.response.playerTrophies.PlayerTrophiesResponse
+import com.example.footballapp.model.response.stadiumInfo.StadiumInfoResponse
+import com.example.footballapp.model.response.standing.StandingTeamsResponse
+import com.example.footballapp.model.response.teamInfo.TeamInformationResponse
+import com.example.footballapp.model.response.topScorers.TopScorersResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -22,56 +22,56 @@ interface ApiService {
     suspend fun getLeaguesInfo(): Response<LeaguesResponse?>
 
     @GET("/v3/fixtures?live=all")
-    suspend fun getMatchesLive(): Response<LiveMatches?>
+    suspend fun getMatchesLive(): Response<LiveMatchesResponse?>
 
     @GET("/v3/standings")
     suspend fun getStandingTeams(
         @Query("season") season: Int,
-        @Query("league") leagueId: Int,
-    ): Response<StandingTeams>
+        @Query("leagueInfo") leagueId: Int,
+    ): Response<StandingTeamsResponse>
 
     @GET("/v3/teams/statistics")
     suspend fun getTeamInformation(
-        @Query("league") leagueId: Int,
+        @Query("leagueInfo") leagueId: Int,
         @Query("season") season: Int,
-        @Query("team") teamId: Int,
-    ): Response<TeamInformation?>
+        @Query("teamInfo") teamId: Int,
+    ): Response<TeamInformationResponse?>
 
     @GET("/v3/players/topscorers")
     suspend fun getTopScorers(
-        @Query("league") leagueId: Int,
+        @Query("leagueInfo") leagueId: Int,
         @Query("season") season: Int,
-    ): Response<TopScorers?>
+    ): Response<TopScorersResponse?>
 
     @GET("/v3/teams")
     suspend fun getStadiumInfo(
         @Query("id") teamId: Int,
-        @Query("league") leagueId: Int,
+        @Query("leagueInfo") leagueId: Int,
         @Query("season") season: Int,
-    ): Response<StadiumInfo?>
+    ): Response<StadiumInfoResponse?>
 
     @GET("/v3/fixtures")
     suspend fun getMatchesResult(
-        @Query("league") leagueId: Int,
+        @Query("leagueInfo") leagueId: Int,
         @Query("season") season: Int,
         @Query("status") status: String,
-    ): Response<MatchesResults?>
+    ): Response<MatchesResponse?>
 
     @GET("/v3/fixtures/statistics")
-    suspend fun getMatchStatistic(@Query("fixture") matchId: Int): Response<MatchStatistic?>
+    suspend fun getMatchStatistic(@Query("fixture") matchId: Int): Response<MatchStatisticResponse?>
 
     @GET("/v3/fixtures/lineups")
-    suspend fun getMatchLineup(@Query("fixture") matchId: Int): Response<LineupInfo?>
+    suspend fun getMatchLineup(@Query("fixture") matchId: Int): Response<LineupInfoResponse?>
 
     @GET("/v3/players")
     suspend fun getPlayerStatistic(
         @Query("id") playerId: Int,
         @Query("season") season: Int,
-    ): Response<PlayerStatistic?>
+    ): Response<PlayerStatisticResponse?>
 
     @GET("/v3/trophies")
-    suspend fun getPlayerTrophies(@Query("player") playerId: Int): Response<PlayerTrophies?>
+    suspend fun getPlayerTrophies(@Query("playerInfo") playerId: Int): Response<PlayerTrophiesResponse?>
 
     @GET("/v3/leagues")
-    suspend fun searchLeague(@Query("name") leagueName: String): Response<LeagueSearch?>
+    suspend fun searchLeague(@Query("name") leagueName: String): Response<LeagueSearchResponse?>
 }

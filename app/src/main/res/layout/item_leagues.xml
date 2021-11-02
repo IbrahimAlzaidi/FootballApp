@@ -6,7 +6,7 @@
     <data>
         <variable
             name="item"
-            type="com.example.footballapp.model.response.leagues.Response" />
+            type="com.example.footballapp.model.response.base.baseLeague.LeagueInfo" />
         <variable
             name="listener"
             type="com.example.footballapp.ui.home.LeagueInteractionListener" />

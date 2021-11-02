@@ -4,10 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="viewModel"
-            type="com.example.footballapp.viewModel.LeagueDetailsViewModel" />
+            type="com.example.footballapp.ui.leagueDetails.LeagueDetailsViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -9,8 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.footballapp.viewModel.base.ViewModelFactory
-import com.example.footballapp.viewModel.base.BaseViewModel
+import com.example.footballapp.util.ViewModelFactory
 
 abstract class BaseFragment<VDB : ViewDataBinding, VM: BaseViewModel>(@LayoutRes private val layoutResId: Int) : Fragment() {
     abstract fun setup()

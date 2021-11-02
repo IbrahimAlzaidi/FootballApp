@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.footballapp.viewModel.HomeViewModel" />
+            type="com.example.footballapp.ui.home.HomeViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,7 +16,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Leagues :"
+            android:text="@string/leagues"
             android:textStyle="bold"
             android:layout_marginStart="@dimen/margin4X"
             android:layout_marginTop="@dimen/margin2X"
@@ -41,7 +41,7 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
                 android:paddingTop="@dimen/size6X"
-                app:items="@{viewModel.leaguesInfo.toData().response}"
+                app:items="@{viewModel.leaguesInfo.toData().leaguesInfo}"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/item_leagues" />
         </androidx.cardview.widget.CardView>
@@ -53,17 +53,13 @@
             android:layout_marginTop="@dimen/margin2X"
             tools:listitem="@layout/item_matches"
             android:orientation="vertical"
-            app:items="@{viewModel.matchLive.toData().response}"
+            app:items="@{viewModel.matchLive.toData().liveLiveMatchesInfo}"
             android:layout_marginHorizontal="@dimen/margin1X"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cardView"
-
             />
-
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

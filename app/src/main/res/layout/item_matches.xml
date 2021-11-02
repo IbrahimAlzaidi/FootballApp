@@ -7,7 +7,7 @@
 
         <variable
             name="item"
-            type="com.example.footballapp.model.response.liveMatches.MatchesResponse" />
+            type="com.example.footballapp.model.response.liveMatches.LiveMatchesInfo" />
         <variable
             name="listener"
             type="com.example.footballapp.ui.home.MatchInteractionListener" />
@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin1X"
             android:elevation="@dimen/size0X"
-            android:text="@{item.fixture.status.longMatch}"
+            android:text="@{item.fixture.matchStatus.longMatch}"
             android:textSize="@dimen/size2X"
             app:layout_constraintEnd_toEndOf="@id/scoreAwayTeam"
             app:layout_constraintStart_toStartOf="@id/scoreHomeTeam"
@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin1X"
             android:elevation="@dimen/size0X"
-            android:text="@{item.league.name}"
+            android:text="@{item.leagueInfo.name}"
             android:textSize="@dimen/size3X"
             app:layout_constraintEnd_toEndOf="@id/myCardView"
             app:layout_constraintStart_toStartOf="@id/myCardView"
@@ -62,7 +62,7 @@
             android:layout_height="25dp"
             android:layout_marginEnd="@dimen/margin1X"
             android:elevation="@dimen/size0X"
-            app:ImageUrl="@{item.league.logo}"
+            app:ImageUrl="@{item.leagueInfo.logo}"
             app:layout_constraintBottom_toBottomOf="@id/leaguesName"
             app:layout_constraintEnd_toStartOf="@id/leaguesName"
             app:layout_constraintTop_toTopOf="@id/leaguesName"

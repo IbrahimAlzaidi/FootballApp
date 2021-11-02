@@ -6,14 +6,14 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.footballapp.viewModel.ScorersViewModel" />
+            type="com.example.footballapp.ui.leagueDetails.scorers.ScorersViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/teal_200"
-        tools:context=".ui.scorers.ScorersFragment">
+        tools:context=".ui.leagueDetails.scorers.ScorersFragment">
 
         <View
             android:id="@+id/view"
@@ -70,7 +70,7 @@
             android:layout_marginHorizontal="@dimen/margin0X"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:items="@{viewModel.topScoreResponse.toData().response}"
+            app:items="@{viewModel.topScoreResponse.toData().topScorersInfo}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

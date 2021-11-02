@@ -4,9 +4,8 @@ import android.view.View
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.footballapp.R
-import com.example.footballapp.model.State
+import com.example.footballapp.model.network.State
 import com.example.footballapp.ui.base.BaseAdapter
 import com.github.twocoffeesoneteam.glidetovectoryou.GlideApp
 

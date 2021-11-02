@@ -7,10 +7,10 @@ import com.example.footballapp.R
 import com.example.footballapp.databinding.FragmentLeagueDetailsBinding
 import com.example.footballapp.ui.base.BaseFragment
 import com.example.footballapp.ui.matchDay.MatchDayFragment
-import com.example.footballapp.ui.scorers.ScorersFragment
-import com.example.footballapp.ui.standing.StandingFragment
+import com.example.footballapp.ui.leagueDetails.scorers.ScorersFragment
+import com.example.footballapp.ui.leagueDetails.standing.StandingFragment
 import com.example.footballapp.util.Constant.TAG
-import com.example.footballapp.viewModel.LeagueDetailsViewModel
+import com.example.footballapp.util.ViewPagerTransitions
 import com.google.android.material.tabs.TabLayoutMediator
 
 
@@ -28,12 +28,11 @@ class LeagueDetailsFragment : BaseFragment<FragmentLeagueDetailsBinding, LeagueD
     }
     @SuppressLint("RestrictedApi")
     private fun initViewPager() {
-        val standingPagerAdapterView = ViewPagerStandings(this.requireActivity(), fragmentsList)
+        val standingPagerAdapterView = ViewPagerLeagueDetails(this.requireActivity(), fragmentsList)
         binding.myViewPager.apply {
             adapter = standingPagerAdapterView
             setPageTransformer(ViewPagerTransitions())
         }
-
     }
 
     private fun initTabLayout() {

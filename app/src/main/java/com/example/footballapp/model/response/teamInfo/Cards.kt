@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class Cards(
     @SerializedName("red")
-    val red: Red?,
+    val red: BasePercentage?,
     @SerializedName("yellow")
-    val yellow: Yellow?
+    val yellow: BasePercentage?
 )

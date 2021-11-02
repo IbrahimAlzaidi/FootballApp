@@ -6,11 +6,11 @@
     <data>
         <variable
             name="item"
-            type="com.example.footballapp.model.response.standing.Standing" />
+            type="com.example.footballapp.model.response.standing.StandingTeamInfo" />
 
 <!--        <variable-->
 <!--            name="itemS"-->
-<!--            type="com.example.footballapp.model.response.standingTeam.Standing" />-->
+<!--            type="com.example.footballapp.model.lineupInfo.standingTeam.Standing" />-->
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -42,7 +42,7 @@
             tools:text="1"
             android:textSize="18sp"
             android:gravity="center"
-            android:text="@{String.valueOf(item.rank)}"
+            android:text="@{String.valueOf(item.league.id)}"
             android:layout_marginStart="8dp"
             app:layout_constraintStart_toStartOf="@id/viewHolderStanding"
             app:layout_constraintTop_toTopOf="@id/viewHolderStanding"
@@ -55,7 +55,7 @@
             android:layout_height="60dp"
             android:layout_marginStart="8dp"
             tools:src="@tools:sample/avatars"
-            app:ImageUrl="@{item.team.logo}"
+            app:ImageUrl="@{item.league.logo}"
             app:layout_constraintTop_toTopOf="@id/viewHolderStanding"
             app:layout_constraintBottom_toBottomOf="@id/viewHolderStanding"
             app:layout_constraintStart_toEndOf="@id/numberOfTeam"/>
@@ -66,7 +66,7 @@
             tools:text="manchester United"
             android:textSize="14sp"
             android:gravity="center"
-            android:text="@{item.team.name}"
+            android:text="@{item.league.name}"
             android:layout_marginStart="@dimen/margin2X"
             app:layout_constraintStart_toEndOf="@id/teamImage"
             app:layout_constraintTop_toTopOf="@id/viewHolderStanding"
@@ -77,7 +77,7 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             tools:text="5"
-            android:text="@{String.valueOf(item.all.win)}"
+            android:text="@{item.league.logo}"
             android:textSize="14sp"
             android:gravity="center"
             android:layout_marginEnd="@dimen/margin4X"
@@ -91,7 +91,7 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             tools:text="5"
-            android:text="@{String.valueOf(item.all.win)}"
+            android:text="}"
             android:textSize="14sp"
             android:gravity="center"
             android:layout_marginEnd="@dimen/margin4X"
@@ -108,7 +108,7 @@
             android:textSize="14sp"
             android:gravity="center"
             android:layout_marginEnd="@dimen/margin4X"
-            android:text="@{String.valueOf(item.all.lose)}"
+            android:text="}"
             android:layout_marginStart="4dp"
             app:layout_constraintEnd_toStartOf="@id/losePoint"
             app:layout_constraintTop_toTopOf="@id/allPoints"
@@ -122,7 +122,7 @@
             android:textSize="14sp"
             android:gravity="center"
             android:layout_marginEnd="@dimen/margin4X"
-            android:text="@{String.valueOf(item.all.draw)}"
+            android:text="}"
             android:layout_marginStart="4dp"
             app:layout_constraintEnd_toStartOf="@id/allPoints"
             app:layout_constraintTop_toTopOf="@id/allPoints"
@@ -136,14 +136,11 @@
             android:gravity="center"
             android:textSize="14sp"
             android:layout_marginEnd="@dimen/margin4X"
-            android:text="@{String.valueOf(item.points)}"
+            android:text="}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="10" />
-
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

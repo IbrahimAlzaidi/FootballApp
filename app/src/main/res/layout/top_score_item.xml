@@ -6,7 +6,7 @@
     <data>
             <variable
                 name="item"
-                type="com.example.footballapp.model.response.topScorers.Response" />
+                type="com.example.footballapp.model.response.base.basePlayerStatistic.PlayerStatistic" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -40,7 +40,7 @@
             android:layout_height="50dp"
             android:textSize="@dimen/size4X"
             tools:src="@tools:sample/avatars"
-            app:ImageUrl="@{item.player.photo}"
+            app:ImageUrl="@{item.playerInfo.photo}"
             android:layout_marginBottom="@dimen/margin4X"
             android:layout_marginStart="@dimen/margin6X"
             app:layout_constraintStart_toStartOf="@id/viewHolderStanding"
@@ -53,7 +53,7 @@
             android:layout_height="wrap_content"
             tools:text="Mohamed Salah"
             android:textSize="@dimen/size4X"
-            android:text="@{item.player.name}"
+            android:text="@{item.playerInfo.name}"
             android:layout_marginStart="@dimen/margin6X"
             app:layout_constraintTop_toTopOf="@id/playerImage"
             app:layout_constraintStart_toEndOf="@id/playerImage"
@@ -75,7 +75,7 @@
             android:layout_height="wrap_content"
             tools:text="LiverPool"
             android:textSize="@dimen/size3X"
-            android:text="@{String.valueOf(item.player.id)}"
+            android:text="@{String.valueOf(item.playerInfo.id)}"
             android:layout_marginStart="@dimen/margin4X"
             app:layout_constraintStart_toEndOf="@id/teamImage"
             app:layout_constraintBottom_toBottomOf="@id/teamImage"

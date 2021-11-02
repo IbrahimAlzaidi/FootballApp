@@ -7,5 +7,5 @@ data class Statistic(
     @SerializedName("type")
     val type: String?,
     @SerializedName("value")
-    val value: Any?
+    val value: String?
 )

@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class Penalty(
     @SerializedName("away")
-    val away: Any?,
+    val away: String?,
     @SerializedName("home")
-    val home: Any?
+    val home: String?
 )

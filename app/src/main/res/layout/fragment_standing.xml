@@ -7,13 +7,13 @@
 
         <variable
             name="viewModel"
-            type="com.example.footballapp.viewModel.StandingViewModel" />
+            type="com.example.footballapp.ui.leagueDetails.standing.StandingViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.standing.StandingFragment">
+        tools:context=".ui.leagueDetails.standing.StandingFragment">
 
         <View
             android:id="@+id/view"
@@ -111,7 +111,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:orientation="vertical"
-            app:items="@{viewModel.standingTeams2}"
+            app:items="@{viewModel.standing.toData().standingTeamInfo}"
             android:layout_marginHorizontal="@dimen/margin0X"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"

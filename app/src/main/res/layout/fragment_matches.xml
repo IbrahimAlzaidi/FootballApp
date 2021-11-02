@@ -5,13 +5,13 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.footballapp.viewModel.MatchesViewModel" />
+            type="com.example.footballapp.ui.leagueDetails.matches.MatchesViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.matches.MatchesFragment">
+        tools:context=".ui.leagueDetails.matches.MatchesFragment">
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

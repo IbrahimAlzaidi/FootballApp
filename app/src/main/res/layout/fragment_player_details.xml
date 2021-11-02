@@ -5,7 +5,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.footballapp.viewModel.PlayerDetailsViewModel" />
+            type="com.example.footballapp.ui.playerDetails.PlayerDetailsViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

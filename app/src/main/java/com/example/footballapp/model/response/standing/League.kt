@@ -17,5 +17,5 @@ data class League(
     @SerializedName("season")
     val season: Int?,
     @SerializedName("standings")
-    val standings: List<List<Standing>>?
+    val standingDetails: List<List<StandingDetails>>?
 )

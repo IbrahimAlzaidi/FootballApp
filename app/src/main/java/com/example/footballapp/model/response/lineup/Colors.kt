@@ -4,8 +4,8 @@ package com.example.footballapp.model.response.lineup
 import com.google.gson.annotations.SerializedName
 
 data class Colors(
-    @SerializedName("goalkeeper")
-    val goalkeeper: Goalkeeper?,
-    @SerializedName("player")
-    val player: PlayerXX?
+    @SerializedName("goalkeeperColor")
+    val goalkeeperColorColor: PlayersColor?,
+    @SerializedName("playerInfo")
+    val playersColor: PlayersColor?
 )
