@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.example.footballapp.viewModel.LeagueDetailsViewModel" />
@@ -13,6 +14,48 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.leagueDetails.LeagueDetailsFragment">
+
+        <LinearLayout
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                app:ImageUrl="@{viewModel.standingTeams3.league.logo}"
+                tools:src="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/LeagueName"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@{viewModel.standingTeams3.league.name}"
+                android:textSize="35sp"
+                tools:text="West Ham" />
+        </LinearLayout>
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayoutFragments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/myViewPager"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view"
+            />
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/myViewPager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tabLayoutFragments"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

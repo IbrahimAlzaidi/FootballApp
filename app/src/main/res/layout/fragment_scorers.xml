@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -11,7 +12,69 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/teal_200"
         tools:context=".ui.scorers.ScorersFragment">
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@drawable/club_layout"
+            android:layout_marginTop="@dimen/margin0X"
+            android:layout_marginHorizontal="@dimen/margin0X"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/goals"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:text="Goals"
+            android:textSize="@dimen/size5X"
+            android:gravity="center"
+            android:layout_marginStart="@dimen/margin4X"
+            app:layout_constraintStart_toStartOf="@id/view"
+            app:layout_constraintTop_toTopOf="@id/view"
+            app:layout_constraintBottom_toTopOf="@id/player"
+            />
+        <TextView
+            android:id="@+id/player"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Player"
+            android:layout_marginBottom="@dimen/margin0X"
+            android:textSize="@dimen/size3X"
+            app:layout_constraintStart_toStartOf="@id/goals"
+            app:layout_constraintEnd_toEndOf="@id/goals"
+            app:layout_constraintTop_toBottomOf="@id/goals"
+            app:layout_constraintBottom_toBottomOf="@id/view"
+            />
+        <TextView
+            android:id="@+id/goalss"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Goals"
+            android:layout_marginEnd="@dimen/margin4X"
+            android:textSize="@dimen/size3X"
+            android:layout_marginBottom="@dimen/margin0X"
+            app:layout_constraintTop_toTopOf="@id/player"
+            app:layout_constraintBottom_toBottomOf="@id/player"
+            app:layout_constraintEnd_toEndOf="@id/view"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/topScoreRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            tools:listitem="@layout/top_score_item"
+            android:layout_marginHorizontal="@dimen/margin0X"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:items="@{viewModel.topScoreResponse.toData().response}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

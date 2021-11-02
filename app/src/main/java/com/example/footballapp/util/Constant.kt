@@ -5,4 +5,6 @@ object Constant {
     const val AUTH_NAME_HEADER = "x-rapidapi-key"
     const val API_TOKEN = "1d346b3041msh66984b1b7bfabb3p1b74f4jsn9a3feeec80ee"
     const val TAG = "GREEN_APPLE"
+    const val MIN_SCALE_VIEW_PAGER = 0.85f
+    const val MIN_ALPHA_VIEW_PAGER = 0.5f
 }
