@@ -65,6 +65,7 @@
             android:layout_height="30dp"
             tools:src="@tools:sample/avatars"
             android:layout_marginBottom="@dimen/margin0X"
+            app:teamLogo="@{item}"
             app:layout_constraintStart_toStartOf="@id/playerName"
             app:layout_constraintEnd_toStartOf="@id/teamName"
             app:layout_constraintBottom_toBottomOf="@id/viewHolderStanding" />
@@ -75,7 +76,7 @@
             android:layout_height="wrap_content"
             tools:text="LiverPool"
             android:textSize="@dimen/size3X"
-            android:text="@{item.statistics[12].team.name}"
+            app:teamName="@{item}"
             android:layout_marginStart="@dimen/margin4X"
             app:layout_constraintStart_toEndOf="@id/teamImage"
             app:layout_constraintBottom_toBottomOf="@id/teamImage"
