@@ -2,11 +2,13 @@ package com.example.footballapp.util
 
 import android.view.View
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.footballapp.R
 import com.example.footballapp.model.State
+import com.example.footballapp.model.response.topScorers.Response
 import com.example.footballapp.ui.base.BaseAdapter
 import com.github.twocoffeesoneteam.glidetovectoryou.GlideApp
 
@@ -41,4 +43,11 @@ fun <T> setRecyclerView(view: RecyclerView,items: List<T>?){
     }else{
         (view.adapter as BaseAdapter<T>?)?.setItems(emptyList())
     }
+}
+
+@BindingAdapter(value = ["app:goals"])
+fun setGoalsFromStatistics(view:TextView,response : Response?){
+    view.setText(
+        response?.statistics?.sumOf { it.goals?.total ?: 0  }?.toString()
+    )
 }
