@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+            <variable
+                name="item"
+                type="com.example.footballapp.model.response.topScorers.Response" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <View
+            android:id="@+id/devider"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            app:layout_constraintTop_toTopOf="@id/viewHolderStanding"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/viewHolderStanding"
+            android:background="#000000" />
+
+        <View
+            android:id="@+id/viewHolderStanding"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="#C38BAFD6"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/playerImage"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:textSize="@dimen/size4X"
+            tools:src="@tools:sample/avatars"
+            app:ImageUrl="@{item.player.photo}"
+            android:layout_marginBottom="@dimen/margin4X"
+            android:layout_marginStart="@dimen/margin6X"
+            app:layout_constraintStart_toStartOf="@id/viewHolderStanding"
+            app:layout_constraintTop_toTopOf="@id/viewHolderStanding"
+            app:layout_constraintBottom_toBottomOf="@id/viewHolderStanding" />
+
+        <TextView
+            android:id="@+id/playerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Mohamed Salah"
+            android:textSize="@dimen/size4X"
+            android:text="@{item.player.name}"
+            android:layout_marginStart="@dimen/margin6X"
+            app:layout_constraintTop_toTopOf="@id/playerImage"
+            app:layout_constraintStart_toEndOf="@id/playerImage"
+            app:layout_constraintBottom_toBottomOf="@id/playerImage" />
+
+        <ImageView
+            android:id="@+id/teamImage"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            tools:src="@tools:sample/avatars"
+            android:layout_marginBottom="@dimen/margin0X"
+            app:layout_constraintStart_toStartOf="@id/playerName"
+            app:layout_constraintEnd_toStartOf="@id/teamName"
+            app:layout_constraintBottom_toBottomOf="@id/viewHolderStanding" />
+
+        <TextView
+            android:id="@+id/teamName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="LiverPool"
+            android:textSize="@dimen/size3X"
+            android:text="@{String.valueOf(item.player.id)}"
+            android:layout_marginStart="@dimen/margin4X"
+            app:layout_constraintStart_toEndOf="@id/teamImage"
+            app:layout_constraintBottom_toBottomOf="@id/teamImage"
+            app:layout_constraintTop_toTopOf="@id/teamImage" />
+
+        <TextView
+            android:id="@+id/goalsNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="10"
+            android:textSize="@dimen/size3X"
+            app:layout_constraintTop_toTopOf="@id/playerName"
+            android:layout_marginEnd="@dimen/margin4X"
+            app:layout_constraintBottom_toBottomOf="@id/playerName"
+            app:layout_constraintEnd_toEndOf="@id/viewHolderStanding" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
