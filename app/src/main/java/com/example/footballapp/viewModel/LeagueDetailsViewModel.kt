@@ -1,6 +1,5 @@
 package com.example.footballapp.viewModel
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.footballapp.model.State

@@ -7,5 +7,4 @@ import com.example.footballapp.viewModel.base.BaseViewModel
 class HomeViewModel: BaseViewModel() {
     val leaguesInfo = repository.getLeaguesInfo().asLiveData()
     val matchLive = repository.getMatchesLive().asLiveData()
-
 }

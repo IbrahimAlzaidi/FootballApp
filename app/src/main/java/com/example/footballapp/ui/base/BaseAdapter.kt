@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.footballapp.BR
 
@@ -39,8 +40,9 @@ abstract class BaseAdapter<T>(
 
     @SuppressLint("NotifyDataSetChanged")
     fun setItems(newItems: List<T>) {
+        val diffUtilResult = DiffUtil.calculateDiff(DiffUtilAdapter(items,newItems))
         items = newItems
-        notifyDataSetChanged()
+        diffUtilResult.dispatchUpdatesTo(this)
     }
 
     override fun getItemCount() = items.size
