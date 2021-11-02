@@ -9,7 +9,7 @@ import com.example.footballapp.viewModel.StandingViewModel
 class StandingFragment: BaseFragment<FragmentStandingBinding, StandingViewModel>(R.layout.fragment_standing){
     override fun setup() {
         binding.viewModel = viewModel
-        val standingAdapter = LeaguesStandingAdapter(emptyList(), null)
+        val standingAdapter = LeaguesStandingAdapter(mutableListOf(), null)
         binding.leagueRecycler.adapter = standingAdapter
     }
     override fun getViewModel()= StandingViewModel::class.java
