@@ -1,12 +1,8 @@
 package com.example.footballapp.ui.leagueDetails.matches
 
-import android.util.Log
-import com.example.footballapp.util.Constant.TAG
+import androidx.lifecycle.asLiveData
 import com.example.footballapp.ui.base.BaseViewModel
 
-class MatchesViewModel(arg: Int?): BaseViewModel() {
-    init {
-        Log.i(TAG,arg.toString())
-    }
-
+class MatchesViewModel(arg: Int?) : BaseViewModel() {
+    val matchesScheduled = arg?.let { repository.getMatchesResultFT(leagueId = it).asLiveData() }
 }

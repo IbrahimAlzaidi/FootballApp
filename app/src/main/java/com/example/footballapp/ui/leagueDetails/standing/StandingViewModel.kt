@@ -12,8 +12,7 @@ import kotlinx.coroutines.launch
 
 class StandingViewModel(arg: Int?) : BaseViewModel() {
     private val _standingTeam = MutableLiveData<List<Standing>>()
-    val standingTeam: LiveData<List<Standing>>
-    get() = _standingTeam
+    val standingTeam: LiveData<List<Standing>> = _standingTeam
     init {
         getData(arg)
     }
