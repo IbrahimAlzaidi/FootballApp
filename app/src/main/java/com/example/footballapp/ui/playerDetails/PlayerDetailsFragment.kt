@@ -10,4 +10,6 @@ class PlayerDetailsFragment: BaseFragment<FragmentPlayerDetailsBinding, PlayerDe
         binding.viewModel = viewModel
     }
     override fun getViewModel()= PlayerDetailsViewModel::class.java
+    override val arg: String?
+        get() = null
 }

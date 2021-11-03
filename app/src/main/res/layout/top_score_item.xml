@@ -6,7 +6,7 @@
     <data>
             <variable
                 name="item"
-                type="com.example.footballapp.model.response.topScorers.Response" />
+                type="com.example.footballapp.model.response.topScorers.TopScorersInfo" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

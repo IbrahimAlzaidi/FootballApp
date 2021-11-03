@@ -7,5 +7,5 @@ data class Colors(
     @SerializedName("goalkeeper")
     val goalkeeper: Goalkeeper?,
     @SerializedName("player")
-    val player: PlayerXX?
+    val player: Player?
 )

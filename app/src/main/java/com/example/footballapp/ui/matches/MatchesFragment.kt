@@ -11,4 +11,6 @@ class MatchesFragment: BaseFragment<FragmentMatchesBinding, MatchesViewModel>(R.
     }
 
     override fun getViewModel()= MatchesViewModel::class.java
+    override val arg: String?
+        get() = null
 }

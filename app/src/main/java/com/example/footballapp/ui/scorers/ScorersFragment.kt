@@ -13,5 +13,7 @@ class ScorersFragment: BaseFragment<FragmentScorersBinding, ScorersViewModel>(R.
     }
 
     override fun getViewModel()= ScorersViewModel::class.java
+    override val arg: String?
+        get() = null
 
 }

@@ -22,7 +22,5 @@ object Api {
             .client(clientInterceptor)
             .build()
     }
-
-
     val apiService: ApiService = getClient().create(ApiService::class.java)
 }

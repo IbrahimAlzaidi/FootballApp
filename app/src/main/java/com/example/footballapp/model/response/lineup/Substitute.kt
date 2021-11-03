@@ -5,5 +5,5 @@ import com.google.gson.annotations.SerializedName
 
 data class Substitute(
     @SerializedName("player")
-    val player: PlayerX?
+    val player: PlayerID?
 )

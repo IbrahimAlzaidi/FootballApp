@@ -7,7 +7,8 @@ import com.example.footballapp.ui.base.BaseFragment
 import com.example.footballapp.viewModel.HomeViewModel
 
 
-class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.fragment_home), LeagueInteractionListener, MatchInteractionListener{
+class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
+    R.layout.fragment_home), LeagueInteractionListener, MatchInteractionListener{
     override fun getViewModel()= HomeViewModel::class.java
     override fun setup() {
         binding.viewModel = viewModel
@@ -26,4 +27,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
         val action = HomeFragmentDirections.actionHomeFragmentToMatchDetailsFragment(matchId)
         this.findNavController().navigate(action)
     }
+
+    override val arg: String?
+        get() = null
 }

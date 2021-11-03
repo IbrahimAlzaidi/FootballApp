@@ -41,7 +41,7 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
                 android:paddingTop="@dimen/size6X"
-                app:items="@{viewModel.leaguesInfo.toData().response}"
+                app:items="@{viewModel.leaguesInfo.toData().leaguesDetails}"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/item_leagues" />
         </androidx.cardview.widget.CardView>
@@ -53,7 +53,7 @@
             android:layout_marginTop="@dimen/margin2X"
             tools:listitem="@layout/item_matches"
             android:orientation="vertical"
-            app:items="@{viewModel.matchLive.toData().response}"
+            app:items="@{viewModel.matchLive.toData().liveMatchDetails}"
             android:layout_marginHorizontal="@dimen/margin1X"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"

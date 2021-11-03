@@ -12,8 +12,10 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.footballapp.viewModel.base.ViewModelFactory
 import com.example.footballapp.viewModel.base.BaseViewModel
 
-abstract class BaseFragment<VDB : ViewDataBinding, VM: BaseViewModel>(@LayoutRes private val layoutResId: Int) : Fragment() {
+abstract class BaseFragment<VDB : ViewDataBinding, VM: BaseViewModel>
+    (@LayoutRes private val layoutResId: Int) : Fragment() {
     abstract fun setup()
+    abstract val arg: String?
     abstract fun getViewModel(): Class<VM>
     private lateinit var _binding: VDB
     protected val binding: VDB
@@ -29,7 +31,7 @@ abstract class BaseFragment<VDB : ViewDataBinding, VM: BaseViewModel>(@LayoutRes
         savedInstanceState: Bundle?
     ): View? {
         _binding = DataBindingUtil.inflate(inflater, layoutResId, container, false)
-        val factory = ViewModelFactory()
+        val factory = ViewModelFactory(arg)
         _viewModel = ViewModelProvider(this,factory).get(getViewModel())
         _binding.lifecycleOwner = this
         setup()

@@ -5,9 +5,9 @@ import com.google.gson.annotations.SerializedName
 
 data class Penalty(
     @SerializedName("missed")
-    val missed: Missed?,
+    val missed: Percentage?,
     @SerializedName("scored")
-    val scored: Scored?,
+    val scored: Percentage?,
     @SerializedName("total")
     val total: Int?
 )

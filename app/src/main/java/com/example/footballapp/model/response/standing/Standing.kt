@@ -1,13 +1,14 @@
 package com.example.footballapp.model.response.standing
 
 
+import com.example.footballapp.model.response.base.baseMatch.TeamID
 import com.google.gson.annotations.SerializedName
 
 data class Standing(
     @SerializedName("all")
-    val all: All?,
+    val all: TeamStatistic?,
     @SerializedName("away")
-    val away: Away?,
+    val away: TeamStatistic?,
     @SerializedName("description")
     val description: String?,
     @SerializedName("form")
@@ -17,7 +18,7 @@ data class Standing(
     @SerializedName("group")
     val group: String?,
     @SerializedName("home")
-    val home: Home?,
+    val home: TeamStatistic?,
     @SerializedName("points")
     val points: Int?,
     @SerializedName("rank")
@@ -25,7 +26,7 @@ data class Standing(
     @SerializedName("status")
     val status: String?,
     @SerializedName("team")
-    val team: Team?,
+    val team: TeamID?,
     @SerializedName("update")
     val update: String?
 )

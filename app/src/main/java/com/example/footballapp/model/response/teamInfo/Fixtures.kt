@@ -5,11 +5,11 @@ import com.google.gson.annotations.SerializedName
 
 data class Fixtures(
     @SerializedName("draws")
-    val draws: Draws?,
+    val draws: ScoresInfo?,
     @SerializedName("loses")
-    val loses: LosesX?,
+    val loses: ScoresInfo?,
     @SerializedName("played")
-    val played: Played?,
+    val played: ScoresInfo?,
     @SerializedName("wins")
-    val wins: WinsX?
+    val wins: ScoresInfo?
 )

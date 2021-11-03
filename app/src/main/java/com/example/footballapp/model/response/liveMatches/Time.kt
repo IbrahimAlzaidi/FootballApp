@@ -7,5 +7,5 @@ data class Time(
     @SerializedName("elapsed")
     val elapsed: Int?,
     @SerializedName("extra")
-    val extra: Any?
+    val extra: String?
 )

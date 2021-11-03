@@ -5,18 +5,17 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.footballapp.viewModel.*
 import java.lang.IllegalArgumentException
 
-class ViewModelFactory: ViewModelProvider.NewInstanceFactory() {
+class ViewModelFactory(private val arg: String?): ViewModelProvider.NewInstanceFactory() {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         return when{
-            modelClass.isAssignableFrom(ClubDetailsViewModel::class.java) -> ClubDetailsViewModel() as T
-            modelClass.isAssignableFrom(HomeViewModel::class.java) -> HomeViewModel() as T
-            modelClass.isAssignableFrom(LeagueDetailsViewModel::class.java) -> LeagueDetailsViewModel() as T
-            modelClass.isAssignableFrom(MatchDayViewModel::class.java) -> MatchDayViewModel() as T
-            modelClass.isAssignableFrom(MatchDetailsViewModel::class.java) -> MatchDetailsViewModel() as T
-            modelClass.isAssignableFrom(MatchesViewModel::class.java) -> MatchesViewModel() as T
-            modelClass.isAssignableFrom(PlayerDetailsViewModel::class.java) -> PlayerDetailsViewModel() as T
-            modelClass.isAssignableFrom(ScorersViewModel::class.java) -> ScorersViewModel() as T
-            modelClass.isAssignableFrom(StandingViewModel::class.java) -> StandingViewModel() as T
+            modelClass.isAssignableFrom(ClubDetailsViewModel::class.java) -> ClubDetailsViewModel(arg) as T
+            modelClass.isAssignableFrom(HomeViewModel::class.java) -> HomeViewModel(arg) as T
+            modelClass.isAssignableFrom(LeagueDetailsViewModel::class.java) -> LeagueDetailsViewModel(arg) as T
+            modelClass.isAssignableFrom(MatchDetailsViewModel::class.java) -> MatchDetailsViewModel(arg) as T
+            modelClass.isAssignableFrom(MatchesViewModel::class.java) -> MatchesViewModel(arg) as T
+            modelClass.isAssignableFrom(PlayerDetailsViewModel::class.java) -> PlayerDetailsViewModel(arg) as T
+            modelClass.isAssignableFrom(ScorersViewModel::class.java) -> ScorersViewModel(arg) as T
+            modelClass.isAssignableFrom(StandingViewModel::class.java) -> StandingViewModel(arg) as T
             else -> throw IllegalArgumentException("View Model Class Not Found")
         }
     }

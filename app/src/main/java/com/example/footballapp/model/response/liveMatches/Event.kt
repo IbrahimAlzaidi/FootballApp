@@ -1,19 +1,20 @@
 package com.example.footballapp.model.response.liveMatches
 
 
+import com.example.footballapp.model.response.base.baseMatch.TeamID
 import com.google.gson.annotations.SerializedName
 
 data class Event(
     @SerializedName("assist")
-    val assist: Assist?,
+    val assist: PlayerID?,
     @SerializedName("comments")
-    val comments: Any?,
+    val comments: String?,
     @SerializedName("detail")
     val detail: String?,
     @SerializedName("player")
-    val player: Player?,
+    val player: PlayerID?,
     @SerializedName("team")
-    val team: Team?,
+    val team: TeamID?,
     @SerializedName("time")
     val time: Time?,
     @SerializedName("type")

@@ -12,4 +12,6 @@ class StandingFragment: BaseFragment<FragmentStandingBinding, StandingViewModel>
         binding.leagueRecycler.adapter = standingAdapter
     }
     override fun getViewModel()= StandingViewModel::class.java
+    override val arg: String?
+        get() = null
 }
