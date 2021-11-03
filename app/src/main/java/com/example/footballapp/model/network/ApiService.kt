@@ -8,6 +8,7 @@ import com.example.footballapp.model.response.matchStatistic.MatchStatisticRespo
 import com.example.footballapp.model.response.matches.MatchesResponse
 import com.example.footballapp.model.response.playerStatistic.PlayerStatisticResponse
 import com.example.footballapp.model.response.playerTrophies.PlayerTrophiesResponse
+import com.example.footballapp.model.response.schedulerMatch.SchedulerMatchResponse
 import com.example.footballapp.model.response.stadiumInfo.StadiumInfoResponse
 import com.example.footballapp.model.response.standing.StandingTeamsResponse
 import com.example.footballapp.model.response.teamInfo.TeamInformationResponse
@@ -56,6 +57,12 @@ interface ApiService {
         @Query("season") season: Int,
         @Query("status") status: String,
     ): Response<MatchesResponse?>
+
+    @GET("/v3/fixtures")
+    suspend fun getMatchesResultFT(
+        @Query("league") leagueId: Int,
+        @Query("season") season: Int,
+    ): Response<SchedulerMatchResponse?>
 
     @GET("/v3/fixtures/statistics")
     suspend fun getMatchStatistic(@Query("fixture") matchId: Int): Response<MatchStatisticResponse?>

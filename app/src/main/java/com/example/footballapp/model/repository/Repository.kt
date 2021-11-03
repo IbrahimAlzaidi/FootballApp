@@ -10,6 +10,7 @@ import com.example.footballapp.model.response.matchStatistic.MatchStatisticRespo
 import com.example.footballapp.model.response.matches.MatchesResponse
 import com.example.footballapp.model.response.playerStatistic.PlayerStatisticResponse
 import com.example.footballapp.model.response.playerTrophies.PlayerTrophiesResponse
+import com.example.footballapp.model.response.schedulerMatch.SchedulerMatchResponse
 import com.example.footballapp.model.response.stadiumInfo.StadiumInfoResponse
 import com.example.footballapp.model.response.standing.StandingTeamsResponse
 import com.example.footballapp.model.response.teamInfo.TeamInformationResponse
@@ -48,6 +49,10 @@ class Repository {
     // function to get matches result
     fun getMatchesResult(leagueId: Int,season:Int=2021,status: String = "NS"): Flow<State<MatchesResponse?>> =
         wrapWithFlow { Api.apiService.getMatchesResult(leagueId = leagueId,season = season, status = status) }
+
+    // function to get matches result FT
+    fun getMatchesResultFT(leagueId: Int=39,season:Int=2021): Flow<State<SchedulerMatchResponse?>> =
+        wrapWithFlow { Api.apiService.getMatchesResultFT(leagueId = leagueId,season = season) }
 
     // function to get match statistic
     fun getMatchStatistic(matchId: Int): Flow<State<MatchStatisticResponse?>> =
