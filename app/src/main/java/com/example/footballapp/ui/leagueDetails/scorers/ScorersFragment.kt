@@ -1,11 +1,11 @@
-package com.example.footballapp.ui.scorers
+package com.example.footballapp.ui.leagueDetails.scorers
 
 import com.example.footballapp.R
 import com.example.footballapp.databinding.FragmentScorersBinding
 import com.example.footballapp.ui.base.BaseFragment
-import com.example.footballapp.viewModel.ScorersViewModel
+import com.example.footballapp.ui.leagueDetails.ArgumentInteraction
 
-class ScorersFragment: BaseFragment<FragmentScorersBinding, ScorersViewModel>(R.layout.fragment_scorers){
+class ScorersFragment(private val args: ArgumentInteraction): BaseFragment<FragmentScorersBinding, ScorersViewModel>(R.layout.fragment_scorers){
     override fun setup() {
         binding.viewModel = viewModel
         val topScoreAdapter = ScorersAdapter(emptyList(),null)
@@ -13,7 +13,7 @@ class ScorersFragment: BaseFragment<FragmentScorersBinding, ScorersViewModel>(R.
     }
 
     override fun getViewModel()= ScorersViewModel::class.java
-    override val arg: String?
-        get() = null
+    override val arg: Int
+        get() = args.getLeagueId()
 
 }

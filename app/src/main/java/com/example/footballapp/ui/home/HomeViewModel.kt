@@ -1,9 +1,9 @@
-package com.example.footballapp.viewModel
+package com.example.footballapp.ui.home
 
 import androidx.lifecycle.asLiveData
-import com.example.footballapp.viewModel.base.BaseViewModel
+import com.example.footballapp.ui.base.BaseViewModel
 
-class HomeViewModel(arg: String?): BaseViewModel() {
+class HomeViewModel: BaseViewModel() {
     val leaguesInfo = repository.getLeaguesInfo().asLiveData()
     val matchLive = repository.getMatchesLive().asLiveData()
 }

@@ -1,4 +1,4 @@
-package com.example.footballapp.ui.scorers
+package com.example.footballapp.ui.leagueDetails.scorers
 
 import com.example.footballapp.R
 import com.example.footballapp.model.response.topScorers.TopScorersInfo

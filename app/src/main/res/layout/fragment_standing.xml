@@ -4,16 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="viewModel"
-            type="com.example.footballapp.viewModel.StandingViewModel" />
+            type="com.example.footballapp.ui.leagueDetails.standing.StandingViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.standing.StandingFragment">
+        tools:context=".ui.leagueDetails.standing.StandingFragment">
 
         <View
             android:id="@+id/view"
@@ -112,12 +111,13 @@
             android:layout_height="0dp"
             android:orientation="vertical"
             android:layout_marginHorizontal="@dimen/margin0X"
+            app:items="@{viewModel.standingTeam}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/view"
-            tools:listitem="@layout/leagues_standing_item" />
+            tools:listitem="@layout/teams_standing_item" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

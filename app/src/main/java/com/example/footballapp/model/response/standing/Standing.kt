@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName
 
 data class Standing(
     @SerializedName("all")
-    val all: TeamStatistic?,
+    val teamAllStatistic: TeamStatistic?,
     @SerializedName("away")
     val away: TeamStatistic?,
     @SerializedName("description")

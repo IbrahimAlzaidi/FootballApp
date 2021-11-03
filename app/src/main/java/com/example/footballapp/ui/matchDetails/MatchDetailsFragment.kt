@@ -4,7 +4,6 @@ import androidx.navigation.fragment.navArgs
 import com.example.footballapp.R
 import com.example.footballapp.databinding.FragmentMatchDetailsBinding
 import com.example.footballapp.ui.base.BaseFragment
-import com.example.footballapp.viewModel.MatchDetailsViewModel
 
 class MatchDetailsFragment: BaseFragment<FragmentMatchDetailsBinding, MatchDetailsViewModel>(R.layout.fragment_match_details){
     private val args: MatchDetailsFragmentArgs by navArgs()
@@ -13,6 +12,6 @@ class MatchDetailsFragment: BaseFragment<FragmentMatchDetailsBinding, MatchDetai
     }
 
     override fun getViewModel()= MatchDetailsViewModel::class.java
-    override val arg: String?
-        get() = args.matchId.toString()
+    override val arg: Int
+        get() = args.matchId
 }

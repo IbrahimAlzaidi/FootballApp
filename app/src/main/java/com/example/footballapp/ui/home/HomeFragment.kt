@@ -4,7 +4,6 @@ import androidx.navigation.fragment.findNavController
 import com.example.footballapp.R
 import com.example.footballapp.databinding.FragmentHomeBinding
 import com.example.footballapp.ui.base.BaseFragment
-import com.example.footballapp.viewModel.HomeViewModel
 
 
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
@@ -28,6 +27,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
         this.findNavController().navigate(action)
     }
 
-    override val arg: String?
+    override val arg: Int?
         get() = null
 }

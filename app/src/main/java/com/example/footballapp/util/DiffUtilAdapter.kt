@@ -1,4 +1,4 @@
-package com.example.footballapp.ui.base
+package com.example.footballapp.util
 
 import androidx.recyclerview.widget.DiffUtil
 

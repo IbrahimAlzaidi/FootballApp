@@ -4,10 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="viewModel"
-            type="com.example.footballapp.viewModel.LeagueDetailsViewModel" />
+            type="com.example.footballapp.ui.leagueDetails.LeagueDetailsViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -15,37 +14,37 @@
         android:layout_height="match_parent"
         tools:context=".ui.leagueDetails.LeagueDetailsFragment">
 
-        <LinearLayout
-            android:id="@+id/view"
-            android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/leagueImage"
+            android:layout_width="120dp"
             android:layout_height="150dp"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:ImageUrl="@{viewModel.leagueDetails.league.logo}"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/avatars" />
 
-            <ImageView
-                android:layout_width="120dp"
-                android:layout_height="match_parent"
-                tools:src="@tools:sample/avatars" />
+        <TextView
+            android:id="@+id/LeagueName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="35sp"
+            android:text="@{viewModel.leagueDetails.league.name}"
+            app:layout_constraintBottom_toBottomOf="@id/leagueImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/leagueImage"
+            app:layout_constraintTop_toTopOf="@id/leagueImage"
+            tools:text="West Ham" />
 
-            <TextView
-                android:id="@+id/LeagueName"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:textSize="35sp"
-                tools:text="West Ham" />
-        </LinearLayout>
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabLayoutFragments"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toTopOf="@id/myViewPager"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/view"
-            />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/leagueImage" />
+
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/myViewPager"
             android:layout_width="match_parent"
@@ -53,7 +52,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tabLayoutFragments"/>
+            app:layout_constraintTop_toBottomOf="@id/tabLayoutFragments" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
