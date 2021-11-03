@@ -111,7 +111,6 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:orientation="vertical"
-            app:items="@{viewModel.standingTeams2}"
             android:layout_marginHorizontal="@dimen/margin0X"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"

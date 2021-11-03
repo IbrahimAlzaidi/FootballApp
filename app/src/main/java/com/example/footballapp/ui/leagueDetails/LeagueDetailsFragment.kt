@@ -33,9 +33,7 @@ class LeagueDetailsFragment : BaseFragment<FragmentLeagueDetailsBinding, LeagueD
             adapter = standingPagerAdapterView
             setPageTransformer(ViewPagerTransitions())
         }
-
     }
-
     private fun initTabLayout() {
         TabLayoutMediator(
             binding.tabLayoutFragments,

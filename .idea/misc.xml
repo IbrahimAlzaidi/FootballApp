@@ -5,6 +5,10 @@
       <map>
         <entry key="..\:/kotlin/FootballApp/app/src/main/res/font/font.xml" value="0.21944444444444444" />
         <entry key="..\:/kotlin/FootballApp/app/src/main/res/layout/activity_main.xml" value="0.21666666666666667" />
+        <entry key="..\:/kotlin/FootballApp/app/src/main/res/layout/fragment_league_details.xml" value="0.1" />
+        <entry key="..\:/kotlin/FootballApp/app/src/main/res/layout/fragment_matches.xml" value="0.12222222222222222" />
+        <entry key="..\:/kotlin/FootballApp/app/src/main/res/layout/fragment_scorers.xml" value="0.12222222222222222" />
+        <entry key="..\:/kotlin/FootballApp/app/src/main/res/layout/fragment_standing.xml" value="0.12222222222222222" />
         <entry key="..\:/kotlin/FootballApp/app/src/main/res/menu/menu.xml" value="0.21666666666666667" />
       </map>
     </option>

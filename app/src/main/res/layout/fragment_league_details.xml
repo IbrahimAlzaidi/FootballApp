@@ -27,7 +27,6 @@
             <ImageView
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
-                app:ImageUrl="@{viewModel.standingTeams3.league.logo}"
                 tools:src="@tools:sample/avatars" />
 
             <TextView
@@ -35,7 +34,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="@{viewModel.standingTeams3.league.name}"
                 android:textSize="35sp"
                 tools:text="West Ham" />
         </LinearLayout>
