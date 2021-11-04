@@ -48,6 +48,14 @@
                 tools:listitem="@layout/item_leagues" />
         </androidx.cardview.widget.CardView>
 
+        <EditText
+            android:id="@+id/search_bar"
+            style="@style/SearchBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:transitionName="@string/searchTransition"
+            app:layout_constraintTop_toBottomOf="@id/cardView" />
+
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/homeTabLayoutFragments"
             android:layout_width="match_parent"
@@ -55,7 +63,7 @@
             app:layout_constraintBottom_toTopOf="@id/homeViewPager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cardView" />
+            app:layout_constraintTop_toBottomOf="@id/search_bar" />
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/homeViewPager"

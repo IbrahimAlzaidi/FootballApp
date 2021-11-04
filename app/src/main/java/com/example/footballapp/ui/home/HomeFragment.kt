@@ -1,6 +1,7 @@
 package com.example.footballapp.ui.home
 
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.example.footballapp.R
 import com.example.footballapp.databinding.FragmentHomeBinding
@@ -27,10 +28,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
         binding.recycleView.adapter = leaguesAdapter
         initViewPager()
         initTabLayout()
-        binding.homeViewPager.setOnClickListener {
-            val action = HomeFragmentDirections.actionHomeFragmentToLeagueDetailsFragment(39)
-            this.findNavController().navigate(action)
-        }
+        searchNavigation()
     }
 
     private fun initViewPager() {
@@ -49,6 +47,18 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
         ) { tap, positions ->
             tap.text = fragmentTitles[positions]
         }.attach()
+    }
+
+    fun searchNavigation(){
+        binding.searchBar.setOnFocusChangeListener { _, isFocused ->
+            if (isFocused) {
+                val action = HomeFragmentDirections.actionHomeFragmentToSearchFragment()
+                val extras = FragmentNavigatorExtras(
+                    binding.searchBar to getString(R.string.searchTransition)
+                )
+                findNavController().navigate(action,extras)
+            }
+        }
     }
 
     override fun onClickItem(id: Int) {

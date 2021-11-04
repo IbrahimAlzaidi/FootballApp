@@ -22,4 +22,14 @@
         <item name="android:indeterminateOnly">false</item>
         <item name="android:progressDrawable">@drawable/time_match</item>
     </style>
+
+    <style name="SearchBar">
+        <item name="android:padding">@dimen/margin2X</item>
+        <item name="android:layout_marginVertical">@dimen/margin1X</item>
+        <item name="android:layout_marginHorizontal">@dimen/margin2X</item>
+        <item name="android:drawablePadding">@dimen/margin1X</item>
+        <item name="android:hint">@string/search</item>
+        <item name="android:drawableStart">@drawable/ic_baseline_search_24</item>
+        <item name="android:background">@drawable/shape_search</item>
+    </style>
 </resources>
