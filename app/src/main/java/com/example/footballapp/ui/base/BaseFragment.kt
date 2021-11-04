@@ -11,11 +11,11 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.footballapp.util.ViewModelFactory
 
-abstract class BaseFragment<VDB : ViewDataBinding, VM : BaseViewModel>(@LayoutRes private val layoutResId: Int) :
-    Fragment() {
+abstract class BaseFragment<VDB : ViewDataBinding, VM : BaseViewModel>(
+    @LayoutRes private val layoutResId: Int) : Fragment() {
     abstract fun setup()
-    abstract val arg: Int?
     abstract fun getViewModel(): Class<VM>
+    abstract val arg: Int?
     private lateinit var _binding: VDB
     protected val binding: VDB
         get() = _binding

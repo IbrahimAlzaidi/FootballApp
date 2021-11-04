@@ -1,6 +1,7 @@
 package com.example.footballapp.ui.leagueDetails
 
 import android.annotation.SuppressLint
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.example.footballapp.R
 import com.example.footballapp.databinding.FragmentLeagueDetailsBinding
@@ -8,25 +9,30 @@ import com.example.footballapp.ui.base.BaseFragment
 import com.example.footballapp.ui.leagueDetails.matches.MatchesFragment
 import com.example.footballapp.ui.leagueDetails.scorers.ScorersFragment
 import com.example.footballapp.ui.leagueDetails.standing.StandingFragment
+import com.example.footballapp.util.FootballViewPager
+import com.example.footballapp.util.ViewPagerTransitions
 import com.google.android.material.tabs.TabLayoutMediator
 
 class LeagueDetailsFragment : BaseFragment<FragmentLeagueDetailsBinding, LeagueDetailsViewModel>
-    (R.layout.fragment_league_details), ArgumentInteraction {
-    private val fragmentTitles = listOf("Standings", "Top Score", "Matches")
-    private val fragmentsList = listOf(
-        StandingFragment(this),
-        ScorersFragment(this),
-        MatchesFragment(this))
+    (R.layout.fragment_league_details){
     private val args: LeagueDetailsFragmentArgs by navArgs()
+    private var leagueId: Int? = null
+    private val fragmentTitles = listOf("Standings", "Top Score", "Matches")
+    private lateinit var fragmentsList: List<Fragment>
     override fun getViewModel() = LeagueDetailsViewModel::class.java
     override fun setup() {
+        leagueId = args.leagueId
         binding.viewModel = viewModel
-        initViewPager()
+        fragmentsList = listOf(
+            StandingFragment(leagueId),
+            ScorersFragment(leagueId),
+            MatchesFragment(leagueId))
+        initViewPager(fragmentsList)
         initTabLayout()
     }
     @SuppressLint("RestrictedApi")
-    private fun initViewPager() {
-        val standingPagerAdapterView = ViewPagerStandings(this.requireActivity(), fragmentsList)
+    private fun initViewPager(fragmentsList: List<Fragment>) {
+        val standingPagerAdapterView = FootballViewPager(this.requireActivity(), fragmentsList)
         binding.myViewPager.apply {
             adapter = standingPagerAdapterView
             setPageTransformer(ViewPagerTransitions())
@@ -43,6 +49,4 @@ class LeagueDetailsFragment : BaseFragment<FragmentLeagueDetailsBinding, LeagueD
 
     override val arg: Int
         get() = args.leagueId
-
-    override fun getLeagueId() = args.leagueId
 }

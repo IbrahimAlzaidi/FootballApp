@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.example.footballapp.ui.leagueDetails.standing.StandingViewModel" />
@@ -21,96 +22,96 @@
             android:layout_marginHorizontal="@dimen/margin0X"
             android:layout_marginTop="@dimen/margin0X"
             android:background="@drawable/club_layout"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@id/leagueRecycler"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin3X"
             android:text="Club"
             android:textColor="@color/black"
             android:textSize="@dimen/size3X"
-            android:layout_marginStart="@dimen/margin3X"
-            app:layout_constraintTop_toTopOf="@id/view"
             app:layout_constraintBottom_toBottomOf="@id/view"
             app:layout_constraintStart_toStartOf="@id/view"
-            />
+            app:layout_constraintTop_toTopOf="@id/view" />
+
         <TextView
             android:id="@+id/matchPoint"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:text="MP"
-            android:textSize="14sp"
-            android:gravity="center"
-            android:textColor="@color/black"
-            android:layout_marginEnd="@dimen/margin2X"
             android:layout_marginStart="8dp"
-            app:layout_constraintEnd_toStartOf="@id/winPoints"
-            app:layout_constraintTop_toTopOf="@id/allPoints"
+            android:layout_marginEnd="@dimen/margin2X"
+            android:gravity="center"
+            android:text="MP"
+            android:textColor="@color/black"
+            android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@id/allPoints"
-            />
+            app:layout_constraintEnd_toStartOf="@id/winPoints"
+            app:layout_constraintTop_toTopOf="@id/allPoints" />
+
         <TextView
             android:id="@+id/winPoints"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="@dimen/margin3X"
+            android:gravity="center"
             android:text="W"
             android:textSize="14sp"
-            android:gravity="center"
-            android:layout_marginEnd="@dimen/margin3X"
-            android:layout_marginStart="8dp"
-            app:layout_constraintEnd_toStartOf="@id/drawPoint"
-            app:layout_constraintTop_toTopOf="@id/allPoints"
             app:layout_constraintBottom_toBottomOf="@id/allPoints"
-            />
+            app:layout_constraintEnd_toStartOf="@id/drawPoint"
+            app:layout_constraintTop_toTopOf="@id/allPoints" />
+
         <TextView
             android:id="@+id/drawPoint"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:text="D"
-            android:textSize="14sp"
-            android:gravity="center"
-            android:textColor="@color/black"
-            android:layout_marginEnd="@dimen/margin5X"
             android:layout_marginStart="4dp"
-            app:layout_constraintEnd_toStartOf="@id/losePoint"
-            app:layout_constraintTop_toTopOf="@id/allPoints"
+            android:layout_marginEnd="@dimen/margin5X"
+            android:gravity="center"
+            android:text="D"
+            android:textColor="@color/black"
+            android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@id/allPoints"
-            />
+            app:layout_constraintEnd_toStartOf="@id/losePoint"
+            app:layout_constraintTop_toTopOf="@id/allPoints" />
+
         <TextView
             android:id="@+id/losePoint"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:textSize="14sp"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="@dimen/margin5X"
             android:gravity="center"
             android:text="L"
             android:textColor="@color/black"
-            android:layout_marginEnd="@dimen/margin5X"
-            android:layout_marginStart="4dp"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/allPoints"
             app:layout_constraintEnd_toStartOf="@id/allPoints"
-            app:layout_constraintTop_toTopOf="@id/allPoints"
-            app:layout_constraintBottom_toBottomOf="@id/allPoints"/>
+            app:layout_constraintTop_toTopOf="@id/allPoints" />
+
         <TextView
             android:id="@+id/allPoints"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
+            android:layout_marginEnd="@dimen/margin3X"
             android:gravity="center"
-            android:textSize="14sp"
             android:text="Pts"
             android:textColor="@color/black"
-            android:layout_marginEnd="@dimen/margin3X"
+            android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@id/view"
             app:layout_constraintEnd_toEndOf="@id/view"
             app:layout_constraintTop_toTopOf="@id/view" />
-
-
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/leagueRecycler"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:orientation="vertical"
             android:layout_marginHorizontal="@dimen/margin0X"
+            android:orientation="vertical"
             app:items="@{viewModel.standingTeam}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"

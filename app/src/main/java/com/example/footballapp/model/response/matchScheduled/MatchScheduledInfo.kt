@@ -1,13 +1,14 @@
-package com.example.footballapp.model.response.latestMatchScheduled
+package com.example.footballapp.model.response.matchScheduled
 
 
+import com.example.footballapp.model.response.base.baseMatch.*
 import com.google.gson.annotations.SerializedName
 
-data class Response(
+data class MatchScheduledInfo(
     @SerializedName("fixture")
     val fixture: Fixture?,
     @SerializedName("goals")
-    val goals: Goals?,
+    val goals: MatchGoals<String>?,
     @SerializedName("league")
     val league: League?,
     @SerializedName("score")

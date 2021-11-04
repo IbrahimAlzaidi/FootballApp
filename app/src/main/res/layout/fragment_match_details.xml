@@ -14,5 +14,12 @@
         android:background="@color/purple_500"
         tools:context=".ui.matchDetails.MatchDetailsFragment">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Match Details"
+            android:textSize="@dimen/size7X"
+            android:gravity="center"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

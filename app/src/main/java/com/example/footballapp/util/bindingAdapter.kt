@@ -37,27 +37,22 @@ fun imageUrl(view:ImageView,url:String?){
         .into(view)
 }
 
+@BindingAdapter(value = ["app:ImageUrlTeam"])
+fun imageUrlTeam(view:ImageView,urlTeam:TopScorersInfo?){
+    val url = urlTeam?.statistics?.joinToString { it.team?.logo.toString() }
+    GlideApp.with(view)
+        .load(url)
+        .placeholder(R.drawable.ic_baseline_cloud_download_24)
+        .error(R.drawable.ic_baseline_error_outline_24)
+        .into(view)
+}
+
 @BindingAdapter(value = ["app:items"])
 fun <T> setRecyclerView(view: RecyclerView,items: List<T>?){
     if (items != null){
         (view.adapter as BaseAdapter<T>?)?.setItems(items)
     }else{
         (view.adapter as BaseAdapter<T>?)?.setItems(emptyList())
-    }
-}
-
-fun NavController.navigateSafe(directions: NavDirections) {
-    // Get action by ID. If action doesn't exist on current node, return.
-    val action = (currentDestination ?: graph).getAction(directions.actionId) ?: return
-    var destId = action.destinationId
-    val dest = graph.findNode(destId)
-    if (dest is NavGraph) {
-        // Action destination is a nested graph, which isn't a real destination.
-        // The real destination is the start destination of that graph so resolve it.
-        destId = dest.startDestination
-    }
-    if (currentDestination?.id != destId) {
-        navigate(directions)
     }
 }
 
@@ -69,10 +64,4 @@ fun setTotalGoal(view:TextView,text: TopScorersInfo){
 @BindingAdapter(value = ["app:teamName"])
 fun setTimeName(view:TextView, text: TopScorersInfo){
     view.text = text.statistics?.joinToString { it.team?.name.toString() }
-}
-
-
-@BindingAdapter(value = ["app:navAction"])
-fun setNavAction(view: View?, actionId: Int) {
-    view?.setOnClickListener { View.OnClickListener { view.findNavController().navigate(actionId) } }
 }

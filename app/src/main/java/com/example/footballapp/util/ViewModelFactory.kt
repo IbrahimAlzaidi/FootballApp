@@ -25,8 +25,8 @@ class ViewModelFactory(private val arg: Int?): ViewModelProvider.NewInstanceFact
             modelClass.isAssignableFrom(PlayerDetailsViewModel::class.java) -> PlayerDetailsViewModel(arg) as T
             modelClass.isAssignableFrom(ScorersViewModel::class.java) -> ScorersViewModel(arg) as T
             modelClass.isAssignableFrom(StandingViewModel::class.java) -> StandingViewModel(arg) as T
-            modelClass.isAssignableFrom(LiveMatchViewModel::class.java) -> LiveMatchViewModel(arg) as T
-            modelClass.isAssignableFrom(AllMatchScheduledViewModel::class.java) -> AllMatchScheduledViewModel(arg) as T
+            modelClass.isAssignableFrom(LiveMatchViewModel::class.java) -> LiveMatchViewModel() as T
+            modelClass.isAssignableFrom(AllMatchScheduledViewModel::class.java) -> AllMatchScheduledViewModel() as T
             else -> throw IllegalArgumentException("View Model Class Not Found")
         }
     }

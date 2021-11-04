@@ -2,7 +2,7 @@ package com.example.footballapp.model.repository
 
 import com.example.footballapp.model.network.State
 import com.example.footballapp.model.network.Api
-import com.example.footballapp.model.response.latestMatchScheduled.LatestMatchScheduled
+import com.example.footballapp.model.response.matchScheduled.MatchScheduledResponse
 import com.example.footballapp.model.response.leagueSearch.LeagueSearchResponse
 import com.example.footballapp.model.response.leagues.LeaguesResponse
 import com.example.footballapp.model.response.lineup.LineupResponse
@@ -111,7 +111,7 @@ class Repository {
     fun searchLeague(leagueName: String): Flow<State<LeagueSearchResponse?>> =
         wrapWithFlow { Api.apiService.searchLeague(leagueName) }
 
-    fun getLatestMatchScheduled(matchCount: Int = 50,leagueId: Int?): Flow<State<LatestMatchScheduled?>> =
+    fun getLatestMatchScheduled(matchCount: Int = 50,leagueId: Int?): Flow<State<MatchScheduledResponse?>> =
         wrapWithFlow { Api.apiService.getLatestMatchScheduled(matchCount,leagueId) }
 
 

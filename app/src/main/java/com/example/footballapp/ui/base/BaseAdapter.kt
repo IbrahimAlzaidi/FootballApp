@@ -8,12 +8,13 @@ import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.footballapp.BR
+import com.example.footballapp.util.OnClickListener
 import com.example.footballapp.util.DiffUtilAdapter
 
 
 abstract class BaseAdapter<T>(
     private var items: List<T>,
-    private val listener: BaseInteractionListener?,
+    private val listener: OnClickListener?,
     private val layoutId: Int,
 ) : RecyclerView.Adapter<BaseAdapter.BaseViewHolder>() {
 
@@ -39,9 +40,7 @@ abstract class BaseAdapter<T>(
         }
     }
 
-    override fun getItemViewType(position: Int): Int {
-        return position
-    }
+    override fun getItemViewType(position: Int) = position
 
     @SuppressLint("NotifyDataSetChanged")
     fun setItems(newItems: List<T>) {

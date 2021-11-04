@@ -26,19 +26,23 @@
             android:name="leagueId"
             app:argType="integer" />
         <action
-            android:id="@+id/action_leagueDetailsFragment_to_standingFragment"
-            app:destination="@id/standingFragment" />
+            android:id="@+id/action_leagueDetailsFragment_to_matchDetailsFragment"
+            app:destination="@id/matchDetailsFragment" />
         <action
-            android:id="@+id/action_leagueDetailsFragment_to_scorersFragment"
-            app:destination="@id/scorersFragment" />
+            android:id="@+id/action_leagueDetailsFragment_to_clubDetailsFragment"
+            app:destination="@id/clubDetailsFragment" />
         <action
-            android:id="@+id/action_leagueDetailsFragment_to_matchesFragment"
-            app:destination="@id/matchesFragment" />
+            android:id="@+id/action_leagueDetailsFragment_to_playerDetailsFragment"
+            app:destination="@id/playerDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/clubDetailsFragment"
         android:name="com.example.footballapp.ui.clubDetails.ClubDetailsFragment"
-        android:label="ClubDetailsFragment" />
+        android:label="ClubDetailsFragment" >
+        <argument
+            android:name="teamId"
+            app:argType="integer" />
+    </fragment>
     <fragment
         android:id="@+id/matchDetailsFragment"
         android:name="com.example.footballapp.ui.matchDetails.MatchDetailsFragment"
@@ -49,52 +53,11 @@
             app:argType="integer" />
     </fragment>
     <fragment
-        android:id="@+id/matchesFragment"
-        android:name="com.example.footballapp.ui.leagueDetails.matches.MatchesFragment"
-        android:label="MatchesFragment"
-        tools:layout="@layout/fragment_matches">
-        <action
-            android:id="@+id/action_matchesFragment_to_matchDetailsFragment"
-            app:destination="@id/matchDetailsFragment" />
-    </fragment>
-    <fragment
         android:id="@+id/playerDetailsFragment"
         android:name="com.example.footballapp.ui.playerDetails.PlayerDetailsFragment"
-        android:label="PlayerDetailsFragment" />
-    <fragment
-        android:id="@+id/scorersFragment"
-        android:name="com.example.footballapp.ui.leagueDetails.scorers.ScorersFragment"
-        android:label="ScorersFragment"
-        tools:layout="@layout/fragment_scorers">
-        <action
-            android:id="@+id/action_scorersFragment_to_playerDetailsFragment"
-            app:destination="@id/playerDetailsFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/standingFragment"
-        android:name="com.example.footballapp.ui.leagueDetails.standing.StandingFragment"
-        android:label="StandingFragment"
-        tools:layout="@layout/fragment_standing">
-        <action
-            android:id="@+id/action_standingFragment_to_clubDetailsFragment"
-            app:destination="@id/clubDetailsFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/liveMatchFragment"
-        android:name="com.example.footballapp.ui.home.liveMatch.LiveMatchFragment"
-        android:label="LiveMatchFragment"
-        tools:layout="@layout/fragment_live_match">
-        <action
-            android:id="@+id/action_liveMatchFragment_to_matchDetailsFragment"
-            app:destination="@id/matchDetailsFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/allMatchScheduledFragment"
-        android:name="com.example.footballapp.ui.home.allMatchScheduled.AllMatchScheduledFragment"
-        android:label="AllMatchScheduledFragment"
-        tools:layout="@layout/fragment_all_match_scheduled">
-        <action
-            android:id="@+id/action_allMatchScheduledFragment_to_matchDetailsFragment"
-            app:destination="@id/matchDetailsFragment" />
+        android:label="PlayerDetailsFragment" >
+        <argument
+            android:name="playerId"
+            app:argType="integer" />
     </fragment>
 </navigation>

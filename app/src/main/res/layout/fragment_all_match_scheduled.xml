@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.example.footballapp.ui.home.allMatchScheduled.AllMatchScheduledViewModel" />
@@ -18,17 +19,16 @@
             android:id="@+id/matchScheduledRecycler"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_marginHorizontal="@dimen/margin1X"
             android:layout_marginTop="@dimen/margin2X"
             android:orientation="vertical"
-            app:items="@{viewModel.allMatchScheduled2.toData().response}"
-            android:layout_marginHorizontal="@dimen/margin1X"
+            app:items="@{viewModel.allMatchScheduled.toData().matchScheduledInfo}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:listitem="@layout/match_scheduled_item"
-            />
+            tools:listitem="@layout/match_scheduled_item" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

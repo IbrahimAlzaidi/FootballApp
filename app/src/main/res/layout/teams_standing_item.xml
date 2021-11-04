@@ -8,12 +8,15 @@
         <variable
             name="item"
             type="com.example.footballapp.model.response.standing.Standing" />
-
+        <variable
+            name="listener"
+            type="com.example.footballapp.util.OnClickListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:onClick="@{()-> listener.onClickItem(item.team.id)}">
 
         <View
             android:id="@+id/devider"

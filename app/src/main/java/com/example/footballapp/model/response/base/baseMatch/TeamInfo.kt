@@ -11,5 +11,5 @@ data class TeamInfo(
     @SerializedName("name")
     val name: String?,
     @SerializedName("winner")
-    val winner: Boolean?
+    val winner: String?
 )

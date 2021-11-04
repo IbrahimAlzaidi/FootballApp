@@ -6,20 +6,21 @@ import com.example.footballapp.R
 import com.example.footballapp.databinding.FragmentHomeBinding
 import com.example.footballapp.ui.base.BaseFragment
 import com.example.footballapp.ui.home.allMatchScheduled.AllMatchScheduledFragment
-import com.example.footballapp.ui.home.allMatchScheduled.AllMatchScheduledFragmentDirections
 import com.example.footballapp.ui.home.liveMatch.LiveMatchFragment
-import com.example.footballapp.ui.leagueDetails.ViewPagerStandings
-import com.example.footballapp.ui.leagueDetails.ViewPagerTransitions
+import com.example.footballapp.util.FootballViewPager
+import com.example.footballapp.util.OnClickListener
+import com.example.footballapp.util.ViewPagerTransitions
 import com.google.android.material.tabs.TabLayoutMediator
 
 
-class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
-    R.layout.fragment_home
-), LeagueInteractionListener {
+class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.fragment_home),
+    OnClickListener {
     override fun getViewModel() = HomeViewModel::class.java
 
     private val fragmentTitles = listOf("Live", "Match Scheduled")
-    private val fragmentsList = listOf(LiveMatchFragment(arg),AllMatchScheduledFragment(arg))
+    private val fragmentsList: List<Fragment> =
+        listOf(LiveMatchFragment(null), AllMatchScheduledFragment(null))
+
     override fun setup() {
         binding.viewModel = viewModel
         val leaguesAdapter = LeaguesAdapter(mutableListOf(), this)
@@ -33,14 +34,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
     }
 
     private fun initViewPager() {
-        val standingPagerAdapterView = ViewPagerStandings(this.requireActivity(),
-            fragmentsList as List<Fragment>
-        )
+        val standingPagerAdapterView =
+            FootballViewPager(this.requireActivity(), fragmentsList)
         binding.homeViewPager.apply {
             adapter = standingPagerAdapterView
             setPageTransformer(ViewPagerTransitions())
         }
-
     }
 
     private fun initTabLayout() {
@@ -52,12 +51,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
         }.attach()
     }
 
-    override fun onLeagueSelected(leagueId: Int) {
-        val action = HomeFragmentDirections.actionHomeFragmentToLeagueDetailsFragment(leagueId)
+    override fun onClickItem(id: Int) {
+        val action = HomeFragmentDirections.actionHomeFragmentToLeagueDetailsFragment(id)
         this.findNavController().navigate(action)
     }
 
     override val arg: Int?
         get() = null
-
 }

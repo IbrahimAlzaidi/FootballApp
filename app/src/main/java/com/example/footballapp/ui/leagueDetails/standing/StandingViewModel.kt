@@ -3,7 +3,6 @@ package com.example.footballapp.ui.leagueDetails.standing
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.footballapp.model.network.State
 import com.example.footballapp.model.response.standing.Standing

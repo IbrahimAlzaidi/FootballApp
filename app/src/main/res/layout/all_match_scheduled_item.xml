@@ -4,27 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="item"
-            type="com.example.footballapp.model.response.latestMatchScheduled.Response" />
+            type="com.example.footballapp.model.response.matchScheduled.MatchScheduledInfo" />
+
         <variable
             name="listener"
-            type="com.example.footballapp.ui.home.OnClickMatch" />
+            type="com.example.footballapp.util.OnClickListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/myConstraint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="@{()->listener.onClickMatch(item.fixture.id)}"
-        >
+        android:onClick="@{()->listener.onClickItem(item.fixture.id)}">
+
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin1X"
             android:elevation="@dimen/size0X"
-            android:text="@{item.fixture.date.subSequence(0,10)}"            android:textSize="@dimen/size2X"
+            android:text="@{item.fixture.date.subSequence(0,10)}"
+            android:textSize="@dimen/size2X"
             app:layout_constraintEnd_toEndOf="@id/scoreAwayTeam"
             app:layout_constraintStart_toStartOf="@id/scoreHomeTeam"
             app:layout_constraintTop_toBottomOf="@id/speretor"

@@ -12,8 +12,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.clubDetails.ClubDetailsFragment">
-
-
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Club Details"
+            android:textSize="@dimen/size7X"
+            android:gravity="center"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
