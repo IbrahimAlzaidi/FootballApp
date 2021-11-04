@@ -7,14 +7,17 @@
         <variable
             name="item"
             type="com.example.footballapp.model.response.schedulerMatch.SchedulerMatchInfo" />
+        <variable
+            name="listener"
+            type="com.example.footballapp.ui.home.liveMatch.MatchInteractionListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/myConstraint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="@{()-> listener.onMatchSelected(item.fixture.id)}"
         >
-<!--    android:onClick="@{()-> listener.onMatchSelected(item.fixture.id)}"-->
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
@@ -144,7 +147,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin9X"
             android:elevation="@dimen/size0X"
-            android:text="@{String.valueOf(item.goals.home)}"
             android:textColor="#0939EA"
             android:textSize="@dimen/size5X"
             android:textStyle="bold"
@@ -152,7 +154,7 @@
             app:layout_constraintEnd_toStartOf="@id/speretor"
             app:layout_constraintStart_toEndOf="@id/homeTeamLogoHolder"
             app:layout_constraintTop_toTopOf="@id/homeTeamLogoHolder"
-            tools:text="0" />
+            tools:text="-" />
 
         <TextView
             android:id="@+id/speretor"
@@ -175,7 +177,6 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/margin9X"
             android:elevation="@dimen/size0X"
-            android:text="@{String.valueOf(item.goals.away)}"
             android:textColor="#0939EA"
             android:textSize="@dimen/size5X"
             android:textStyle="bold"
@@ -183,7 +184,7 @@
             app:layout_constraintEnd_toStartOf="@id/awayTeamLogoHolder"
             app:layout_constraintStart_toEndOf="@id/speretor"
             app:layout_constraintTop_toTopOf="@id/awayTeamLogoHolder"
-            tools:text="0" />
+            tools:text="-" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

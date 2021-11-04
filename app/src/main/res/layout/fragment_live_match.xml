@@ -6,29 +6,29 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.footballapp.ui.leagueDetails.matches.MatchesViewModel" />
+            type="com.example.footballapp.ui.home.liveMatch.LiveMatchViewModel" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.leagueDetails.matches.MatchesFragment">
+        tools:context=".ui.home.liveMatch.LiveMatchFragment">
+
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/matchScheduledRecycler"
+            android:id="@+id/matchRecycler"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="@dimen/margin2X"
+            tools:listitem="@layout/live_matches_item"
             android:orientation="vertical"
-            app:items="@{viewModel.matchesScheduled.toData().schedulerMatchInfo}"
+            app:items="@{viewModel.matchLive.toData().liveMatchDetails}"
             android:layout_marginHorizontal="@dimen/margin1X"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:listitem="@layout/match_scheduled_item"
             />
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

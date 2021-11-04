@@ -10,7 +10,7 @@
             type="com.example.footballapp.model.response.liveMatches.LiveMatchDetails" />
         <variable
             name="listener"
-            type="com.example.footballapp.ui.home.MatchInteractionListener" />
+            type="com.example.footballapp.ui.home.liveMatch.MatchInteractionListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

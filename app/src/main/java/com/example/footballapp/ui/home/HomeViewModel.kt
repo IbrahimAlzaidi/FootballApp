@@ -7,6 +7,5 @@ import com.example.footballapp.util.Constant.TAG
 
 class HomeViewModel: BaseViewModel() {
     val leaguesInfo = repository.getLeaguesInfo().asLiveData()
-    val matchLive = repository.getMatchesLive().asLiveData()
 
 }
