@@ -10,14 +10,15 @@
             type="com.example.footballapp.model.response.liveMatches.LiveMatchDetails" />
         <variable
             name="listener"
-            type="com.example.footballapp.ui.home.liveMatch.MatchInteractionListener" />
+            type="com.example.footballapp.ui.home.OnClickMatch" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/myConstraint"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="@{()-> listener.onMatchSelected(item.fixture.id)}">
+        android:onClick="@{()->listener.onClickMatch(item.fixture.id)}"
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/textView"

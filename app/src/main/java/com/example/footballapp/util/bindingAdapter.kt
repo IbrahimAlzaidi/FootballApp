@@ -2,10 +2,14 @@ package com.example.footballapp.util
 
 import android.view.View
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.databinding.BindingAdapter
+import androidx.navigation.*
 import androidx.recyclerview.widget.RecyclerView
 import com.example.footballapp.R
 import com.example.footballapp.model.network.State
+import com.example.footballapp.model.response.schedulerMatch.SchedulerMatchInfo
+import com.example.footballapp.model.response.topScorers.TopScorersInfo
 import com.example.footballapp.ui.base.BaseAdapter
 import com.github.twocoffeesoneteam.glidetovectoryou.GlideApp
 
@@ -40,4 +44,35 @@ fun <T> setRecyclerView(view: RecyclerView,items: List<T>?){
     }else{
         (view.adapter as BaseAdapter<T>?)?.setItems(emptyList())
     }
+}
+
+fun NavController.navigateSafe(directions: NavDirections) {
+    // Get action by ID. If action doesn't exist on current node, return.
+    val action = (currentDestination ?: graph).getAction(directions.actionId) ?: return
+    var destId = action.destinationId
+    val dest = graph.findNode(destId)
+    if (dest is NavGraph) {
+        // Action destination is a nested graph, which isn't a real destination.
+        // The real destination is the start destination of that graph so resolve it.
+        destId = dest.startDestination
+    }
+    if (currentDestination?.id != destId) {
+        navigate(directions)
+    }
+}
+
+@BindingAdapter(value = ["app:total_goals"])
+fun setTotalGoal(view:TextView,text: TopScorersInfo){
+    view.text = text.statistics?.joinToString { it.goals?.total.toString() }
+}
+
+@BindingAdapter(value = ["app:teamName"])
+fun setTimeName(view:TextView, text: TopScorersInfo){
+    view.text = text.statistics?.joinToString { it.team?.name.toString() }
+}
+
+
+@BindingAdapter(value = ["app:navAction"])
+fun setNavAction(view: View?, actionId: Int) {
+    view?.setOnClickListener { View.OnClickListener { view.findNavController().navigate(actionId) } }
 }

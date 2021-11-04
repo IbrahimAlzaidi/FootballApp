@@ -32,7 +32,7 @@ abstract class BaseFragment<VDB : ViewDataBinding, VM : BaseViewModel>(@LayoutRe
         _binding = DataBindingUtil.inflate(inflater, layoutResId, container, false)
         val factory = ViewModelFactory(arg)
         _viewModel = ViewModelProvider(this, factory).get(getViewModel())
-        _binding.lifecycleOwner = this
+        _binding.lifecycleOwner = viewLifecycleOwner
         setup()
         return _binding.root
     }

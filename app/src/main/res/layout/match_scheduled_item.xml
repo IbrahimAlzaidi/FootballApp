@@ -9,23 +9,22 @@
             type="com.example.footballapp.model.response.schedulerMatch.SchedulerMatchInfo" />
         <variable
             name="listener"
-            type="com.example.footballapp.ui.home.liveMatch.MatchInteractionListener" />
+            type="com.example.footballapp.ui.home.OnClickMatch" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/myConstraint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="@{()-> listener.onMatchSelected(item.fixture.id)}"
-        >
+        android:onClick="@{()-> listener.onClickMatch(item.fixture.id)}">
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin1X"
             android:elevation="@dimen/size0X"
-            android:text="@{item.fixture.status.longMatch}"
             android:textSize="@dimen/size2X"
+            android:text="@{item.fixture.date.subSequence(0,10)}"
             app:layout_constraintEnd_toEndOf="@id/scoreAwayTeam"
             app:layout_constraintStart_toStartOf="@id/scoreHomeTeam"
             app:layout_constraintTop_toBottomOf="@id/speretor"
@@ -48,7 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin1X"
             android:elevation="@dimen/size0X"
-            android:text="@{item.league.name}"
+            android:text="@{item.league.round}"
             android:textSize="@dimen/size3X"
             app:layout_constraintEnd_toEndOf="@id/myCardView"
             app:layout_constraintStart_toStartOf="@id/myCardView"
@@ -154,7 +153,7 @@
             app:layout_constraintEnd_toStartOf="@id/speretor"
             app:layout_constraintStart_toEndOf="@id/homeTeamLogoHolder"
             app:layout_constraintTop_toTopOf="@id/homeTeamLogoHolder"
-            tools:text="-" />
+            android:text="-" />
 
         <TextView
             android:id="@+id/speretor"
@@ -184,7 +183,7 @@
             app:layout_constraintEnd_toStartOf="@id/awayTeamLogoHolder"
             app:layout_constraintStart_toEndOf="@id/speretor"
             app:layout_constraintTop_toTopOf="@id/awayTeamLogoHolder"
-            tools:text="-" />
+            android:text="-" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

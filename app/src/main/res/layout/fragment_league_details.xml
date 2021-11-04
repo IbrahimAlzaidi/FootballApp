@@ -13,11 +13,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.leagueDetails.LeagueDetailsFragment">
-
         <ImageView
             android:id="@+id/leagueImage"
             android:layout_width="120dp"
             android:layout_height="150dp"
+            android:elevation="@dimen/size0X"
+            android:layout_marginStart="@dimen/size3X"
             app:ImageUrl="@{viewModel.leagueDetails.league.logo}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -29,6 +30,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textSize="35sp"
+            android:elevation="@dimen/size0X"
             android:text="@{viewModel.leagueDetails.league.name}"
             app:layout_constraintBottom_toBottomOf="@id/leagueImage"
             app:layout_constraintEnd_toEndOf="parent"

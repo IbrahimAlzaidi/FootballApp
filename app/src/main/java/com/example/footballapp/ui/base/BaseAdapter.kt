@@ -39,6 +39,10 @@ abstract class BaseAdapter<T>(
         }
     }
 
+    override fun getItemViewType(position: Int): Int {
+        return position
+    }
+
     @SuppressLint("NotifyDataSetChanged")
     fun setItems(newItems: List<T>) {
         val diffUtilResult = DiffUtil.calculateDiff(DiffUtilAdapter(items,newItems))

@@ -1,16 +1,17 @@
 package com.example.footballapp.ui.home.liveMatch
 
-import androidx.fragment.app.Fragment
+import android.view.View
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.example.footballapp.R
 import com.example.footballapp.databinding.FragmentLiveMatchBinding
 import com.example.footballapp.ui.base.BaseFragment
 import com.example.footballapp.ui.home.HomeFragmentDirections
+import com.example.footballapp.ui.home.OnClickMatch
 
 
 class LiveMatchFragment(override val arg: Int?) :
-    BaseFragment<FragmentLiveMatchBinding, LiveMatchViewModel>(R.layout.fragment_live_match),
-    MatchInteractionListener {
+    BaseFragment<FragmentLiveMatchBinding, LiveMatchViewModel>(R.layout.fragment_live_match),OnClickMatch {
 
     override fun setup() {
         binding.viewModel = viewModel
@@ -19,9 +20,9 @@ class LiveMatchFragment(override val arg: Int?) :
     }
 
     override fun getViewModel(): Class<LiveMatchViewModel> = LiveMatchViewModel::class.java
-
-    override fun onMatchSelected(matchId: Int) {
-        val action = LiveMatchFragmentDirections.actionLiveMatchFragmentToMatchDetailsFragment(matchId)
+    
+    override fun onClickMatch(id: Int) {
+        val action = HomeFragmentDirections.actionHomeFragmentToMatchDetailsFragment(id)
         this.findNavController().navigate(action)
     }
 }

@@ -6,6 +6,7 @@ import com.example.footballapp.R
 import com.example.footballapp.databinding.FragmentHomeBinding
 import com.example.footballapp.ui.base.BaseFragment
 import com.example.footballapp.ui.home.allMatchScheduled.AllMatchScheduledFragment
+import com.example.footballapp.ui.home.allMatchScheduled.AllMatchScheduledFragmentDirections
 import com.example.footballapp.ui.home.liveMatch.LiveMatchFragment
 import com.example.footballapp.ui.leagueDetails.ViewPagerStandings
 import com.example.footballapp.ui.leagueDetails.ViewPagerTransitions
@@ -19,13 +20,16 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
 
     private val fragmentTitles = listOf("Live", "Match Scheduled")
     private val fragmentsList = listOf(LiveMatchFragment(arg),AllMatchScheduledFragment(arg))
-
     override fun setup() {
         binding.viewModel = viewModel
         val leaguesAdapter = LeaguesAdapter(mutableListOf(), this)
         binding.recycleView.adapter = leaguesAdapter
         initViewPager()
         initTabLayout()
+        binding.homeViewPager.setOnClickListener {
+            val action = HomeFragmentDirections.actionHomeFragmentToLeagueDetailsFragment(39)
+            this.findNavController().navigate(action)
+        }
     }
 
     private fun initViewPager() {
@@ -55,4 +59,5 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
 
     override val arg: Int?
         get() = null
+
 }
