@@ -1,5 +1,6 @@
 package com.example.footballapp.model.network
 
+import com.example.footballapp.model.response.latestMatchScheduled.LatestMatchScheduled
 import com.example.footballapp.model.response.leagueSearch.LeagueSearchResponse
 import com.example.footballapp.model.response.leagues.LeaguesResponse
 import com.example.footballapp.model.response.lineup.LineupResponse
@@ -81,4 +82,10 @@ interface ApiService {
 
     @GET("/v3/leagues")
     suspend fun searchLeague(@Query("name") leagueName: String): Response<LeagueSearchResponse?>
+
+    @GET("/v3/fixtures")
+    suspend fun getLatestMatchScheduled(
+        @Query("next") limit: Int,
+        @Query("league") leagueId: Int?,
+    ): Response<LatestMatchScheduled>
 }
