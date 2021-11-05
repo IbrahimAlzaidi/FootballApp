@@ -13,7 +13,7 @@ class ScorersFragment(private val args: Int?): BaseFragment<FragmentScorersBindi
     override fun setup() {
         binding.viewModel = viewModel
         val topScoreAdapter = ScorersAdapter(emptyList(),this)
-        binding.topScoreRecycler.adapter = topScoreAdapter
+        binding.matchStatisticRecycler.adapter = topScoreAdapter
     }
 
     override fun getViewModel()= ScorersViewModel::class.java

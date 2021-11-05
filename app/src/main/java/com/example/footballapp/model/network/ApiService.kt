@@ -1,10 +1,10 @@
 package com.example.footballapp.model.network
 
-import com.example.footballapp.model.response.matchScheduled.MatchScheduledResponse
 import com.example.footballapp.model.response.leagueSearch.LeagueSearchResponse
 import com.example.footballapp.model.response.leagues.LeaguesResponse
 import com.example.footballapp.model.response.lineup.LineupResponse
 import com.example.footballapp.model.response.liveMatches.LiveMatchesResponse
+import com.example.footballapp.model.response.matchScheduled.MatchScheduledResponse
 import com.example.footballapp.model.response.matchStatistic.MatchStatisticResponse
 import com.example.footballapp.model.response.matches.MatchesResponse
 import com.example.footballapp.model.response.playerStatistic.PlayerStatisticResponse
@@ -67,6 +67,10 @@ interface ApiService {
 
     @GET("/v3/fixtures/statistics")
     suspend fun getMatchStatistic(@Query("fixture") matchId: Int): Response<MatchStatisticResponse?>
+
+
+//    @GET("/v3/fixtures/")
+//    suspend fun getMatchStatistic(@Query("fixture") matchId: Int): Response<matchState?>
 
     @GET("/v3/fixtures/lineups")
     suspend fun getMatchLineup(@Query("fixture") matchId: Int): Response<LineupResponse?>

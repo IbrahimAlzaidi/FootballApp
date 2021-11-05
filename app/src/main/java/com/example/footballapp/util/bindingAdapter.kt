@@ -8,6 +8,8 @@ import androidx.navigation.*
 import androidx.recyclerview.widget.RecyclerView
 import com.example.footballapp.R
 import com.example.footballapp.model.network.State
+import com.example.footballapp.model.response.base.baseMatch.TeamID
+import com.example.footballapp.model.response.matchStatistic.MatchStatisticInfo
 import com.example.footballapp.model.response.schedulerMatch.SchedulerMatchInfo
 import com.example.footballapp.model.response.topScorers.TopScorersInfo
 import com.example.footballapp.ui.base.BaseAdapter
@@ -64,4 +66,10 @@ fun setTotalGoal(view:TextView,text: TopScorersInfo){
 @BindingAdapter(value = ["app:teamName"])
 fun setTimeName(view:TextView, text: TopScorersInfo){
     view.text = text.statistics?.joinToString { it.team?.name.toString() }
+}
+
+
+@BindingAdapter(value = ["app:team_"])
+fun setTime(view:TextView, text: List<TeamID>){
+    view.text = text[0].name
 }
