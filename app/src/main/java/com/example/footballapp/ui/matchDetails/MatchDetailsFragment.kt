@@ -15,7 +15,6 @@ import com.google.android.material.tabs.TabLayoutMediator
 class MatchDetailsFragment :
     BaseFragment<FragmentMatchDetailsBinding, MatchDetailsViewModel>(R.layout.fragment_match_details) {
     private val args: MatchDetailsFragmentArgs by navArgs()
-
     private val fragmentTitles = listOf("Statistic", "Lineups")
     private lateinit var fragmentsList: List<Fragment>
     private var matchId: Int? = null

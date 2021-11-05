@@ -1,12 +1,10 @@
 package com.example.footballapp.ui.leagueDetails.matches
 
-import android.util.Log
 import androidx.navigation.fragment.findNavController
 import com.example.footballapp.R
 import com.example.footballapp.databinding.FragmentMatchesBinding
 import com.example.footballapp.ui.base.BaseFragment
 import com.example.footballapp.ui.leagueDetails.LeagueDetailsFragmentDirections
-import com.example.footballapp.util.Constant.TAG
 import com.example.footballapp.util.OnClickListener
 
 class MatchesFragment(private val args: Int?) :

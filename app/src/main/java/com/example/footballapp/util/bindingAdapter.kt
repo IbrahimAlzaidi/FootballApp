@@ -4,15 +4,14 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
-import androidx.navigation.*
 import androidx.recyclerview.widget.RecyclerView
 import com.example.footballapp.R
 import com.example.footballapp.model.network.State
 import com.example.footballapp.model.response.base.baseMatch.TeamID
-import com.example.footballapp.model.response.matchStatistic.MatchStatisticInfo
-import com.example.footballapp.model.response.schedulerMatch.SchedulerMatchInfo
+import com.example.footballapp.model.response.matchStatistic.Statistic
 import com.example.footballapp.model.response.topScorers.TopScorersInfo
 import com.example.footballapp.ui.base.BaseAdapter
+import com.example.footballapp.ui.matchDetails.matchStatistic.MatchStatisticAdapter
 import com.github.twocoffeesoneteam.glidetovectoryou.GlideApp
 
 @BindingAdapter(value = ["app:whenError"])
@@ -55,6 +54,15 @@ fun <T> setRecyclerView(view: RecyclerView,items: List<T>?){
         (view.adapter as BaseAdapter<T>?)?.setItems(items)
     }else{
         (view.adapter as BaseAdapter<T>?)?.setItems(emptyList())
+    }
+}
+
+@BindingAdapter(value = ["app:itemsHome"])
+fun setRecyclerViewHome(view: RecyclerView,itemHome: List<Statistic>?){
+    if (itemHome != null){
+        (view.adapter as MatchStatisticAdapter).setItems(itemHome)
+    }else{
+        (view.adapter as MatchStatisticAdapter).setItems(emptyList())
     }
 }
 

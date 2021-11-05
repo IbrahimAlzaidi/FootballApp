@@ -17,5 +17,5 @@ class MatchStatisticFragment(private val args: Int?) :
         MatchStatisticViewModel::class.java
 
     override val arg: Int?
-        get() = null
+        get() = args
 }

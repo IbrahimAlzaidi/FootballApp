@@ -13,5 +13,5 @@ class MatchLineupsFragment(private val args: Int?) :
     override fun getViewModel(): Class<MatchLineupsViewModel> = MatchLineupsViewModel::class.java
 
     override val arg: Int?
-        get() = null
+        get() = args
 }

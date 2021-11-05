@@ -6,38 +6,43 @@
     <data>
         <variable
             name="item"
-            type="com.example.footballapp.model.response.matchStatistic.MatchStatisticInfo" />
-
+            type="com.example.footballapp.model.response.matchStatistic.Statistic" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/homeTeamLogo"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            app:ImageUrl="@{item.team.logo}"
-            app:layout_constraintEnd_toEndOf="parent"
+        <TextView
+            android:id="@+id/home_team_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/size7X"
+            android:text="@{item.value.toString()}"
+            android:textSize="@dimen/size5X"
+            android:gravity="center"
+            app:layout_constraintEnd_toStartOf="@+id/stats_type"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:src="@tools:sample/avatars" />
+            tools:text="30" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/detailsRecycler"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginHorizontal="@dimen/margin0X"
-            android:orientation="horizontal"
-            android:layout_marginTop="@dimen/size3X"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <TextView
+            android:id="@+id/stats_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/size7X"
+            android:text="@{item.type.toString()}"
+            android:textSize="@dimen/size5X"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="@id/home_team_value"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/homeTeamLogo"
-            tools:listitem="@layout/match_statistics_item" />
-
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/home_team_value"
+            app:layout_constraintTop_toTopOf="@id/home_team_value"
+            app:layout_constraintVertical_bias="0.0"
+            tools:text="shot" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
