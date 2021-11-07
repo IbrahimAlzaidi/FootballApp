@@ -48,6 +48,9 @@
         <argument
             android:name="leagueId"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_clubDetailsFragment_to_matchDetailsFragment"
+            app:destination="@id/matchDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/matchDetailsFragment"

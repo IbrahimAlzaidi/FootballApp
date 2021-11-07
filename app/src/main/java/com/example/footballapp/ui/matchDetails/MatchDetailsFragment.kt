@@ -11,7 +11,7 @@ class MatchDetailsFragment: BaseFragment<FragmentMatchDetailsBinding, MatchDetai
     private val args: MatchDetailsFragmentArgs by navArgs()
     override fun setup() {
         binding.viewModel = viewModel
-        Log.i(TAG, "setup: ${args.matchId}")
+        Log.i(TAG, "MatchDetailsFragmentSetup: ${args.matchId}")
     }
 
     override fun getViewModel()= MatchDetailsViewModel::class.java
