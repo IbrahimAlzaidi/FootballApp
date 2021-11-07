@@ -1,11 +1,11 @@
-package com.example.footballapp.ui.clubDetails.clupInfo
+package com.example.footballapp.ui.clubDetails.clubInfo
 
 import com.example.footballapp.R
 import com.example.footballapp.databinding.FragmentClupInformationBinding
 import com.example.footballapp.ui.base.BaseFragment
 
 
-class ClubInformationFragment(val args: Int?, val teamId: Int?) :
+class ClubInformationFragment(val teamId: Int?, val leagueID: Int?) :
     BaseFragment<FragmentClupInformationBinding, ClubInformationViewModel>(R.layout.fragment_clup_information) {
     override fun setup() {
         binding.viewModel = viewModel
@@ -14,7 +14,7 @@ class ClubInformationFragment(val args: Int?, val teamId: Int?) :
     override fun getViewModel(): Class<ClubInformationViewModel> = ClubInformationViewModel::class.java
 
     override val arg: Int?
-        get() = args
-    override val leagueId: Int?
         get() = teamId
+    override val leagueId: Int?
+        get() = leagueID
 }

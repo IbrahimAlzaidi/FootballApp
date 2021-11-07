@@ -6,7 +6,7 @@
     <data>
         <variable
             name="item"
-            type="com.example.footballapp.model.response.teamCurrrenMatch.Response" />
+            type="com.example.footballapp.model.response.teamCurrentMatch.CurrentMatchInfo" />
         <variable
             name="listener"
             type="com.example.footballapp.util.OnClickListener" />

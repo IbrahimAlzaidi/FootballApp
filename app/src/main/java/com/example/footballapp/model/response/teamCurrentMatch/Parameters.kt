@@ -1,4 +1,4 @@
-package com.example.footballapp.model.response.teamCurrrenMatch
+package com.example.footballapp.model.response.teamCurrentMatch
 
 
 import com.google.gson.annotations.SerializedName

@@ -13,7 +13,7 @@ import com.example.footballapp.model.response.schedulerMatch.SchedulerMatchRespo
 import com.example.footballapp.model.response.squadPlayer.SquadPlayer
 import com.example.footballapp.model.response.stadiumInfo.StadiumInfoResponse
 import com.example.footballapp.model.response.standing.StandingTeamsResponse
-import com.example.footballapp.model.response.teamCurrrenMatch.CurrentTeamMatch
+import com.example.footballapp.model.response.teamCurrentMatch.CurrentTeamMatchResponse
 import com.example.footballapp.model.response.teamInfo.TeamInformationResponse
 import com.example.footballapp.model.response.topScorers.TopScorersResponse
 import retrofit2.Response
@@ -101,5 +101,5 @@ interface ApiService {
         @Query("season") season: Int,
         @Query("team") teamId: Int?,
         @Query("status") status: String,
-    ): Response<CurrentTeamMatch>
+    ): Response<CurrentTeamMatchResponse>
 }

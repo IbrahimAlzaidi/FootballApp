@@ -15,7 +15,7 @@ import com.example.footballapp.model.response.schedulerMatch.SchedulerMatchRespo
 import com.example.footballapp.model.response.squadPlayer.SquadPlayer
 import com.example.footballapp.model.response.stadiumInfo.StadiumInfoResponse
 import com.example.footballapp.model.response.standing.StandingTeamsResponse
-import com.example.footballapp.model.response.teamCurrrenMatch.CurrentTeamMatch
+import com.example.footballapp.model.response.teamCurrentMatch.CurrentTeamMatchResponse
 import com.example.footballapp.model.response.teamInfo.TeamInformationResponse
 import com.example.footballapp.model.response.topScorers.TopScorersResponse
 import kotlinx.coroutines.flow.Flow
@@ -122,7 +122,7 @@ class Repository {
     fun getTeamPlayerInfo(teamId: Int?): Flow<State<SquadPlayer?>> =
         wrapWithFlow { Api.apiService.getTeamPlayer(teamId) }
 
-    fun getTeamMatchPlayed(season: Int = 2021, teamId: Int? , status: String = "FT"): Flow<State<CurrentTeamMatch?>> =
+    fun getTeamMatchPlayed(season: Int = 2021, teamId: Int? , status: String = "FT"): Flow<State<CurrentTeamMatchResponse?>> =
         wrapWithFlow { Api.apiService.getTeamMatchPlayed(season, teamId , status) }
 
 

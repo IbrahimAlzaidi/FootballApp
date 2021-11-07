@@ -21,7 +21,7 @@
             android:orientation="vertical"
             android:background="@drawable/rectangle_shape"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:items="@{viewModel.team.toData().response.get(0).players}"
+            app:items="@{viewModel.team.toData().squadPlayerInfo.get(0).players}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

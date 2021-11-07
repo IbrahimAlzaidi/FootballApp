@@ -6,14 +6,14 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.footballapp.ui.clubDetails.clupInfo.ClubInformationViewModel" />
+            type="com.example.footballapp.ui.clubDetails.clubInfo.ClubInformationViewModel" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.clubDetails.clupInfo.ClubInformationFragment">
+        tools:context=".ui.clubDetails.clubInfo.ClubInformationFragment">
 
         <View
             android:id="@+id/infoHolder"

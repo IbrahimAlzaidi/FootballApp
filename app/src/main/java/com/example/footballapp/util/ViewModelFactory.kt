@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.footballapp.ui.clubDetails.ClubDetailsViewModel
 import com.example.footballapp.ui.clubDetails.clubMatch.ClubMatchPlayedViewModel
-import com.example.footballapp.ui.clubDetails.clupInfo.ClubInformationViewModel
+import com.example.footballapp.ui.clubDetails.clubInfo.ClubInformationViewModel
 import com.example.footballapp.ui.clubDetails.squadInfo.SquadInfoViewModel
 import com.example.footballapp.ui.home.HomeViewModel
 import com.example.footballapp.ui.home.allMatchScheduled.AllMatchScheduledViewModel
