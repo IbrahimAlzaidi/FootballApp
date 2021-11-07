@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.footballapp.ui.clubDetails.clupInfo.ClubInformationViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.clubDetails.clupInfo.ClubInformationFragment">
+
+        <View
+            android:id="@+id/infoHolder"
+            android:layout_width="match_parent"
+            android:layout_height="420dp"
+            android:orientation="vertical"
+            android:layout_margin="@dimen/margin0X"
+            android:background="@drawable/rectangle_shape"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+        </View>
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Team Information"
+            android:textSize="@dimen/size5X"
+            android:paddingStart="@dimen/size1X"
+            android:background="@drawable/rectangle_shape"
+            app:layout_constraintStart_toStartOf="@id/infoHolder"
+            app:layout_constraintTop_toTopOf="@id/infoHolder"
+            app:layout_constraintEnd_toEndOf="@id/infoHolder"
+            />
+        <TextView
+            android:id="@+id/teamName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.data.toData().stadiumDetails.get(0).team.name}"
+            android:textSize="@dimen/size5X"
+            android:paddingStart="@dimen/size1X"
+            tools:text="Hello"
+            app:layout_constraintTop_toBottomOf="@id/title"
+            app:layout_constraintStart_toStartOf="@id/title"
+            app:layout_constraintEnd_toEndOf="@id/infoHolder"/>
+        <TextView
+            android:id="@+id/founded"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/size1X"
+            android:text="@{String.valueOf(viewModel.data.toData().stadiumDetails.get(0).team.founded)}"
+            android:textSize="@dimen/size5X"
+            app:layout_constraintStart_toStartOf="@id/teamName"
+            app:layout_constraintTop_toBottomOf="@id/teamName"
+            tools:text="Hello" />
+        <TextView
+            android:id="@+id/country"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/size1X"
+            android:text="@{viewModel.data.toData().stadiumDetails.get(0).team.country}"
+            android:textSize="@dimen/size5X"
+            app:layout_constraintStart_toStartOf="@id/founded"
+            app:layout_constraintTop_toBottomOf="@id/founded"
+            tools:text="Hello" />
+
+
+        <View
+            android:id="@+id/venueHolder"
+            android:layout_width="0dp"
+            android:layout_height="220dp"
+            android:layout_marginTop="@dimen/margin0X"
+            android:background="@drawable/rectangle_shape"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="@id/infoHolder"
+            app:layout_constraintStart_toStartOf="@id/infoHolder"
+            app:layout_constraintBottom_toBottomOf="@id/infoHolder" />
+
+        <TextView
+            android:id="@+id/venueInfo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Venue Information"
+            android:textSize="@dimen/size5X"
+            android:paddingStart="@dimen/size1X"
+            android:background="@drawable/rectangle_shape"
+            app:layout_constraintStart_toStartOf="@id/venueHolder"
+            app:layout_constraintTop_toTopOf="@id/venueHolder"
+            app:layout_constraintEnd_toEndOf="@id/venueHolder"
+            />
+        <TextView
+            android:id="@+id/venueName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(viewModel.data.toData().stadiumDetails.get(0).venue.name)}"
+            android:textSize="@dimen/size5X"
+            android:paddingStart="@dimen/size1X"
+            app:layout_constraintStart_toStartOf="@id/venueInfo"
+            app:layout_constraintTop_toBottomOf="@id/venueInfo"
+            tools:text="Hello" />
+        <TextView
+            android:id="@+id/capacity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.data.toData().stadiumDetails.get(0).venue.address}"
+            android:textSize="@dimen/size5X"
+            android:paddingStart="@dimen/size1X"
+            app:layout_constraintStart_toStartOf="@id/venueInfo"
+            app:layout_constraintTop_toBottomOf="@id/venueName"
+            tools:text="Hello" />
+        <TextView
+            android:id="@+id/address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(viewModel.data.toData().stadiumDetails.get(0).venue.capacity)}"
+            android:textSize="@dimen/size5X"
+            android:paddingStart="@dimen/size1X"
+            app:layout_constraintStart_toStartOf="@id/venueInfo"
+            app:layout_constraintTop_toBottomOf="@id/capacity"
+            tools:text="Hello" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

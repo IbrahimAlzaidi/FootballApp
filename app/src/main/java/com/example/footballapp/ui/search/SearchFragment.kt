@@ -23,4 +23,7 @@ class SearchFragment: BaseFragment<FragmentStandingBinding, SearchViewModel>(R.l
         this.findNavController().navigate(action)
     }
 
+    override val leagueId: Int?
+        get() = null
+
 }

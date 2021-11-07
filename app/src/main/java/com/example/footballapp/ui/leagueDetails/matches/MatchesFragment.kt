@@ -8,7 +8,8 @@ import com.example.footballapp.ui.leagueDetails.LeagueDetailsFragmentDirections
 import com.example.footballapp.util.OnClickListener
 
 class MatchesFragment(private val args: Int?) :
-    BaseFragment<FragmentMatchesBinding, MatchesViewModel>(R.layout.fragment_matches), OnClickListener{
+    BaseFragment<FragmentMatchesBinding, MatchesViewModel>(R.layout.fragment_matches),
+    OnClickListener {
     override fun setup() {
         binding.viewModel = viewModel
         val matchScheduledAdapter = MatchAdapter(emptyList(), this)
@@ -16,11 +17,15 @@ class MatchesFragment(private val args: Int?) :
     }
 
     override fun getViewModel() = MatchesViewModel::class.java
-    override val arg: Int?
-        get() = args
 
     override fun onClickItem(id: Int) {
-        val action = LeagueDetailsFragmentDirections.actionLeagueDetailsFragmentToMatchDetailsFragment(id)
+        val action =
+            LeagueDetailsFragmentDirections.actionLeagueDetailsFragmentToMatchDetailsFragment(id)
         this.findNavController().navigate(action)
     }
+
+    override val arg: Int?
+        get() = args
+    override val leagueId: Int?
+        get() = null
 }

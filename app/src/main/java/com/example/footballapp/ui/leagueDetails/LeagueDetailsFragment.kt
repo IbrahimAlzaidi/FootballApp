@@ -16,17 +16,17 @@ import com.google.android.material.tabs.TabLayoutMediator
 class LeagueDetailsFragment : BaseFragment<FragmentLeagueDetailsBinding, LeagueDetailsViewModel>
     (R.layout.fragment_league_details){
     private val args: LeagueDetailsFragmentArgs by navArgs()
-    private var leagueId: Int? = null
+    private var leagueID: Int? = null
     private val fragmentTitles = listOf("Standings", "Top Score", "Matches")
     private lateinit var fragmentsList: List<Fragment>
     override fun getViewModel() = LeagueDetailsViewModel::class.java
     override fun setup() {
-        leagueId = args.leagueId
+        leagueID = args.leagueId
         binding.viewModel = viewModel
         fragmentsList = listOf(
-            StandingFragment(leagueId),
-            ScorersFragment(leagueId),
-            MatchesFragment(leagueId))
+            StandingFragment(leagueID),
+            ScorersFragment(leagueID),
+            MatchesFragment(leagueID))
         initViewPager(fragmentsList)
         initTabLayout()
     }
@@ -49,4 +49,7 @@ class LeagueDetailsFragment : BaseFragment<FragmentLeagueDetailsBinding, LeagueD
 
     override val arg: Int
         get() = args.leagueId
+
+    override val leagueId: Int?
+        get() = null
 }

@@ -17,4 +17,6 @@ class MatchDetailsFragment: BaseFragment<FragmentMatchDetailsBinding, MatchDetai
     override fun getViewModel()= MatchDetailsViewModel::class.java
     override val arg: Int
         get() = args.matchId
+    override val leagueId: Int?
+        get() = null
 }

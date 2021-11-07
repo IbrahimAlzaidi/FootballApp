@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="com.example.footballapp.model.response.teamCurrrenMatch.Response" />
+        <variable
+            name="listener"
+            type="com.example.footballapp.util.OnClickListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/myConstraint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{()->listener.onClickItem(item.fixture.id)}">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin1X"
+            android:elevation="@dimen/size0X"
+            android:text="@{String.valueOf(item.fixture.date.subSequence(0,10))}"
+            android:textSize="@dimen/size2X"
+            app:layout_constraintEnd_toEndOf="@id/scoreAwayTeam"
+            app:layout_constraintStart_toStartOf="@id/scoreHomeTeam"
+            app:layout_constraintTop_toBottomOf="@id/speretor"
+            tools:text="First Half" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/myCardView"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_margin="@dimen/margin2X"
+            app:cardCornerRadius="@dimen/size2X"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/leaguesName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin1X"
+            android:elevation="@dimen/size0X"
+            android:text="@{item.league.name}"
+            android:textSize="@dimen/size3X"
+            app:layout_constraintEnd_toEndOf="@id/myCardView"
+            app:layout_constraintStart_toStartOf="@id/myCardView"
+            app:layout_constraintTop_toTopOf="@id/myCardView"
+            tools:text="UEFA EUROPE LEAGUE" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginEnd="@dimen/margin1X"
+            android:elevation="@dimen/size0X"
+            app:ImageUrl="@{item.league.logo}"
+            app:layout_constraintBottom_toBottomOf="@id/leaguesName"
+            app:layout_constraintEnd_toStartOf="@id/leaguesName"
+            app:layout_constraintTop_toTopOf="@id/leaguesName"
+            tools:src="@tools:sample/avatars" />
+
+        <LinearLayout
+            android:id="@+id/homeTeamLogoHolder"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="@dimen/size5X"
+            android:adjustViewBounds="true"
+            android:background="@drawable/image_border"
+            android:cropToPadding="true"
+            android:elevation="@dimen/size0X"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="@id/myCardView"
+            app:layout_constraintStart_toStartOf="@id/myCardView"
+            app:layout_constraintTop_toTopOf="@id/myCardView">
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:elevation="@dimen/size1X"
+                app:ImageUrl="@{item.teams.home.logo}"
+                tools:src="@tools:sample/avatars" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/awayTeamLogoHolder"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginEnd="@dimen/size5X"
+            android:adjustViewBounds="true"
+            android:background="@drawable/image_border"
+            android:cropToPadding="true"
+            android:elevation="@dimen/size0X"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="@id/myCardView"
+            app:layout_constraintEnd_toEndOf="@id/myCardView"
+            app:layout_constraintTop_toTopOf="@id/myCardView">
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:elevation="@dimen/size1X"
+                app:ImageUrl="@{item.teams.away.logo}"
+                tools:src="@tools:sample/avatars" />
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/homeTeamName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/size0X"
+            android:text="@{item.teams.home.name}"
+            android:textSize="@dimen/size2X"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/myCardView"
+            app:layout_constraintEnd_toEndOf="@id/homeTeamLogoHolder"
+            app:layout_constraintStart_toStartOf="@+id/homeTeamLogoHolder"
+            app:layout_constraintTop_toBottomOf="@id/homeTeamLogoHolder"
+            tools:text="Home" />
+
+        <TextView
+            android:id="@+id/awayTeamName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/size0X"
+            android:text="@{item.teams.away.name}"
+            android:textSize="@dimen/size2X"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/myCardView"
+            app:layout_constraintEnd_toEndOf="@+id/awayTeamLogoHolder"
+            app:layout_constraintStart_toStartOf="@+id/awayTeamLogoHolder"
+            app:layout_constraintTop_toBottomOf="@id/awayTeamLogoHolder"
+            tools:text="Away" />
+
+        <TextView
+            android:id="@+id/scoreHomeTeam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin9X"
+            android:elevation="@dimen/size0X"
+            android:text="@{String.valueOf(item.goals.home)}"
+            android:textColor="#0939EA"
+            android:textSize="@dimen/size5X"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/homeTeamLogoHolder"
+            app:layout_constraintEnd_toStartOf="@id/speretor"
+            app:layout_constraintStart_toEndOf="@id/homeTeamLogoHolder"
+            app:layout_constraintTop_toTopOf="@id/homeTeamLogoHolder"
+            tools:text="0" />
+
+        <TextView
+            android:id="@+id/speretor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/size0X"
+            android:text=":"
+            android:textSize="@dimen/size4X"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/scoreHomeTeam"
+            app:layout_constraintEnd_toStartOf="@id/scoreAwayTeam"
+            app:layout_constraintStart_toEndOf="@id/scoreHomeTeam"
+            app:layout_constraintTop_toTopOf="@id/scoreHomeTeam"
+
+            />
+
+        <TextView
+            android:id="@+id/scoreAwayTeam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin9X"
+            android:elevation="@dimen/size0X"
+            android:text="@{String.valueOf(item.goals.away)}"
+            android:textColor="#0939EA"
+            android:textSize="@dimen/size5X"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/awayTeamLogoHolder"
+            app:layout_constraintEnd_toStartOf="@id/awayTeamLogoHolder"
+            app:layout_constraintStart_toEndOf="@id/speretor"
+            app:layout_constraintTop_toTopOf="@id/awayTeamLogoHolder"
+            tools:text="0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

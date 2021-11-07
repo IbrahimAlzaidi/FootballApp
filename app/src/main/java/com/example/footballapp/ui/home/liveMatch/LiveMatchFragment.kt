@@ -22,4 +22,7 @@ class LiveMatchFragment(override val arg: Int?) :
         val action = HomeFragmentDirections.actionHomeFragmentToMatchDetailsFragment(id)
         this.findNavController().navigate(action)
     }
+
+    override val leagueId: Int?
+        get() = null
 }

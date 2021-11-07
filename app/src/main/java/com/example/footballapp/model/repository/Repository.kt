@@ -12,8 +12,10 @@ import com.example.footballapp.model.response.matches.MatchesResponse
 import com.example.footballapp.model.response.playerStatistic.PlayerStatisticResponse
 import com.example.footballapp.model.response.playerTrophies.PlayerTrophiesResponse
 import com.example.footballapp.model.response.schedulerMatch.SchedulerMatchResponse
+import com.example.footballapp.model.response.squadPlayer.SquadPlayer
 import com.example.footballapp.model.response.stadiumInfo.StadiumInfoResponse
 import com.example.footballapp.model.response.standing.StandingTeamsResponse
+import com.example.footballapp.model.response.teamCurrrenMatch.CurrentTeamMatch
 import com.example.footballapp.model.response.teamInfo.TeamInformationResponse
 import com.example.footballapp.model.response.topScorers.TopScorersResponse
 import kotlinx.coroutines.flow.Flow
@@ -111,8 +113,17 @@ class Repository {
     fun searchLeague(leagueName: String): Flow<State<LeagueSearchResponse?>> =
         wrapWithFlow { Api.apiService.searchLeague(leagueName) }
 
-    fun getLatestMatchScheduled(matchCount: Int = 50,leagueId: Int?): Flow<State<MatchScheduledResponse?>> =
-        wrapWithFlow { Api.apiService.getLatestMatchScheduled(matchCount,leagueId) }
+    fun getLatestMatchScheduled(
+        matchCount: Int = 50,
+        leagueId: Int?
+    ): Flow<State<MatchScheduledResponse?>> =
+        wrapWithFlow { Api.apiService.getLatestMatchScheduled(matchCount, leagueId) }
+
+    fun getTeamPlayerInfo(teamId: Int?): Flow<State<SquadPlayer?>> =
+        wrapWithFlow { Api.apiService.getTeamPlayer(teamId) }
+
+    fun getTeamMatchPlayed(season: Int = 2021, teamId: Int? , status: String = "FT"): Flow<State<CurrentTeamMatch?>> =
+        wrapWithFlow { Api.apiService.getTeamMatchPlayed(season, teamId , status) }
 
 
     private fun <T> wrapWithFlow(function: suspend () -> Response<T>): Flow<State<T?>> = flow {

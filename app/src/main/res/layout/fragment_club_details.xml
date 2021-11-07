@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.example.footballapp.ui.clubDetails.ClubDetailsViewModel" />
@@ -12,12 +14,73 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.clubDetails.ClubDetailsFragment">
-        <TextView
+
+        <com.santalu.diagonalimageview.DiagonalImageView
+            android:id="@+id/image"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Club Details"
-            android:textSize="@dimen/size7X"
-            android:gravity="center"/>
+            android:layout_height="220dp"
+            android:scaleType="centerCrop"
+            app:ImageUrl="@{viewModel.stadiumInformation.toData().stadiumDetails.get(0).venue.image}"
+            app:di_borderColor="#A3B1F8"
+            app:di_borderEnabled="true"
+            app:di_borderSize="5dp"
+            app:di_distance="100dp"
+            app:di_end="left"
+            app:di_start="bottom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageTeam"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="138dp"
+            android:background="@drawable/rectingle"
+            android:padding="@dimen/size2X"
+            app:ImageUrl="@{viewModel.teamInformation.toData().teamInformation.team.logo}"
+            app:civ_border_color="#A3B1F8"
+            app:civ_border_width="4dp"
+            app:layout_constraintStart_toStartOf="@id/image"
+            app:layout_constraintTop_toTopOf="@id/image"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/teamName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin4X"
+            android:text="@{viewModel.teamInformation.toData().teamInformation.team.name}"
+            android:textAllCaps="true"
+            android:textSize="@dimen/size5X"
+            app:layout_constraintVertical_bias="0.7"
+            app:layout_constraintBottom_toTopOf="@id/details_ViewPager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imageTeam"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="LiverPool" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayoutFragments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin7X"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageTeam"
+            app:layout_constraintBottom_toTopOf="@id/details_ViewPager"
+            />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/details_ViewPager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tabLayoutFragments" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

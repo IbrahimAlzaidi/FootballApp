@@ -16,6 +16,7 @@ abstract class BaseFragment<VDB : ViewDataBinding, VM : BaseViewModel>(
     abstract fun setup()
     abstract fun getViewModel(): Class<VM>
     abstract val arg: Int?
+    abstract val leagueId: Int?
     private lateinit var _binding: VDB
     protected val binding: VDB
         get() = _binding
@@ -30,7 +31,7 @@ abstract class BaseFragment<VDB : ViewDataBinding, VM : BaseViewModel>(
         savedInstanceState: Bundle?
     ): View? {
         _binding = DataBindingUtil.inflate(inflater, layoutResId, container, false)
-        val factory = ViewModelFactory(arg)
+        val factory = ViewModelFactory(arg,leagueId)
         _viewModel = ViewModelProvider(this, factory).get(getViewModel())
         _binding.lifecycleOwner = viewLifecycleOwner
         setup()

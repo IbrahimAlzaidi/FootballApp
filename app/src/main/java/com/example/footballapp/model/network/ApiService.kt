@@ -10,8 +10,10 @@ import com.example.footballapp.model.response.matches.MatchesResponse
 import com.example.footballapp.model.response.playerStatistic.PlayerStatisticResponse
 import com.example.footballapp.model.response.playerTrophies.PlayerTrophiesResponse
 import com.example.footballapp.model.response.schedulerMatch.SchedulerMatchResponse
+import com.example.footballapp.model.response.squadPlayer.SquadPlayer
 import com.example.footballapp.model.response.stadiumInfo.StadiumInfoResponse
 import com.example.footballapp.model.response.standing.StandingTeamsResponse
+import com.example.footballapp.model.response.teamCurrrenMatch.CurrentTeamMatch
 import com.example.footballapp.model.response.teamInfo.TeamInformationResponse
 import com.example.footballapp.model.response.topScorers.TopScorersResponse
 import retrofit2.Response
@@ -88,4 +90,16 @@ interface ApiService {
         @Query("next") limit: Int,
         @Query("league") leagueId: Int?,
     ): Response<MatchScheduledResponse>
+
+    @GET("/v3/players/squads")
+    suspend fun getTeamPlayer(
+        @Query("team") teamId: Int?,
+    ): Response<SquadPlayer>
+
+    @GET("/v3/fixtures/")
+    suspend fun getTeamMatchPlayed(
+        @Query("season") season: Int,
+        @Query("team") teamId: Int?,
+        @Query("status") status: String,
+    ): Response<CurrentTeamMatch>
 }

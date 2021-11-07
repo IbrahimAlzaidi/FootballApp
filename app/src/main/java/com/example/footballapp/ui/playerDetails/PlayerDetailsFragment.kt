@@ -15,4 +15,7 @@ class PlayerDetailsFragment :
     override fun getViewModel() = PlayerDetailsViewModel::class.java
     override val arg: Int
         get() = args.playerId
+
+    override val leagueId: Int?
+        get() = null
 }

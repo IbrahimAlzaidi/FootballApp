@@ -24,4 +24,7 @@ class ScorersFragment(private val args: Int?): BaseFragment<FragmentScorersBindi
         val action = LeagueDetailsFragmentDirections.actionLeagueDetailsFragmentToPlayerDetailsFragment(id)
         this.findNavController().navigate(action)
     }
+
+    override val leagueId: Int?
+        get() = null
 }

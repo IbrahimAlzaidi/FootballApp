@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="com.example.footballapp.model.response.squadPlayer.Player" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/playerImage"
+            android:layout_width="70dp"
+            android:layout_height="80dp"
+            app:ImageUrl="@{item.photo}"
+            android:layout_marginTop="@dimen/margin1X"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin4X"
+            android:layout_marginEnd="@dimen/margin7X"
+            android:text="@{String.valueOf(item.number)}"
+            android:textSize="@dimen/size4X"
+            app:layout_constraintBottom_toBottomOf="@id/playerName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/playerName"
+            tools:text="19" />
+
+        <TextView
+            android:id="@+id/playerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin6X"
+            android:text="@{item.name}"
+            android:textSize="@dimen/size4X"
+            app:layout_constraintBottom_toTopOf="@id/positions"
+            app:layout_constraintStart_toEndOf="@id/playerImage"
+            app:layout_constraintTop_toTopOf="@id/playerImage"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="MOHAMED" />
+
+        <TextView
+            android:id="@+id/positions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{item.position}"
+            android:textSize="@dimen/size2X"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/playerName"
+            app:layout_constraintTop_toBottomOf="@id/playerName"
+            tools:text="Hello Mama" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

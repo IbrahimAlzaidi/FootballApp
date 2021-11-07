@@ -45,6 +45,9 @@
         <argument
             android:name="teamId"
             app:argType="integer" />
+        <argument
+            android:name="leagueId"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/matchDetailsFragment"

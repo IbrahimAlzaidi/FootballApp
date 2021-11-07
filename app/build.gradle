@@ -81,5 +81,11 @@ dependencies {
     //lottie implementation
     implementation 'com.airbnb.android:lottie:4.2.0'
 
+    //Shapes for image View
+    implementation 'com.mikhaellopez:circularimageview:3.0.2'
+
+    //diagonal Image View
+    implementation 'com.github.santalu:diagonal-imageview:1.1.1'
+
 
 }

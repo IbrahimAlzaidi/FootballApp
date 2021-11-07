@@ -68,4 +68,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
 
     override val arg: Int?
         get() = null
+    override val leagueId: Int?
+        get() = null
 }
