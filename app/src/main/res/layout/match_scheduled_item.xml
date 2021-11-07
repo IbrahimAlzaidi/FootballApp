@@ -153,7 +153,7 @@
             app:layout_constraintEnd_toStartOf="@id/speretor"
             app:layout_constraintStart_toEndOf="@id/homeTeamLogoHolder"
             app:layout_constraintTop_toTopOf="@id/homeTeamLogoHolder"
-            android:text="-" />
+            android:text="@{String.valueOf(item.goals.home)}" />
 
         <TextView
             android:id="@+id/speretor"
@@ -183,7 +183,7 @@
             app:layout_constraintEnd_toStartOf="@id/awayTeamLogoHolder"
             app:layout_constraintStart_toEndOf="@id/speretor"
             app:layout_constraintTop_toTopOf="@id/awayTeamLogoHolder"
-            android:text="-" />
+            android:text="@{String.valueOf(item.goals.away)}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
