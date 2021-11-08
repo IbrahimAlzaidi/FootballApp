@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin4X"
             android:layout_marginTop="@dimen/margin2X"
-            android:elevation="@dimen/size0X"
+            android:elevation="@dimen/elevation0X"
             android:text="Leagues :"
             android:textSize="@dimen/size4X"
             android:textStyle="bold"
@@ -32,7 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="170dp"
             android:layout_margin="@dimen/margin3X"
-            app:cardCornerRadius="@dimen/size1X"
+            app:cardCornerRadius="@dimen/margin1X"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -42,7 +42,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
-                android:paddingTop="39dp"
+                android:paddingTop="40dp"
                 app:items="@{viewModel.leaguesInfo.toData().leaguesDetails}"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/item_leagues" />

@@ -25,7 +25,7 @@
             android:gravity="center"
             android:paddingStart="@dimen/margin4X"
             android:text="@{String.valueOf(item.homeValue != null ? item.homeValue : 0)}"
-            android:textSize="18sp"
+            android:textSize="@dimen/size3X"
             tools:text="30" />
 
         <TextView
@@ -35,7 +35,7 @@
             android:gravity="center"
             android:layout_weight="2"
             android:text="@{item.type}"
-            android:textSize="18sp"
+            android:textSize="@dimen/size4X"
             tools:text="shot" />
 
         <TextView
@@ -45,9 +45,10 @@
             android:layout_weight="1"
             android:paddingEnd="@dimen/margin4X"
             android:gravity="center"
-            android:textSize="18sp"
+            android:textSize="@dimen/size3X"
             android:text="@{String.valueOf(item.awayValue != null ? item.awayValue : 0)}"
-            tools:text="30" />
+            tools:text="30"
+            tools:ignore="RtlSymmetry" />
 
     </LinearLayout>
 </layout>

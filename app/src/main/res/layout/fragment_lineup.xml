@@ -32,15 +32,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Manger"
-            android:textSize="20sp"
+            android:textSize="@dimen/size4X"
             android:layout_marginHorizontal="@dimen/margin1X"
             app:layout_constraintVertical_bias="1"
             app:layout_constraintBottom_toBottomOf="@id/lineupRecyclerView"
             app:layout_constraintTop_toTopOf="@id/lineupRecyclerView"
-            app:layout_constraintStart_toEndOf="@id/devider"
-            app:layout_constraintEnd_toStartOf="@id/devider1"/>
+            app:layout_constraintStart_toEndOf="@id/divider"
+            app:layout_constraintEnd_toStartOf="@id/divider1"/>
         <View
-            android:id="@+id/devider"
+            android:id="@+id/divider"
             android:layout_width="0dp"
             android:layout_height="2dp"
             android:background="@color/black"
@@ -51,7 +51,7 @@
 
             />
         <View
-            android:id="@+id/devider1"
+            android:id="@+id/divider1"
             android:layout_width="0dp"
             android:layout_height="2dp"
             android:background="@color/black"
@@ -68,8 +68,8 @@
             android:textSize="18sp"
             android:text="@{viewModel.match.get(0).coachHomeTeam}"
             android:layout_margin="@dimen/margin2X"
-            app:layout_constraintTop_toBottomOf="@id/devider"
-            app:layout_constraintStart_toStartOf="@id/devider"/>
+            app:layout_constraintTop_toBottomOf="@id/divider"
+            app:layout_constraintStart_toStartOf="@id/divider"/>
         <TextView
             android:id="@+id/awayTeamManger"
             android:layout_width="wrap_content"
@@ -77,9 +77,9 @@
             tools:text="HomeManger"
             android:textSize="18sp"
             android:text="@{viewModel.match.get(0).coachAwayTeam}"
-            android:layout_margin="12sp"
-            app:layout_constraintEnd_toEndOf="@id/devider1"
-            app:layout_constraintTop_toBottomOf="@id/devider1" />
+            android:layout_margin="@dimen/margin2X"
+            app:layout_constraintEnd_toEndOf="@id/divider1"
+            app:layout_constraintTop_toBottomOf="@id/divider1" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
