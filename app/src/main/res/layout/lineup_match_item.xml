@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.example.footballapp.model.response.lineup.DataPlayer" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/margin1X">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:text="@{String.valueOf(item.numberHomeTeam)}"
+            android:textSize="@dimen/size3X"
+            tools:text="1" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="start"
+            android:textColor="@color/black"
+            android:text="@{item.playerHomeTeam}"
+            android:textSize="@dimen/size4X"
+            tools:text="Ronaldo" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="end"
+            android:textColor="@color/black"
+            android:text="@{item.playerAwayTeam}"
+            android:textSize="@dimen/size4X"
+            tools:text="Ronaldo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:text="@{String.valueOf(item.numberAwayTeam)}"
+            android:textSize="@dimen/size3X"
+            tools:text="1" />
+    </LinearLayout>
+</layout>

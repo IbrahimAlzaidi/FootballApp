@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.example.footballapp.model.response.matchStatistic.MatchResultData" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/margin3X">
+
+        <TextView
+            android:id="@+id/home_team_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingStart="@dimen/margin4X"
+            android:text="@{String.valueOf(item.homeValue != null ? item.homeValue : 0)}"
+            android:textSize="@dimen/size3X"
+            tools:text="30" />
+
+        <TextView
+            android:id="@+id/stats_type"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="2"
+            android:text="@{item.type}"
+            android:textSize="@dimen/size4X"
+            tools:text="shot" />
+
+        <TextView
+            android:id="@+id/away_team_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingEnd="@dimen/margin4X"
+            android:gravity="center"
+            android:textSize="@dimen/size3X"
+            android:text="@{String.valueOf(item.awayValue != null ? item.awayValue : 0)}"
+            tools:text="30"
+            tools:ignore="RtlSymmetry" />
+
+    </LinearLayout>
+</layout>

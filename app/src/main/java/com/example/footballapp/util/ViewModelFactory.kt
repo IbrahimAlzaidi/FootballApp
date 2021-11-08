@@ -15,6 +15,9 @@ import com.example.footballapp.ui.leagueDetails.matches.MatchesViewModel
 import com.example.footballapp.ui.playerDetails.PlayerDetailsViewModel
 import com.example.footballapp.ui.leagueDetails.scorers.ScorersViewModel
 import com.example.footballapp.ui.leagueDetails.standing.StandingViewModel
+import com.example.footballapp.ui.matchDetails.lineup.LineupViewModel
+import com.example.footballapp.ui.matchDetails.matchState.MatchStateViewModel
+import com.example.footballapp.ui.matchDetails.substitutes.SubstitutesViewModel
 import com.example.footballapp.ui.search.SearchViewModel
 import java.lang.IllegalArgumentException
 
@@ -35,6 +38,9 @@ class ViewModelFactory(private val arg: Int? , private val leagueId : Int?): Vie
             modelClass.isAssignableFrom(ClubInformationViewModel::class.java) -> ClubInformationViewModel(arg,leagueId) as T
             modelClass.isAssignableFrom(SquadInfoViewModel::class.java) -> SquadInfoViewModel(arg) as T
             modelClass.isAssignableFrom(ClubMatchPlayedViewModel::class.java)->ClubMatchPlayedViewModel(arg) as T
+            modelClass.isAssignableFrom(MatchStateViewModel::class.java)->MatchStateViewModel(arg) as T
+            modelClass.isAssignableFrom(LineupViewModel::class.java)->LineupViewModel(arg) as T
+            modelClass.isAssignableFrom(SubstitutesViewModel::class.java)->SubstitutesViewModel(arg) as T
             else -> throw IllegalArgumentException("View Model Class Not Found")
         }
     }

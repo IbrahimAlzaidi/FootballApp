@@ -21,4 +21,12 @@
     <dimen name="size5X">24sp</dimen>
     <dimen name="size6X">32sp</dimen>
     <dimen name="size7X">48sp</dimen>
+
+    // margin and padding dimensions
+    <dimen name="elevation0X">4dp</dimen>
+    <dimen name="elevation1X">8dp</dimen>
+    <dimen name="elevation2X">12dp</dimen>
+    <dimen name="elevation3X">16dp</dimen>
+    <dimen name="elevation4X">20dp</dimen>
+
 </resources>

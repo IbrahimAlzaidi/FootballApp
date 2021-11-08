@@ -39,7 +39,7 @@
             android:layout_marginStart="28dp"
             android:layout_marginTop="138dp"
             android:background="@drawable/rectingle"
-            android:padding="@dimen/size2X"
+            android:padding="@dimen/margin2X"
             app:ImageUrl="@{viewModel.teamInformation.toData().teamInformation.team.logo}"
             app:civ_border_color="#A3B1F8"
             app:civ_border_width="4dp"

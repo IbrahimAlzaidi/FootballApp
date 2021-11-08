@@ -21,7 +21,7 @@
         android:onClick="@{()-> listener.onClickItem(item.player.id)}">
 
         <View
-            android:id="@+id/devider"
+            android:id="@+id/divider"
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:background="#000000"

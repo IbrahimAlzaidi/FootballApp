@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.footballapp.ui.matchDetails.lineup.LineupViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.matchDetails.lineup.LineupFragment">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/lineupRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:orientation="vertical"
+            app:items="@{viewModel.match}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/lineup_match_item" />
+
+        <TextView
+            android:id="@+id/titleManger"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Manger"
+            android:textSize="@dimen/size4X"
+            android:layout_marginHorizontal="@dimen/margin1X"
+            app:layout_constraintVertical_bias="1"
+            app:layout_constraintBottom_toBottomOf="@id/lineupRecyclerView"
+            app:layout_constraintTop_toTopOf="@id/lineupRecyclerView"
+            app:layout_constraintStart_toEndOf="@id/divider"
+            app:layout_constraintEnd_toStartOf="@id/divider1"/>
+        <View
+            android:id="@+id/divider"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:background="@color/black"
+            app:layout_constraintBottom_toBottomOf="@id/titleManger"
+            app:layout_constraintEnd_toStartOf="@id/titleManger"
+            app:layout_constraintStart_toStartOf="@id/lineupRecyclerView"
+            app:layout_constraintTop_toTopOf="@id/titleManger"
+
+            />
+        <View
+            android:id="@+id/divider1"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:background="@color/black"
+            app:layout_constraintEnd_toEndOf="@id/lineupRecyclerView"
+            app:layout_constraintBottom_toBottomOf="@id/titleManger"
+            app:layout_constraintStart_toEndOf="@id/titleManger"
+            app:layout_constraintTop_toTopOf="@id/titleManger"
+            />
+        <TextView
+            android:id="@+id/homeTeamManger"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="HomeManger"
+            android:textSize="18sp"
+            android:text="@{viewModel.match.get(0).coachHomeTeam}"
+            android:layout_margin="@dimen/margin2X"
+            app:layout_constraintTop_toBottomOf="@id/divider"
+            app:layout_constraintStart_toStartOf="@id/divider"/>
+        <TextView
+            android:id="@+id/awayTeamManger"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="HomeManger"
+            android:textSize="18sp"
+            android:text="@{viewModel.match.get(0).coachAwayTeam}"
+            android:layout_margin="@dimen/margin2X"
+            app:layout_constraintEnd_toEndOf="@id/divider1"
+            app:layout_constraintTop_toBottomOf="@id/divider1" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

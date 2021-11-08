@@ -55,7 +55,7 @@
             app:showWhenSuccess="@{viewModel.topScorers}" />
 
         <TextView
-            android:id="@+id/goalss"
+            android:id="@+id/goalsTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/margin4X"

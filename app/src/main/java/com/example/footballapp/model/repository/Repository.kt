@@ -2,6 +2,7 @@ package com.example.footballapp.model.repository
 
 import com.example.footballapp.model.network.State
 import com.example.footballapp.model.network.Api
+import com.example.footballapp.model.response.fixtureAllData.FixtureAllData
 import com.example.footballapp.model.response.matchScheduled.MatchScheduledResponse
 import com.example.footballapp.model.response.leagueSearch.LeagueSearchResponse
 import com.example.footballapp.model.response.leagues.LeaguesResponse
@@ -124,6 +125,9 @@ class Repository {
 
     fun getTeamMatchPlayed(season: Int = 2021, teamId: Int? , status: String = "FT"): Flow<State<CurrentTeamMatchResponse?>> =
         wrapWithFlow { Api.apiService.getTeamMatchPlayed(season, teamId , status) }
+
+    fun getAllMatchData(matchId: Int?): Flow<State<FixtureAllData?>> =
+        wrapWithFlow { Api.apiService.getAllMatchDetails(matchId) }
 
 
     private fun <T> wrapWithFlow(function: suspend () -> Response<T>): Flow<State<T?>> = flow {
