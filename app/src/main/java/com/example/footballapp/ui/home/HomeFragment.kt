@@ -1,6 +1,5 @@
 package com.example.footballapp.ui.home
 
-import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.example.footballapp.R
@@ -8,10 +7,7 @@ import com.example.footballapp.databinding.FragmentHomeBinding
 import com.example.footballapp.ui.base.BaseFragment
 import com.example.footballapp.ui.home.allMatchScheduled.AllMatchScheduledFragment
 import com.example.footballapp.ui.home.liveMatch.LiveMatchFragment
-import com.example.footballapp.util.FootballViewPager
 import com.example.footballapp.util.OnClickListener
-import com.example.footballapp.util.ViewPagerTransitions
-import com.google.android.material.tabs.TabLayoutMediator
 
 
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.fragment_home),
@@ -19,44 +15,27 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
     override fun getViewModel() = HomeViewModel::class.java
 
     private val fragmentTitles = listOf("Live", "Match Scheduled")
-    private val fragmentsList: List<Fragment> =
-        listOf(LiveMatchFragment(null), AllMatchScheduledFragment(null))
 
     override fun setup() {
+        val fragmentsList = listOf(LiveMatchFragment(null), AllMatchScheduledFragment(null))
         binding.viewModel = viewModel
+        val viewPager = binding.homeViewPager
+        val tabLayout = binding.homeTabLayoutFragments
         val leaguesAdapter = LeaguesAdapter(mutableListOf(), this)
         binding.recycleView.adapter = leaguesAdapter
-        initViewPager()
-        initTabLayout()
+        initViewPager(fragmentsList, viewPager)
+        initTabLayout(viewPager, tabLayout, fragmentTitles)
         searchNavigation()
     }
 
-    private fun initViewPager() {
-        val standingPagerAdapterView =
-            FootballViewPager(this.requireActivity(), fragmentsList)
-        binding.homeViewPager.apply {
-            adapter = standingPagerAdapterView
-            setPageTransformer(ViewPagerTransitions())
-        }
-    }
-
-    private fun initTabLayout() {
-        TabLayoutMediator(
-            binding.homeTabLayoutFragments,
-            binding.homeViewPager
-        ) { tap, positions ->
-            tap.text = fragmentTitles[positions]
-        }.attach()
-    }
-
-    fun searchNavigation(){
+    private fun searchNavigation() {
         binding.searchBar.setOnFocusChangeListener { _, isFocused ->
             if (isFocused) {
                 val action = HomeFragmentDirections.actionHomeFragmentToSearchFragment()
                 val extras = FragmentNavigatorExtras(
                     binding.searchBar to getString(R.string.searchTransition)
                 )
-                findNavController().navigate(action,extras)
+                findNavController().navigate(action, extras)
             }
         }
     }

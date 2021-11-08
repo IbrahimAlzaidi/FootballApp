@@ -1,56 +1,34 @@
 package com.example.footballapp.ui.clubDetails
 
-import android.annotation.SuppressLint
-import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.example.footballapp.R
 import com.example.footballapp.databinding.FragmentClubDetailsBinding
 import com.example.footballapp.ui.base.BaseFragment
-import com.example.footballapp.ui.clubDetails.clubMatch.ClubMatchPlayedFragment
 import com.example.footballapp.ui.clubDetails.clubInfo.ClubInformationFragment
+import com.example.footballapp.ui.clubDetails.clubMatch.ClubMatchPlayedFragment
 import com.example.footballapp.ui.clubDetails.squadInfo.SquadInfoFragment
-import com.example.footballapp.util.FootballViewPager
-import com.example.footballapp.util.ViewPagerTransitions
-import com.google.android.material.tabs.TabLayoutMediator
 
 class ClubDetailsFragment :
     BaseFragment<FragmentClubDetailsBinding, ClubDetailsViewModel>(R.layout.fragment_club_details) {
 
     private val args: ClubDetailsFragmentArgs by navArgs()
 
-    private lateinit var fragmentsList: List<Fragment>
     private val fragmentTitles = listOf("Team Information", "Squad Member", "Latest Match")
-    private var leagueID: Int? = null
-    private var teamID: Int? = null
+
     override fun setup() {
-        leagueID = args.leagueId
-        teamID = args.teamId
+        val leagueID = args.leagueId
+        val teamID = args.teamId
         binding.viewModel = viewModel
-        fragmentsList =
+        val viewPager = binding.detailsViewPager
+        val tabLayout = binding.tabLayoutFragments
+        val fragmentsList =
             listOf(
-                ClubInformationFragment(teamId = teamID,leagueID = leagueID),
+                ClubInformationFragment(teamID, leagueID),
                 SquadInfoFragment(teamID),
                 ClubMatchPlayedFragment(teamID)
             )
-        initViewPager(fragmentsList)
-        initTabLayout()
-    }
-
-    @SuppressLint("RestrictedApi")
-    private fun initViewPager(fragmentsList: List<Fragment>) {
-        val standingPagerAdapterView = FootballViewPager(this.requireActivity(), fragmentsList)
-        binding.detailsViewPager.apply {
-            adapter = standingPagerAdapterView
-            setPageTransformer(ViewPagerTransitions())
-        }
-    }
-    private fun initTabLayout() {
-        TabLayoutMediator(
-            binding.tabLayoutFragments,
-            binding.detailsViewPager
-        ) { tap, positions ->
-            tap.text = fragmentTitles[positions]
-        }.attach()
+        initViewPager(fragmentsList, viewPager)
+        initTabLayout(viewPager, tabLayout, fragmentTitles)
     }
 
     override fun getViewModel() = ClubDetailsViewModel::class.java
