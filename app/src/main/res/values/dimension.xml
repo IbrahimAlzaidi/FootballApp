@@ -22,7 +22,7 @@
     <dimen name="size6X">32sp</dimen>
     <dimen name="size7X">48sp</dimen>
 
-    // margin and padding dimensions
+    // elevation dimensions
     <dimen name="elevation0X">4dp</dimen>
     <dimen name="elevation1X">8dp</dimen>
     <dimen name="elevation2X">12dp</dimen>
