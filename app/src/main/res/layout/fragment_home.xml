@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.example.footballapp.ui.home.HomeViewModel" />
@@ -20,7 +21,7 @@
             android:layout_marginStart="@dimen/margin4X"
             android:layout_marginTop="@dimen/margin2X"
             android:elevation="@dimen/elevation0X"
-            android:text="Leagues :"
+            android:text="@string/leagues"
             android:textSize="@dimen/size4X"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@id/cardView"
@@ -50,13 +51,31 @@
         </androidx.cardview.widget.CardView>
 
         <EditText
-            android:id="@+id/search_bar"
+            android:id="@+id/edit_text"
             style="@style/SearchBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin3X"
+            android:importantForAutofill="no"
+            android:inputType="text"
             android:transitionName="@string/searchTransition"
             app:layout_constraintTop_toBottomOf="@id/cardView"
-            app:showWhenSuccess="@{viewModel.leaguesInfo}" />
+            app:showWhenSuccess="@{viewModel.leaguesInfo}"
+            tools:ignore="LabelFor" />
+
+        <ImageView
+            android:id="@+id/clear_text_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:elevation="1dp"
+            android:src="@drawable/ic_baseline_close_24"
+            android:transitionName="@string/closeTransition"
+            app:layout_constraintBottom_toBottomOf="@+id/edit_text"
+            app:layout_constraintEnd_toEndOf="@+id/edit_text"
+            app:layout_constraintTop_toTopOf="@+id/edit_text"
+            app:showWhenSuccess="@{viewModel.leaguesInfo}"
+            tools:ignore="ContentDescription" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/homeTabLayoutFragments"
@@ -65,7 +84,7 @@
             app:layout_constraintBottom_toTopOf="@id/homeViewPager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/search_bar"
+            app:layout_constraintTop_toBottomOf="@id/edit_text"
             app:showWhenSuccess="@{viewModel.leaguesInfo}" />
 
         <androidx.viewpager2.widget.ViewPager2
@@ -96,8 +115,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:lottie_rawRes="@raw/no_connection"
             app:lottie_autoPlay="true"
+            app:lottie_rawRes="@raw/no_connection"
             app:showWhenError="@{viewModel.leaguesInfo}" />
 
 

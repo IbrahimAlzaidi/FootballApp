@@ -8,4 +8,6 @@
     <string name="team_information">Team Information</string>
     <string name="venue_information">Venue Information</string>
     <string name="manger">Manger</string>
+    <string name="closeTransition">close_transition</string>
+    <string name="leagues">Leagues :</string>
 </resources>

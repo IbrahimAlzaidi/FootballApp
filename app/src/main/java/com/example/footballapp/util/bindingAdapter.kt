@@ -22,7 +22,7 @@ fun <T> showWhenLoading(view: View, state: State<T>?) {
 
 @BindingAdapter(value = ["app:showWhenError"])
 fun <T> showWhenError(view: View, state: State<T>?) {
-    if (state is State.Error){
+    if (state is State.Error) {
         view.visibility = View.VISIBLE
     } else {
         view.visibility = View.GONE
@@ -38,23 +38,36 @@ fun <T> showWhenSuccess(view: View, state: State<T>?) {
     }
 }
 
+@BindingAdapter(value = ["app:showWhenSearch"])
+fun <T> showWhenSearch(view: View, state: State<T>?) {
+    if (state is State.Success || state is State.Loading || state is State.Error) {
+        view.visibility = View.GONE
+    } else {
+        view.visibility = View.VISIBLE
+    }
+}
+
 @BindingAdapter(value = ["app:ImageUrl"])
 fun imageUrl(view: ImageView, url: String?) {
-    GlideApp.with(view)
-        .load(url)
-        .placeholder(R.drawable.ic_baseline_cloud_download_24)
-        .error(R.drawable.ic_baseline_error_outline_24)
-        .into(view)
+    if (url != null) {
+        GlideApp.with(view)
+            .load(url)
+            .placeholder(R.drawable.ic_baseline_cloud_download_24)
+            .error(R.drawable.ic_baseline_error_outline_24)
+            .into(view)
+    }
 }
 
 @BindingAdapter(value = ["app:ImageUrlTeam"])
 fun imageUrlTeam(view: ImageView, urlTeam: TopScorersInfo?) {
     val url = urlTeam?.statistics?.joinToString { it.team?.logo.toString() }
-    GlideApp.with(view)
-        .load(url)
-        .placeholder(R.drawable.ic_baseline_cloud_download_24)
-        .error(R.drawable.ic_baseline_error_outline_24)
-        .into(view)
+    if (url != null) {
+        GlideApp.with(view)
+            .load(url)
+            .placeholder(R.drawable.ic_baseline_cloud_download_24)
+            .error(R.drawable.ic_baseline_error_outline_24)
+            .into(view)
+    }
 }
 
 @BindingAdapter(value = ["app:items"])
@@ -77,19 +90,19 @@ fun setTimeName(view: TextView, text: TopScorersInfo) {
 }
 
 @BindingAdapter(value = ["app:textNotNull"])
-fun setTextNotNull(view: TextView, text: String?){
-    if (text == null || text == ""){
+fun setTextNotNull(view: TextView, text: String?) {
+    if (text == null || text == "") {
         view.text = "0"
-    }else{
+    } else {
         view.text = text
     }
 }
 
 @BindingAdapter(value = ["app:textNotNullType"])
-fun setTextTypeNotNull(view: TextView, text: String?){
-    if (text == null || text == ""){
+fun setTextTypeNotNull(view: TextView, text: String?) {
+    if (text == null || text == "") {
         view.text = "No Result"
-    }else{
+    } else {
         view.text = text
     }
 }

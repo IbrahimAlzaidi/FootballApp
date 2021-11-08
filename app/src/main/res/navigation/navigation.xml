@@ -78,6 +78,7 @@
         android:label="SearchFragment" >
         <action
             android:id="@+id/action_searchFragment_to_leagueDetailsFragment"
-            app:destination="@id/leagueDetailsFragment" />
+            app:destination="@id/leagueDetailsFragment"
+            app:popUpTo="@id/homeFragment" />
     </fragment>
 </navigation>

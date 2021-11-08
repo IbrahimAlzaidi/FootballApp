@@ -29,11 +29,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
     }
 
     private fun searchNavigation() {
-        binding.searchBar.setOnFocusChangeListener { _, isFocused ->
+        binding.editText.setOnFocusChangeListener { _, isFocused ->
             if (isFocused) {
                 val action = HomeFragmentDirections.actionHomeFragmentToSearchFragment()
                 val extras = FragmentNavigatorExtras(
-                    binding.searchBar to getString(R.string.searchTransition)
+                    binding.editText to getString(R.string.searchTransition),
+                    binding.clearTextImage to getString(R.string.closeTransition),
                 )
                 findNavController().navigate(action, extras)
             }
