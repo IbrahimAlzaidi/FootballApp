@@ -1,34 +1,8 @@
 package com.example.footballapp.ui.leagueDetails.standing
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.viewModelScope
-import com.example.footballapp.model.network.State
-import com.example.footballapp.model.response.standing.Standing
+import androidx.lifecycle.asLiveData
 import com.example.footballapp.ui.base.BaseViewModel
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
 
 class StandingViewModel(arg: Int?) : BaseViewModel() {
-    private val _standingTeam = MutableLiveData<List<Standing>>()
-    val standingTeam: LiveData<List<Standing>> = _standingTeam
-    init {
-        getData(arg)
-    }
-
-    private fun getData(arg: Int?) {
-        viewModelScope.launch {
-            arg?.let { args ->
-                repository.getStandingTeams(leagueId = args).collect { response ->
-                    if (response is State.Success) {
-                        response.toData()?.standingTeamsInfo?.map { standing ->
-                            standing.league?.standings?.map { it ->
-                                _standingTeam.postValue(it.sortedBy { it.rank })
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
+    val standingTeam = arg?.let { repository.getStandingTeams(leagueId = it).asLiveData() }
 }

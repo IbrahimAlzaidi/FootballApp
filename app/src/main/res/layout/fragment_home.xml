@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="viewModel"
             type="com.example.footballapp.ui.home.HomeViewModel" />
@@ -25,7 +24,8 @@
             android:textSize="@dimen/size4X"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@id/cardView"
-            app:layout_constraintTop_toTopOf="@id/cardView" />
+            app:layout_constraintTop_toTopOf="@id/cardView"
+            app:showWhenSuccess="@{viewModel.leaguesInfo}" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
@@ -35,7 +35,8 @@
             app:cardCornerRadius="@dimen/size1X"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:showWhenSuccess="@{viewModel.leaguesInfo}">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycle_view"
@@ -54,7 +55,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:transitionName="@string/searchTransition"
-            app:layout_constraintTop_toBottomOf="@id/cardView" />
+            app:layout_constraintTop_toBottomOf="@id/cardView"
+            app:showWhenSuccess="@{viewModel.leaguesInfo}" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/homeTabLayoutFragments"
@@ -63,7 +65,8 @@
             app:layout_constraintBottom_toTopOf="@id/homeViewPager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/search_bar" />
+            app:layout_constraintTop_toBottomOf="@id/search_bar"
+            app:showWhenSuccess="@{viewModel.leaguesInfo}" />
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/homeViewPager"
@@ -72,7 +75,30 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/homeTabLayoutFragments" />
+            app:layout_constraintTop_toBottomOf="@id/homeTabLayoutFragments"
+            app:showWhenSuccess="@{viewModel.leaguesInfo}" />
+
+        <ProgressBar
+            android:id="@+id/loading_progress"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:showWhenLoading="@{viewModel.leaguesInfo}" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottie_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_rawRes="@raw/no_connection"
+            app:lottie_autoPlay="true"
+            app:showWhenError="@{viewModel.leaguesInfo}" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

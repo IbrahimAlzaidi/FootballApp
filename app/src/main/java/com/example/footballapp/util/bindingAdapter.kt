@@ -11,20 +11,32 @@ import com.example.footballapp.model.response.topScorers.TopScorersInfo
 import com.example.footballapp.ui.base.BaseAdapter
 import com.github.twocoffeesoneteam.glidetovectoryou.GlideApp
 
-@BindingAdapter(value = ["app:whenError"])
-fun <T> showWhenError(view: View, state: State<T>?) =
-    if (state is State.Error) view.visibility = View.VISIBLE
-    else view.visibility = View.GONE
+@BindingAdapter(value = ["app:showWhenLoading"])
+fun <T> showWhenLoading(view: View, state: State<T>?) {
+    if (state is State.Loading) {
+        view.visibility = View.VISIBLE
+    } else {
+        view.visibility = View.GONE
+    }
+}
 
-@BindingAdapter(value = ["app:whenLoading"])
-fun <T> showWhenLoading(view: View, state: State<T>?) =
-    if (state is State.Error) view.visibility = View.VISIBLE
-    else view.visibility = View.GONE
+@BindingAdapter(value = ["app:showWhenError"])
+fun <T> showWhenError(view: View, state: State<T>?) {
+    if (state is State.Error){
+        view.visibility = View.VISIBLE
+    } else {
+        view.visibility = View.GONE
+    }
+}
 
-@BindingAdapter(value = ["app:whenSuccess"])
-fun <T> showWhenSuccess(view: View, state: State<T>?) =
-    if (state is State.Error) view.visibility = View.VISIBLE
-    else view.visibility = View.GONE
+@BindingAdapter(value = ["app:showWhenSuccess"])
+fun <T> showWhenSuccess(view: View, state: State<T>?) {
+    if (state is State.Success) {
+        view.visibility = View.VISIBLE
+    } else {
+        view.visibility = View.GONE
+    }
+}
 
 @BindingAdapter(value = ["app:ImageUrl"])
 fun imageUrl(view: ImageView, url: String?) {

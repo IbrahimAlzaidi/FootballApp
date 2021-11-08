@@ -128,14 +128,15 @@ class Repository {
 
     private fun <T> wrapWithFlow(function: suspend () -> Response<T>): Flow<State<T?>> = flow {
         emit(State.Loading)
-        emit(check(function()))
-    }
-
-    private fun <T> check(response: Response<T>): State<T?> =
         try {
-            if (response.isSuccessful) State.Success(response.body())
-            else State.Error(response.message())
+            val result = function()
+            if (result.isSuccessful){
+                emit(State.Success(result.body()))
+            } else{
+                emit(State.Error(result.message()))
+            }
         } catch (e: Exception) {
-            State.Error(e.message.toString())
+            emit(State.Error(e.message.toString()))
         }
+    }
 }

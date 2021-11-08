@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.example.footballapp.ui.leagueDetails.scorers.ScorersViewModel" />
@@ -24,7 +25,8 @@
             android:background="@drawable/club_layout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:showWhenSuccess="@{viewModel.topScorers}" />
 
         <TextView
             android:id="@+id/goals"
@@ -36,7 +38,8 @@
             android:textSize="@dimen/size5X"
             app:layout_constraintBottom_toTopOf="@id/player"
             app:layout_constraintStart_toStartOf="@id/view"
-            app:layout_constraintTop_toTopOf="@id/view" />
+            app:layout_constraintTop_toTopOf="@id/view"
+            app:showWhenSuccess="@{viewModel.topScorers}" />
 
         <TextView
             android:id="@+id/player"
@@ -48,7 +51,8 @@
             app:layout_constraintBottom_toBottomOf="@id/view"
             app:layout_constraintEnd_toEndOf="@id/goals"
             app:layout_constraintStart_toStartOf="@id/goals"
-            app:layout_constraintTop_toBottomOf="@id/goals" />
+            app:layout_constraintTop_toBottomOf="@id/goals"
+            app:showWhenSuccess="@{viewModel.topScorers}" />
 
         <TextView
             android:id="@+id/goalss"
@@ -60,7 +64,8 @@
             android:textSize="@dimen/size3X"
             app:layout_constraintBottom_toBottomOf="@id/player"
             app:layout_constraintEnd_toEndOf="@id/view"
-            app:layout_constraintTop_toTopOf="@id/player" />
+            app:layout_constraintTop_toTopOf="@id/player"
+            app:showWhenSuccess="@{viewModel.topScorers}" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/topScoreRecycler"
@@ -74,7 +79,30 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view"
+            app:showWhenSuccess="@{viewModel.topScorers}"
             tools:listitem="@layout/top_score_item" />
+
+        <ProgressBar
+            android:id="@+id/loading_progress"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:showWhenLoading="@{viewModel.topScorers}" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottie_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_rawRes="@raw/no_connection"
+            app:showWhenError="@{viewModel.topScorers}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

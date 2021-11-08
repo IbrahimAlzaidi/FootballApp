@@ -25,7 +25,8 @@
             app:layout_constraintBottom_toTopOf="@id/leagueRecycler"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:showWhenSuccess="@{viewModel.standingTeam}" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -36,7 +37,8 @@
             android:textSize="@dimen/size3X"
             app:layout_constraintBottom_toBottomOf="@id/view"
             app:layout_constraintStart_toStartOf="@id/view"
-            app:layout_constraintTop_toTopOf="@id/view" />
+            app:layout_constraintTop_toTopOf="@id/view"
+            app:showWhenSuccess="@{viewModel.standingTeam}" />
 
         <TextView
             android:id="@+id/matchPoint"
@@ -50,7 +52,8 @@
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@id/allPoints"
             app:layout_constraintEnd_toStartOf="@id/winPoints"
-            app:layout_constraintTop_toTopOf="@id/allPoints" />
+            app:layout_constraintTop_toTopOf="@id/allPoints"
+            app:showWhenSuccess="@{viewModel.standingTeam}" />
 
         <TextView
             android:id="@+id/winPoints"
@@ -63,7 +66,8 @@
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@id/allPoints"
             app:layout_constraintEnd_toStartOf="@id/drawPoint"
-            app:layout_constraintTop_toTopOf="@id/allPoints" />
+            app:layout_constraintTop_toTopOf="@id/allPoints"
+            app:showWhenSuccess="@{viewModel.standingTeam}" />
 
         <TextView
             android:id="@+id/drawPoint"
@@ -77,7 +81,8 @@
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@id/allPoints"
             app:layout_constraintEnd_toStartOf="@id/losePoint"
-            app:layout_constraintTop_toTopOf="@id/allPoints" />
+            app:layout_constraintTop_toTopOf="@id/allPoints"
+            app:showWhenSuccess="@{viewModel.standingTeam}" />
 
         <TextView
             android:id="@+id/losePoint"
@@ -91,7 +96,8 @@
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@id/allPoints"
             app:layout_constraintEnd_toStartOf="@id/allPoints"
-            app:layout_constraintTop_toTopOf="@id/allPoints" />
+            app:layout_constraintTop_toTopOf="@id/allPoints"
+            app:showWhenSuccess="@{viewModel.standingTeam}" />
 
         <TextView
             android:id="@+id/allPoints"
@@ -104,7 +110,8 @@
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@id/view"
             app:layout_constraintEnd_toEndOf="@id/view"
-            app:layout_constraintTop_toTopOf="@id/view" />
+            app:layout_constraintTop_toTopOf="@id/view"
+            app:showWhenSuccess="@{viewModel.standingTeam}" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/leagueRecycler"
@@ -112,13 +119,36 @@
             android:layout_height="0dp"
             android:layout_marginHorizontal="@dimen/margin0X"
             android:orientation="vertical"
-            app:items="@{viewModel.standingTeam}"
+            app:items="@{viewModel.standingTeam.toData().standingTeamsInfo.get(0).league.standings.get(0)}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/view"
+            app:showWhenSuccess="@{viewModel.standingTeam}"
             tools:listitem="@layout/teams_standing_item" />
+
+        <ProgressBar
+            android:id="@+id/loading_progress"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:showWhenLoading="@{viewModel.standingTeam}" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottie_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_rawRes="@raw/no_connection"
+            app:showWhenError="@{viewModel.standingTeam}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

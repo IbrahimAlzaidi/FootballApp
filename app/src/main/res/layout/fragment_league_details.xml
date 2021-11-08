@@ -21,9 +21,10 @@
             android:layout_height="150dp"
             android:layout_marginStart="@dimen/size3X"
             android:elevation="@dimen/size0X"
-            app:ImageUrl="@{viewModel.leagueDetails.league.logo}"
+            app:ImageUrl="@{viewModel.leagueDetails.toData().standingTeamsInfo.get(0).league.logo}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:showWhenSuccess="@{viewModel.leagueDetails}"
             tools:src="@tools:sample/avatars" />
 
         <TextView
@@ -32,12 +33,13 @@
             android:layout_height="wrap_content"
             android:elevation="@dimen/size0X"
             android:gravity="center"
-            android:text="@{viewModel.leagueDetails.league.name}"
+            android:text="@{viewModel.leagueDetails.toData().standingTeamsInfo.get(0).league.name}"
             android:textSize="35sp"
             app:layout_constraintBottom_toBottomOf="@id/leagueImage"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/leagueImage"
             app:layout_constraintTop_toTopOf="@id/leagueImage"
+            app:showWhenSuccess="@{viewModel.leagueDetails}"
             tools:text="West Ham" />
 
         <com.google.android.material.tabs.TabLayout
@@ -47,7 +49,8 @@
             app:layout_constraintBottom_toTopOf="@id/myViewPager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/leagueImage" />
+            app:layout_constraintTop_toBottomOf="@id/leagueImage"
+            app:showWhenSuccess="@{viewModel.leagueDetails}" />
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/myViewPager"
@@ -56,7 +59,30 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tabLayoutFragments" />
+            app:layout_constraintTop_toBottomOf="@id/tabLayoutFragments"
+            app:showWhenSuccess="@{viewModel.leagueDetails}" />
+
+        <ProgressBar
+            android:id="@+id/loading_progress"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:showWhenLoading="@{viewModel.leagueDetails}" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottie_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_rawRes="@raw/no_connection"
+            app:showWhenError="@{viewModel.leagueDetails}" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
