@@ -8,5 +8,5 @@ data class DataPlayer(
     val positionHomeTeam: String?,
     val positionAwayTeam: String?,
     val coachHomeTeam: String?,
-    val coachAwayTeam: String?
+    val coachAwayTeam: String?,
 )

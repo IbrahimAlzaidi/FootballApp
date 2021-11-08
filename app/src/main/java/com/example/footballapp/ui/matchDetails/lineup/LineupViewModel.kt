@@ -15,8 +15,6 @@ import kotlinx.coroutines.launch
 class LineupViewModel(val arg: Int?) : BaseViewModel() {
     val data = repository.getMatchLineup(arg!!).asLiveData()
 
-    private val _matchStatistic = MutableLiveData<State<LineupResponse?>>()
-    val matchStatistic: LiveData<State<LineupResponse?>> = _matchStatistic
     private val _match = MutableLiveData<List<DataPlayer>>()
     val match: LiveData<List<DataPlayer>> = _match
 

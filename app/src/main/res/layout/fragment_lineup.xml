@@ -18,7 +18,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/lineupRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="480dp"
+            android:layout_height="500dp"
             android:orientation="vertical"
             app:items="@{viewModel.match}"
             app:layout_constraintTop_toTopOf="parent"
@@ -32,9 +32,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Manger"
-            android:textSize="24sp"
+            android:textSize="20sp"
             android:layout_marginHorizontal="@dimen/margin1X"
-            app:layout_constraintTop_toBottomOf="@id/lineupRecyclerView"
+            app:layout_constraintVertical_bias="1"
+            app:layout_constraintBottom_toBottomOf="@id/lineupRecyclerView"
+            app:layout_constraintTop_toTopOf="@id/lineupRecyclerView"
             app:layout_constraintStart_toEndOf="@id/devider"
             app:layout_constraintEnd_toStartOf="@id/devider1"/>
         <View
@@ -44,7 +46,7 @@
             android:background="@color/black"
             app:layout_constraintBottom_toBottomOf="@id/titleManger"
             app:layout_constraintEnd_toStartOf="@id/titleManger"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@id/lineupRecyclerView"
             app:layout_constraintTop_toTopOf="@id/titleManger"
 
             />
@@ -53,7 +55,7 @@
             android:layout_width="0dp"
             android:layout_height="2dp"
             android:background="@color/black"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/lineupRecyclerView"
             app:layout_constraintBottom_toBottomOf="@id/titleManger"
             app:layout_constraintStart_toEndOf="@id/titleManger"
             app:layout_constraintTop_toTopOf="@id/titleManger"
@@ -63,21 +65,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="HomeManger"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:text="@{viewModel.match.get(0).coachHomeTeam}"
             android:layout_margin="@dimen/margin2X"
             app:layout_constraintTop_toBottomOf="@id/devider"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="@id/devider"/>
         <TextView
             android:id="@+id/awayTeamManger"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="HomeManger"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:text="@{viewModel.match.get(0).coachAwayTeam}"
-            android:layout_margin="@dimen/margin2X"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/devider" />
+            android:layout_margin="12sp"
+            app:layout_constraintEnd_toEndOf="@id/devider1"
+            app:layout_constraintTop_toBottomOf="@id/devider1" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,6 +7,7 @@ import com.example.footballapp.databinding.FragmentMatchDetailsBinding
 import com.example.footballapp.ui.base.BaseFragment
 import com.example.footballapp.ui.matchDetails.lineup.LineupFragment
 import com.example.footballapp.ui.matchDetails.matchState.MatchStateFragment
+import com.example.footballapp.ui.matchDetails.substitutes.SubstitutesFragment
 import com.example.footballapp.util.FootballViewPager
 import com.example.footballapp.util.ViewPagerTransitions
 import com.google.android.material.tabs.TabLayoutMediator
@@ -26,7 +27,7 @@ class MatchDetailsFragment :
             listOf(
                 MatchStateFragment(matchID),
                 LineupFragment(matchID),
-//                ClubMatchPlayedFragment(teamID)
+                SubstitutesFragment(matchID)
             )
         initViewPager(fragmentsList)
         initTabLayout()

@@ -2,6 +2,8 @@ package com.example.footballapp.util
 
 import com.example.footballapp.model.response.lineup.DataPlayer
 import com.example.footballapp.model.response.lineup.LineupInfo
+import com.example.footballapp.model.response.lineup.Substitute
+import com.example.footballapp.model.response.lineup.SubstitutesPlayer
 import com.example.footballapp.model.response.matchStatistic.MatchResultData
 import com.example.footballapp.model.response.matchStatistic.MatchStatisticInfo
 
@@ -33,6 +35,20 @@ fun List<LineupInfo>.toPlayerStart(): List<DataPlayer> {
                 this[1].playerStartMatch?.get(i)?.player?.position,
                 this[0].coach?.name,
                 this[1].coach?.name,
+            )
+        )
+    }
+    return result
+}
+fun List<LineupInfo>.toSubstitutes(): List<SubstitutesPlayer> {
+    val result = mutableListOf<SubstitutesPlayer>()
+    for (i in 0 until (this[0].substitutes?.size?:0)) {
+        result.add(
+            SubstitutesPlayer(
+                this[0].substitutes?.get(i)?.player?.name,
+                this[1].substitutes?.get(i)?.player?.name,
+                this[0].substitutes?.get(i)?.player?.number,
+                this[1].substitutes?.get(i)?.player?.number,
             )
         )
     }
