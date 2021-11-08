@@ -32,6 +32,16 @@
             app:layout_constraintStart_toStartOf="@id/scoreHomeTeam"
             app:layout_constraintTop_toBottomOf="@id/speretor"
             tools:text="First Half" />
+        <View
+            android:id="@+id/border"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:background="@drawable/live_match_header"
+            android:elevation="3sp"
+            app:layout_constraintStart_toStartOf="@id/myCardView"
+            app:layout_constraintEnd_toEndOf="@id/myCardView"
+            app:layout_constraintTop_toTopOf="@id/myCardView"
+            />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/myCardView"
