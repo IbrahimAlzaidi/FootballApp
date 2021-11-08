@@ -30,7 +30,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
             android:layout_width="match_parent"
-            android:layout_height="180dp"
+            android:layout_height="170dp"
             android:layout_margin="@dimen/margin3X"
             app:cardCornerRadius="@dimen/size1X"
             app:layout_constraintEnd_toEndOf="parent"
@@ -42,7 +42,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
-                android:paddingTop="@dimen/size6X"
+                android:paddingTop="39dp"
                 app:items="@{viewModel.leaguesInfo.toData().leaguesDetails}"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/item_leagues" />
