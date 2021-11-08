@@ -48,21 +48,24 @@
             app:layout_constraintStart_toStartOf="@id/homeImage"
             app:layout_constraintTop_toBottomOf="@id/homeImage"
             tools:text="Livebool"
-            android:ellipsize="marquee"/>
+            android:maxWidth="120dp"
+            android:ellipsize="end"
+            android:singleLine="true"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin3X"
             android:maxLines="1"
-            android:singleLine="true"
             android:text="@{viewModel.data.toData().response.get(0).teams.away.name}"
             android:textSize="@dimen/size3X"
             app:layout_constraintEnd_toEndOf="@id/awayImage"
             app:layout_constraintStart_toStartOf="@+id/awayImage"
             app:layout_constraintTop_toBottomOf="@id/awayImage"
             tools:text="Livebool"
-            android:ellipsize="marquee"/>
+            android:maxWidth="120dp"
+            android:ellipsize="end"
+            android:singleLine="true"/>
 
         <TextView
             android:id="@+id/homeGoals"
