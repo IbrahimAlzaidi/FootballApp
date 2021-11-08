@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.example.footballapp.ui.matchDetails.MatchDetailsViewModel" />
@@ -11,15 +13,127 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/purple_500"
         tools:context=".ui.matchDetails.MatchDetailsFragment">
 
+        <ImageView
+            android:id="@+id/homeImage"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="@dimen/margin5X"
+            android:layout_marginTop="@dimen/margin5X"
+            app:ImageUrl="@{viewModel.data.toData().response.get(0).teams.home.logo}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/avatars" />
+
+        <ImageView
+            android:id="@+id/awayImage"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginEnd="@dimen/margin5X"
+            app:ImageUrl="@{viewModel.data.toData().response.get(0).teams.away.logo}"
+            app:layout_constraintBottom_toBottomOf="@id/homeImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/homeImage"
+            tools:src="@tools:sample/avatars" />
+
         <TextView
+            android:id="@+id/nameHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin3X"
+            android:text="@{viewModel.data.toData().response.get(0).teams.home.name}"
+            android:textSize="@dimen/size3X"
+            app:layout_constraintEnd_toEndOf="@+id/homeImage"
+            app:layout_constraintStart_toStartOf="@id/homeImage"
+            app:layout_constraintTop_toBottomOf="@id/homeImage"
+            tools:text="Livebool"
+            android:ellipsize="marquee"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin3X"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="@{viewModel.data.toData().response.get(0).teams.away.name}"
+            android:textSize="@dimen/size3X"
+            app:layout_constraintEnd_toEndOf="@id/awayImage"
+            app:layout_constraintStart_toStartOf="@+id/awayImage"
+            app:layout_constraintTop_toBottomOf="@id/awayImage"
+            tools:text="Livebool"
+            android:ellipsize="marquee"/>
+
+        <TextView
+            android:id="@+id/homeGoals"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{String.valueOf(viewModel.data.toData().response.get(0).goals.home)}"
+            android:textSize="@dimen/size6X"
+            android:layout_marginTop="@dimen/margin3X"
+            app:layout_constraintBottom_toBottomOf="@id/homeImage"
+            app:layout_constraintEnd_toStartOf="@id/awayGoals"
+            app:layout_constraintStart_toEndOf="@id/homeImage"
+            app:layout_constraintTop_toTopOf="@id/homeImage"
+            tools:text="6" />
+
+        <TextView
+            android:id="@+id/awayGoals"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{String.valueOf(viewModel.data.toData().response.get(0).goals.away)}"
+            android:textSize="@dimen/size6X"
+            android:layout_marginTop="@dimen/margin3X"
+            app:layout_constraintBottom_toBottomOf="@id/awayImage"
+            app:layout_constraintEnd_toStartOf="@id/awayImage"
+            app:layout_constraintStart_toEndOf="@id/homeGoals"
+            app:layout_constraintTop_toTopOf="@id/awayImage"
+            tools:text="5" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="-"
+            android:textSize="@dimen/size4X"
+            app:layout_constraintBottom_toBottomOf="@id/homeGoals"
+            app:layout_constraintEnd_toStartOf="@id/awayGoals"
+            app:layout_constraintStart_toEndOf="@id/homeGoals"
+            app:layout_constraintTop_toTopOf="@id/awayGoals" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/margin0X"
+            android:background="@color/black"
+            app:layout_constraintEnd_toEndOf="@id/awayImage"
+            app:layout_constraintStart_toStartOf="@id/homeImage"
+            app:layout_constraintTop_toBottomOf="@id/nameHome" />
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayoutFragments"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Match Details"
-            android:textSize="@dimen/size7X"
-            android:gravity="center"/>
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin5X"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider"
+            app:layout_constraintBottom_toTopOf="@id/details_ViewPager"
+            />
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/details_ViewPager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="@dimen/margin5X"
+            android:background="@drawable/rectangle_shape"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tabLayoutFragments" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
