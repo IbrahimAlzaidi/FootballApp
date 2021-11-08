@@ -47,7 +47,7 @@
             app:layout_constraintEnd_toEndOf="@+id/homeImage"
             app:layout_constraintStart_toStartOf="@id/homeImage"
             app:layout_constraintTop_toBottomOf="@id/homeImage"
-            tools:text="Livebool"
+            tools:text="Liverpool"
             android:maxWidth="120dp"
             android:ellipsize="end"
             android:singleLine="true"/>
