@@ -8,18 +8,22 @@
             name="item"
             type="com.example.footballapp.model.response.squadPlayer.Player" />
 
+        <variable
+            name="listener"
+            type="com.example.footballapp.util.OnClickListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> listener.onClickItem(item.id)}">
 
         <ImageView
             android:id="@+id/playerImage"
             android:layout_width="70dp"
             android:layout_height="80dp"
-            app:ImageUrl="@{item.photo}"
             android:layout_marginTop="@dimen/margin1X"
+            app:ImageUrl="@{item.photo}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

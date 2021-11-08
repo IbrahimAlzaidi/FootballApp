@@ -12,7 +12,7 @@ class MatchStateFragment(private val matchID: Int?) :
         binding.myRecycle.adapter = matchStatisticInformation
     }
 
-    override fun getViewModel(): Class<MatchStateViewModel> = MatchStateViewModel::class.java
+    override fun getViewModel() = MatchStateViewModel::class.java
 
     override val arg: Int?
         get() = matchID

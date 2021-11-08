@@ -75,3 +75,21 @@ fun setTotalGoal(view: TextView, text: TopScorersInfo) {
 fun setTimeName(view: TextView, text: TopScorersInfo) {
     view.text = text.statistics?.joinToString { it.team?.name.toString() }
 }
+
+@BindingAdapter(value = ["app:textNotNull"])
+fun setTextNotNull(view: TextView, text: String?){
+    if (text == null || text == ""){
+        view.text = "0"
+    }else{
+        view.text = text
+    }
+}
+
+@BindingAdapter(value = ["app:textNotNullType"])
+fun setTextTypeNotNull(view: TextView, text: String?){
+    if (text == null || text == ""){
+        view.text = "No Result"
+    }else{
+        view.text = text
+    }
+}

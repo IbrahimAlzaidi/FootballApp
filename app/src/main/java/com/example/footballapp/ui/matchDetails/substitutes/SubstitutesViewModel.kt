@@ -2,6 +2,7 @@ package com.example.footballapp.ui.matchDetails.substitutes
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.footballapp.model.network.State
 import com.example.footballapp.model.response.lineup.SubstitutesPlayer
@@ -11,6 +12,7 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class SubstitutesViewModel(val arg: Int?) : BaseViewModel() {
+    val matchSubstitutes = arg?.let { repository.getMatchLineup(it).asLiveData() }
 
     private val _substitutesPlayer = MutableLiveData<List<SubstitutesPlayer>>()
     val substitutesPlayer: LiveData<List<SubstitutesPlayer>> = _substitutesPlayer
@@ -18,7 +20,7 @@ class SubstitutesViewModel(val arg: Int?) : BaseViewModel() {
     init {
         viewModelScope.launch {
             if (arg != null) {
-                repository.getMatchLineup(718351).collect { state ->
+                repository.getMatchLineup(arg).collect { state ->
                     if (state is State.Success) {
                         _substitutesPlayer.postValue(state.toData()?.lineupInfo?.toSubstitutes())
                     }

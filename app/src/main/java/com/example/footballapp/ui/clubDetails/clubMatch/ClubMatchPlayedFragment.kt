@@ -8,7 +8,7 @@ import com.example.footballapp.ui.clubDetails.ClubDetailsFragmentDirections
 import com.example.footballapp.util.OnClickListener
 
 
-class ClubMatchPlayedFragment(val args: Int?) :
+class ClubMatchPlayedFragment(private val teamID: Int?) :
     BaseFragment<FragmentClubMatchPlayedBinding, ClubMatchPlayedViewModel>(R.layout.fragment_club_match_played),
     OnClickListener {
     override fun setup() {
@@ -17,11 +17,10 @@ class ClubMatchPlayedFragment(val args: Int?) :
         binding.currentMatch.adapter = currentTeamMatchAdapter
     }
 
-    override fun getViewModel(): Class<ClubMatchPlayedViewModel> =
-        ClubMatchPlayedViewModel::class.java
+    override fun getViewModel() = ClubMatchPlayedViewModel::class.java
 
     override val arg: Int?
-        get() = args
+        get() = teamID
     override val leagueId: Int?
         get() = null
 

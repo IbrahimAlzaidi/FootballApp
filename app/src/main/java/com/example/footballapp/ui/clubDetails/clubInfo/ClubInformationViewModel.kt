@@ -4,7 +4,7 @@ import androidx.lifecycle.asLiveData
 import com.example.footballapp.ui.base.BaseViewModel
 
 class ClubInformationViewModel(teamId: Int?, leagueId: Int?) : BaseViewModel() {
-    val data = leagueId?.let {
+    val clubInformation = leagueId?.let {
         teamId?.let { it1 ->
             repository.getStadiumInfo(teamId = it1, leagueId = it).asLiveData()
         }

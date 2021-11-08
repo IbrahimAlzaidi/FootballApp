@@ -94,18 +94,18 @@ interface ApiService {
 
     @GET("/v3/players/squads")
     suspend fun getTeamPlayer(
-        @Query("team") teamId: Int?,
+        @Query("team") teamId: Int,
     ): Response<SquadPlayer>
 
     @GET("/v3/fixtures/")
     suspend fun getTeamMatchPlayed(
         @Query("season") season: Int,
-        @Query("team") teamId: Int?,
+        @Query("team") teamId: Int,
         @Query("status") status: String,
     ): Response<CurrentTeamMatchResponse>
 
     @GET("/v3/fixtures/")
     suspend fun getAllMatchDetails(
-        @Query("id") matchId: Int?,
+        @Query("id") matchId: Int,
     ): Response<FixtureAllData>
 }

@@ -17,7 +17,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
     private val fragmentTitles = listOf("Live", "Match Scheduled")
 
     override fun setup() {
-        val fragmentsList = listOf(LiveMatchFragment(null), AllMatchScheduledFragment(null))
+        val fragmentsList = listOf(LiveMatchFragment(), AllMatchScheduledFragment())
         binding.viewModel = viewModel
         val viewPager = binding.homeViewPager
         val tabLayout = binding.homeTabLayoutFragments

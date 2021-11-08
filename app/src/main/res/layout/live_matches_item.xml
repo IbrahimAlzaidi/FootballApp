@@ -19,7 +19,7 @@
         android:id="@+id/myConstraint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="@{()->listener.onClickItem(item.fixture.id)}">
+        android:onClick="@{()->listener.onClickItem(item.fixture.id != null ? item.fixture.id : 0)}">
 
         <TextView
             android:id="@+id/timeMatch"

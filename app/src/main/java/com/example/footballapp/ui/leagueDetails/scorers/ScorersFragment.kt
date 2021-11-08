@@ -1,6 +1,5 @@
 package com.example.footballapp.ui.leagueDetails.scorers
 
-import android.content.DialogInterface
 import androidx.navigation.fragment.findNavController
 import com.example.footballapp.R
 import com.example.footballapp.databinding.FragmentScorersBinding
@@ -16,15 +15,14 @@ class ScorersFragment(private val args: Int?): BaseFragment<FragmentScorersBindi
         binding.topScoreRecycler.adapter = topScoreAdapter
     }
 
-    override fun getViewModel()= ScorersViewModel::class.java
-    override val arg: Int?
-        get() = args
-
     override fun onClickItem(id: Int) {
         val action = LeagueDetailsFragmentDirections.actionLeagueDetailsFragmentToPlayerDetailsFragment(id)
         this.findNavController().navigate(action)
     }
 
+    override fun getViewModel()= ScorersViewModel::class.java
+    override val arg: Int?
+        get() = args
     override val leagueId: Int?
         get() = null
 }

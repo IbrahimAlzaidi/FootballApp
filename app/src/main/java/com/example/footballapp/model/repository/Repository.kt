@@ -20,6 +20,7 @@ import com.example.footballapp.model.response.teamCurrentMatch.CurrentTeamMatchR
 import com.example.footballapp.model.response.teamInfo.TeamInformationResponse
 import com.example.footballapp.model.response.topScorers.TopScorersResponse
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import retrofit2.Response
 
@@ -120,13 +121,13 @@ class Repository {
     ): Flow<State<MatchScheduledResponse?>> =
         wrapWithFlow { Api.apiService.getLatestMatchScheduled(matchCount, leagueId) }
 
-    fun getTeamPlayerInfo(teamId: Int?): Flow<State<SquadPlayer?>> =
+    fun getTeamPlayerInfo(teamId: Int): Flow<State<SquadPlayer?>> =
         wrapWithFlow { Api.apiService.getTeamPlayer(teamId) }
 
-    fun getTeamMatchPlayed(season: Int = 2021, teamId: Int? , status: String = "FT"): Flow<State<CurrentTeamMatchResponse?>> =
+    fun getTeamMatchPlayed(season: Int = 2021, teamId: Int , status: String = "FT"): Flow<State<CurrentTeamMatchResponse?>> =
         wrapWithFlow { Api.apiService.getTeamMatchPlayed(season, teamId , status) }
 
-    fun getAllMatchData(matchId: Int?): Flow<State<FixtureAllData?>> =
+    fun getAllMatchData(matchId: Int): Flow<State<FixtureAllData?>> =
         wrapWithFlow { Api.apiService.getAllMatchDetails(matchId) }
 
 
@@ -142,5 +143,7 @@ class Repository {
         } catch (e: Exception) {
             emit(State.Error(e.message.toString()))
         }
+    }.catch  {
+       emit(State.Error("No Data"))
     }
 }

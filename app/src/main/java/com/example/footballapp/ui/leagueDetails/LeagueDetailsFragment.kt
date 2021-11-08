@@ -9,10 +9,12 @@ import com.example.footballapp.ui.leagueDetails.scorers.ScorersFragment
 import com.example.footballapp.ui.leagueDetails.standing.StandingFragment
 
 class LeagueDetailsFragment :
-    BaseFragment<FragmentLeagueDetailsBinding, LeagueDetailsViewModel>(R.layout.fragment_league_details){
+    BaseFragment<FragmentLeagueDetailsBinding, LeagueDetailsViewModel>(R.layout.fragment_league_details) {
+
     private val args: LeagueDetailsFragmentArgs by navArgs()
+
     private val fragmentTitles = listOf("Standings", "Top Score", "Matches")
-    override fun getViewModel() = LeagueDetailsViewModel::class.java
+
     override fun setup() {
         val leagueID = args.leagueId
         binding.viewModel = viewModel
@@ -21,14 +23,15 @@ class LeagueDetailsFragment :
         val fragmentsList = listOf(
             StandingFragment(leagueID),
             ScorersFragment(leagueID),
-            MatchesFragment(leagueID))
-        initViewPager(fragmentsList,viewPager)
-        initTabLayout(viewPager,tabLayout, fragmentTitles)
+            MatchesFragment(leagueID)
+        )
+        initViewPager(fragmentsList, viewPager)
+        initTabLayout(viewPager, tabLayout, fragmentTitles)
     }
 
+    override fun getViewModel() = LeagueDetailsViewModel::class.java
     override val arg: Int
         get() = args.leagueId
-
     override val leagueId: Int?
         get() = null
 }

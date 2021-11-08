@@ -6,17 +6,16 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.footballapp.model.network.State
 import com.example.footballapp.model.response.lineup.DataPlayer
-import com.example.footballapp.model.response.lineup.LineupResponse
 import com.example.footballapp.ui.base.BaseViewModel
 import com.example.footballapp.util.toPlayerStart
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class LineupViewModel(val arg: Int?) : BaseViewModel() {
-    val data = repository.getMatchLineup(arg!!).asLiveData()
+    val lineupsData = arg?.let { repository.getMatchLineup(it).asLiveData() }
 
-    private val _match = MutableLiveData<List<DataPlayer>>()
-    val match: LiveData<List<DataPlayer>> = _match
+    private val _match = MutableLiveData<List<DataPlayer?>>()
+    val match: LiveData<List<DataPlayer?>> = _match
 
     init {
         viewModelScope.launch {
