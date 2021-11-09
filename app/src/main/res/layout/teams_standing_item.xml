@@ -10,7 +10,7 @@
             type="com.example.footballapp.model.response.standing.Standing" />
         <variable
             name="listener"
-            type="com.example.footballapp.util.OnClickListener" />
+            type="com.example.footballapp.ui.leagueDetails.standing.StandingViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

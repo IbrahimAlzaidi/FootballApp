@@ -4,6 +4,7 @@ import androidx.navigation.fragment.navArgs
 import com.example.footballapp.R
 import com.example.footballapp.databinding.FragmentClubDetailsBinding
 import com.example.footballapp.ui.base.BaseFragment
+import com.example.footballapp.ui.base.BaseViewModel
 import com.example.footballapp.ui.clubDetails.clubInfo.ClubInformationFragment
 import com.example.footballapp.ui.clubDetails.clubMatch.ClubMatchPlayedFragment
 import com.example.footballapp.ui.clubDetails.squadInfo.SquadInfoFragment
@@ -36,4 +37,5 @@ class ClubDetailsFragment :
         get() = args.teamId
     override val leagueId: Int
         get() = args.leagueId
+
 }

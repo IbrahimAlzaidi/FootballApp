@@ -1,19 +1,16 @@
 package com.example.footballapp.ui.clubDetails.squadInfo
 
-import androidx.navigation.fragment.findNavController
 import com.example.footballapp.R
 import com.example.footballapp.databinding.FragmentInfoSquadBinding
 import com.example.footballapp.ui.base.BaseFragment
-import com.example.footballapp.ui.clubDetails.ClubDetailsFragmentDirections
-import com.example.footballapp.util.OnClickListener
+import com.example.footballapp.ui.base.BaseViewModel
 
 class SquadInfoFragment(private val teamId: Int?) :
-    BaseFragment<FragmentInfoSquadBinding, SquadInfoViewModel>(R.layout.fragment_info_squad),
-    OnClickListener {
+    BaseFragment<FragmentInfoSquadBinding, SquadInfoViewModel>(R.layout.fragment_info_squad){
 
     override fun setup() {
         binding.viewModel = viewModel
-        val teamPlayerAdapter = SquadInfoAdapter(emptyList(), this)
+        val teamPlayerAdapter = SquadInfoAdapter(emptyList(), viewModel)
         binding.teamPlayers.adapter = teamPlayerAdapter
     }
 
@@ -23,9 +20,4 @@ class SquadInfoFragment(private val teamId: Int?) :
     override val arg: Int?
         get() = teamId
 
-    override fun onClickItem(id: Int) {
-        val action =
-            ClubDetailsFragmentDirections.actionClubDetailsFragmentToPlayerDetailsFragment(id)
-        this.findNavController().navigate(action)
-    }
 }

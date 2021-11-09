@@ -3,6 +3,7 @@ package com.example.footballapp.ui.home.allMatchScheduled
 import com.example.footballapp.R
 import com.example.footballapp.databinding.FragmentAllMatchScheduledBinding
 import com.example.footballapp.ui.base.BaseFragment
+import com.example.footballapp.ui.base.BaseViewModel
 
 class AllMatchScheduledFragment :
     BaseFragment<FragmentAllMatchScheduledBinding, AllMatchScheduledViewModel>(
@@ -20,4 +21,5 @@ class AllMatchScheduledFragment :
         get() = null
     override val arg: Int?
         get() = null
+
 }

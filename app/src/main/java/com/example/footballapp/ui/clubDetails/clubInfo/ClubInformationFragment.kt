@@ -3,6 +3,7 @@ package com.example.footballapp.ui.clubDetails.clubInfo
 import com.example.footballapp.R
 import com.example.footballapp.databinding.FragmentClupInformationBinding
 import com.example.footballapp.ui.base.BaseFragment
+import com.example.footballapp.ui.base.BaseViewModel
 
 
 class ClubInformationFragment(private val teamId: Int?, private val leagueID: Int?) :
@@ -17,4 +18,5 @@ class ClubInformationFragment(private val teamId: Int?, private val leagueID: In
         get() = teamId
     override val leagueId: Int?
         get() = leagueID
+
 }

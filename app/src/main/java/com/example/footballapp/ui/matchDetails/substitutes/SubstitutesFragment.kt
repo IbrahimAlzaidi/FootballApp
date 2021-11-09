@@ -3,6 +3,7 @@ package com.example.footballapp.ui.matchDetails.substitutes
 import com.example.footballapp.R
 import com.example.footballapp.databinding.FragmentSubstitutesBinding
 import com.example.footballapp.ui.base.BaseFragment
+import com.example.footballapp.ui.base.BaseViewModel
 
 class SubstitutesFragment(private val matchId : Int?) :
     BaseFragment<FragmentSubstitutesBinding, SubstitutesViewModel>(R.layout.fragment_substitutes) {
@@ -18,4 +19,5 @@ class SubstitutesFragment(private val matchId : Int?) :
         get() = matchId
     override val leagueId: Int?
         get() = null
+
 }

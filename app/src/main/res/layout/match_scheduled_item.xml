@@ -9,7 +9,7 @@
             type="com.example.footballapp.model.response.schedulerMatch.SchedulerMatchInfo" />
         <variable
             name="listener"
-            type="com.example.footballapp.util.OnClickListener" />
+            type="com.example.footballapp.ui.leagueDetails.matches.MatchesViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

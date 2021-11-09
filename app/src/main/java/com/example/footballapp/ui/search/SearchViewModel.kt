@@ -6,11 +6,12 @@ import androidx.lifecycle.viewModelScope
 import com.example.footballapp.model.network.State
 import com.example.footballapp.model.response.leagueSearch.LeagueSearchResponse
 import com.example.footballapp.ui.base.BaseViewModel
+import com.example.footballapp.util.OnClickListener
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-class SearchViewModel : BaseViewModel() {
+class SearchViewModel : BaseViewModel() , OnClickListener {
     private val _searchLeague = MutableLiveData<State<LeagueSearchResponse?>>()
     val searchLeague: LiveData<State<LeagueSearchResponse?>>
         get() = _searchLeague
@@ -26,5 +27,9 @@ class SearchViewModel : BaseViewModel() {
                 }
             }
         }
+    }
+
+    override fun onClickItem(id: Int) {
+        navigate(SearchFragmentDirections.actionSearchFragmentToLeagueDetailsFragment(id))
     }
 }

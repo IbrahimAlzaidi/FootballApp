@@ -8,7 +8,6 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.footballapp.R
 import com.example.footballapp.model.network.State
-import com.example.footballapp.model.response.squadPlayer.SquadPlayer
 import com.example.footballapp.model.response.topScorers.TopScorersInfo
 import com.example.footballapp.ui.base.BaseAdapter
 import com.github.twocoffeesoneteam.glidetovectoryou.GlideApp

@@ -10,7 +10,7 @@
 
         <variable
             name="listener"
-            type="com.example.footballapp.util.OnClickListener" />
+            type="com.example.footballapp.ui.clubDetails.squadInfo.SquadInfoViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
