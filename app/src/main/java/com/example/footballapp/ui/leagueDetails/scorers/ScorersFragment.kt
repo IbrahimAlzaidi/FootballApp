@@ -13,7 +13,7 @@ class ScorersFragment(private val args: Int?): BaseFragment<FragmentScorersBindi
     override fun setup() {
         binding.viewModel = viewModel
         val topScoreAdapter = ScorersAdapter(emptyList(),this)
-        binding.topScorers.adapter = topScoreAdapter
+        binding.topScorersGoals.adapter = topScoreAdapter
     }
 
     override fun onClickItem(id: Int) {

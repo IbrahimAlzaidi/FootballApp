@@ -45,7 +45,7 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
                 android:paddingTop="40dp"
-                app:items="@{viewModel.leaguesInfo.toData().leaguesDetails}"
+                app:itemsDropFirstTow="@{viewModel.leaguesInfo.toData().leaguesDetails}"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/leagues_item" />
         </androidx.cardview.widget.CardView>

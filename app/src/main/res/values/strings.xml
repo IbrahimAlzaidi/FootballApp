@@ -13,4 +13,6 @@
     <string name="live">LIVE</string>
     <string name="goals">Goals</string>
     <string name="player">Player</string>
+    <string name="assist">Assist</string>
+    <string name="red_card">Red Card</string>
 </resources>

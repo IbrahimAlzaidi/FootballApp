@@ -68,6 +68,7 @@
             android:layout_marginStart="@dimen/margin1X"
             android:gravity="center"
             android:maxWidth="140dp"
+            android:singleLine="true"
             android:text="@{item.team.name}"
             android:textSize="@dimen/size3X"
             app:layout_constraintBottom_toBottomOf="@id/viewHolderStanding"

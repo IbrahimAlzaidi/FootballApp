@@ -53,6 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin6X"
             android:elevation="@dimen/elevation1X"
+            android:maxWidth="150dp"
             android:text="@{item.player.name}"
             android:textSize="@dimen/size4X"
             app:layout_constraintStart_toEndOf="@id/playerImage"
@@ -77,6 +78,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin4X"
             android:elevation="@dimen/elevation1X"
+            android:maxWidth="100dp"
             android:text="@{item.statistics.get(0).team.name}"
             android:textSize="@dimen/size3X"
             app:layout_constraintBottom_toBottomOf="@id/teamImage"
@@ -88,12 +90,26 @@
             android:id="@+id/goals_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin4X"
+            android:layout_marginEnd="@dimen/margin5X"
             android:elevation="@dimen/elevation1X"
             android:text="@{item.statistics.get(0).goals.total.toString()}"
             android:textSize="@dimen/size3X"
+            app:layout_constraintBottom_toBottomOf="@id/viewHolderStanding"
+            app:layout_constraintEnd_toStartOf="@id/assist_number"
+            app:layout_constraintTop_toTopOf="@id/viewHolderStanding"
+            tools:text="10" />
+
+        <TextView
+            android:id="@+id/assist_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin5X"
+            android:elevation="@dimen/elevation1X"
+            android:textSize="@dimen/size3X"
+            app:layout_constraintBottom_toBottomOf="@id/viewHolderStanding"
             app:layout_constraintEnd_toEndOf="@id/viewHolderStanding"
             app:layout_constraintTop_toTopOf="@id/viewHolderStanding"
+            android:text="@{String.valueOf(item.statistics.get(0).goals.assists == null ? 0 : item.statistics.get(0).goals.assists)}"
             tools:text="10" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
