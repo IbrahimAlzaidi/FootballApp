@@ -78,6 +78,7 @@ interface ApiService {
     suspend fun getPlayerStatistic(
         @Query("id") playerId: Int,
         @Query("season") season: Int,
+        @Query("league") leagueId: Int,
     ): Response<PlayerStatisticResponse?>
 
     @GET("/v3/trophies")
@@ -95,6 +96,7 @@ interface ApiService {
     @GET("/v3/players/squads")
     suspend fun getTeamPlayer(
         @Query("team") teamId: Int,
+        @Query("player") playerId: Int?,
     ): Response<SquadPlayer>
 
     @GET("/v3/fixtures/")

@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <import type="android.view.View"/>
 
         <variable
             name="viewModel"
@@ -10,15 +12,157 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.playerDetails.PlayerDetailsFragment">
 
-        <TextView
+        <View
+            android:id="@+id/background"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="Player Details"
-            android:textSize="@dimen/size7X" />
+            android:layout_height="400dp"
+            android:background="@drawable/player_background_shape"
+            android:elevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/imageHolder"
+            style="@style/Widget.App.CardView"
+            android:layout_width="280dp"
+            android:layout_height="270dp"
+            app:cardCornerRadius="@dimen/margin2X"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.35">
+
+            <ImageView
+                android:layout_width="300dp"
+                android:layout_height="280dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin2X"
+                android:elevation="1dp"
+                gone="@{viewModel.playerData.toData().squadPlayerInfo.get(0).players.get(0).number != 10}"
+                app:ImageUrl="@{viewModel.playerData.toData().squadPlayerInfo.get(0).players.get(0).photo}"
+                tools:src="@tools:sample/avatars" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin2X"
+            android:elevation="@dimen/elevation0X"
+            android:text="@{String.valueOf(viewModel.playerData.toData().squadPlayerInfo.get(0).players.get(0).number)}"
+            android:textColor="#9C145A"
+            android:textSize="@dimen/size7X"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/imageHolder"
+            app:layout_constraintTop_toTopOf="@id/imageHolder"
+            tools:text="10" />
+
+        <TextView
+            android:id="@+id/playerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin7X"
+            android:layout_marginTop="@dimen/margin4X"
+            android:text="@{viewModel.playerData.toData().squadPlayerInfo.get(0).players.get(0).name}"
+            android:textSize="30sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageHolder"
+            tools:text="L.Messi" />
+
+        <TextView
+            android:id="@+id/teamName"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin5X"
+            android:gravity="start"
+            android:text="@{@string/team_title+viewModel.playerData.toData().squadPlayerInfo.get(0).team.name}"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@id/playerName"
+            app:layout_constraintTop_toBottomOf="@id/playerName"
+            tools:text="Team" />
+
+        <TextView
+            android:id="@+id/playerAge"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin1X"
+            android:gravity="start"
+            android:text="@{@string/player_age+String.valueOf(viewModel.playerData.toData().squadPlayerInfo.get(0).players.get(0).age)}"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@id/teamName"
+            app:layout_constraintTop_toBottomOf="@id/teamName"
+            tools:text="Age" />
+
+        <TextView
+            android:id="@+id/playerNationality"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin1X"
+            android:gravity="start"
+            android:text="@{@string/player_nationality+viewModel.playerStatisticInfo.toData().playerStatisticInfo.get(0).player.nationality}"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@id/playerAge"
+            app:layout_constraintTop_toBottomOf="@id/playerAge"
+            tools:text="Nationality" />
+
+        <TextView
+            android:id="@+id/playerMatches"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin1X"
+            android:gravity="start"
+            android:text="@{@string/player_matches+String.valueOf(viewModel.playerStatisticInfo.toData().playerStatisticInfo.get(0).statistics.get(0).games.appearances)}"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@id/playerNationality"
+            app:layout_constraintTop_toBottomOf="@id/playerNationality"
+            tools:text="Matches" />
+
+        <TextView
+            android:id="@+id/playerRating"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin1X"
+            android:gravity="start"
+            app:textNotNull="@{@string/player_rating+String.valueOf(viewModel.playerStatisticInfo.toData().playerStatisticInfo.get(0).statistics.get(0).games.rating).subSequence(0,3)}"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@id/playerMatches"
+            app:layout_constraintTop_toBottomOf="@id/playerMatches"
+            tools:text="Ratings" />
+
+        <View
+            android:id="@+id/iconHolder"
+            android:layout_width="70dp"
+            android:layout_height="250dp"
+            android:background="#82B1FF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageHolder" />
+
+        <Button
+            android:id="@+id/buttonRating"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:layout_constraintEnd_toEndOf="@id/iconHolder"
+            app:layout_constraintStart_toStartOf="@id/iconHolder"
+            app:layout_constraintTop_toTopOf="@id/iconHolder" />
+
+        <View
+            android:id="@+id/holderData"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/black"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/background"
+            app:layout_constraintStart_toStartOf="@id/background"
+            app:layout_constraintTop_toBottomOf="@id/imageHolder" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

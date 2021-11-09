@@ -17,18 +17,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/top_score_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="@{()-> listener.onClickItem(item.player.id)}">
+        android:layout_height="wrap_content">
 
-        <View
-            android:id="@+id/divider"
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="#000000"
-            app:layout_constraintBottom_toTopOf="@id/viewHolderStanding"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/viewHolderStanding" />
 
         <View
             android:id="@+id/viewHolderStanding"
@@ -47,6 +37,7 @@
             android:layout_marginStart="@dimen/margin6X"
             android:layout_marginBottom="@dimen/margin4X"
             android:textSize="@dimen/size4X"
+            android:onClick="@{()-> listener.onClickItem(item.player.id)}"
             app:ImageUrl="@{item.player.photo}"
             app:layout_constraintBottom_toBottomOf="@id/viewHolderStanding"
             app:layout_constraintStart_toStartOf="@id/viewHolderStanding"
@@ -99,6 +90,11 @@
             app:layout_constraintTop_toTopOf="@id/playerName"
             app:total_goals="@{item}"
             tools:text="10" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
