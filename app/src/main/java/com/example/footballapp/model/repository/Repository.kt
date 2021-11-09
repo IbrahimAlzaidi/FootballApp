@@ -1,13 +1,13 @@
 package com.example.footballapp.model.repository
 
-import com.example.footballapp.model.network.State
 import com.example.footballapp.model.network.Api
+import com.example.footballapp.model.network.State
 import com.example.footballapp.model.response.fixtureAllData.FixtureAllData
-import com.example.footballapp.model.response.matchScheduled.MatchScheduledResponse
 import com.example.footballapp.model.response.leagueSearch.LeagueSearchResponse
 import com.example.footballapp.model.response.leagues.LeaguesResponse
 import com.example.footballapp.model.response.lineup.LineupResponse
 import com.example.footballapp.model.response.liveMatches.LiveMatchesResponse
+import com.example.footballapp.model.response.matchScheduled.MatchScheduledResponse
 import com.example.footballapp.model.response.matchStatistic.MatchStatisticResponse
 import com.example.footballapp.model.response.matches.MatchesResponse
 import com.example.footballapp.model.response.playerStatistic.PlayerStatisticResponse
@@ -19,11 +19,11 @@ import com.example.footballapp.model.response.standing.StandingTeamsResponse
 import com.example.footballapp.model.response.teamCurrentMatch.CurrentTeamMatchResponse
 import com.example.footballapp.model.response.teamInfo.TeamInformationResponse
 import com.example.footballapp.model.response.topScorers.TopScorersResponse
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import retrofit2.Response
-
 
 class Repository {
 
@@ -133,6 +133,7 @@ class Repository {
 
     private fun <T> wrapWithFlow(function: suspend () -> Response<T>): Flow<State<T?>> = flow {
         emit(State.Loading)
+        delay(1000)
         try {
             val result = function()
             if (result.isSuccessful){
@@ -143,7 +144,7 @@ class Repository {
         } catch (e: Exception) {
             emit(State.Error(e.message.toString()))
         }
-    }.catch  {
-       emit(State.Error("No Data"))
+    }.catch{ e ->
+       emit(State.Error("Response Error: ${e.message}"))
     }
 }

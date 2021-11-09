@@ -17,14 +17,16 @@ class LiveMatchFragment :
         binding.matchRecycler.adapter = matchAdapter
     }
 
-    override fun getViewModel() = LiveMatchViewModel::class.java
     override fun onClickItem(id: Int) {
         val action = HomeFragmentDirections.actionHomeFragmentToMatchDetailsFragment(id)
         this.findNavController().navigate(action)
     }
 
+    override fun getViewModel() = LiveMatchViewModel::class.java
+
     override val leagueId: Int?
         get() = null
+
     override val arg: Int?
         get() = null
 }

@@ -24,8 +24,8 @@
             android:layout_weight="1"
             android:gravity="center"
             android:paddingStart="@dimen/margin4X"
+            android:text="@{item.homeValue}"
             android:textSize="@dimen/size3X"
-            app:textNotNull="@{item.homeValue}"
             tools:ignore="RtlSymmetry"
             tools:text="30" />
 
@@ -35,8 +35,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:gravity="center"
+            android:text="@{item.type}"
             android:textSize="@dimen/size4X"
-            app:textNotNullType="@{item.type}"
             tools:text="shot" />
 
         <TextView
@@ -46,8 +46,8 @@
             android:layout_weight="1"
             android:gravity="center"
             android:paddingEnd="@dimen/margin4X"
+            android:text="@{item.awayValue}"
             android:textSize="@dimen/size3X"
-            app:textNotNull="@{item.awayValue}"
             tools:ignore="RtlSymmetry"
             tools:text="30" />
 

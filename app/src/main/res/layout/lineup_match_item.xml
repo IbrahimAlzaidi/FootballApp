@@ -24,7 +24,7 @@
             android:gravity="center"
             android:textColor="@color/black"
             android:textSize="@dimen/size3X"
-            app:textNotNull="@{item.numberHomeTeam.toString()}"
+            android:text="@{item.numberHomeTeam.toString()}"
             tools:text="1" />
 
         <TextView
@@ -34,7 +34,7 @@
             android:gravity="start"
             android:textColor="@color/black"
             android:textSize="@dimen/size4X"
-            app:textNotNullType="@{item.playerHomeTeam}"
+            android:text="@{item.playerHomeTeam}"
             tools:text="Ronaldo" />
 
         <TextView
@@ -44,7 +44,7 @@
             android:gravity="end"
             android:textColor="@color/black"
             android:textSize="@dimen/size4X"
-            app:textNotNullType="@{item.playerAwayTeam}"
+            android:text="@{item.playerAwayTeam}"
             tools:text="Ronaldo" />
 
         <TextView
@@ -54,7 +54,9 @@
             android:gravity="center"
             android:textColor="@color/black"
             android:textSize="@dimen/size3X"
-            app:textNotNull="@{item.numberAwayTeam.toString()}"
+            android:text="@{item.numberAwayTeam.toString()}"
             tools:text="1" />
+
     </LinearLayout>
+
 </layout>

@@ -10,13 +10,12 @@ import com.example.footballapp.util.OnClickListener
 class MatchesFragment(private val args: Int?) :
     BaseFragment<FragmentMatchesBinding, MatchesViewModel>(R.layout.fragment_matches),
     OnClickListener {
+
     override fun setup() {
         binding.viewModel = viewModel
         val matchScheduledAdapter = MatchAdapter(emptyList(), this)
         binding.matchScheduledRecycler.adapter = matchScheduledAdapter
     }
-
-    override fun getViewModel() = MatchesViewModel::class.java
 
     override fun onClickItem(id: Int) {
         val action =
@@ -24,8 +23,11 @@ class MatchesFragment(private val args: Int?) :
         this.findNavController().navigate(action)
     }
 
+    override fun getViewModel() = MatchesViewModel::class.java
+
     override val arg: Int?
         get() = args
+
     override val leagueId: Int?
         get() = null
 }

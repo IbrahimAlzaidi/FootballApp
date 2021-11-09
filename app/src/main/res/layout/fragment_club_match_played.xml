@@ -29,7 +29,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:showWhenSuccess="@{viewModel.currentMatchPlayed}"
-            tools:listitem="@layout/club_match_played_item" />
+            tools:listitem="@layout/match_club_played_item" />
 
         <ProgressBar
             android:id="@+id/loading_progress"

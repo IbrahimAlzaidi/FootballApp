@@ -26,13 +26,15 @@ class MatchDetailsFragment :
                 LineupFragment(matchID),
                 SubstitutesFragment(matchID)
             )
-        initViewPager(fragmentsList,viewPager)
-        initTabLayout(viewPager,tabLayout,fragmentTitles)
+        initViewPager(fragmentsList, viewPager)
+        initTabLayout(viewPager, tabLayout, fragmentTitles)
     }
 
     override fun getViewModel() = MatchDetailsViewModel::class.java
+
     override val arg: Int
         get() = args.matchId
+
     override val leagueId: Int?
         get() = null
 }

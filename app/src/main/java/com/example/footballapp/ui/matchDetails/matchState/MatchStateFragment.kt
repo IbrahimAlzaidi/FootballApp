@@ -6,6 +6,7 @@ import com.example.footballapp.ui.base.BaseFragment
 
 class MatchStateFragment(private val matchID: Int?) :
     BaseFragment<FragmentMatchStateBinding, MatchStateViewModel>(R.layout.fragment_match_state) {
+
     override fun setup() {
         binding.viewModel = viewModel
         val matchStatisticInformation = MatchStateAdapter(emptyList())
@@ -16,6 +17,7 @@ class MatchStateFragment(private val matchID: Int?) :
 
     override val arg: Int?
         get() = matchID
+
     override val leagueId: Int?
         get() = null
 }

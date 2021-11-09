@@ -33,8 +33,8 @@
             android:layout_height="wrap_content"
             android:elevation="@dimen/elevation0X"
             android:gravity="center"
-            android:textSize="@dimen/size6X"
             android:text="@{viewModel.leagueDetails.toData().standingTeamsInfo.get(0).league.name}"
+            android:textSize="@dimen/size6X"
             app:layout_constraintBottom_toBottomOf="@id/leagueImage"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/leagueImage"
@@ -47,8 +47,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toTopOf="@id/myViewPager"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/leagueImage"
             app:showWhenSuccess="@{viewModel.leagueDetails}" />
 
@@ -57,8 +55,6 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tabLayoutFragments"
             app:showWhenSuccess="@{viewModel.leagueDetails}" />
 
@@ -83,7 +79,6 @@
             app:lottie_autoPlay="true"
             app:lottie_rawRes="@raw/no_connection"
             app:showWhenError="@{viewModel.leagueDetails}" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

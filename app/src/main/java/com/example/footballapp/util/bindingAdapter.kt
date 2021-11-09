@@ -58,51 +58,11 @@ fun imageUrl(view: ImageView, url: String?) {
     }
 }
 
-@BindingAdapter(value = ["app:ImageUrlTeam"])
-fun imageUrlTeam(view: ImageView, urlTeam: TopScorersInfo?) {
-    val url = urlTeam?.statistics?.joinToString { it.team?.logo.toString() }
-    if (url != null) {
-        GlideApp.with(view)
-            .load(url)
-            .placeholder(R.drawable.ic_baseline_cloud_download_24)
-            .error(R.drawable.ic_baseline_error_outline_24)
-            .into(view)
-    }
-}
-
 @BindingAdapter(value = ["app:items"])
 fun <T> setRecyclerView(view: RecyclerView, items: List<T>?) {
     if (items != null) {
         (view.adapter as BaseAdapter<T>?)?.setItems(items)
     } else {
         (view.adapter as BaseAdapter<T>?)?.setItems(emptyList())
-    }
-}
-
-@BindingAdapter(value = ["app:total_goals"])
-fun setTotalGoal(view: TextView, text: TopScorersInfo) {
-    view.text = text.statistics?.joinToString { it.goals?.total.toString() }
-}
-
-@BindingAdapter(value = ["app:teamName"])
-fun setTimeName(view: TextView, text: TopScorersInfo) {
-    view.text = text.statistics?.joinToString { it.team?.name.toString() }
-}
-
-@BindingAdapter(value = ["app:textNotNull"])
-fun setTextNotNull(view: TextView, text: String?) {
-    if (text == null || text == "") {
-        view.text = "0"
-    } else {
-        view.text = text
-    }
-}
-
-@BindingAdapter(value = ["app:textNotNullType"])
-fun setTextTypeNotNull(view: TextView, text: String?) {
-    if (text == null || text == "") {
-        view.text = "No Result"
-    } else {
-        view.text = text
     }
 }

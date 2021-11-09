@@ -4,9 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="item"
             type="com.example.footballapp.model.response.base.baseLeagueInfo.LeagueInfo" />
+
         <variable
             name="listener"
             type="com.example.footballapp.util.OnClickListener" />
@@ -14,24 +16,23 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:onClick="@{() -> listener.onClickItem(item.league.id)}">
 
         <View
             android:id="@+id/border"
             android:layout_width="0dp"
-            android:layout_height="40dp"
+            android:layout_height="60dp"
             android:background="@drawable/live_match_header"
             android:elevation="@dimen/elevation0X"
-            app:layout_constraintStart_toStartOf="@id/myCardView"
             app:layout_constraintEnd_toEndOf="@id/myCardView"
-            app:layout_constraintTop_toTopOf="@id/myCardView"
-            />
+            app:layout_constraintStart_toStartOf="@id/myCardView"
+            app:layout_constraintTop_toTopOf="@id/myCardView" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/myCardView"
             android:layout_width="match_parent"
-            android:layout_height="180dp"
+            android:layout_height="130dp"
             android:layout_margin="@dimen/margin2X"
             app:cardCornerRadius="@dimen/margin2X"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -41,9 +42,9 @@
 
         <LinearLayout
             android:id="@+id/league_image"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginStart="@dimen/size5X"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="@dimen/margin5X"
             android:adjustViewBounds="true"
             android:background="@drawable/image_border"
             android:cropToPadding="true"
@@ -51,7 +52,7 @@
             android:gravity="center"
             app:layout_constraintBottom_toBottomOf="@id/myCardView"
             app:layout_constraintStart_toStartOf="@id/myCardView"
-            app:layout_constraintTop_toTopOf="@id/myCardView">
+            app:layout_constraintTop_toBottomOf="@id/border">
 
             <ImageView
                 android:layout_width="60dp"
@@ -59,42 +60,46 @@
                 android:elevation="@dimen/elevation1X"
                 app:ImageUrl="@{item.league.logo}"
                 tools:src="@tools:sample/avatars" />
-        </LinearLayout>
 
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/country_image"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginEnd="@dimen/size5X"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="@dimen/margin5X"
             android:adjustViewBounds="true"
             android:background="@drawable/image_border"
             android:cropToPadding="true"
             android:elevation="@dimen/elevation0X"
             android:gravity="center"
-            app:layout_constraintBottom_toBottomOf="@id/myCardView"
-            app:layout_constraintEnd_toEndOf="@id/myCardView"
-            app:layout_constraintTop_toTopOf="@id/myCardView">
+            app:layout_constraintBottom_toBottomOf="@id/border"
+            app:layout_constraintEnd_toStartOf="@id/country_name"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="@id/border"
+            app:layout_constraintTop_toTopOf="@id/border">
 
             <ImageView
-                android:layout_width="60dp"
+                android:layout_width="65dp"
                 android:layout_height="60dp"
                 android:elevation="@dimen/elevation1X"
                 app:ImageUrl="@{item.country.flag}"
                 tools:src="@tools:sample/avatars" />
-        </LinearLayout>
 
+        </LinearLayout>
 
         <TextView
             android:id="@+id/league_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin2X"
             android:elevation="@dimen/elevation0X"
             android:text="@{item.league.name}"
-            android:textSize="@dimen/size3X"
+            android:textSize="@dimen/size4X"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/league_image"
             app:layout_constraintStart_toEndOf="@id/league_image"
+            app:layout_constraintTop_toTopOf="@id/league_image"
             tools:text="Premier League" />
 
         <TextView
@@ -105,7 +110,9 @@
             android:text="@{item.country.name}"
             android:textSize="@dimen/size3X"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@id/country_image"
+            app:layout_constraintBottom_toBottomOf="@id/country_image"
+            app:layout_constraintEnd_toEndOf="@id/border"
+            app:layout_constraintStart_toEndOf="@id/country_image"
             app:layout_constraintTop_toTopOf="@id/country_image"
             tools:text="England" />
 

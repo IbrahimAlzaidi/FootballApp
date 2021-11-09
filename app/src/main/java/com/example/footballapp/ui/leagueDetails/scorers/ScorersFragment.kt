@@ -9,10 +9,11 @@ import com.example.footballapp.util.OnClickListener
 
 class ScorersFragment(private val args: Int?): BaseFragment<FragmentScorersBinding, ScorersViewModel>
     (R.layout.fragment_scorers), OnClickListener{
+
     override fun setup() {
         binding.viewModel = viewModel
         val topScoreAdapter = ScorersAdapter(emptyList(),this)
-        binding.topScoreRecycler.adapter = topScoreAdapter
+        binding.topScorers.adapter = topScoreAdapter
     }
 
     override fun onClickItem(id: Int) {
@@ -21,8 +22,10 @@ class ScorersFragment(private val args: Int?): BaseFragment<FragmentScorersBindi
     }
 
     override fun getViewModel()= ScorersViewModel::class.java
+
     override val arg: Int?
         get() = args
+
     override val leagueId: Int?
         get() = null
 }

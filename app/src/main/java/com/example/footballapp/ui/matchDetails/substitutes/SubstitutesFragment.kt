@@ -4,18 +4,20 @@ import com.example.footballapp.R
 import com.example.footballapp.databinding.FragmentSubstitutesBinding
 import com.example.footballapp.ui.base.BaseFragment
 
-class SubstitutesFragment(private val matchId : Int?) :
+class SubstitutesFragment(private val matchId: Int?) :
     BaseFragment<FragmentSubstitutesBinding, SubstitutesViewModel>(R.layout.fragment_substitutes) {
+
     override fun setup() {
         binding.viewModel = viewModel
         val substitutesPlayerAdapter = SubstitutesPlayerAdapter(emptyList())
         binding.playerSubstitutesRecycler.adapter = substitutesPlayerAdapter
     }
 
-    override fun getViewModel(): Class<SubstitutesViewModel> = SubstitutesViewModel::class.java
+    override fun getViewModel() = SubstitutesViewModel::class.java
 
     override val arg: Int?
         get() = matchId
+
     override val leagueId: Int?
         get() = null
 }

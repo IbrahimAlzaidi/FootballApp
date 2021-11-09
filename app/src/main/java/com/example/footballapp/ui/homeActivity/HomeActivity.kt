@@ -6,7 +6,6 @@ import androidx.databinding.DataBindingUtil
 import com.example.footballapp.R
 import com.example.footballapp.databinding.ActivityHomeBinding
 
-
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeBinding

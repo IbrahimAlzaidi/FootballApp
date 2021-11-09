@@ -26,7 +26,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="parent"
             app:showWhenSuccess="@{viewModel.matchStatistic}"
-            tools:listitem="@layout/match_statistic_items" />
+            tools:listitem="@layout/match_statistic_item" />
 
         <ProgressBar
             android:id="@+id/loading_progress"
@@ -49,7 +49,6 @@
             app:lottie_autoPlay="true"
             app:lottie_rawRes="@raw/no_connection"
             app:showWhenError="@{viewModel.matchStatistic}" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

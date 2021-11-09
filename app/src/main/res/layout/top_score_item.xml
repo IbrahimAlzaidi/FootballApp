@@ -15,37 +15,31 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/top_score_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="@{()-> listener.onClickItem(item.player.id)}">
+        android:onClick="@{ () -> listener.onClickItem(item.player.id) }">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/viewHolderStanding"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:backgroundTint="#C38BAFD6"
+            app:cardElevation="@dimen/elevation1X"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <View
             android:id="@+id/divider"
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:background="#000000"
-            app:layout_constraintBottom_toTopOf="@id/viewHolderStanding"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/viewHolderStanding" />
-
-        <View
-            android:id="@+id/viewHolderStanding"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:background="#C38BAFD6"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/playerImage"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginStart="@dimen/margin6X"
-            android:layout_marginBottom="@dimen/margin4X"
+            android:elevation="@dimen/elevation1X"
             android:textSize="@dimen/size4X"
             app:ImageUrl="@{item.player.photo}"
             app:layout_constraintBottom_toBottomOf="@id/viewHolderStanding"
@@ -58,9 +52,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin6X"
+            android:elevation="@dimen/elevation1X"
             android:text="@{item.player.name}"
             android:textSize="@dimen/size4X"
-            app:layout_constraintBottom_toBottomOf="@id/playerImage"
             app:layout_constraintStart_toEndOf="@id/playerImage"
             app:layout_constraintTop_toTopOf="@id/playerImage"
             tools:text="Mohamed Salah" />
@@ -69,37 +63,38 @@
             android:id="@+id/teamImage"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginBottom="@dimen/margin0X"
-            app:ImageUrlTeam="@{item}"
+            android:elevation="@dimen/elevation1X"
+            app:ImageUrl="@{item.statistics.get(0).team.logo}"
             app:layout_constraintBottom_toBottomOf="@id/viewHolderStanding"
-            app:layout_constraintEnd_toStartOf="@id/teamName"
+            app:layout_constraintEnd_toStartOf="@id/team_name"
             app:layout_constraintStart_toStartOf="@id/playerName"
+            app:layout_constraintTop_toBottomOf="@id/playerName"
             tools:src="@tools:sample/avatars" />
 
         <TextView
-            android:id="@+id/teamName"
+            android:id="@+id/team_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin4X"
+            android:elevation="@dimen/elevation1X"
+            android:text="@{item.statistics.get(0).team.name}"
             android:textSize="@dimen/size3X"
             app:layout_constraintBottom_toBottomOf="@id/teamImage"
             app:layout_constraintStart_toEndOf="@id/teamImage"
             app:layout_constraintTop_toTopOf="@id/teamImage"
-            app:teamName="@{item}"
             tools:text="LiverPool" />
 
         <TextView
-            android:id="@+id/goalsNumber"
+            android:id="@+id/goals_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/margin4X"
+            android:layout_margin="@dimen/margin4X"
+            android:elevation="@dimen/elevation1X"
+            android:text="@{item.statistics.get(0).goals.total.toString()}"
             android:textSize="@dimen/size3X"
-            app:layout_constraintBottom_toBottomOf="@id/playerName"
             app:layout_constraintEnd_toEndOf="@id/viewHolderStanding"
-            app:layout_constraintTop_toTopOf="@id/playerName"
-            app:total_goals="@{item}"
+            app:layout_constraintTop_toTopOf="@id/viewHolderStanding"
             tools:text="10" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -47,12 +47,12 @@
             android:ellipsize="end"
             android:maxWidth="120dp"
             android:singleLine="true"
-            android:text="@{viewModel.matchDetails.toData().response.get(0).teams.home.name}"
             android:textSize="@dimen/size3X"
             app:layout_constraintEnd_toEndOf="@+id/homeImage"
             app:layout_constraintStart_toStartOf="@id/homeImage"
             app:layout_constraintTop_toBottomOf="@id/homeImage"
             app:showWhenSuccess="@{viewModel.matchDetails}"
+            android:text="@{viewModel.matchDetails.toData().response.get(0).teams.home.name}"
             tools:text="Livebool" />
 
         <TextView
@@ -63,12 +63,12 @@
             android:maxWidth="120dp"
             android:maxLines="1"
             android:singleLine="true"
-            android:text="@{viewModel.matchDetails.toData().response.get(0).teams.away.name}"
             android:textSize="@dimen/size3X"
             app:layout_constraintEnd_toEndOf="@id/awayImage"
             app:layout_constraintStart_toStartOf="@+id/awayImage"
             app:layout_constraintTop_toBottomOf="@id/awayImage"
             app:showWhenSuccess="@{viewModel.matchDetails}"
+            android:text="@{viewModel.matchDetails.toData().response.get(0).teams.away.name}"
             tools:text="Liverpool" />
 
         <TextView
@@ -77,13 +77,13 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin3X"
             android:gravity="center"
-            android:text="@{String.valueOf(viewModel.matchDetails.toData().response.get(0).goals.home)}"
             android:textSize="@dimen/size6X"
             app:layout_constraintBottom_toBottomOf="@id/homeImage"
             app:layout_constraintEnd_toStartOf="@id/awayGoals"
             app:layout_constraintStart_toEndOf="@id/homeImage"
             app:layout_constraintTop_toTopOf="@id/homeImage"
             app:showWhenSuccess="@{viewModel.matchDetails}"
+            android:text="@{viewModel.matchDetails.toData().response.get(0).goals.home.toString()}"
             tools:text="6" />
 
         <TextView
@@ -92,13 +92,13 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin3X"
             android:gravity="center"
-            android:text="@{String.valueOf(viewModel.matchDetails.toData().response.get(0).goals.away)}"
             android:textSize="@dimen/size6X"
             app:layout_constraintBottom_toBottomOf="@id/awayImage"
             app:layout_constraintEnd_toStartOf="@id/awayImage"
             app:layout_constraintStart_toEndOf="@id/homeGoals"
             app:layout_constraintTop_toTopOf="@id/awayImage"
             app:showWhenSuccess="@{viewModel.matchDetails}"
+            android:text="@{viewModel.matchDetails.toData().response.get(0).goals.away.toString()}"
             tools:text="5" />
 
         <TextView
@@ -170,7 +170,6 @@
             app:lottie_autoPlay="true"
             app:lottie_rawRes="@raw/no_connection"
             app:showWhenError="@{viewModel.matchDetails}" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

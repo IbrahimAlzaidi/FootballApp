@@ -22,42 +22,43 @@
             android:id="@+id/myCardView"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            app:cardElevation="0dp"
-            android:backgroundTint="#27C9CCD5"
             android:layout_marginHorizontal="@dimen/margin1X"
             android:layout_marginVertical="@dimen/margin2X"
+            android:backgroundTint="#27C9CCD5"
             app:cardCornerRadius="@dimen/margin2X"
+            app:cardElevation="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
         <ImageView
             android:layout_width="60dp"
             android:layout_height="60dp"
-            tools:src="@tools:sample/avatars"
             android:onClick="@{()-> listener.onClickItem(item.league.id)}"
             app:ImageUrl="@{item.league.logo}"
-            app:layout_constraintStart_toStartOf="@id/myCardView"
-            app:layout_constraintEnd_toEndOf="@id/myCardView"
             app:layout_constraintBottom_toBottomOf="@id/myCardView"
+            app:layout_constraintEnd_toEndOf="@id/myCardView"
+            app:layout_constraintStart_toStartOf="@id/myCardView"
             app:layout_constraintTop_toTopOf="@id/myCardView"
-            />
+            tools:src="@tools:sample/avatars" />
+
         <TextView
             android:id="@+id/text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin0X"
+            android:ellipsize="end"
             android:gravity="center"
-            android:text="@{item.league.name}"
+            android:lines="1"
+            android:maxWidth="80dp"
+            android:singleLine="true"
             android:textSize="@dimen/size2X"
             android:textStyle="bold"
-            android:ellipsize="end"
-            android:maxWidth="80dp"
-            android:lines="1"
-            android:singleLine="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/myCardView"
             app:layout_constraintStart_toStartOf="@id/myCardView"
             app:layout_constraintTop_toBottomOf="@id/myCardView"
+            android:text="@{item.league.name}"
             tools:text="Europa League" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

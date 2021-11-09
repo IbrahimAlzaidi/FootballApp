@@ -6,6 +6,7 @@ import com.example.footballapp.ui.base.BaseFragment
 
 class LineupFragment(private val matchID: Int?) :
     BaseFragment<FragmentLineupBinding, LineupViewModel>(R.layout.fragment_lineup) {
+
     override fun setup() {
         binding.viewModel = viewModel
         val lineupAdapter = LineupAdapter(emptyList())
@@ -13,8 +14,10 @@ class LineupFragment(private val matchID: Int?) :
     }
 
     override fun getViewModel() = LineupViewModel::class.java
+
     override val arg: Int?
         get() = matchID
+
     override val leagueId: Int?
         get() = null
 }

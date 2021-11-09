@@ -11,11 +11,13 @@ import com.example.footballapp.util.toSubstitutes
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-class SubstitutesViewModel(val arg: Int?) : BaseViewModel() {
+class SubstitutesViewModel(arg: Int?) : BaseViewModel() {
     val matchSubstitutes = arg?.let { repository.getMatchLineup(it).asLiveData() }
 
-    private val _substitutesPlayer = MutableLiveData<List<SubstitutesPlayer>>()
-    val substitutesPlayer: LiveData<List<SubstitutesPlayer>> = _substitutesPlayer
+    private val _substitutesPlayer = MutableLiveData<List<SubstitutesPlayer?>>()
+
+    val substitutesPlayer: LiveData<List<SubstitutesPlayer?>>
+        get() = _substitutesPlayer
 
     init {
         viewModelScope.launch {

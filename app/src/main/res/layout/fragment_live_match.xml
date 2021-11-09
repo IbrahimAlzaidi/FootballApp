@@ -53,5 +53,6 @@
             app:lottie_autoPlay="true"
             app:lottie_rawRes="@raw/no_connection"
             app:showWhenError="@{viewModel.matchLive}" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

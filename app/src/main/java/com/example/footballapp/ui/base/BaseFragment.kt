@@ -16,12 +16,14 @@ import com.example.footballapp.util.ViewPagerTransitions
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
-abstract class BaseFragment<VDB : ViewDataBinding, VM : BaseViewModel>(
-    @LayoutRes private val layoutResId: Int) : Fragment() {
+abstract class BaseFragment<VDB : ViewDataBinding, VM : BaseViewModel>
+    (@LayoutRes private val layoutResId: Int) : Fragment() {
+
     abstract fun setup()
     abstract fun getViewModel(): Class<VM>
     abstract val arg: Int?
     abstract val leagueId: Int?
+
     private lateinit var _binding: VDB
     protected val binding: VDB
         get() = _binding

@@ -11,10 +11,13 @@ import com.example.footballapp.util.toMatchStatistic
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-class MatchStateViewModel(val arg: Int?) : BaseViewModel() {
+class MatchStateViewModel(arg: Int?) : BaseViewModel() {
+
     val matchStatistic = arg?.let { repository.getMatchStatistic(it).asLiveData() }
-    private val _match = MutableLiveData<List<MatchResultData>>()
-    val match: LiveData<List<MatchResultData>>
+
+    private val _match = MutableLiveData<List<MatchResultData?>>()
+
+    val match: LiveData<List<MatchResultData?>>
         get() = _match
 
     init {

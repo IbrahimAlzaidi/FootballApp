@@ -11,13 +11,15 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class SearchViewModel : BaseViewModel() {
+
     private val _searchLeague = MutableLiveData<State<LeagueSearchResponse?>>()
+
     val searchLeague: LiveData<State<LeagueSearchResponse?>>
         get() = _searchLeague
 
     fun getSearchResponse(text: CharSequence?) {
         viewModelScope.launch {
-            delay(2000)
+            delay(5000)
             if (text != null) {
                 repository.searchLeague(text.toString()).collect {
                     if (it is State.Success) {

@@ -30,8 +30,10 @@ class StandingFragment(private val args: Int?) :
     }
 
     override fun getViewModel() = StandingViewModel::class.java
+
     override val arg: Int?
         get() = args
+
     override val leagueId: Int?
         get() = null
 }

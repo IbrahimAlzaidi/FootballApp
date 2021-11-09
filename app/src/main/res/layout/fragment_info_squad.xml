@@ -22,13 +22,13 @@
             android:layout_height="0dp"
             android:background="@drawable/rectangle_shape"
             android:orientation="vertical"
-            app:showWhenSuccess="@{viewModel.team}"
             app:items="@{viewModel.team.toData().squadPlayerInfo.get(0).players}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:showWhenSuccess="@{viewModel.team}"
             tools:listitem="@layout/team_player_item" />
 
         <ProgressBar

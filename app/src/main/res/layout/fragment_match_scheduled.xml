@@ -7,13 +7,13 @@
 
         <variable
             name="viewModel"
-            type="com.example.footballapp.ui.home.allMatchScheduled.AllMatchScheduledViewModel" />
+            type="com.example.footballapp.ui.home.matchScheduled.MatchScheduledViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.home.allMatchScheduled.AllMatchScheduledFragment">
+        tools:context=".ui.home.matchScheduled.MatchScheduledFragment">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/matchScheduledRecycler"
@@ -22,14 +22,14 @@
             android:layout_marginHorizontal="@dimen/margin1X"
             android:layout_marginTop="@dimen/margin2X"
             android:orientation="vertical"
-            app:items="@{viewModel.allMatchScheduled.toData().matchScheduledInfo}"
+            app:items="@{viewModel.matchScheduled.toData().matchScheduledInfo}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:showWhenSuccess="@{viewModel.allMatchScheduled}"
-            tools:listitem="@layout/match_scheduled_item" />
+            app:showWhenSuccess="@{viewModel.matchScheduled}"
+            tools:listitem="@layout/matches_item" />
 
         <ProgressBar
             android:id="@+id/loading_progress"
@@ -39,7 +39,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:showWhenLoading="@{viewModel.allMatchScheduled}" />
+            app:showWhenLoading="@{viewModel.matchScheduled}" />
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/lottie_error"
@@ -51,7 +51,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:lottie_autoPlay="true"
             app:lottie_rawRes="@raw/no_connection"
-            app:showWhenError="@{viewModel.allMatchScheduled}" />
+            app:showWhenError="@{viewModel.matchScheduled}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -13,13 +13,12 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/teal_200"
         tools:context=".ui.leagueDetails.scorers.ScorersFragment">
 
         <View
             android:id="@+id/view"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="50dp"
             android:layout_marginHorizontal="@dimen/margin0X"
             android:layout_marginTop="@dimen/margin0X"
             android:background="@drawable/club_layout"
@@ -29,46 +28,34 @@
             app:showWhenSuccess="@{viewModel.topScorers}" />
 
         <TextView
-            android:id="@+id/goals"
+            android:id="@+id/player_text"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginStart="@dimen/margin4X"
-            android:gravity="center"
-            android:text="Goals"
-            android:textSize="@dimen/size5X"
-            app:layout_constraintBottom_toTopOf="@id/player"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin3X"
+            android:text="@string/player"
+            android:textColor="@color/black"
+            android:textSize="@dimen/size4X"
+            app:layout_constraintBottom_toBottomOf="@id/view"
             app:layout_constraintStart_toStartOf="@id/view"
             app:layout_constraintTop_toTopOf="@id/view"
             app:showWhenSuccess="@{viewModel.topScorers}" />
 
         <TextView
-            android:id="@+id/player"
+            android:id="@+id/goals_text"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/margin0X"
-            android:text="Player"
-            android:textSize="@dimen/size3X"
+            android:layout_height="0dp"
+            android:layout_marginEnd="@dimen/margin2X"
+            android:gravity="center"
+            android:text="@string/goals"
+            android:textColor="@color/black"
+            android:textSize="@dimen/size4X"
             app:layout_constraintBottom_toBottomOf="@id/view"
-            app:layout_constraintEnd_toEndOf="@id/goals"
-            app:layout_constraintStart_toStartOf="@id/goals"
-            app:layout_constraintTop_toBottomOf="@id/goals"
-            app:showWhenSuccess="@{viewModel.topScorers}" />
-
-        <TextView
-            android:id="@+id/goalsTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/margin4X"
-            android:layout_marginBottom="@dimen/margin0X"
-            android:text="Goals"
-            android:textSize="@dimen/size3X"
-            app:layout_constraintBottom_toBottomOf="@id/player"
             app:layout_constraintEnd_toEndOf="@id/view"
-            app:layout_constraintTop_toTopOf="@id/player"
+            app:layout_constraintTop_toTopOf="@id/view"
             app:showWhenSuccess="@{viewModel.topScorers}" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/topScoreRecycler"
+            android:id="@+id/top_Scorers"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginHorizontal="@dimen/margin0X"
@@ -78,7 +65,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view"
+            app:layout_constraintTop_toBottomOf="@id/view"
             app:showWhenSuccess="@{viewModel.topScorers}"
             tools:listitem="@layout/top_score_item" />
 

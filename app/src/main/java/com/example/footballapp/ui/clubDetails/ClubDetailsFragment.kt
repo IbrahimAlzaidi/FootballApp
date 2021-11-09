@@ -32,8 +32,10 @@ class ClubDetailsFragment :
     }
 
     override fun getViewModel() = ClubDetailsViewModel::class.java
+
     override val arg: Int
         get() = args.teamId
+
     override val leagueId: Int
         get() = args.leagueId
 }

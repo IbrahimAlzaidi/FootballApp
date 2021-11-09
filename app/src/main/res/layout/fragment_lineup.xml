@@ -52,9 +52,7 @@
             app:layout_constraintEnd_toStartOf="@id/titleManger"
             app:layout_constraintStart_toStartOf="@id/lineupRecyclerView"
             app:layout_constraintTop_toTopOf="@id/titleManger"
-            app:showWhenSuccess="@{viewModel.lineupsData}"
-
-            />
+            app:showWhenSuccess="@{viewModel.lineupsData}" />
 
         <View
             android:id="@+id/divider1"
@@ -72,11 +70,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin2X"
-            app:textNotNullType="@{viewModel.match.get(0).coachHomeTeam}"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="@id/divider"
             app:layout_constraintTop_toBottomOf="@id/divider"
             app:showWhenSuccess="@{viewModel.lineupsData}"
+            android:text="@{viewModel.match.get(0).coachHomeTeam}"
             tools:text="HomeManger" />
 
         <TextView
@@ -84,11 +82,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin2X"
-            app:textNotNullType="@{viewModel.match.get(0).coachAwayTeam}"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="@id/divider1"
             app:layout_constraintTop_toBottomOf="@id/divider1"
             app:showWhenSuccess="@{viewModel.lineupsData}"
+            android:text="@{viewModel.match.get(0).coachAwayTeam}"
             tools:text="HomeManger" />
 
         <ProgressBar
@@ -112,7 +110,6 @@
             app:lottie_autoPlay="true"
             app:lottie_rawRes="@raw/no_connection"
             app:showWhenError="@{viewModel.lineupsData}" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

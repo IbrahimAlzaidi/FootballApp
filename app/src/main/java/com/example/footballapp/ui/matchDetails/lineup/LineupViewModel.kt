@@ -11,11 +11,14 @@ import com.example.footballapp.util.toPlayerStart
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-class LineupViewModel(val arg: Int?) : BaseViewModel() {
+class LineupViewModel(arg: Int?) : BaseViewModel() {
+
     val lineupsData = arg?.let { repository.getMatchLineup(it).asLiveData() }
 
     private val _match = MutableLiveData<List<DataPlayer?>>()
-    val match: LiveData<List<DataPlayer?>> = _match
+
+    val match: LiveData<List<DataPlayer?>>
+        get() = _match
 
     init {
         viewModelScope.launch {

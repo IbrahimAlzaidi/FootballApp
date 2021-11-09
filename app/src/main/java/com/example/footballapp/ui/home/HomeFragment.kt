@@ -5,19 +5,18 @@ import androidx.navigation.fragment.findNavController
 import com.example.footballapp.R
 import com.example.footballapp.databinding.FragmentHomeBinding
 import com.example.footballapp.ui.base.BaseFragment
-import com.example.footballapp.ui.home.allMatchScheduled.AllMatchScheduledFragment
+import com.example.footballapp.ui.home.matchScheduled.MatchScheduledFragment
 import com.example.footballapp.ui.home.liveMatch.LiveMatchFragment
 import com.example.footballapp.util.OnClickListener
 
 
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.fragment_home),
     OnClickListener {
-    override fun getViewModel() = HomeViewModel::class.java
 
     private val fragmentTitles = listOf("Live", "Match Scheduled")
 
     override fun setup() {
-        val fragmentsList = listOf(LiveMatchFragment(), AllMatchScheduledFragment())
+        val fragmentsList = listOf(LiveMatchFragment(), MatchScheduledFragment())
         binding.viewModel = viewModel
         val viewPager = binding.homeViewPager
         val tabLayout = binding.homeTabLayoutFragments
@@ -46,8 +45,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
         this.findNavController().navigate(action)
     }
 
+    override fun getViewModel() = HomeViewModel::class.java
+
     override val arg: Int?
         get() = null
+
     override val leagueId: Int?
         get() = null
 }

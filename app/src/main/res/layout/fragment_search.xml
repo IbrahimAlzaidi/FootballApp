@@ -23,11 +23,11 @@
             android:layout_height="wrap_content"
             android:focusable="true"
             android:focusedByDefault="true"
+            android:importantForAutofill="no"
+            android:inputType="textAutoCorrect"
             android:onTextChanged="@{(text, start, before, count) -> viewModel.getSearchResponse(text)}"
             android:transitionName="@string/searchTransition"
             app:layout_constraintTop_toTopOf="parent"
-            android:importantForAutofill="no"
-            android:inputType="textAutoCorrect"
             tools:ignore="LabelFor" />
 
         <ImageView
@@ -89,7 +89,6 @@
             app:lottie_autoPlay="true"
             app:lottie_rawRes="@raw/sad_face"
             app:showWhenSearch="@{viewModel.searchLeague}" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
