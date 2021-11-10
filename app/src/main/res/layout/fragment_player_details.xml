@@ -21,7 +21,7 @@
         <View
             android:id="@+id/background"
             android:layout_width="match_parent"
-            android:layout_height="400dp"
+            android:layout_height="350dp"
             android:layout_marginStart="@dimen/margin3X"
             android:background="@drawable/player_background_shape"
             android:elevation="0dp"
@@ -38,7 +38,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.35">
+            app:layout_constraintVertical_bias="0.25">
 
             <ImageView
                 android:layout_width="300dp"
@@ -55,13 +55,12 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/margin2X"
             android:elevation="@dimen/elevation0X"
-            android:gravity="end"
+            android:gravity="center"
             android:text="@{String.valueOf(viewModel.playerData.toData().squadPlayerInfo.get(0).players.get(0).number)}"
             android:textColor="#C4C4C4"
             android:textSize="170dp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@id/imageHolder"
-            app:layout_constraintStart_toStartOf="@id/imageHolder"
+            app:layout_constraintStart_toStartOf="@id/background"
             app:layout_constraintTop_toTopOf="@id/background"
             tools:text="10" />
 
@@ -70,7 +69,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin4X"
-            android:layout_marginTop="@dimen/margin0X"
             android:text="@{viewModel.playerData.toData().squadPlayerInfo.get(0).players.get(0).name}"
             android:textSize="35sp"
             android:textStyle="bold"
@@ -84,6 +82,7 @@
             android:id="@+id/holderViewPager"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/margin6X"
             android:background="@drawable/holder_player_details_shape"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/background"
@@ -108,13 +107,14 @@
             android:layout_height="wrap_content"
             app:dotsColor="#C4C4C4"
             app:dotsStrokeColor="@color/white"
+            android:layout_marginBottom="@dimen/margin2X"
             app:dotsCornerRadius="8dp"
             app:dotsSize="16dp"
             app:dotsSpacing="4dp"
             app:dotsStrokeWidth="2dp"
-            app:layout_constraintBottom_toBottomOf="@id/details_ViewPager"
-            app:layout_constraintEnd_toEndOf="@id/details_ViewPager"
-            app:layout_constraintStart_toStartOf="@id/details_ViewPager" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
