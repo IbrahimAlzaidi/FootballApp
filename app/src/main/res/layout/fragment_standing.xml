@@ -16,102 +16,91 @@
         tools:context=".ui.leagueDetails.standing.StandingFragment">
 
         <View
-            android:id="@+id/view"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginHorizontal="@dimen/margin0X"
-            android:layout_marginTop="@dimen/margin0X"
-            android:background="@drawable/club_layout"
-            app:layout_constraintBottom_toTopOf="@id/leagueRecycler"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/playerTitle"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:background="@drawable/live_match_header"
+            android:layout_marginTop="@dimen/margin1X"
+            app:layout_constraintStart_toStartOf="@id/leagueRecycler"
+            app:layout_constraintEnd_toEndOf="@id/leagueRecycler"
             app:layout_constraintTop_toTopOf="parent"
-            app:showWhenSuccess="@{viewModel.standingTeam}" />
-
+            />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            app:layout_constraintBottom_toBottomOf="@id/playerTitle"
+            app:layout_constraintStart_toStartOf="@id/leagueRecycler"
+            app:layout_constraintEnd_toEndOf="@id/leagueRecycler"
+            android:background="#FAF8F8" />
         <TextView
+            android:id="@+id/player"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin3X"
+            android:layout_marginStart="50dp"
             android:text="Club"
-            android:textColor="@color/black"
-            android:textSize="@dimen/size3X"
-            app:layout_constraintBottom_toBottomOf="@id/view"
-            app:layout_constraintStart_toStartOf="@id/view"
-            app:layout_constraintTop_toTopOf="@id/view"
-            app:showWhenSuccess="@{viewModel.standingTeam}" />
-
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@id/playerTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/playerTitle" />
         <TextView
             android:id="@+id/matchPoint"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginStart="@dimen/margin1X"
-            android:layout_marginEnd="@dimen/margin1X"
-            android:gravity="center"
+            android:layout_height="wrap_content"
             android:text="MP"
-            android:textColor="@color/black"
-            android:textSize="@dimen/size3X"
-            app:layout_constraintBottom_toBottomOf="@id/allPoints"
-            app:layout_constraintEnd_toStartOf="@id/winPoints"
-            app:layout_constraintTop_toTopOf="@id/allPoints"
-            app:showWhenSuccess="@{viewModel.standingTeam}" />
-
+            android:textSize="18sp"
+            app:layout_constraintHorizontal_bias="0.62"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/player"
+            app:layout_constraintBottom_toBottomOf="@id/player"
+            />
         <TextView
-            android:id="@+id/winPoints"
+            android:id="@+id/winTitle"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginStart="@dimen/margin1X"
-            android:layout_marginEnd="@dimen/margin4X"
-            android:gravity="center"
+            android:layout_height="wrap_content"
             android:text="W"
-            android:textSize="@dimen/size3X"
-            app:layout_constraintBottom_toBottomOf="@id/allPoints"
-            app:layout_constraintEnd_toStartOf="@id/drawPoint"
-            app:layout_constraintTop_toTopOf="@id/allPoints"
-            app:showWhenSuccess="@{viewModel.standingTeam}" />
-
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@id/matchPoint"
+            app:layout_constraintTop_toTopOf="@id/matchPoint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/matchPoint"
+            app:layout_constraintHorizontal_bias="0.09"
+            />
         <TextView
-            android:id="@+id/drawPoint"
+            android:id="@+id/drawTitle"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginStart="@dimen/margin0X"
-            android:layout_marginEnd="@dimen/margin4X"
-            android:gravity="center"
+            android:layout_height="wrap_content"
             android:text="D"
-            android:textColor="@color/black"
-            android:textSize="@dimen/size3X"
-            app:layout_constraintBottom_toBottomOf="@id/allPoints"
-            app:layout_constraintEnd_toStartOf="@id/losePoint"
-            app:layout_constraintTop_toTopOf="@id/allPoints"
-            app:showWhenSuccess="@{viewModel.standingTeam}" />
-
+            android:textSize="18sp"
+            app:layout_constraintHorizontal_bias="0.18"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/winTitle"
+            app:layout_constraintTop_toTopOf="@id/matchPoint"
+            app:layout_constraintBottom_toBottomOf="@id/matchPoint"
+            />
         <TextView
-            android:id="@+id/losePoint"
+            android:id="@+id/loseTitle"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginStart="@dimen/margin0X"
-            android:layout_marginEnd="@dimen/margin4X"
-            android:gravity="center"
+            android:layout_height="wrap_content"
             android:text="L"
-            android:textColor="@color/black"
-            android:textSize="@dimen/size3X"
-            app:layout_constraintBottom_toBottomOf="@id/allPoints"
-            app:layout_constraintEnd_toStartOf="@id/allPoints"
-            app:layout_constraintTop_toTopOf="@id/allPoints"
-            app:showWhenSuccess="@{viewModel.standingTeam}" />
-
+            android:textSize="18sp"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/drawTitle"
+            app:layout_constraintTop_toTopOf="@id/matchPoint"
+            app:layout_constraintBottom_toBottomOf="@id/matchPoint"
+            />
         <TextView
-            android:id="@+id/allPoints"
+            android:id="@+id/ptsTitle"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginEnd="@dimen/margin2X"
-            android:gravity="center"
-            android:text="Pts"
-            android:textColor="@color/black"
-            android:textSize="@dimen/size3X"
-            app:layout_constraintBottom_toBottomOf="@id/view"
-            app:layout_constraintEnd_toEndOf="@id/view"
-            app:layout_constraintTop_toTopOf="@id/view"
-            app:showWhenSuccess="@{viewModel.standingTeam}" />
+            android:layout_height="wrap_content"
+            android:text="Pt"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@id/matchPoint"
+            app:layout_constraintBottom_toBottomOf="@id/matchPoint"
+            app:layout_constraintTop_toTopOf="@id/matchPoint"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/leagueRecycler"
@@ -124,7 +113,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/view"
+            app:layout_constraintTop_toBottomOf="@id/playerTitle"
             app:showWhenSuccess="@{viewModel.standingTeam}"
             tools:listitem="@layout/teams_standing_item" />
 

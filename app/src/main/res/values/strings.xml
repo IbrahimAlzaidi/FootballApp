@@ -10,6 +10,11 @@
     <string name="manger">Manger</string>
     <string name="closeTransition">close_transition</string>
     <string name="leagues">Leagues :</string>
+    <string name="team_title">Team : </string>
+    <string name="player_age">Age : </string>
+    <string name="player_nationality">Nationality : </string>
+    <string name="player_matches">Matches : </string>
+    <string name="player_rating">Ratings : </string>
     <string name="live">LIVE</string>
     <string name="goals">Goals</string>
     <string name="player">Player</string>

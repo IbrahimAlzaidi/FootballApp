@@ -12,6 +12,7 @@
         <variable
             name="listener"
             type="com.example.footballapp.util.OnClickListener" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -26,11 +27,11 @@
             android:layout_height="wrap_content"
             android:elevation="@dimen/elevation1X"
             android:gravity="center"
-            android:text="@{item.fixture.status.elapsed.toString()}"
+            android:text="@{String.valueOf(item.fixture.status.elapsed)}"
             android:textSize="@dimen/size2X"
-            app:layout_constraintBottom_toBottomOf="@id/holderTimeMatch"
             app:layout_constraintEnd_toEndOf="@id/holderTimeMatch"
             app:layout_constraintStart_toStartOf="@id/holderTimeMatch"
+            app:layout_constraintBottom_toBottomOf="@id/holderTimeMatch"
             app:layout_constraintTop_toTopOf="@id/holderTimeMatch"
             tools:text="49" />
 
@@ -38,23 +39,25 @@
             android:id="@+id/holderTimeMatch"
             android:layout_width="35dp"
             android:layout_height="20dp"
-            android:layout_marginTop="@dimen/margin2X"
-            android:background="@drawable/image_border"
             android:elevation="@dimen/elevation0X"
+            android:background="@drawable/image_border"
+            android:layout_marginTop="@dimen/margin2X"
             app:layout_constraintEnd_toEndOf="@id/scoreAwayTeam"
             app:layout_constraintStart_toStartOf="@id/scoreHomeTeam"
-            app:layout_constraintTop_toBottomOf="@id/separator" />
+            app:layout_constraintTop_toBottomOf="@id/separator"
+            />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/myCardView"
             android:layout_width="match_parent"
             android:layout_height="180dp"
-            android:layout_margin="@dimen/margin2X"
-            android:ellipsize="end"
-            android:lines="1"
-            android:maxWidth="70dp"
-            android:singleLine="true"
+            android:layout_marginVertical="@dimen/margin1X"
+            android:layout_marginHorizontal="@dimen/margin2X"
             app:cardCornerRadius="@dimen/margin2X"
+            android:ellipsize="end"
+            android:maxWidth="70dp"
+            android:lines="1"
+            android:singleLine="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -66,9 +69,10 @@
             android:layout_height="40dp"
             android:background="@drawable/live_match_header"
             android:elevation="2sp"
-            app:layout_constraintEnd_toEndOf="@id/myCardView"
             app:layout_constraintStart_toStartOf="@id/myCardView"
-            app:layout_constraintTop_toTopOf="@id/myCardView" />
+            app:layout_constraintEnd_toEndOf="@id/myCardView"
+            app:layout_constraintTop_toTopOf="@id/myCardView"
+            />
 
         <TextView
             android:id="@+id/leaguesName"
@@ -134,13 +138,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:elevation="@dimen/elevation0X"
-            android:ellipsize="end"
-            android:lines="1"
-            android:maxWidth="90dp"
-            android:singleLine="true"
             android:text="@{item.teams.home.name}"
             android:textSize="@dimen/size2X"
             android:textStyle="bold"
+            android:ellipsize="end"
+            android:maxWidth="90dp"
+            android:lines="1"
+            android:singleLine="true"
             app:layout_constraintBottom_toBottomOf="@id/myCardView"
             app:layout_constraintEnd_toEndOf="@id/homeTeamLogoHolder"
             app:layout_constraintStart_toStartOf="@+id/homeTeamLogoHolder"
@@ -152,13 +156,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:elevation="@dimen/elevation0X"
-            android:ellipsize="end"
-            android:lines="1"
-            android:maxWidth="90dp"
-            android:singleLine="true"
             android:text="@{item.teams.away.name}"
             android:textSize="@dimen/size2X"
             android:textStyle="bold"
+            android:ellipsize="end"
+            android:maxWidth="90dp"
+            android:lines="1"
+            android:singleLine="true"
             app:layout_constraintBottom_toBottomOf="@id/myCardView"
             app:layout_constraintEnd_toEndOf="@+id/awayTeamLogoHolder"
             app:layout_constraintStart_toStartOf="@+id/awayTeamLogoHolder"
@@ -171,7 +175,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin9X"
             android:elevation="@dimen/elevation0X"
-            android:text="@{item.goals.home.toString()}"
+            android:text="@{String.valueOf(item.goals.home)}"
             android:textColor="#000000"
             android:textSize="@dimen/size5X"
             android:textStyle="bold"
@@ -201,7 +205,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/margin9X"
             android:elevation="@dimen/elevation0X"
-            android:text="@{item.goals.away.toString()}"
+            android:text="@{String.valueOf(item.goals.away)}"
             android:textColor="#000000"
             android:textSize="@dimen/size5X"
             android:textStyle="bold"
@@ -215,25 +219,26 @@
             android:id="@+id/live"
             android:layout_width="50dp"
             android:layout_height="20dp"
-            android:layout_marginStart="@dimen/margin2X"
-            android:layout_marginTop="@dimen/margin0X"
+            app:cardCornerRadius="@dimen/margin0X"
             android:backgroundTint="#FE5A32"
             android:elevation="2dp"
-            app:cardCornerRadius="@dimen/margin0X"
-            app:layout_constraintBottom_toBottomOf="@id/border"
+            android:layout_marginStart="@dimen/margin2X"
+            android:layout_marginTop="@dimen/margin0X"
             app:layout_constraintStart_toStartOf="@id/border"
-            app:layout_constraintTop_toTopOf="@id/border" />
-
+            app:layout_constraintTop_toTopOf="@id/border"
+            app:layout_constraintBottom_toBottomOf="@id/border"
+            />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:elevation="2dp"
             android:text="@string/live"
             android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="@id/live"
-            app:layout_constraintEnd_toEndOf="@id/live"
             app:layout_constraintStart_toStartOf="@id/live"
-            app:layout_constraintTop_toTopOf="@id/live" />
+            app:layout_constraintEnd_toEndOf="@id/live"
+            app:layout_constraintBottom_toBottomOf="@id/live"
+            app:layout_constraintTop_toTopOf="@id/live"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

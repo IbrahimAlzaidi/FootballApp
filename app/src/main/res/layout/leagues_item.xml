@@ -11,7 +11,7 @@
 
         <variable
             name="listener"
-            type="com.example.footballapp.util.OnClickListener" />
+            type="com.example.footballapp.ui.home.HomeViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

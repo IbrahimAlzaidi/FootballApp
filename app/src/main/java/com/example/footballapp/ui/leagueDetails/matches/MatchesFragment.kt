@@ -4,30 +4,25 @@ import androidx.navigation.fragment.findNavController
 import com.example.footballapp.R
 import com.example.footballapp.databinding.FragmentMatchesBinding
 import com.example.footballapp.ui.base.BaseFragment
+import com.example.footballapp.ui.base.BaseViewModel
 import com.example.footballapp.ui.leagueDetails.LeagueDetailsFragmentDirections
 import com.example.footballapp.util.OnClickListener
 
 class MatchesFragment(private val args: Int?) :
-    BaseFragment<FragmentMatchesBinding, MatchesViewModel>(R.layout.fragment_matches),
-    OnClickListener {
-
+    BaseFragment<FragmentMatchesBinding, MatchesViewModel>(R.layout.fragment_matches){
     override fun setup() {
         binding.viewModel = viewModel
-        val matchScheduledAdapter = MatchAdapter(emptyList(), this)
+        val matchScheduledAdapter = MatchAdapter(emptyList(),viewModel)
         binding.matchScheduledRecycler.adapter = matchScheduledAdapter
-    }
-
-    override fun onClickItem(id: Int) {
-        val action =
-            LeagueDetailsFragmentDirections.actionLeagueDetailsFragmentToMatchDetailsFragment(id)
-        this.findNavController().navigate(action)
     }
 
     override fun getViewModel() = MatchesViewModel::class.java
 
     override val arg: Int?
         get() = args
-
     override val leagueId: Int?
         get() = null
+    override val teamId: Int?
+        get() = null
+
 }

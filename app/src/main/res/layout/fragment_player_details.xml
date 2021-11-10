@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
+        <import type="android.view.View" />
 
         <variable
             name="viewModel"
@@ -10,15 +13,109 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.playerDetails.PlayerDetailsFragment">
 
-        <TextView
+        <View
+            android:id="@+id/background"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="350dp"
+            android:layout_marginStart="@dimen/margin3X"
+            android:background="@drawable/player_background_shape"
+            android:elevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/imageHolder"
+            style="@style/Widget.App.CardView"
+            android:layout_width="280dp"
+            android:layout_height="270dp"
+            app:cardCornerRadius="@dimen/margin2X"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.25">
+
+            <ImageView
+                android:layout_width="300dp"
+                android:layout_height="270dp"
+                android:layout_gravity="center"
+                android:elevation="1dp"
+                app:ImageUrl="@{viewModel.playerData.toData().squadPlayerInfo.get(0).players.get(0).photo}"
+                tools:src="@tools:sample/avatars" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/playerNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin2X"
+            android:elevation="@dimen/elevation0X"
             android:gravity="center"
-            android:text="Player Details"
-            android:textSize="@dimen/size7X" />
+            android:text="@{String.valueOf(viewModel.playerData.toData().squadPlayerInfo.get(0).players.get(0).number)}"
+            android:textColor="#C4C4C4"
+            android:textSize="170dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/background"
+            app:layout_constraintTop_toTopOf="@id/background"
+            tools:text="10" />
+
+        <TextView
+            android:id="@+id/playerName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin4X"
+            android:text="@{viewModel.playerData.toData().squadPlayerInfo.get(0).players.get(0).name}"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/holderViewPager"
+            app:layout_constraintEnd_toEndOf="@id/background"
+            app:layout_constraintStart_toStartOf="@id/background"
+            app:layout_constraintTop_toBottomOf="@id/imageHolder"
+            tools:text="L.Messi" />
+
+        <View
+            android:id="@+id/holderViewPager"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/margin6X"
+            android:background="@drawable/holder_player_details_shape"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/background"
+            app:layout_constraintStart_toStartOf="@id/background"
+            app:layout_constraintTop_toBottomOf="@id/playerName" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/details_ViewPager"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="#E8E8E8"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@id/holderViewPager"
+            app:layout_constraintEnd_toEndOf="@id/holderViewPager"
+            app:layout_constraintStart_toStartOf="@id/holderViewPager"
+            app:layout_constraintTop_toTopOf="@id/holderViewPager"
+            app:showWhenSuccess="@{viewModel.playerData}" />
+
+        <com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
+            android:id="@+id/indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:dotsColor="#C4C4C4"
+            app:dotsStrokeColor="@color/white"
+            android:layout_marginBottom="@dimen/margin2X"
+            app:dotsCornerRadius="8dp"
+            app:dotsSize="16dp"
+            app:dotsSpacing="4dp"
+            app:dotsStrokeWidth="2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

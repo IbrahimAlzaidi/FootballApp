@@ -103,9 +103,16 @@ class Repository {
     // function to get player statistic
     fun getPlayerStatistic(
         playerId: Int,
-        season: Int = 2021
+        season: Int = 2021,
+        leagueId: Int,
     ): Flow<State<PlayerStatisticResponse?>> =
-        wrapWithFlow { Api.apiService.getPlayerStatistic(playerId = playerId, season = season) }
+        wrapWithFlow {
+            Api.apiService.getPlayerStatistic(
+                playerId = playerId,
+                season = season,
+                leagueId = leagueId
+            )
+        }
 
     // function to get player trophies
     fun getPlayerTrophies(playerId: Int): Flow<State<PlayerTrophiesResponse?>> =
@@ -121,11 +128,15 @@ class Repository {
     ): Flow<State<MatchScheduledResponse?>> =
         wrapWithFlow { Api.apiService.getLatestMatchScheduled(matchCount, leagueId) }
 
-    fun getTeamPlayerInfo(teamId: Int): Flow<State<SquadPlayer?>> =
-        wrapWithFlow { Api.apiService.getTeamPlayer(teamId) }
+    fun getTeamPlayerInfo(teamId: Int, playerId: Int?): Flow<State<SquadPlayer?>> =
+        wrapWithFlow { Api.apiService.getTeamPlayer(teamId, playerId) }
 
-    fun getTeamMatchPlayed(season: Int = 2021, teamId: Int , status: String = "FT"): Flow<State<CurrentTeamMatchResponse?>> =
-        wrapWithFlow { Api.apiService.getTeamMatchPlayed(season, teamId , status) }
+    fun getTeamMatchPlayed(
+        season: Int = 2021,
+        teamId: Int,
+        status: String = "FT"
+    ): Flow<State<CurrentTeamMatchResponse?>> =
+        wrapWithFlow { Api.apiService.getTeamMatchPlayed(season, teamId, status) }
 
     fun getAllMatchData(matchId: Int): Flow<State<FixtureAllData?>> =
         wrapWithFlow { Api.apiService.getAllMatchDetails(matchId) }
@@ -136,9 +147,9 @@ class Repository {
         delay(1000)
         try {
             val result = function()
-            if (result.isSuccessful){
+            if (result.isSuccessful) {
                 emit(State.Success(result.body()))
-            } else{
+            } else {
                 emit(State.Error(result.message()))
             }
         } catch (e: Exception) {
