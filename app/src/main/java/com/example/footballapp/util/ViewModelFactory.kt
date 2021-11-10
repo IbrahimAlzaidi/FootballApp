@@ -18,10 +18,12 @@ import com.example.footballapp.ui.leagueDetails.standing.StandingViewModel
 import com.example.footballapp.ui.matchDetails.lineup.LineupViewModel
 import com.example.footballapp.ui.matchDetails.matchState.MatchStateViewModel
 import com.example.footballapp.ui.matchDetails.substitutes.SubstitutesViewModel
+import com.example.footballapp.ui.playerDetails.matchPlayedStatistic.PlayedStatisticViewModel
+import com.example.footballapp.ui.playerDetails.playedInfo.PlayerInformationViewModel
 import com.example.footballapp.ui.search.SearchViewModel
 import java.lang.IllegalArgumentException
 
-class ViewModelFactory(private val arg: Int? , private val leagueId : Int?): ViewModelProvider.NewInstanceFactory() {
+class ViewModelFactory(private val arg: Int? , private val leagueId : Int? , private val teamId:Int?): ViewModelProvider.NewInstanceFactory() {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         return when{
             modelClass.isAssignableFrom(ClubDetailsViewModel::class.java) -> ClubDetailsViewModel(arg,leagueId) as T
@@ -41,6 +43,8 @@ class ViewModelFactory(private val arg: Int? , private val leagueId : Int?): Vie
             modelClass.isAssignableFrom(MatchStateViewModel::class.java)->MatchStateViewModel(arg) as T
             modelClass.isAssignableFrom(LineupViewModel::class.java)->LineupViewModel(arg) as T
             modelClass.isAssignableFrom(SubstitutesViewModel::class.java)->SubstitutesViewModel(arg) as T
+            modelClass.isAssignableFrom(PlayedStatisticViewModel::class.java)->PlayedStatisticViewModel(arg,leagueId) as T
+            modelClass.isAssignableFrom(PlayerInformationViewModel::class.java) ->PlayerInformationViewModel(arg,teamId) as T
             else -> throw IllegalArgumentException("View Model Class Not Found")
         }
     }

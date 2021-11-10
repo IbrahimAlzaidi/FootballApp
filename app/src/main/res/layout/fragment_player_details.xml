@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="android.view.View"/>
+
+        <import type="android.view.View" />
 
         <variable
             name="viewModel"
@@ -21,6 +22,7 @@
             android:id="@+id/background"
             android:layout_width="match_parent"
             android:layout_height="400dp"
+            android:layout_marginStart="@dimen/margin3X"
             android:background="@drawable/player_background_shape"
             android:elevation="0dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -40,128 +42,79 @@
 
             <ImageView
                 android:layout_width="300dp"
-                android:layout_height="280dp"
+                android:layout_height="270dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="@dimen/margin2X"
                 android:elevation="1dp"
-                gone="@{viewModel.playerData.toData().squadPlayerInfo.get(0).players.get(0).number != 10}"
                 app:ImageUrl="@{viewModel.playerData.toData().squadPlayerInfo.get(0).players.get(0).photo}"
                 tools:src="@tools:sample/avatars" />
         </com.google.android.material.card.MaterialCardView>
 
         <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
+            android:id="@+id/playerNumber"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin2X"
+            android:layout_marginEnd="@dimen/margin2X"
             android:elevation="@dimen/elevation0X"
+            android:gravity="end"
             android:text="@{String.valueOf(viewModel.playerData.toData().squadPlayerInfo.get(0).players.get(0).number)}"
-            android:textColor="#9C145A"
-            android:textSize="@dimen/size7X"
+            android:textColor="#C4C4C4"
+            android:textSize="170dp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@id/imageHolder"
-            app:layout_constraintTop_toTopOf="@id/imageHolder"
+            app:layout_constraintStart_toStartOf="@id/imageHolder"
+            app:layout_constraintTop_toTopOf="@id/background"
             tools:text="10" />
 
         <TextView
             android:id="@+id/playerName"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin7X"
-            android:layout_marginTop="@dimen/margin4X"
+            android:layout_marginStart="@dimen/margin4X"
+            android:layout_marginTop="@dimen/margin0X"
             android:text="@{viewModel.playerData.toData().squadPlayerInfo.get(0).players.get(0).name}"
-            android:textSize="30sp"
-            app:layout_constraintStart_toStartOf="parent"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/holderViewPager"
+            app:layout_constraintEnd_toEndOf="@id/background"
+            app:layout_constraintStart_toStartOf="@id/background"
             app:layout_constraintTop_toBottomOf="@id/imageHolder"
             tools:text="L.Messi" />
 
-        <TextView
-            android:id="@+id/teamName"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin5X"
-            android:gravity="start"
-            android:text="@{@string/team_title+viewModel.playerData.toData().squadPlayerInfo.get(0).team.name}"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="@id/playerName"
-            app:layout_constraintTop_toBottomOf="@id/playerName"
-            tools:text="Team" />
-
-        <TextView
-            android:id="@+id/playerAge"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin1X"
-            android:gravity="start"
-            android:text="@{@string/player_age+String.valueOf(viewModel.playerData.toData().squadPlayerInfo.get(0).players.get(0).age)}"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="@id/teamName"
-            app:layout_constraintTop_toBottomOf="@id/teamName"
-            tools:text="Age" />
-
-        <TextView
-            android:id="@+id/playerNationality"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin1X"
-            android:gravity="start"
-            android:text="@{@string/player_nationality+viewModel.playerStatisticInfo.toData().playerStatisticInfo.get(0).player.nationality}"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="@id/playerAge"
-            app:layout_constraintTop_toBottomOf="@id/playerAge"
-            tools:text="Nationality" />
-
-        <TextView
-            android:id="@+id/playerMatches"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin1X"
-            android:gravity="start"
-            android:text="@{@string/player_matches+String.valueOf(viewModel.playerStatisticInfo.toData().playerStatisticInfo.get(0).statistics.get(0).games.appearances)}"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="@id/playerNationality"
-            app:layout_constraintTop_toBottomOf="@id/playerNationality"
-            tools:text="Matches" />
-
-        <TextView
-            android:id="@+id/playerRating"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin1X"
-            android:gravity="start"
-            app:textNotNull="@{@string/player_rating+String.valueOf(viewModel.playerStatisticInfo.toData().playerStatisticInfo.get(0).statistics.get(0).games.rating).subSequence(0,3)}"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="@id/playerMatches"
-            app:layout_constraintTop_toBottomOf="@id/playerMatches"
-            tools:text="Ratings" />
-
         <View
-            android:id="@+id/iconHolder"
-            android:layout_width="70dp"
-            android:layout_height="250dp"
-            android:background="#82B1FF"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/imageHolder" />
-
-        <Button
-            android:id="@+id/buttonRating"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            app:layout_constraintEnd_toEndOf="@id/iconHolder"
-            app:layout_constraintStart_toStartOf="@id/iconHolder"
-            app:layout_constraintTop_toTopOf="@id/iconHolder" />
-
-        <View
-            android:id="@+id/holderData"
+            android:id="@+id/holderViewPager"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="@color/black"
-            android:visibility="invisible"
+            android:background="@drawable/holder_player_details_shape"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/background"
             app:layout_constraintStart_toStartOf="@id/background"
-            app:layout_constraintTop_toBottomOf="@id/imageHolder" />
+            app:layout_constraintTop_toBottomOf="@id/playerName" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/details_ViewPager"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="#E8E8E8"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@id/holderViewPager"
+            app:layout_constraintEnd_toEndOf="@id/holderViewPager"
+            app:layout_constraintStart_toStartOf="@id/holderViewPager"
+            app:layout_constraintTop_toTopOf="@id/holderViewPager"
+            app:showWhenSuccess="@{viewModel.playerData}" />
+
+        <com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
+            android:id="@+id/indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:dotsColor="#C4C4C4"
+            app:dotsStrokeColor="@color/white"
+            app:dotsCornerRadius="8dp"
+            app:dotsSize="16dp"
+            app:dotsSpacing="4dp"
+            app:dotsStrokeWidth="2dp"
+            app:layout_constraintBottom_toBottomOf="@id/details_ViewPager"
+            app:layout_constraintEnd_toEndOf="@id/details_ViewPager"
+            app:layout_constraintStart_toStartOf="@id/details_ViewPager" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

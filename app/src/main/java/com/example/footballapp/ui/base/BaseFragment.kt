@@ -22,7 +22,8 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
 abstract class BaseFragment<VDB : ViewDataBinding, VM : BaseViewModel>(
-    @LayoutRes private val layoutResId: Int) : Fragment() {
+    @LayoutRes private val layoutResId: Int
+) : Fragment() {
     abstract fun setup()
     abstract fun getViewModel(): Class<VM>
     abstract val arg: Int?
@@ -41,33 +42,43 @@ abstract class BaseFragment<VDB : ViewDataBinding, VM : BaseViewModel>(
         viewPager.setPageTransformer(ViewPagerTransitions())
     }
 
-    protected fun initTabLayout(viewPager: ViewPager2, tabLayout: TabLayout, fragmentTitles: List<String>) {
+    protected fun initTabLayout(
+        viewPager: ViewPager2,
+        tabLayout: TabLayout,
+        fragmentTitles: List<String>
+    ) {
         TabLayoutMediator(tabLayout, viewPager) { tap, positions ->
             tap.text = fragmentTitles[positions]
         }.attach()
     }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = DataBindingUtil.inflate(inflater, layoutResId, container, false)
-        val factory = ViewModelFactory(arg,leagueId)
+        val factory = ViewModelFactory(arg, leagueId, null)
         _viewModel = ViewModelProvider(this, factory).get(getViewModel())
         _binding.lifecycleOwner = viewLifecycleOwner
         setup()
         observeNavigation()
         return _binding.root
     }
+
     private fun observeNavigation() {
         viewModel.navigationLiveData.observe(viewLifecycleOwner, {
-            it?.getContentIfNotHandle()?.let {command->
+            it?.getContentIfNotHandle()?.let { command ->
                 when (command) {
-                    is NavigationController.To -> findNavController().navigate(command.directions,getExtra())
+                    is NavigationController.To -> findNavController().navigate(
+                        command.directions,
+                        getExtra()
+                    )
                 }
             }
         })
     }
-   private fun getExtra(): FragmentNavigator.Extras = FragmentNavigatorExtras()
+
+    private fun getExtra(): FragmentNavigator.Extras = FragmentNavigatorExtras()
 
 }

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.footballapp.ui.playerDetails.playedInfo.PlayerInformationViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.playerDetails.PlayerInformationFragment">
+
+        <TextView
+            android:id="@+id/teamName"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin5X"
+            android:textSize="18sp"
+            android:gravity="start"
+            android:layout_marginStart="@dimen/margin4X"
+            android:text="@{@string/team_title+viewModel.playerData.toData().squadPlayerInfo.get(0).team.name}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Team" />
+
+        <TextView
+            android:id="@+id/playerAge"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin1X"
+            android:gravity="start"
+            android:text="@{@string/player_age+String.valueOf(viewModel.playerData.toData().squadPlayerInfo.get(0).players.get(0).age)}"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@id/teamName"
+            app:layout_constraintTop_toBottomOf="@id/teamName"
+            tools:text="Age" />
+
+        <TextView
+            android:id="@+id/playerNationality"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin1X"
+            android:gravity="start"
+            android:text="@{@string/player_nationality+viewModel.playerStatisticInfo.toData().playerStatisticInfo.get(0).player.nationality}"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@id/playerAge"
+            app:layout_constraintTop_toBottomOf="@id/playerAge"
+            tools:text="Nationality" />
+
+        <TextView
+            android:id="@+id/playerMatches"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin1X"
+            android:gravity="start"
+            android:text="@{@string/player_matches+String.valueOf(viewModel.playerStatisticInfo.toData().playerStatisticInfo.get(0).statistics.get(0).games.appearances)}"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@id/playerNationality"
+            app:layout_constraintTop_toBottomOf="@id/playerNationality"
+            tools:text="Matches" />
+
+        <TextView
+            android:id="@+id/playerRating"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin1X"
+            android:gravity="start"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@id/playerMatches"
+            app:layout_constraintTop_toBottomOf="@id/playerMatches"
+            app:textNotNull="@{@string/player_rating+String.valueOf(viewModel.playerStatisticInfo.toData().playerStatisticInfo.get(0).statistics.get(0).games.rating).subSequence(0,3)}"
+            tools:text="Ratings" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
