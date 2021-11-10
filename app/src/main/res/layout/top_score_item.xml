@@ -37,7 +37,7 @@
             android:layout_width="60dp"
             android:layout_height="45dp"
             android:layout_gravity="center"
-            app:ImageUrlTeam="@{item}"
+            app:ImageUrl="@{item.statistics.get(0).team.logo}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintHorizontal_bias="0.75"
             app:layout_constraintBottom_toBottomOf="@id/textView2"
@@ -55,7 +55,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/teamImage"
             app:layout_constraintTop_toTopOf="parent"
-            app:total_goals="@{item}"
+            android:text="@{String.valueOf(item.statistics.get(0).goals.total)}"
             tools:text="1" />
         <View
             android:layout_width="0dp"

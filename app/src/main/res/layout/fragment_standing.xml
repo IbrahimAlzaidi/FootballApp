@@ -90,17 +90,16 @@
             app:layout_constraintTop_toTopOf="@id/matchPoint"
             app:layout_constraintBottom_toBottomOf="@id/matchPoint"
             />
+
         <TextView
             android:id="@+id/ptsTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Pt"
             android:textSize="18sp"
-            app:layout_constraintStart_toEndOf="@id/matchPoint"
             app:layout_constraintBottom_toBottomOf="@id/matchPoint"
-            app:layout_constraintTop_toTopOf="@id/matchPoint"
             app:layout_constraintEnd_toEndOf="parent"
-            />
+            app:layout_constraintTop_toTopOf="@id/matchPoint" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/leagueRecycler"

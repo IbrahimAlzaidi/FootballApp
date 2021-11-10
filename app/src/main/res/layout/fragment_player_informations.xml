@@ -73,7 +73,7 @@
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="@id/playerMatches"
             app:layout_constraintTop_toBottomOf="@id/playerMatches"
-            app:textNotNull="@{@string/player_rating+String.valueOf(viewModel.playerStatisticInfo.toData().playerStatisticInfo.get(0).statistics.get(0).games.rating).subSequence(0,3)}"
+            android:text="@{@string/player_rating+String.valueOf(viewModel.playerStatisticInfo.toData().playerStatisticInfo.get(0).statistics.get(0).games.rating).subSequence(0,3)}"
             tools:text="Ratings" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

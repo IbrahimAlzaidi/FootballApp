@@ -5,10 +5,8 @@ import androidx.navigation.fragment.findNavController
 import com.example.footballapp.R
 import com.example.footballapp.databinding.FragmentHomeBinding
 import com.example.footballapp.ui.base.BaseFragment
-import com.example.footballapp.ui.base.BaseViewModel
-import com.example.footballapp.ui.home.allMatchScheduled.AllMatchScheduledFragment
 import com.example.footballapp.ui.home.liveMatch.LiveMatchFragment
-import com.example.footballapp.util.OnClickListener
+import com.example.footballapp.ui.home.matchScheduled.MatchScheduledFragment
 
 
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.fragment_home) {
