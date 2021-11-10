@@ -19,5 +19,7 @@ class SubstitutesFragment(private val matchId : Int?) :
         get() = matchId
     override val leagueId: Int?
         get() = null
+    override val teamId: Int?
+        get() = null
 
 }

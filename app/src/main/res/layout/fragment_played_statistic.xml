@@ -133,7 +133,7 @@
             android:layout_height="150dp"
             android:indeterminateOnly="false"
             tools:progress="7"
-            android:progress="@{Integer.valueOf(String.valueOf(viewModel.playerStatisticInfo.toData().playerStatisticInfo.get(0).statistics.get(0).games.rating).indexOf(0))}"
+            app:progressApp="@{String.valueOf(viewModel.playerStatisticInfo.toData().playerStatisticInfo.get(0).statistics.get(0).games.rating)}"
             android:rotation="-90"
             android:max="20"
             android:progressDrawable="@drawable/circular_progress_bar"

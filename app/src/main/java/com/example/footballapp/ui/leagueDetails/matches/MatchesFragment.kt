@@ -22,5 +22,7 @@ class MatchesFragment(private val args: Int?) :
         get() = args
     override val leagueId: Int?
         get() = null
+    override val teamId: Int?
+        get() = null
 
 }

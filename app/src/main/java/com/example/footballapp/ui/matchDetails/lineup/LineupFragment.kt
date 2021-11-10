@@ -18,5 +18,7 @@ class LineupFragment(private val matchID: Int?) :
         get() = matchID
     override val leagueId: Int?
         get() = null
+    override val teamId: Int?
+        get() = null
 
 }

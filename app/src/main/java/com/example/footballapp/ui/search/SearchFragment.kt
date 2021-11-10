@@ -26,5 +26,7 @@ class SearchFragment: BaseFragment<FragmentSearchBinding, SearchViewModel>(R.lay
         get() = null
     override val leagueId: Int?
         get() = null
+    override val teamId: Int?
+        get() = null
 
 }

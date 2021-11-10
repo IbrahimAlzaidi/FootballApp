@@ -17,5 +17,7 @@ class ScorersFragment(private val args: Int?): BaseFragment<FragmentScorersBindi
         get() = args
     override val leagueId: Int?
         get() = null
+    override val teamId: Int?
+        get() = null
 
 }

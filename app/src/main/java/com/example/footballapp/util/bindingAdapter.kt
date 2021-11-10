@@ -3,6 +3,7 @@ package com.example.footballapp.util
 import android.view.View
 import android.view.View.*
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -121,3 +122,7 @@ var View.gone
     set(value) {
         visibility = if (value) GONE else VISIBLE
     }
+@BindingAdapter(value=["app:progressApp"])
+fun ProgressBar.setProgress(text:String?){
+    text?.subSequence(0,1)?.also { this.progress = it[0].code }
+}

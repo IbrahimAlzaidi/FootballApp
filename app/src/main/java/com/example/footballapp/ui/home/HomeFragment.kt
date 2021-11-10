@@ -11,7 +11,7 @@ import com.example.footballapp.ui.home.liveMatch.LiveMatchFragment
 import com.example.footballapp.util.OnClickListener
 
 
-class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.fragment_home){
+class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.fragment_home) {
     override fun getViewModel() = HomeViewModel::class.java
     private val fragmentTitles = listOf("Live", "Match Scheduled")
 
@@ -20,7 +20,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
         binding.viewModel = viewModel
         val viewPager = binding.homeViewPager
         val tabLayout = binding.homeTabLayoutFragments
-        val leaguesAdapter = LeaguesAdapter(mutableListOf(),viewModel)
+        val leaguesAdapter = LeaguesAdapter(mutableListOf(), viewModel)
         binding.recycleView.adapter = leaguesAdapter
         initViewPager(fragmentsList, viewPager)
         initTabLayout(viewPager, tabLayout, fragmentTitles)
@@ -43,5 +43,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
     override val arg: Int?
         get() = null
     override val leagueId: Int?
+        get() = null
+    override val teamId: Int?
         get() = null
 }

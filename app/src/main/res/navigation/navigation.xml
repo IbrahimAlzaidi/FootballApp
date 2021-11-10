@@ -41,7 +41,8 @@
     <fragment
         android:id="@+id/clubDetailsFragment"
         android:name="com.example.footballapp.ui.clubDetails.ClubDetailsFragment"
-        android:label="ClubDetailsFragment" >
+        android:label="ClubDetailsFragment"
+        tools:layout="@layout/fragment_club_details">
         <argument
             android:name="teamId"
             app:argType="integer" />
@@ -67,9 +68,16 @@
     <fragment
         android:id="@+id/playerDetailsFragment"
         android:name="com.example.footballapp.ui.playerDetails.PlayerDetailsFragment"
-        android:label="PlayerDetailsFragment" >
+        android:label="PlayerDetailsFragment"
+        tools:layout="@layout/fragment_player_details">
         <argument
             android:name="playerId"
+            app:argType="integer" />
+        <argument
+            android:name="teamId"
+            app:argType="integer" />
+        <argument
+            android:name="leagueId"
             app:argType="integer" />
     </fragment>
     <fragment

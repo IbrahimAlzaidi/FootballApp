@@ -31,20 +31,20 @@ class ViewModelFactory(private val arg: Int? , private val leagueId : Int? , pri
             modelClass.isAssignableFrom(LeagueDetailsViewModel::class.java) -> LeagueDetailsViewModel(arg) as T
             modelClass.isAssignableFrom(MatchDetailsViewModel::class.java) -> MatchDetailsViewModel(arg) as T
             modelClass.isAssignableFrom(MatchesViewModel::class.java) -> MatchesViewModel(arg) as T
-            modelClass.isAssignableFrom(PlayerDetailsViewModel::class.java) -> PlayerDetailsViewModel(arg) as T
+            modelClass.isAssignableFrom(PlayerDetailsViewModel::class.java) -> PlayerDetailsViewModel(arg,teamId,leagueId) as T
             modelClass.isAssignableFrom(ScorersViewModel::class.java) -> ScorersViewModel(arg) as T
             modelClass.isAssignableFrom(StandingViewModel::class.java) -> StandingViewModel(arg) as T
             modelClass.isAssignableFrom(LiveMatchViewModel::class.java) -> LiveMatchViewModel() as T
             modelClass.isAssignableFrom(AllMatchScheduledViewModel::class.java) -> AllMatchScheduledViewModel() as T
             modelClass.isAssignableFrom(SearchViewModel::class.java) -> SearchViewModel() as T
             modelClass.isAssignableFrom(ClubInformationViewModel::class.java) -> ClubInformationViewModel(arg,leagueId) as T
-            modelClass.isAssignableFrom(SquadInfoViewModel::class.java) -> SquadInfoViewModel(arg) as T
+            modelClass.isAssignableFrom(SquadInfoViewModel::class.java) -> SquadInfoViewModel(arg,leagueId) as T
             modelClass.isAssignableFrom(ClubMatchPlayedViewModel::class.java)->ClubMatchPlayedViewModel(arg) as T
             modelClass.isAssignableFrom(MatchStateViewModel::class.java)->MatchStateViewModel(arg) as T
             modelClass.isAssignableFrom(LineupViewModel::class.java)->LineupViewModel(arg) as T
             modelClass.isAssignableFrom(SubstitutesViewModel::class.java)->SubstitutesViewModel(arg) as T
             modelClass.isAssignableFrom(PlayedStatisticViewModel::class.java)->PlayedStatisticViewModel(arg,leagueId) as T
-            modelClass.isAssignableFrom(PlayerInformationViewModel::class.java) ->PlayerInformationViewModel(arg,teamId) as T
+            modelClass.isAssignableFrom(PlayerInformationViewModel::class.java) ->PlayerInformationViewModel(arg,leagueId,teamId) as T
             else -> throw IllegalArgumentException("View Model Class Not Found")
         }
     }

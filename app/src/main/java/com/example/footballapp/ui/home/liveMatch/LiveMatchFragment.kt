@@ -20,5 +20,7 @@ class LiveMatchFragment :
         get() = null
     override val arg: Int?
         get() = null
+    override val teamId: Int?
+        get() = null
 
 }
