@@ -7,7 +7,6 @@ import com.example.footballapp.ui.base.BaseFragment
 class ScorersFragment(private val args: Int?): BaseFragment<FragmentScorersBinding, ScorersViewModel>
     (R.layout.fragment_scorers){
     override fun setup() {
-        binding.viewModel = viewModel
         val topScoreAdapter = ScorersAdapter(emptyList(),viewModel)
         binding.topScoreRecycler.adapter = topScoreAdapter
     }

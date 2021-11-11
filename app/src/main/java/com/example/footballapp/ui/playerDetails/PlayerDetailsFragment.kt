@@ -17,7 +17,6 @@ class PlayerDetailsFragment :
         val teamId = args.teamId
         val leagueId = args.leagueId
         Log.i(Constant.TAG, "PlayerDetailsFragment: ${args.playerId} - ${args.leagueId} - ${args.teamId}")
-        binding.viewModel = viewModel
         val viewPager = binding.detailsViewPager
         val indicator = binding.indicator
         val fragmentsList =

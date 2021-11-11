@@ -18,7 +18,6 @@ class LeagueDetailsFragment :
 
     override fun setup() {
         val leagueID = args.leagueId
-        binding.viewModel = viewModel
         val viewPager = binding.myViewPager
         val tabLayout = binding.tabLayoutFragments
         val fragmentsList = listOf(

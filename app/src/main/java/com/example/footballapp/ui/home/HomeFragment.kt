@@ -15,7 +15,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
 
     override fun setup() {
         val fragmentsList = listOf(LiveMatchFragment(), MatchScheduledFragment())
-        binding.viewModel = viewModel
         val viewPager = binding.homeViewPager
         val tabLayout = binding.homeTabLayoutFragments
         val leaguesAdapter = LeaguesAdapter(mutableListOf(), viewModel)

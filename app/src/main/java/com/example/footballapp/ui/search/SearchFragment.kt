@@ -10,7 +10,6 @@ import com.example.footballapp.util.OnClickListener
 
 class SearchFragment: BaseFragment<FragmentSearchBinding, SearchViewModel>(R.layout.fragment_search){
     override fun setup() {
-        binding.viewModel = viewModel
         sharedElementEnterTransition = TransitionInflater.from(context)
             .inflateTransition(android.R.transition.move)
         val searchAdapter = SearchAdapter(mutableListOf(),viewModel)

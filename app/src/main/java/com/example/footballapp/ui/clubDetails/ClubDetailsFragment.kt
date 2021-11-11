@@ -21,7 +21,6 @@ class ClubDetailsFragment :
         val leagueID = args.leagueId
         val teamID = args.teamId
         Log.i(TAG, "ClubDetailsFragment: ${args.leagueId} - ${args.teamId}")
-        binding.viewModel = viewModel
         val viewPager = binding.detailsViewPager
         val tabLayout = binding.tabLayoutFragments
         val fragmentsList =

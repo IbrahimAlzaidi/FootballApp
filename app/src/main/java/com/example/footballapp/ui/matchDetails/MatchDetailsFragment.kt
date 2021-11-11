@@ -18,7 +18,6 @@ class MatchDetailsFragment :
 
     override fun setup() {
         val matchID = args.matchId
-        binding.viewModel = viewModel
         val viewPager = binding.detailsViewPager
         val tabLayout = binding.tabLayoutFragments
         val fragmentsList =
