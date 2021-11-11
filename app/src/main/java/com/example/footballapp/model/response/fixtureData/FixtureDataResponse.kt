@@ -1,19 +1,20 @@
-package com.example.footballapp.model.response.fixtureAllData
+package com.example.footballapp.model.response.fixtureData
 
 
+import com.example.footballapp.model.response.base.Paging
 import com.google.gson.annotations.SerializedName
 
-data class FixtureAllData(
+data class FixtureDataResponse(
     @SerializedName("errors")
-    val errors: List<Any>?,
+    val errors: List<String>?,
     @SerializedName("get")
-    val `get`: String?,
+    val get: String?,
     @SerializedName("paging")
     val paging: Paging?,
     @SerializedName("parameters")
     val parameters: Parameters?,
     @SerializedName("response")
-    val response: List<Response>?,
+    val fixtureDataInfo: List<FixtureDataInfo>?,
     @SerializedName("results")
     val results: Int?
 )

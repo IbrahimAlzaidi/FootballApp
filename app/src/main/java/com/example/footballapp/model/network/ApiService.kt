@@ -1,6 +1,6 @@
 package com.example.footballapp.model.network
 
-import com.example.footballapp.model.response.fixtureAllData.FixtureAllData
+import com.example.footballapp.model.response.fixtureData.FixtureDataResponse
 import com.example.footballapp.model.response.matchScheduled.MatchScheduledResponse
 import com.example.footballapp.model.response.leagueSearch.LeagueSearchResponse
 import com.example.footballapp.model.response.leagues.LeaguesResponse
@@ -109,5 +109,5 @@ interface ApiService {
     @GET("/v3/fixtures/")
     suspend fun getAllMatchDetails(
         @Query("id") matchId: Int,
-    ): Response<FixtureAllData>
+    ): Response<FixtureDataResponse>
 }

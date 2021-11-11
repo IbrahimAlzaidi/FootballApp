@@ -1,4 +1,4 @@
-package com.example.footballapp.model.response.fixtureAllData
+package com.example.footballapp.model.response.fixtureData
 
 
 import com.google.gson.annotations.SerializedName

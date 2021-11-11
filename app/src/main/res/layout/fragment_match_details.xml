@@ -21,7 +21,7 @@
             android:layout_height="80dp"
             android:layout_marginStart="@dimen/margin5X"
             android:layout_marginTop="@dimen/margin5X"
-            app:ImageUrl="@{viewModel.matchDetails.toData().response.get(0).teams.home.logo}"
+            app:ImageUrl="@{viewModel.matchDetails.toData().fixtureDataInfo.get(0).teams.home.logo}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:showWhenSuccess="@{viewModel.matchDetails}"
@@ -32,7 +32,7 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_marginEnd="@dimen/margin5X"
-            app:ImageUrl="@{viewModel.matchDetails.toData().response.get(0).teams.away.logo}"
+            app:ImageUrl="@{viewModel.matchDetails.toData().fixtureDataInfo.get(0).teams.away.logo}"
             app:layout_constraintBottom_toBottomOf="@id/homeImage"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/homeImage"
@@ -52,7 +52,7 @@
             app:layout_constraintStart_toStartOf="@id/homeImage"
             app:layout_constraintTop_toBottomOf="@id/homeImage"
             app:showWhenSuccess="@{viewModel.matchDetails}"
-            android:text="@{viewModel.matchDetails.toData().response.get(0).teams.home.name}"
+            android:text="@{viewModel.matchDetails.toData().fixtureDataInfo.get(0).teams.home.name}"
             tools:text="Livebool" />
 
         <TextView
@@ -68,7 +68,7 @@
             app:layout_constraintStart_toStartOf="@+id/awayImage"
             app:layout_constraintTop_toBottomOf="@id/awayImage"
             app:showWhenSuccess="@{viewModel.matchDetails}"
-            android:text="@{viewModel.matchDetails.toData().response.get(0).teams.away.name}"
+            android:text="@{viewModel.matchDetails.toData().fixtureDataInfo.get(0).teams.away.name}"
             tools:text="Liverpool" />
 
         <TextView
@@ -83,7 +83,7 @@
             app:layout_constraintStart_toEndOf="@id/homeImage"
             app:layout_constraintTop_toTopOf="@id/homeImage"
             app:showWhenSuccess="@{viewModel.matchDetails}"
-            android:text="@{viewModel.matchDetails.toData().response.get(0).goals.home.toString()}"
+            android:text="@{viewModel.matchDetails.toData().fixtureDataInfo.get(0).goals.home.toString()}"
             tools:text="6" />
 
         <TextView
@@ -98,7 +98,7 @@
             app:layout_constraintStart_toEndOf="@id/homeGoals"
             app:layout_constraintTop_toTopOf="@id/awayImage"
             app:showWhenSuccess="@{viewModel.matchDetails}"
-            android:text="@{viewModel.matchDetails.toData().response.get(0).goals.away.toString()}"
+            android:text="@{viewModel.matchDetails.toData().fixtureDataInfo.get(0).goals.away.toString()}"
             tools:text="5" />
 
         <TextView

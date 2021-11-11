@@ -1,9 +1,9 @@
-package com.example.footballapp.model.response.fixtureAllData
+package com.example.footballapp.model.response.fixtureData
 
 
 import com.google.gson.annotations.SerializedName
 
-data class Coach(
+data class PlayerId(
     @SerializedName("id")
     val id: Int?,
     @SerializedName("name")
