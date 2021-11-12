@@ -9,7 +9,6 @@ class MatchStateFragment(private val matchID: Int?) :
     BaseFragment<FragmentMatchStateBinding, MatchStateViewModel>(R.layout.fragment_match_state) {
 
     override fun setup() {
-        binding.viewModel = viewModel
         val matchStatisticInformation = MatchStateAdapter(emptyList())
         binding.myRecycle.adapter = matchStatisticInformation
     }

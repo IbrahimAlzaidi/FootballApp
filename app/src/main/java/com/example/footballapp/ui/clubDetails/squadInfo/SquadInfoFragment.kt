@@ -11,7 +11,6 @@ class SquadInfoFragment(private val teamID: Int?, private val leagueID: Int) :
     BaseFragment<FragmentInfoSquadBinding, SquadInfoViewModel>(R.layout.fragment_info_squad){
 
     override fun setup() {
-        binding.viewModel = viewModel
         val teamPlayerAdapter = SquadInfoAdapter(emptyList(), viewModel)
         binding.teamPlayers.adapter = teamPlayerAdapter
         Log.i(TAG, "SquadInfoFragment: $leagueID - $teamID")

@@ -9,7 +9,6 @@ class SubstitutesFragment(private val matchId: Int?) :
     BaseFragment<FragmentSubstitutesBinding, SubstitutesViewModel>(R.layout.fragment_substitutes) {
 
     override fun setup() {
-        binding.viewModel = viewModel
         val substitutesPlayerAdapter = SubstitutesPlayerAdapter(emptyList())
         binding.playerSubstitutesRecycler.adapter = substitutesPlayerAdapter
     }

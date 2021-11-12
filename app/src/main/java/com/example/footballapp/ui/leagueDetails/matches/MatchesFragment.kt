@@ -11,7 +11,6 @@ import com.example.footballapp.util.OnClickListener
 class MatchesFragment(private val args: Int?) :
     BaseFragment<FragmentMatchesBinding, MatchesViewModel>(R.layout.fragment_matches){
     override fun setup() {
-        binding.viewModel = viewModel
         val matchScheduledAdapter = MatchAdapter(emptyList(),viewModel)
         binding.matchScheduledRecycler.adapter = matchScheduledAdapter
     }

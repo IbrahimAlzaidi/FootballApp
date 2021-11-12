@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
-import androidx.core.app.NotificationCompat.getExtras
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
@@ -14,6 +13,7 @@ import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
+import com.example.footballapp.BR
 import com.example.footballapp.util.FootballViewPager
 import com.example.footballapp.navigation.NavigationController
 import com.example.footballapp.util.ViewModelFactory
@@ -37,22 +37,6 @@ abstract class BaseFragment<VDB : ViewDataBinding, VM : BaseViewModel>(
     protected val viewModel: VM
         get() = _viewModel
 
-    protected fun initViewPager(fragmentsList: List<Fragment>, viewPager: ViewPager2) {
-        val standingPagerAdapterView = FootballViewPager(this.requireActivity(), fragmentsList)
-        viewPager.adapter = standingPagerAdapterView
-        viewPager.setPageTransformer(ViewPagerTransitions())
-    }
-
-    protected fun initTabLayout(
-        viewPager: ViewPager2,
-        tabLayout: TabLayout,
-        fragmentTitles: List<String>
-    ) {
-        TabLayoutMediator(tabLayout, viewPager) { tap, positions ->
-            tap.text = fragmentTitles[positions]
-        }.attach()
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -61,14 +45,17 @@ abstract class BaseFragment<VDB : ViewDataBinding, VM : BaseViewModel>(
         _binding = DataBindingUtil.inflate(inflater, layoutResId, container, false)
         val factory = ViewModelFactory(arg, leagueId, teamId)
         _viewModel = ViewModelProvider(this, factory).get(getViewModel())
-        _binding.lifecycleOwner = viewLifecycleOwner
+        _binding.apply {
+            lifecycleOwner = viewLifecycleOwner
+            setVariable(BR.viewModel, _viewModel)
+        }
         setup()
         observeNavigation()
         return _binding.root
     }
 
     private fun observeNavigation() {
-        viewModel.navigationLiveData.observe(viewLifecycleOwner, {
+        _viewModel.navigationLiveData.observe(viewLifecycleOwner, {
             it?.getContentIfNotHandle()?.let { command ->
                 when (command) {
                     is NavigationController.To -> findNavController().navigate(

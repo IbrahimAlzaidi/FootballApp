@@ -9,7 +9,6 @@ class LiveMatchFragment :
     BaseFragment<FragmentLiveMatchBinding, LiveMatchViewModel>(R.layout.fragment_live_match){
 
     override fun setup() {
-        binding.viewModel = viewModel
         val matchAdapter = LiveMatchAdapter(mutableListOf(), viewModel)
         binding.matchRecycler.adapter = matchAdapter
     }

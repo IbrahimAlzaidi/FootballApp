@@ -3,22 +3,20 @@ package com.example.footballapp.ui.leagueDetails
 import androidx.navigation.fragment.navArgs
 import com.example.footballapp.R
 import com.example.footballapp.databinding.FragmentLeagueDetailsBinding
-import com.example.footballapp.ui.base.BaseFragment
-import com.example.footballapp.ui.base.BaseViewModel
+import com.example.footballapp.ui.base.BaseViewPager
 import com.example.footballapp.ui.leagueDetails.matches.MatchesFragment
 import com.example.footballapp.ui.leagueDetails.scorers.ScorersFragment
 import com.example.footballapp.ui.leagueDetails.standing.StandingFragment
 
 class LeagueDetailsFragment :
-    BaseFragment<FragmentLeagueDetailsBinding, LeagueDetailsViewModel>(R.layout.fragment_league_details) {
+    BaseViewPager<FragmentLeagueDetailsBinding, LeagueDetailsViewModel>(R.layout.fragment_league_details) {
 
     private val args: LeagueDetailsFragmentArgs by navArgs()
 
-    private val fragmentTitles = listOf("Standings", "Top Score", "Matches")
+    override val fragmentTitles = listOf("Standings", "Top Score", "Matches")
 
     override fun setup() {
         val leagueID = args.leagueId
-        binding.viewModel = viewModel
         val viewPager = binding.myViewPager
         val tabLayout = binding.tabLayoutFragments
         val fragmentsList = listOf(
@@ -27,7 +25,7 @@ class LeagueDetailsFragment :
             MatchesFragment(leagueID)
         )
         initViewPager(fragmentsList, viewPager)
-        initTabLayout(viewPager, tabLayout, fragmentTitles)
+        initTabLayout(viewPager, tabLayout)
     }
 
     override fun getViewModel() = LeagueDetailsViewModel::class.java

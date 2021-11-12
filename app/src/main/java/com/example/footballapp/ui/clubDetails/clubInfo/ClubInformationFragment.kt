@@ -11,7 +11,6 @@ import com.example.footballapp.util.Constant
 class ClubInformationFragment(private val teamID: Int?, private val leagueID: Int?) :
     BaseFragment<FragmentClupInformationBinding, ClubInformationViewModel>(R.layout.fragment_clup_information) {
     override fun setup() {
-        binding.viewModel = viewModel
     }
 
     override fun getViewModel() = ClubInformationViewModel::class.java

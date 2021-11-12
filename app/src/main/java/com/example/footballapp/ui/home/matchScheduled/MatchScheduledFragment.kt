@@ -8,7 +8,6 @@ class MatchScheduledFragment :
     BaseFragment<FragmentMatchScheduledBinding, MatchScheduledViewModel>(R.layout.fragment_match_scheduled) {
 
     override fun setup() {
-        binding.viewModel = viewModel
         val matchScheduledAdapter = MatchAdapter(emptyList())
         binding.matchScheduledRecycler.adapter = matchScheduledAdapter
     }

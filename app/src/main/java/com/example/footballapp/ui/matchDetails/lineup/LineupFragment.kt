@@ -9,7 +9,6 @@ class LineupFragment(private val matchID: Int?) :
     BaseFragment<FragmentLineupBinding, LineupViewModel>(R.layout.fragment_lineup) {
 
     override fun setup() {
-        binding.viewModel = viewModel
         val lineupAdapter = LineupAdapter(emptyList())
         binding.lineupRecyclerView.adapter = lineupAdapter
     }
