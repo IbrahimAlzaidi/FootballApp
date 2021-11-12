@@ -37,7 +37,6 @@ class ClubDetailsFragment :
 
     override val arg: Int
         get() = args.teamId
-
     override val leagueId: Int
         get() = args.leagueId
     override val teamId: Int?

@@ -12,10 +12,5 @@ import com.example.footballapp.util.Event
 abstract class BaseViewModel: ViewModel() {
     protected val repository = Repository()
 
-    private val _navigationLiveData = MutableLiveData<Event<NavigationController>>()
-    val navigationLiveData: LiveData<Event<NavigationController>> = _navigationLiveData
 
-    fun navigate(direction: NavDirections){
-        _navigationLiveData.value = Event(NavigationController.To(direction))
-    }
 }

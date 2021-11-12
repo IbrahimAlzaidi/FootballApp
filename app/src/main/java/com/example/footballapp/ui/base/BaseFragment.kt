@@ -8,18 +8,17 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavDirections
 import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
-import androidx.viewpager2.widget.ViewPager2
 import com.example.footballapp.BR
-import com.example.footballapp.util.FootballViewPager
 import com.example.footballapp.navigation.NavigationController
+import com.example.footballapp.util.Event
 import com.example.footballapp.util.ViewModelFactory
-import com.example.footballapp.util.ViewPagerTransitions
-import com.google.android.material.tabs.TabLayout
-import com.google.android.material.tabs.TabLayoutMediator
 
 abstract class BaseFragment<VDB : ViewDataBinding, VM : BaseViewModel>(
     @LayoutRes private val layoutResId: Int
@@ -53,9 +52,14 @@ abstract class BaseFragment<VDB : ViewDataBinding, VM : BaseViewModel>(
         observeNavigation()
         return _binding.root
     }
+    private val _navigationLiveData = MutableLiveData<Event<NavigationController>>()
+    private val navigationLiveData: LiveData<Event<NavigationController>> = _navigationLiveData
 
+    fun navigate(direction: NavDirections){
+        _navigationLiveData.value = Event(NavigationController.To(direction))
+    }
     private fun observeNavigation() {
-        _viewModel.navigationLiveData.observe(viewLifecycleOwner, {
+        navigationLiveData.observe(viewLifecycleOwner, {
             it?.getContentIfNotHandle()?.let { command ->
                 when (command) {
                     is NavigationController.To -> findNavController().navigate(

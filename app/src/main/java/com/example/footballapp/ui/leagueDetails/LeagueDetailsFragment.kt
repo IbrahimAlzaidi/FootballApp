@@ -32,7 +32,6 @@ class LeagueDetailsFragment :
 
     override val arg: Int
         get() = args.leagueId
-
     override val leagueId: Int?
         get() = null
     override val teamId: Int?

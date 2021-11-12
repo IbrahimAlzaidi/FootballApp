@@ -11,13 +11,13 @@
 
         <variable
             name="listener"
-            type="com.example.footballapp.ui.clubDetails.squadInfo.SquadInfoViewModel" />
+            type="com.example.footballapp.util.OnClickListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="@{() -> listener.onClickItem(item.id)}">
+        android:onClick="@{() -> listener.onClickItem(item.id,0)}">
 
         <ImageView
             android:id="@+id/playerImage"

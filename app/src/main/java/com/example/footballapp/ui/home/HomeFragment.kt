@@ -7,9 +7,9 @@ import com.example.footballapp.databinding.FragmentHomeBinding
 import com.example.footballapp.ui.base.BaseViewPager
 import com.example.footballapp.ui.home.liveMatch.LiveMatchFragment
 import com.example.footballapp.ui.home.matchScheduled.MatchScheduledFragment
+import com.example.footballapp.util.OnClickListener
 
-
-class HomeFragment : BaseViewPager<FragmentHomeBinding, HomeViewModel>(R.layout.fragment_home) {
+class HomeFragment : BaseViewPager<FragmentHomeBinding, HomeViewModel>(R.layout.fragment_home), OnClickListener {
 
     override fun getViewModel() = HomeViewModel::class.java
 
@@ -19,7 +19,7 @@ class HomeFragment : BaseViewPager<FragmentHomeBinding, HomeViewModel>(R.layout.
         val fragmentsList = listOf(LiveMatchFragment(), MatchScheduledFragment())
         val viewPager = binding.homeViewPager
         val tabLayout = binding.homeTabLayoutFragments
-        val leaguesAdapter = LeaguesAdapter(mutableListOf(), viewModel)
+        val leaguesAdapter = LeaguesAdapter(mutableListOf(), this)
         binding.recycleView.adapter = leaguesAdapter
         initViewPager(fragmentsList, viewPager)
         initTabLayout(viewPager, tabLayout)
@@ -39,6 +39,9 @@ class HomeFragment : BaseViewPager<FragmentHomeBinding, HomeViewModel>(R.layout.
         }
     }
 
+    override fun onClickItem(id: Int, teamId: Int?) {
+        navigate(HomeFragmentDirections.actionHomeFragmentToLeagueDetailsFragment(id))
+    }
     override val arg: Int?
         get() = null
     override val leagueId: Int?
