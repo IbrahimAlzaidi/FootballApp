@@ -16,8 +16,8 @@ import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.example.footballapp.BR
-import com.example.footballapp.navigation.NavigationController
 import com.example.footballapp.util.Event
+import com.example.footballapp.util.NavigationController
 import com.example.footballapp.util.ViewModelFactory
 
 abstract class BaseFragment<VDB : ViewDataBinding, VM : BaseViewModel>(
@@ -27,7 +27,7 @@ abstract class BaseFragment<VDB : ViewDataBinding, VM : BaseViewModel>(
     abstract fun getViewModel(): Class<VM>
     abstract val arg: Int?
     abstract val leagueId: Int?
-    abstract val teamId : Int?
+    abstract val teamId: Int?
     private lateinit var _binding: VDB
     protected val binding: VDB
         get() = _binding
@@ -52,21 +52,21 @@ abstract class BaseFragment<VDB : ViewDataBinding, VM : BaseViewModel>(
         observeNavigation()
         return _binding.root
     }
+
     private val _navigationLiveData = MutableLiveData<Event<NavigationController>>()
     private val navigationLiveData: LiveData<Event<NavigationController>> = _navigationLiveData
 
-    fun navigate(direction: NavDirections){
-        _navigationLiveData.value = Event(NavigationController.To(direction))
+    fun navigate(direction: NavDirections) {
+        _navigationLiveData.value = Event(NavigationController(direction))
     }
+
     private fun observeNavigation() {
         navigationLiveData.observe(viewLifecycleOwner, {
             it?.getContentIfNotHandle()?.let { command ->
-                when (command) {
-                    is NavigationController.To -> findNavController().navigate(
-                        command.directions,
-                        getExtra()
-                    )
-                }
+                findNavController().navigate(
+                    command.directions,
+                    getExtra()
+                )
             }
         })
     }
