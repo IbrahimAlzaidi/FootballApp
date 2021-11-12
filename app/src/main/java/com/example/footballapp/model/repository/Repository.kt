@@ -152,6 +152,6 @@ class Repository {
     }
 
     companion object {
-        val CURRENT_YEAR = Calendar.getInstance().get(Calendar.YEAR)
+        const val CURRENT_YEAR = Calendar.YEAR
     }
 }
