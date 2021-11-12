@@ -4,13 +4,14 @@ import androidx.navigation.fragment.navArgs
 import com.example.footballapp.R
 import com.example.footballapp.databinding.FragmentMatchDetailsBinding
 import com.example.footballapp.ui.base.BaseFragment
+import com.example.footballapp.ui.base.BaseFragmentWithViewPager
 import com.example.footballapp.ui.base.BaseViewModel
 import com.example.footballapp.ui.matchDetails.lineup.LineupFragment
 import com.example.footballapp.ui.matchDetails.matchState.MatchStateFragment
 import com.example.footballapp.ui.matchDetails.substitutes.SubstitutesFragment
 
 class MatchDetailsFragment :
-    BaseFragment<FragmentMatchDetailsBinding, MatchDetailsViewModel>(R.layout.fragment_match_details) {
+    BaseFragmentWithViewPager<FragmentMatchDetailsBinding, MatchDetailsViewModel>(R.layout.fragment_match_details) {
 
     private val args: MatchDetailsFragmentArgs by navArgs()
 

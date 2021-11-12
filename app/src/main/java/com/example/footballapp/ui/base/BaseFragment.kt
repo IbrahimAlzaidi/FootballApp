@@ -37,22 +37,6 @@ abstract class BaseFragment<VDB : ViewDataBinding, VM : BaseViewModel>(
     protected val viewModel: VM
         get() = _viewModel
 
-    protected fun initViewPager(fragmentsList: List<Fragment>, viewPager: ViewPager2) {
-        val standingPagerAdapterView = FootballViewPager(this.requireActivity(), fragmentsList)
-        viewPager.adapter = standingPagerAdapterView
-        viewPager.setPageTransformer(ViewPagerTransitions())
-    }
-
-    protected fun initTabLayout(
-        viewPager: ViewPager2,
-        tabLayout: TabLayout,
-        fragmentTitles: List<String>
-    ) {
-        TabLayoutMediator(tabLayout, viewPager) { tap, positions ->
-            tap.text = fragmentTitles[positions]
-        }.attach()
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

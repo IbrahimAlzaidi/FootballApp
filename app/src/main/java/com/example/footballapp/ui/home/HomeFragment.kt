@@ -5,11 +5,12 @@ import androidx.navigation.fragment.findNavController
 import com.example.footballapp.R
 import com.example.footballapp.databinding.FragmentHomeBinding
 import com.example.footballapp.ui.base.BaseFragment
+import com.example.footballapp.ui.base.BaseFragmentWithViewPager
 import com.example.footballapp.ui.home.liveMatch.LiveMatchFragment
 import com.example.footballapp.ui.home.matchScheduled.MatchScheduledFragment
 
 
-class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.fragment_home) {
+class HomeFragment : BaseFragmentWithViewPager<FragmentHomeBinding, HomeViewModel>(R.layout.fragment_home) {
     override fun getViewModel() = HomeViewModel::class.java
     private val fragmentTitles = listOf("Live", "Match Scheduled")
 

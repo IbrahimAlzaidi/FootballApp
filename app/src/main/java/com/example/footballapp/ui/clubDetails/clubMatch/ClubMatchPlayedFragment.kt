@@ -12,7 +12,6 @@ import com.example.footballapp.util.Constant.TAG
 class ClubMatchPlayedFragment(private val teamID: Int?) :
     BaseFragment<FragmentClubMatchPlayedBinding, ClubMatchPlayedViewModel>(R.layout.fragment_club_match_played) {
     override fun setup() {
-        binding.viewModel = viewModel
         val currentTeamMatchAdapter = ClubMatchAdapter(emptyList(), viewModel)
         binding.currentMatch.adapter = currentTeamMatchAdapter
     }

@@ -4,13 +4,14 @@ import androidx.navigation.fragment.navArgs
 import com.example.footballapp.R
 import com.example.footballapp.databinding.FragmentLeagueDetailsBinding
 import com.example.footballapp.ui.base.BaseFragment
+import com.example.footballapp.ui.base.BaseFragmentWithViewPager
 import com.example.footballapp.ui.base.BaseViewModel
 import com.example.footballapp.ui.leagueDetails.matches.MatchesFragment
 import com.example.footballapp.ui.leagueDetails.scorers.ScorersFragment
 import com.example.footballapp.ui.leagueDetails.standing.StandingFragment
 
 class LeagueDetailsFragment :
-    BaseFragment<FragmentLeagueDetailsBinding, LeagueDetailsViewModel>(R.layout.fragment_league_details) {
+    BaseFragmentWithViewPager<FragmentLeagueDetailsBinding, LeagueDetailsViewModel>(R.layout.fragment_league_details) {
 
     private val args: LeagueDetailsFragmentArgs by navArgs()
 
