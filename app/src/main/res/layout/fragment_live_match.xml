@@ -16,16 +16,16 @@
         android:layout_height="match_parent"
         tools:context=".ui.home.liveMatch.LiveMatchFragment">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintTop_toBottomOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:src="@drawable/liveodds"
-            invisible="@{viewModel.matchLive != null}"
-            />
+<!--        <ImageView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            app:layout_constraintTop_toBottomOf="parent"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            android:src="@drawable/liveodds"-->
+<!--            invisible="@{viewModel.matchLive != null}"-->
+<!--            />-->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/matchRecycler"
             android:layout_width="0dp"
@@ -41,6 +41,19 @@
             app:showWhenSuccess="@{viewModel.matchLive}"
             tools:listitem="@layout/live_matches_item" />
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:showWhenSuccess="@{viewModel.matchLive}"
+            app:showWhenNoMatchesAvailable="@{viewModel.matchLive.toData().liveMatchDetails}">
+
+            <include
+                layout="@layout/layout_empty_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:visibility="gone"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
         <ProgressBar
             android:id="@+id/loading_progress"
             android:layout_width="100dp"
@@ -49,7 +62,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:showWhenLoading="@{viewModel.matchLive}" />
+            app:showWhenLoading="@{viewModel.matchLive}"
+            tools:visibility="gone"/>
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/lottie_error"

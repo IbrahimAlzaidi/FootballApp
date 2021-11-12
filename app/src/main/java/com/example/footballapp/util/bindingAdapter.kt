@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.footballapp.R
 import com.example.footballapp.model.network.State
 import com.example.footballapp.model.response.base.baseLeagueInfo.LeagueInfo
+import com.example.footballapp.model.response.liveMatches.LiveMatchDetails
 import com.example.footballapp.model.response.matchStatistic.MatchResultData
 import com.example.footballapp.model.response.topScorers.TopScorersInfo
 import com.example.footballapp.ui.base.BaseAdapter
@@ -19,7 +20,7 @@ import com.github.twocoffeesoneteam.glidetovectoryou.GlideApp
 @BindingAdapter(value = ["app:showWhenLoading"])
 fun <T> View.showWhenLoading(state: State<T>?) {
     if (state is State.Loading) {
-        this.visibility = View.VISIBLE
+        this.visibility = VISIBLE
     } else {
         this.visibility = View.GONE
     }
@@ -28,7 +29,7 @@ fun <T> View.showWhenLoading(state: State<T>?) {
 @BindingAdapter(value = ["app:showWhenError"])
 fun <T> View.showWhenError(state: State<T>?) {
     if (state is State.Error) {
-        this.visibility = View.VISIBLE
+        this.visibility = VISIBLE
     } else {
         this.visibility = View.GONE
     }
@@ -37,7 +38,7 @@ fun <T> View.showWhenError(state: State<T>?) {
 @BindingAdapter(value = ["app:showWhenSuccess"])
 fun <T> View.showWhenSuccess(state: State<T>?) {
     if (state is State.Success) {
-        this.visibility = View.VISIBLE
+        this.visibility = VISIBLE
     } else {
         this.visibility = View.GONE
     }
@@ -48,7 +49,7 @@ fun <T> View.showWhenSearch(state: State<T>?) {
     if (state is State.Success || state is State.Loading || state is State.Error) {
         this.visibility = View.GONE
     } else {
-        this.visibility = View.VISIBLE
+        this.visibility = VISIBLE
     }
 }
 
@@ -107,4 +108,13 @@ var View.gone
 @BindingAdapter(value=["app:progressApp"])
 fun ProgressBar.setProgress(text:String?){
     text?.subSequence(0,1)?.also { this.progress = it[0].code }
+}
+
+@BindingAdapter(value = ["app:showWhenNoMatchesAvailable"])
+fun showWhenNoMatchesAvailable(view: View, matchesList: List<LiveMatchDetails>?) {
+    if (matchesList?.isEmpty() == true) {
+        view.visibility = VISIBLE
+    } else {
+        view.visibility = INVISIBLE
+    }
 }
