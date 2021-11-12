@@ -8,13 +8,13 @@
     <color name="searchStroke">#AACAB3</color>
     
     <!--grays-->
-    <color name="black">#FF000000</color>
+    <color name="primary_color">#FF000000</color>
     <color name="gray_500">#313131</color>
     <color name="gray_400">#7A7A7A</color>
     <color name="gray_300">#B6B6B6</color>
     <color name="gray_200">#DDDDDD</color>
     <color name="gray_100">#F5F5F5</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="secondary_color">#FFFFFFFF</color>
 
     <!--brand-->
     <color name="brand_700">#3E2AA2</color>
@@ -23,7 +23,8 @@
     <color name="brand_400">#7561D4</color>
     <color name="brand_300">#9B8BE7</color>
     <color name="brand_200">#B5A8F5</color>
-    <color name="brand_100">#D2C9FF</color>
+    <color name="brand_100">#FFFFFF</color>
+    <color name="main_background">#F0EEFF</color>
 
     <!--secondary-->
     <color name="yellow_100">#FFD12E</color>

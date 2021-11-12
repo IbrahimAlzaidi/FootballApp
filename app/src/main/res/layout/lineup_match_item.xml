@@ -22,7 +22,7 @@
             android:layout_height="match_parent"
             android:layout_weight="0.5"
             android:gravity="center"
-            android:textColor="@color/black"
+            android:textColor="@color/primary_color"
             android:textSize="@dimen/size3X"
             android:text="@{item.numberHomeTeam.toString()}"
             tools:text="1" />
@@ -32,7 +32,7 @@
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:gravity="start"
-            android:textColor="@color/black"
+            android:textColor="@color/primary_color"
             android:textSize="@dimen/size4X"
             android:text="@{item.playerHomeTeam}"
             tools:text="Ronaldo" />
@@ -42,7 +42,7 @@
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:gravity="end"
-            android:textColor="@color/black"
+            android:textColor="@color/primary_color"
             android:textSize="@dimen/size4X"
             android:text="@{item.playerAwayTeam}"
             tools:text="Ronaldo" />
@@ -52,7 +52,7 @@
             android:layout_height="match_parent"
             android:layout_weight="0.5"
             android:gravity="center"
-            android:textColor="@color/black"
+            android:textColor="@color/primary_color"
             android:textSize="@dimen/size3X"
             android:text="@{item.numberAwayTeam.toString()}"
             tools:text="1" />

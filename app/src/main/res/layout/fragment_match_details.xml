@@ -13,134 +13,190 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/main_background"
         tools:context=".ui.matchDetails.MatchDetailsFragment">
 
-        <ImageView
-            android:id="@+id/homeImage"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginStart="@dimen/margin5X"
-            android:layout_marginTop="@dimen/margin5X"
-            app:ImageUrl="@{viewModel.matchDetails.toData().fixtureDataInfo.get(0).teams.home.logo}"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/blue_gradient_background_1"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:showWhenSuccess="@{viewModel.matchDetails}"
-            tools:src="@tools:sample/avatars" />
+            app:showWhenSuccess="@{viewModel.matchDetails}">
 
-        <ImageView
-            android:id="@+id/awayImage"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginEnd="@dimen/margin5X"
-            app:ImageUrl="@{viewModel.matchDetails.toData().fixtureDataInfo.get(0).teams.away.logo}"
-            app:layout_constraintBottom_toBottomOf="@id/homeImage"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/homeImage"
-            app:showWhenSuccess="@{viewModel.matchDetails}"
-            tools:src="@tools:sample/avatars" />
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alpha="0.3"
+                android:scaleType="centerCrop"
+                android:src="@drawable/match_details_background_image"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/nameHome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin3X"
-            android:ellipsize="end"
-            android:maxWidth="120dp"
-            android:singleLine="true"
-            android:textSize="@dimen/size3X"
-            app:layout_constraintEnd_toEndOf="@+id/homeImage"
-            app:layout_constraintStart_toStartOf="@id/homeImage"
-            app:layout_constraintTop_toBottomOf="@id/homeImage"
-            app:showWhenSuccess="@{viewModel.matchDetails}"
-            android:text="@{viewModel.matchDetails.toData().fixtureDataInfo.get(0).teams.home.name}"
-            tools:text="Livebool" />
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin3X"
+                android:fontFamily="sans-serif-black"
+                android:text="Match Overview"
+                android:textColor="@color/secondary_color"
+                android:textSize="@dimen/size4X"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin3X"
-            android:ellipsize="end"
-            android:maxWidth="120dp"
-            android:maxLines="1"
-            android:singleLine="true"
-            android:textSize="@dimen/size3X"
-            app:layout_constraintEnd_toEndOf="@id/awayImage"
-            app:layout_constraintStart_toStartOf="@+id/awayImage"
-            app:layout_constraintTop_toBottomOf="@id/awayImage"
-            app:showWhenSuccess="@{viewModel.matchDetails}"
-            android:text="@{viewModel.matchDetails.toData().fixtureDataInfo.get(0).teams.away.name}"
-            tools:text="Liverpool" />
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:text="@{viewModel.matchDetails.toData().fixtureDataInfo.get(0).league.round}"
+                android:textColor="@color/secondary_color"
+                android:textSize="@dimen/size2X"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView3"
+                tools:text="Round 16" />
 
-        <TextView
-            android:id="@+id/homeGoals"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin3X"
-            android:gravity="center"
-            android:textSize="@dimen/size6X"
-            app:layout_constraintBottom_toBottomOf="@id/homeImage"
-            app:layout_constraintEnd_toStartOf="@id/awayGoals"
-            app:layout_constraintStart_toEndOf="@id/homeImage"
-            app:layout_constraintTop_toTopOf="@id/homeImage"
-            app:showWhenSuccess="@{viewModel.matchDetails}"
-            android:text="@{viewModel.matchDetails.toData().fixtureDataInfo.get(0).goals.home.toString()}"
-            tools:text="6" />
+            <TextView
+                android:id="@+id/competition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin3X"
+                android:ellipsize="end"
+                android:fontFamily="sans-serif-black"
+                android:maxWidth="300dp"
+                android:singleLine="true"
+                android:text="@{viewModel.matchDetails.toData().fixtureDataInfo.get(0).league.name}"
+                android:textColor="@color/secondary_color"
+                android:textSize="@dimen/size4X"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView4"
+                tools:text="Uefa Champions Leauge" />
 
-        <TextView
-            android:id="@+id/awayGoals"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin3X"
-            android:gravity="center"
-            android:textSize="@dimen/size6X"
-            app:layout_constraintBottom_toBottomOf="@id/awayImage"
-            app:layout_constraintEnd_toStartOf="@id/awayImage"
-            app:layout_constraintStart_toEndOf="@id/homeGoals"
-            app:layout_constraintTop_toTopOf="@id/awayImage"
-            app:showWhenSuccess="@{viewModel.matchDetails}"
-            android:text="@{viewModel.matchDetails.toData().fixtureDataInfo.get(0).goals.away.toString()}"
-            tools:text="5" />
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/shapeableImageView"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:layout_marginStart="@dimen/margin3X"
+                android:layout_marginTop="@dimen/margin3X"
+                android:src="@color/brand_100"
+                app:layout_constraintEnd_toStartOf="@+id/textView5"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/imageView2"
+                app:layout_constraintStart_toStartOf="@+id/imageView2"
+                app:layout_constraintTop_toBottomOf="@+id/competition"
+                app:shapeAppearanceOverlay="@style/circleImageViewStyle" />
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="-"
-            android:textSize="@dimen/size4X"
-            app:layout_constraintBottom_toBottomOf="@id/homeGoals"
-            app:layout_constraintEnd_toStartOf="@id/awayGoals"
-            app:layout_constraintStart_toEndOf="@id/homeGoals"
-            app:layout_constraintTop_toTopOf="@id/awayGoals"
-            app:showWhenSuccess="@{viewModel.matchDetails}" />
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/margin2X"
+                android:layout_marginTop="@dimen/margin2X"
+                android:layout_marginEnd="@dimen/margin2X"
+                android:layout_marginBottom="@dimen/margin2X"
+                app:ImageUrl="@{viewModel.matchDetails.toData().fixtureDataInfo.get(0).teams.home.logo}"
+                app:layout_constraintBottom_toBottomOf="@+id/shapeableImageView"
+                app:layout_constraintEnd_toEndOf="@+id/shapeableImageView"
+                app:layout_constraintStart_toStartOf="@+id/shapeableImageView"
+                app:layout_constraintTop_toTopOf="@+id/shapeableImageView"
+                tools:src="@tools:sample/avatars" />
 
-        <View
-            android:id="@+id/divider"
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_marginTop="@dimen/margin0X"
-            android:background="@color/black"
-            app:layout_constraintEnd_toEndOf="@id/awayImage"
-            app:layout_constraintStart_toStartOf="@id/homeImage"
-            app:layout_constraintTop_toBottomOf="@id/nameHome"
-            app:showWhenSuccess="@{viewModel.matchDetails}" />
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                android:text="@{viewModel.matchDetails.toData().fixtureDataInfo.get(0).goals.home.toString()}"
+                android:textColor="@color/secondary_color"
+                android:textSize="@dimen/size5X"
+                app:layout_constraintBottom_toBottomOf="@+id/shapeableImageView"
+                app:layout_constraintEnd_toStartOf="@+id/textView6"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/shapeableImageView"
+                app:layout_constraintTop_toTopOf="@+id/shapeableImageView"
+                tools:text="1" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                android:text="-"
+                android:textColor="@color/secondary_color"
+                android:textSize="@dimen/size5X"
+                app:layout_constraintBottom_toBottomOf="@+id/shapeableImageView"
+                app:layout_constraintEnd_toStartOf="@+id/textView7"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/textView5"
+                app:layout_constraintTop_toTopOf="@+id/shapeableImageView" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                android:text="@{viewModel.matchDetails.toData().fixtureDataInfo.get(0).goals.away.toString()}"
+                android:textColor="@color/secondary_color"
+                android:textSize="@dimen/size5X"
+                app:layout_constraintBottom_toBottomOf="@+id/shapeableImageView"
+                app:layout_constraintEnd_toStartOf="@+id/shapeableImageView2"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/textView6"
+                app:layout_constraintTop_toTopOf="@+id/shapeableImageView"
+                tools:text="0" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/shapeableImageView2"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:layout_marginTop="@dimen/margin3X"
+                android:src="@color/brand_100"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/textView7"
+                app:layout_constraintTop_toBottomOf="@+id/competition"
+                app:shapeAppearanceOverlay="@style/circleImageViewStyle" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/margin2X"
+                android:layout_marginTop="@dimen/margin2X"
+                android:layout_marginEnd="@dimen/margin2X"
+                android:layout_marginBottom="@dimen/margin2X"
+                app:ImageUrl="@{viewModel.matchDetails.toData().fixtureDataInfo.get(0).teams.away.logo}"
+                app:layout_constraintBottom_toBottomOf="@+id/shapeableImageView2"
+                app:layout_constraintEnd_toEndOf="@+id/shapeableImageView2"
+                app:layout_constraintStart_toStartOf="@+id/shapeableImageView2"
+                app:layout_constraintTop_toTopOf="@+id/shapeableImageView2"
+                tools:src="@tools:sample/avatars" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabLayoutFragments"
+            style="@style/MyCustomTabLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/margin5X"
+            android:background="@drawable/blue_gradient_background_2"
             app:layout_constraintBottom_toTopOf="@id/details_ViewPager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/divider"
-            app:showWhenSuccess="@{viewModel.matchDetails}" />
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
+            app:showWhenSuccess="@{viewModel.matchDetails}"
+            app:tabTextAppearance="@style/CustomTabText" />
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/details_ViewPager"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginHorizontal="@dimen/margin5X"
             android:background="@drawable/rectangle_shape"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -157,7 +213,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:showWhenLoading="@{viewModel.matchDetails}" />
+            app:showWhenLoading="@{viewModel.matchDetails}"
+            tools:visibility="gone" />
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/lottie_error"

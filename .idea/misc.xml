@@ -3,6 +3,28 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Wesam Nabeel/AndroidStudioProjects/FootballAppGreenApple/app/src/main/res/drawable/blue_gradient_background_1.xml" value="0.21510416666666668" />
+        <entry key="..\:/Users/Wesam Nabeel/AndroidStudioProjects/FootballAppGreenApple/app/src/main/res/drawable/blue_gradient_background_2.xml" value="0.21510416666666668" />
+        <entry key="..\:/Users/Wesam Nabeel/AndroidStudioProjects/FootballAppGreenApple/app/src/main/res/drawable/red_gradient_background.xml" value="0.21510416666666668" />
+        <entry key="..\:/Users/Wesam Nabeel/AndroidStudioProjects/FootballAppGreenApple/app/src/main/res/drawable/shape_search.xml" value="0.19270833333333334" />
+        <entry key="..\:/Users/Wesam Nabeel/AndroidStudioProjects/FootballAppGreenApple/app/src/main/res/drawable/yellow_gradient_background.xml" value="0.21510416666666668" />
+        <entry key="..\:/Users/Wesam Nabeel/AndroidStudioProjects/FootballAppGreenApple/app/src/main/res/layout/activity_home.xml" value="0.128125" />
+        <entry key="..\:/Users/Wesam Nabeel/AndroidStudioProjects/FootballAppGreenApple/app/src/main/res/layout/fragment_club_details.xml" value="0.1734375" />
+        <entry key="..\:/Users/Wesam Nabeel/AndroidStudioProjects/FootballAppGreenApple/app/src/main/res/layout/fragment_club_match_played.xml" value="0.128125" />
+        <entry key="..\:/Users/Wesam Nabeel/AndroidStudioProjects/FootballAppGreenApple/app/src/main/res/layout/fragment_clup_information.xml" value="0.128125" />
+        <entry key="..\:/Users/Wesam Nabeel/AndroidStudioProjects/FootballAppGreenApple/app/src/main/res/layout/fragment_home.xml" value="0.1734375" />
+        <entry key="..\:/Users/Wesam Nabeel/AndroidStudioProjects/FootballAppGreenApple/app/src/main/res/layout/fragment_info_squad.xml" value="0.128125" />
+        <entry key="..\:/Users/Wesam Nabeel/AndroidStudioProjects/FootballAppGreenApple/app/src/main/res/layout/fragment_league_details.xml" value="0.18697916666666667" />
+        <entry key="..\:/Users/Wesam Nabeel/AndroidStudioProjects/FootballAppGreenApple/app/src/main/res/layout/fragment_lineup.xml" value="0.18697916666666667" />
+        <entry key="..\:/Users/Wesam Nabeel/AndroidStudioProjects/FootballAppGreenApple/app/src/main/res/layout/fragment_live_match.xml" value="0.2015625" />
+        <entry key="..\:/Users/Wesam Nabeel/AndroidStudioProjects/FootballAppGreenApple/app/src/main/res/layout/fragment_match_details.xml" value="0.22" />
+        <entry key="..\:/Users/Wesam Nabeel/AndroidStudioProjects/FootballAppGreenApple/app/src/main/res/layout/fragment_player_details.xml" value="0.18697916666666667" />
+        <entry key="..\:/Users/Wesam Nabeel/AndroidStudioProjects/FootballAppGreenApple/app/src/main/res/layout/fragment_substitutes.xml" value="0.1" />
+        <entry key="..\:/Users/Wesam Nabeel/AndroidStudioProjects/FootballAppGreenApple/app/src/main/res/layout/layout_empty_list.xml" value="0.19739583333333333" />
+        <entry key="..\:/Users/Wesam Nabeel/AndroidStudioProjects/FootballAppGreenApple/app/src/main/res/layout/live_matches_item.xml" value="0.18697916666666667" />
+        <entry key="..\:/Users/Wesam Nabeel/AndroidStudioProjects/FootballAppGreenApple/app/src/main/res/layout/matches_item.xml" value="0.18697916666666667" />
+        <entry key="..\:/Users/Wesam Nabeel/AndroidStudioProjects/FootballAppGreenApple/app/src/main/res/layout/team_player_item.xml" value="0.19895833333333332" />
+        <entry key="..\:/Users/Wesam Nabeel/AndroidStudioProjects/FootballAppGreenApple/app/src/main/res/layout/teams_standing_item.xml" value="0.19895833333333332" />
         <entry key="..\:/kotlin/FootballApp/app/src/main/res/font/font.xml" value="0.21944444444444444" />
         <entry key="..\:/kotlin/FootballApp/app/src/main/res/layout/activity_main.xml" value="0.21666666666666667" />
         <entry key="..\:/kotlin/FootballApp/app/src/main/res/layout/fragment_league_details.xml" value="0.1" />
