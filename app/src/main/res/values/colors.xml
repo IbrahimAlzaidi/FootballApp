@@ -5,7 +5,46 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
     <color name="searchStroke">#AACAB3</color>
+    
+    <!--grays-->
+    <color name="black">#FF000000</color>
+    <color name="gray_500">#313131</color>
+    <color name="gray_400">#7A7A7A</color>
+    <color name="gray_300">#B6B6B6</color>
+    <color name="gray_200">#DDDDDD</color>
+    <color name="gray_100">#F5F5F5</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!--brand-->
+    <color name="brand_700">#3E2AA2</color>
+    <color name="brand_600">#4524E0</color>
+    <color name="brand_500">#523EB2</color>
+    <color name="brand_400">#7561D4</color>
+    <color name="brand_300">#9B8BE7</color>
+    <color name="brand_200">#B5A8F5</color>
+    <color name="brand_100">#D2C9FF</color>
+
+    <!--secondary-->
+    <color name="yellow_100">#FFD12E</color>
+    <color name="yellow_200">#FFDB5E</color>
+    <color name="yellow_300">#FFF1BF</color>
+    <color name="red_100">#E52020</color>
+    <color name="red_200">#F53636</color>
+
+    <!--gradients-->
+    <color name="gradient_blue_1_start_color">#7561D4</color>
+    <color name="gradient_blue_1_end_color">#3E2AA2</color>
+
+    <color name="gradient_blue_2_start_color">#3E2AA2</color>
+    <color name="gradient_blue_2_end_color">#523EB2</color>
+
+    <color name="gradient_red_start_color">#9B0B0B</color>
+    <color name="gradient_red_end_color">#FF3737</color>
+
+    <color name="gradient_green_start_color">#53FFD6</color>
+    <color name="gradient_green_end_color">#30D499</color>
+
+    <color name="gradient_yellow_start_color">#FFDE32</color>
+    <color name="gradient_yellow_end_color">#E1AD26</color>
 </resources>

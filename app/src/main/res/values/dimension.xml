@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    // margin and padding dimensions
+    <!--margin and padding dimensions-->
     <dimen name="margin0X">4dp</dimen>
     <dimen name="margin1X">8dp</dimen>
     <dimen name="margin2X">12dp</dimen>
@@ -12,7 +12,7 @@
     <dimen name="margin8X">40dp</dimen>
     <dimen name="margin9X">48dp</dimen>
 
-    // text size dimensions
+    <!--text size dimensions-->
     <dimen name="size0X">4sp</dimen>
     <dimen name="size1X">8sp</dimen>
     <dimen name="size2X">12sp</dimen>
@@ -22,7 +22,7 @@
     <dimen name="size6X">32sp</dimen>
     <dimen name="size7X">48sp</dimen>
 
-    // margin and padding dimensions
+    <!--margin and padding dimensions-->
     <dimen name="elevation0X">4dp</dimen>
     <dimen name="elevation1X">8dp</dimen>
     <dimen name="elevation2X">12dp</dimen>
