@@ -37,12 +37,6 @@ abstract class BaseFragment<VDB : ViewDataBinding, VM : BaseViewModel>(
     protected val viewModel: VM
         get() = _viewModel
 
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        childFragmentManager.fragmentFactory = factory
-//        super.onCreate(savedInstanceState)
-////        activity?.supportFragmentManager?.fragmentFactory = factory
-//    }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

@@ -1,10 +1,8 @@
 package com.example.footballapp.ui.playerDetails.matchPlayedStatistic
 
-import android.util.Log
 import com.example.footballapp.R
 import com.example.footballapp.databinding.FragmentPlayedStatisticBinding
 import com.example.footballapp.ui.base.BaseFragment
-import com.example.footballapp.util.Constant
 
 class PlayedStatisticFragment(
     private val playerId: Int?,
