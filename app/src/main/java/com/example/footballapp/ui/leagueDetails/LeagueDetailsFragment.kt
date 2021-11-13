@@ -3,13 +3,13 @@ package com.example.footballapp.ui.leagueDetails
 import androidx.navigation.fragment.navArgs
 import com.example.footballapp.R
 import com.example.footballapp.databinding.FragmentLeagueDetailsBinding
-import com.example.footballapp.ui.base.BaseViewPager
+import com.example.footballapp.ui.base.BaseViewPagerFragment
 import com.example.footballapp.ui.leagueDetails.matches.MatchesFragment
 import com.example.footballapp.ui.leagueDetails.scorers.ScorersFragment
 import com.example.footballapp.ui.leagueDetails.standing.StandingFragment
 
 class LeagueDetailsFragment :
-    BaseViewPager<FragmentLeagueDetailsBinding, LeagueDetailsViewModel>(R.layout.fragment_league_details) {
+    BaseViewPagerFragment<FragmentLeagueDetailsBinding, LeagueDetailsViewModel>(R.layout.fragment_league_details) {
 
     private val args: LeagueDetailsFragmentArgs by navArgs()
 
@@ -36,5 +36,4 @@ class LeagueDetailsFragment :
         get() = null
     override val teamId: Int?
         get() = null
-
 }

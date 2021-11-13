@@ -33,7 +33,7 @@ class ViewModelFactory(private val arg: Int? , private val leagueId : Int? , pri
             modelClass.isAssignableFrom(MatchesViewModel::class.java) -> MatchesViewModel(arg) as T
             modelClass.isAssignableFrom(PlayerDetailsViewModel::class.java) -> PlayerDetailsViewModel(arg,teamId,leagueId) as T
             modelClass.isAssignableFrom(ScorersViewModel::class.java) -> ScorersViewModel(arg) as T
-            modelClass.isAssignableFrom(StandingViewModel::class.java) -> StandingViewModel(arg) as T
+            modelClass.isAssignableFrom(StandingViewModel::class.java) -> StandingViewModel(leagueId = leagueId) as T
             modelClass.isAssignableFrom(LiveMatchViewModel::class.java) -> LiveMatchViewModel() as T
             modelClass.isAssignableFrom(MatchScheduledViewModel::class.java) -> MatchScheduledViewModel() as T
             modelClass.isAssignableFrom(SearchViewModel::class.java) -> SearchViewModel() as T

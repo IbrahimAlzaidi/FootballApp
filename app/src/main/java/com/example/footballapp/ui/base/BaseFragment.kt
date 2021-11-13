@@ -16,6 +16,7 @@ import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.example.footballapp.BR
+import com.example.footballapp.util.FragmentFactory
 import com.example.footballapp.util.Event
 import com.example.footballapp.util.NavigationController
 import com.example.footballapp.util.ViewModelFactory
@@ -36,12 +37,20 @@ abstract class BaseFragment<VDB : ViewDataBinding, VM : BaseViewModel>(
     protected val viewModel: VM
         get() = _viewModel
 
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        childFragmentManager.fragmentFactory = factory
+//        super.onCreate(savedInstanceState)
+////        activity?.supportFragmentManager?.fragmentFactory = factory
+//    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = DataBindingUtil.inflate(inflater, layoutResId, container, false)
+        val baseFragmentFactory = FragmentFactory(arg, leagueId, teamId)//New One
+        childFragmentManager.fragmentFactory = baseFragmentFactory//New One
         val factory = ViewModelFactory(arg, leagueId, teamId)
         _viewModel = ViewModelProvider(this, factory).get(getViewModel())
         _binding.apply {

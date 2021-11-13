@@ -4,11 +4,13 @@ import com.example.footballapp.R
 import com.example.footballapp.databinding.FragmentScorersBinding
 import com.example.footballapp.ui.base.BaseFragment
 import com.example.footballapp.ui.leagueDetails.LeagueDetailsFragmentDirections
+import com.example.footballapp.util.FragmentFactory
 import com.example.footballapp.util.OnClickListener
 
 class ScorersFragment(private val args: Int?): BaseFragment<FragmentScorersBinding, ScorersViewModel>
     (R.layout.fragment_scorers), OnClickListener{
     override fun setup() {
+        childFragmentManager.fragmentFactory = FragmentFactory(args,null,null)
         val topScoreAdapter = ScorersAdapter(emptyList(),this)
         binding.topScoreRecycler.adapter = topScoreAdapter
     }

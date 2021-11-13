@@ -4,14 +4,14 @@ import android.util.Log
 import androidx.navigation.fragment.navArgs
 import com.example.footballapp.R
 import com.example.footballapp.databinding.FragmentClubDetailsBinding
-import com.example.footballapp.ui.base.BaseViewPager
+import com.example.footballapp.ui.base.BaseViewPagerFragment
 import com.example.footballapp.ui.clubDetails.clubInfo.ClubInformationFragment
 import com.example.footballapp.ui.clubDetails.clubMatch.ClubMatchPlayedFragment
 import com.example.footballapp.ui.clubDetails.squadInfo.SquadInfoFragment
 import com.example.footballapp.util.Constant.TAG
 
 class ClubDetailsFragment :
-    BaseViewPager<FragmentClubDetailsBinding, ClubDetailsViewModel>(R.layout.fragment_club_details) {
+    BaseViewPagerFragment<FragmentClubDetailsBinding, ClubDetailsViewModel>(R.layout.fragment_club_details) {
 
     private val args: ClubDetailsFragmentArgs by navArgs()
 

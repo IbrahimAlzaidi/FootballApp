@@ -8,7 +8,7 @@ import com.example.footballapp.util.ViewPagerTransitions
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
-abstract class BaseViewPager<VDB : ViewDataBinding, VM : BaseViewModel>(layoutResId: Int):
+abstract class BaseViewPagerFragment<VDB : ViewDataBinding, VM : BaseViewModel>(layoutResId: Int):
     BaseFragment<VDB,VM>(layoutResId) {
 
     abstract val  fragmentTitles: List<String?>

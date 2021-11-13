@@ -1,14 +1,16 @@
 package com.example.footballapp.ui.playerDetails
 
+import android.util.Log
 import androidx.navigation.fragment.navArgs
 import com.example.footballapp.R
 import com.example.footballapp.databinding.FragmentPlayerDetailsBinding
-import com.example.footballapp.ui.base.BaseViewPager
+import com.example.footballapp.ui.base.BaseViewPagerFragment
 import com.example.footballapp.ui.playerDetails.matchPlayedStatistic.PlayedStatisticFragment
 import com.example.footballapp.ui.playerDetails.playedInfo.PlayerInformationFragment
+import com.example.footballapp.util.Constant.TAG
 
 class PlayerDetailsFragment :
-    BaseViewPager<FragmentPlayerDetailsBinding, PlayerDetailsViewModel>(R.layout.fragment_player_details) {
+    BaseViewPagerFragment<FragmentPlayerDetailsBinding, PlayerDetailsViewModel>(R.layout.fragment_player_details) {
     private val args: PlayerDetailsFragmentArgs by navArgs()
     override fun setup() {
         val playerId = args.playerId
@@ -16,10 +18,12 @@ class PlayerDetailsFragment :
         val leagueId = args.leagueId
         val viewPager = binding.detailsViewPager
         val indicator = binding.indicator
+        Log.i(TAG, "PlayerDetailsFragment__________Setup: $playerId $teamId $leagueId")
+
         val fragmentsList =
             listOf(
                 PlayerInformationFragment(playerId,teamId,leagueId),
-                PlayedStatisticFragment(playerId,teamId,leagueId),
+                PlayedStatisticFragment(playerId,leagueId),
             )
         initViewPager(fragmentsList,viewPager = viewPager)
         indicator.setViewPager2(viewPager)

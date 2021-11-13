@@ -4,12 +4,12 @@ import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.example.footballapp.R
 import com.example.footballapp.databinding.FragmentHomeBinding
-import com.example.footballapp.ui.base.BaseViewPager
+import com.example.footballapp.ui.base.BaseViewPagerFragment
 import com.example.footballapp.ui.home.liveMatch.LiveMatchFragment
 import com.example.footballapp.ui.home.matchScheduled.MatchScheduledFragment
 import com.example.footballapp.util.OnClickListener
 
-class HomeFragment : BaseViewPager<FragmentHomeBinding, HomeViewModel>(R.layout.fragment_home), OnClickListener {
+class HomeFragment : BaseViewPagerFragment<FragmentHomeBinding, HomeViewModel>(R.layout.fragment_home), OnClickListener {
 
     override fun getViewModel() = HomeViewModel::class.java
 

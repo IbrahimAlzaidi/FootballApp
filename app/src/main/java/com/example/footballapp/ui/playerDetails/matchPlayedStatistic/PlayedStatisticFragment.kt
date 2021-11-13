@@ -8,19 +8,18 @@ import com.example.footballapp.util.Constant
 
 class PlayedStatisticFragment(
     private val playerId: Int?,
-    private val teamID: Int,
-    private val leagueID: Int
+    private val leagueID: Int?,
 ) : BaseFragment<FragmentPlayedStatisticBinding, PlayedStatisticViewModel>(R.layout.fragment_played_statistic) {
     override fun setup() {
-
+        Log.i(Constant.TAG, "PlayedStatisticFragment__________Setup: $playerId $leagueId")
     }
     override fun getViewModel(): Class<PlayedStatisticViewModel> =
         PlayedStatisticViewModel::class.java
 
     override val arg: Int?
         get() = playerId
-    override val leagueId: Int
+    override val leagueId: Int?
         get() = leagueID
-    override val teamId: Int
-        get() = teamID
+    override val teamId: Int?
+        get() = null
 }

@@ -8,22 +8,23 @@ import com.example.footballapp.util.Constant
 
 
 class PlayerInformationFragment(
-    private val playerId: Int,
-    private val teamID: Int,
-    private val leagueID: Int
+    private val playerId: Int?,
+    private val leagueID: Int?,
+    private val teamID: Int?
 ) : BaseFragment<FragmentPlayerInformationsBinding, PlayerInformationViewModel>(
     R.layout.fragment_player_informations
 ) {
     override fun setup() {
+        Log.i(Constant.TAG, "PlayerInformationFragment____________Setup: $playerId $teamId $leagueId")
     }
 
     override fun getViewModel(): Class<PlayerInformationViewModel> =
         PlayerInformationViewModel::class.java
 
-    override val arg: Int
+    override val arg: Int?
         get() = playerId
-    override val leagueId: Int
+    override val leagueId: Int?
         get() = leagueID
-    override val teamId: Int
+    override val teamId: Int?
         get() = teamID
 }
