@@ -11,8 +11,8 @@ class PlayedStatisticFragment(
     private val leagueID: Int?,
 ) : BaseFragment<FragmentPlayedStatisticBinding, PlayedStatisticViewModel>(R.layout.fragment_played_statistic) {
     override fun setup() {
-        Log.i(Constant.TAG, "PlayedStatisticFragment__________Setup: $playerId $leagueId")
     }
+
     override fun getViewModel(): Class<PlayedStatisticViewModel> =
         PlayedStatisticViewModel::class.java
 

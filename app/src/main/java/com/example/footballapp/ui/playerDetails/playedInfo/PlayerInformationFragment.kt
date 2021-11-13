@@ -15,7 +15,6 @@ class PlayerInformationFragment(
     R.layout.fragment_player_informations
 ) {
     override fun setup() {
-        Log.i(Constant.TAG, "PlayerInformationFragment____________Setup: $playerId $teamId $leagueId")
     }
 
     override fun getViewModel(): Class<PlayerInformationViewModel> =

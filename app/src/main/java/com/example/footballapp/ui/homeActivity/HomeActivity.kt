@@ -10,9 +10,9 @@ import com.example.footballapp.util.FragmentFactory
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeBinding
-    private val customFragmentFactory = FragmentFactory(null,null,null)
+    private val fragmentFactory = FragmentFactory(null,null,null)
     override fun onCreate(savedInstanceState: Bundle?) {
-        supportFragmentManager.fragmentFactory = customFragmentFactory
+        supportFragmentManager.fragmentFactory = fragmentFactory
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_home)
     }

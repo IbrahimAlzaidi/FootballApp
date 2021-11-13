@@ -6,12 +6,8 @@ import com.example.footballapp.ui.base.BaseViewModel
 import com.example.footballapp.util.Constant
 import com.example.footballapp.util.Constant.TAG
 
-class PlayerInformationViewModel(val arg: Int?, league: Int?,teamId:Int?):BaseViewModel() {
-    val playerData = teamId?.let { repository.getTeamPlayerInfo(teamId = it, playerId = arg).asLiveData() }
+class PlayerInformationViewModel(val playerId: Int?, teamId: Int?,leagueId:Int?):BaseViewModel() {
+    val playerData = repository.getTeamPlayerInfo(teamId = teamId!!, playerId = playerId!!).asLiveData()
     val playerStatisticInfo =
-        arg?.let { repository.getPlayerStatistic(playerId = it,leagueId = league!!).asLiveData() }
-
-    init {
-        Log.i(Constant.TAG, "PlayerInformationViewModel____________Setup: $arg $league $teamId")
-    }
+        playerId?.let { repository.getPlayerStatistic(playerId = playerId,leagueId = leagueId!!).asLiveData() }
 }

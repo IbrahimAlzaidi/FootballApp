@@ -18,7 +18,6 @@ class PlayerDetailsFragment :
         val leagueId = args.leagueId
         val viewPager = binding.detailsViewPager
         val indicator = binding.indicator
-        Log.i(TAG, "PlayerDetailsFragment__________Setup: $playerId $teamId $leagueId")
 
         val fragmentsList =
             listOf(
