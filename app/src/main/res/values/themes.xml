@@ -66,6 +66,6 @@
 
     <style name="CustomTabText" parent="TextAppearance.Design.Tab">
         <item name="android:textSize">10sp</item>
-        <item name="fontFamily">sans-serif-medium</item>
+        <item name="fontFamily">@font/open_sans_bold</item>
     </style>
 </resources>

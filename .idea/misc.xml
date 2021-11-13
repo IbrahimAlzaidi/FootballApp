@@ -5,9 +5,17 @@
       <map>
         <entry key="..\:/Users/Wesam Nabeel/AndroidStudioProjects/FootballAppGreenApple/app/src/main/res/drawable/blue_gradient_background_1.xml" value="0.21510416666666668" />
         <entry key="..\:/Users/Wesam Nabeel/AndroidStudioProjects/FootballAppGreenApple/app/src/main/res/drawable/blue_gradient_background_2.xml" value="0.21510416666666668" />
+        <entry key="..\:/Users/Wesam Nabeel/AndroidStudioProjects/FootballAppGreenApple/app/src/main/res/drawable/circular_progress_bar.xml" value="0.12239583333333333" />
+        <entry key="..\:/Users/Wesam Nabeel/AndroidStudioProjects/FootballAppGreenApple/app/src/main/res/drawable/club_layout.xml" value="0.12239583333333333" />
+        <entry key="..\:/Users/Wesam Nabeel/AndroidStudioProjects/FootballAppGreenApple/app/src/main/res/drawable/custom_progressbar.xml" value="0.12239583333333333" />
+        <entry key="..\:/Users/Wesam Nabeel/AndroidStudioProjects/FootballAppGreenApple/app/src/main/res/drawable/details_shape.xml" value="0.12239583333333333" />
+        <entry key="..\:/Users/Wesam Nabeel/AndroidStudioProjects/FootballAppGreenApple/app/src/main/res/drawable/holder_player_details_shape.xml" value="0.12239583333333333" />
         <entry key="..\:/Users/Wesam Nabeel/AndroidStudioProjects/FootballAppGreenApple/app/src/main/res/drawable/red_gradient_background.xml" value="0.21510416666666668" />
         <entry key="..\:/Users/Wesam Nabeel/AndroidStudioProjects/FootballAppGreenApple/app/src/main/res/drawable/shape_search.xml" value="0.19270833333333334" />
         <entry key="..\:/Users/Wesam Nabeel/AndroidStudioProjects/FootballAppGreenApple/app/src/main/res/drawable/yellow_gradient_background.xml" value="0.21510416666666668" />
+        <entry key="..\:/Users/Wesam Nabeel/AndroidStudioProjects/FootballAppGreenApple/app/src/main/res/font/open_sans.xml" value="0.28541666666666665" />
+        <entry key="..\:/Users/Wesam Nabeel/AndroidStudioProjects/FootballAppGreenApple/app/src/main/res/font/open_sans_bold.xml" value="0.28541666666666665" />
+        <entry key="..\:/Users/Wesam Nabeel/AndroidStudioProjects/FootballAppGreenApple/app/src/main/res/font/open_sansa.xml" value="0.28541666666666665" />
         <entry key="..\:/Users/Wesam Nabeel/AndroidStudioProjects/FootballAppGreenApple/app/src/main/res/layout/activity_home.xml" value="0.128125" />
         <entry key="..\:/Users/Wesam Nabeel/AndroidStudioProjects/FootballAppGreenApple/app/src/main/res/layout/fragment_club_details.xml" value="0.1734375" />
         <entry key="..\:/Users/Wesam Nabeel/AndroidStudioProjects/FootballAppGreenApple/app/src/main/res/layout/fragment_club_match_played.xml" value="0.128125" />
