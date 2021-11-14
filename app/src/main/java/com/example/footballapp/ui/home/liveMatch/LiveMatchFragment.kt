@@ -1,9 +1,11 @@
 package com.example.footballapp.ui.home.liveMatch
 
+import android.util.Log
 import com.example.footballapp.R
 import com.example.footballapp.databinding.FragmentLiveMatchBinding
 import com.example.footballapp.ui.base.BaseFragment
 import com.example.footballapp.ui.home.HomeFragmentDirections
+import com.example.footballapp.util.Constant
 import com.example.footballapp.util.OnClickListener
 
 class LiveMatchFragment :
@@ -15,8 +17,9 @@ class LiveMatchFragment :
     }
 
     override fun getViewModel() = LiveMatchViewModel::class.java
-    override fun onClickItem(id: Int, teamId: Int?) {
+    override fun onClickItem(id: Int, teamId: Int?, leagueId: Int?) {
         navigate(HomeFragmentDirections.actionHomeFragmentToMatchDetailsFragment(id))
+        Log.i(Constant.TAG, "LiveMatchFragmentOnClickItem: $arg $teamId $leagueId")
     }
     override val leagueId: Int?
         get() = null

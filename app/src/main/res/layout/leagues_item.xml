@@ -34,7 +34,7 @@
         <ImageView
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:onClick="@{()-> listener.onClickItem(item.league.id,0)}"
+            android:onClick="@{()-> listener.onClickItem(0,0,item.league.id)}"
             app:ImageUrl="@{item.league.logo}"
             app:layout_constraintBottom_toBottomOf="@id/myCardView"
             app:layout_constraintEnd_toEndOf="@id/myCardView"

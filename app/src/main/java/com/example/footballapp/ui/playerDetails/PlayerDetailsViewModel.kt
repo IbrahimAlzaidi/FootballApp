@@ -1,11 +1,14 @@
 package com.example.footballapp.ui.playerDetails
 
 import android.util.Log
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.asLiveData
 import com.example.footballapp.ui.base.BaseViewModel
 import com.example.footballapp.util.Constant.TAG
 
-class PlayerDetailsViewModel(arg: Int? , val teamId:Int? , val leagueId:Int?) : BaseViewModel() {
+class PlayerDetailsViewModel(arg: Int?, val teamId:Int?, val leagueId:Int?, state: SavedStateHandle) : BaseViewModel(
+    state
+) {
     val playerData = repository.getTeamPlayerInfo(teamId = teamId!!, playerId = arg).asLiveData()
     val playerStatisticInfo =
         arg?.let { repository.getPlayerStatistic(playerId = it, leagueId = leagueId!!).asLiveData() }

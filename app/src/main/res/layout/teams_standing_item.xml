@@ -16,7 +16,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:onClick="@{() -> listener.onClickItem(item.team.id, 0)}">
+        android:onClick="@{() -> listener.onClickItem(0,item.team.id,39)}">
 
         <TextView
             android:layout_width="wrap_content"

@@ -1,10 +1,7 @@
 package com.example.footballapp.ui.matchDetails.lineup
 
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.asLiveData
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.example.footballapp.model.network.State
 import com.example.footballapp.model.response.lineup.DataPlayer
 import com.example.footballapp.ui.base.BaseViewModel
@@ -13,7 +10,7 @@ import com.example.footballapp.util.toPlayerStart
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-class LineupViewModel(arg: Int?) : BaseViewModel() {
+class LineupViewModel(arg: Int?, state: SavedStateHandle) : BaseViewModel(state) {
 
     val lineupsData = arg?.let { repository.getMatchLineup(it).asLiveData() }
 

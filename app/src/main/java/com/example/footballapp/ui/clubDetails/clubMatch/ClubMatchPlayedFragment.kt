@@ -14,7 +14,7 @@ class ClubMatchPlayedFragment(private val teamID: Int?) :
         val currentTeamMatchAdapter = ClubMatchAdapter(emptyList(), this)
         binding.currentMatch.adapter = currentTeamMatchAdapter
     }
-    override fun onClickItem(id: Int, teamId: Int?) {
+    override fun onClickItem(id: Int, teamId: Int?, leagueId: Int?) {
         navigate(ClubDetailsFragmentDirections.actionClubDetailsFragmentToMatchDetailsFragment(id))
     }
     override fun getViewModel() = ClubMatchPlayedViewModel::class.java

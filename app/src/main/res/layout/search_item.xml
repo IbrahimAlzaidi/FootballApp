@@ -17,7 +17,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="@{() -> listener.onClickItem(item.league.id, 0)}">
+        android:onClick="@{() -> listener.onClickItem(item.league.id, 0,0)}">
 
         <View
             android:id="@+id/border"

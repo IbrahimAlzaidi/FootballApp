@@ -2,6 +2,7 @@ package com.example.footballapp.ui.search
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import com.example.footballapp.model.network.State
 import com.example.footballapp.model.response.leagueSearch.LeagueSearchResponse
@@ -10,7 +11,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-class SearchViewModel : BaseViewModel() {
+class SearchViewModel(state: SavedStateHandle) : BaseViewModel(state) {
     private val _searchLeague = MutableLiveData<State<LeagueSearchResponse?>>()
     val searchLeague: LiveData<State<LeagueSearchResponse?>>
         get() = _searchLeague

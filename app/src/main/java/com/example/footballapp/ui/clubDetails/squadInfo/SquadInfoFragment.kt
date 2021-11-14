@@ -16,7 +16,7 @@ class SquadInfoFragment(private val teamID: Int?, private val leagueID: Int?) :
 
     override fun getViewModel() = SquadInfoViewModel::class.java
 
-    override fun onClickItem(id: Int, teamId: Int?) {
+    override fun onClickItem(id: Int, teamId: Int?, leagueId: Int?) {
         navigate(ClubDetailsFragmentDirections.actionClubDetailsFragmentToPlayerDetailsFragment(id,teamID!!,leagueID!!))
     }
 

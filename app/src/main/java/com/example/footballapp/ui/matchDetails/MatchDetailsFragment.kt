@@ -1,5 +1,6 @@
 package com.example.footballapp.ui.matchDetails
 
+import android.util.Log
 import androidx.navigation.fragment.navArgs
 import com.example.footballapp.R
 import com.example.footballapp.databinding.FragmentMatchDetailsBinding
@@ -7,9 +8,11 @@ import com.example.footballapp.ui.base.BaseViewPagerFragment
 import com.example.footballapp.ui.matchDetails.lineup.LineupFragment
 import com.example.footballapp.ui.matchDetails.matchState.MatchStateFragment
 import com.example.footballapp.ui.matchDetails.substitutes.SubstitutesFragment
+import com.example.footballapp.util.Constant.TAG
+import com.example.footballapp.util.OnClickListener
 
 class MatchDetailsFragment :
-    BaseViewPagerFragment<FragmentMatchDetailsBinding, MatchDetailsViewModel>(R.layout.fragment_match_details) {
+    BaseViewPagerFragment<FragmentMatchDetailsBinding, MatchDetailsViewModel>(R.layout.fragment_match_details),OnClickListener {
 
     private val args: MatchDetailsFragmentArgs by navArgs()
 
@@ -38,4 +41,8 @@ class MatchDetailsFragment :
         get() = null
     override val teamId: Int?
         get() = null
+
+    override fun onClickItem(id: Int, teamId: Int?, leagueId: Int?) {
+        Log.i(TAG, "onClickItem: $id $teamId $leagueId")
+    }
 }

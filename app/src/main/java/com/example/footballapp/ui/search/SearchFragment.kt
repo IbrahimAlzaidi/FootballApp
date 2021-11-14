@@ -21,7 +21,7 @@ class SearchFragment: BaseFragment<FragmentSearchBinding, SearchViewModel>(R.lay
     }
     override fun getViewModel() = SearchViewModel::class.java
 
-    override fun onClickItem(id: Int, teamId: Int?) {
+    override fun onClickItem(id: Int, teamId: Int?, leagueId: Int?) {
         navigate(SearchFragmentDirections.actionSearchFragmentToLeagueDetailsFragment(id))
     }
 

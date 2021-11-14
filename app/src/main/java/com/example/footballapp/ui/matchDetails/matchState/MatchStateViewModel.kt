@@ -1,9 +1,6 @@
 package com.example.footballapp.ui.matchDetails.matchState
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.asLiveData
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.example.footballapp.model.network.State
 import com.example.footballapp.model.response.matchStatistic.MatchResultData
 import com.example.footballapp.ui.base.BaseViewModel
@@ -11,7 +8,7 @@ import com.example.footballapp.util.toMatchStatistic
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-class MatchStateViewModel(arg: Int?) : BaseViewModel() {
+class MatchStateViewModel(arg: Int?, state: SavedStateHandle) : BaseViewModel(state) {
 
     val matchStatistic = arg?.let { repository.getMatchStatistic(it).asLiveData() }
 

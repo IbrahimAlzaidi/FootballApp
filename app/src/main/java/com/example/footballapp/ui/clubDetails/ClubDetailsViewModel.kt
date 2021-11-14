@@ -1,9 +1,12 @@
 package com.example.footballapp.ui.clubDetails
 
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.asLiveData
 import com.example.footballapp.ui.base.BaseViewModel
 
-class ClubDetailsViewModel(teamID: Int?, leagueId: Int?) : BaseViewModel() {
+class ClubDetailsViewModel(teamID: Int?, leagueId: Int?, state: SavedStateHandle) : BaseViewModel(
+    state
+) {
     val stadiumInformation = teamID?.let {
         leagueId?.let { it1 ->
             repository.getStadiumInfo(leagueId = it1, teamId = it).asLiveData()
