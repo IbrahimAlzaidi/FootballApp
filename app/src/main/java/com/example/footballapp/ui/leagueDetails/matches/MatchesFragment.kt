@@ -5,6 +5,7 @@ import android.util.Log
 import com.example.footballapp.R
 import com.example.footballapp.databinding.FragmentMatchesBinding
 import com.example.footballapp.ui.base.BaseFragment
+import com.example.footballapp.ui.base.Instance
 import com.example.footballapp.ui.leagueDetails.LeagueDetailsFragmentDirections
 import com.example.footballapp.ui.leagueDetails.standing.StandingFragment
 import com.example.footballapp.ui.leagueDetails.standing.StandingViewModel
@@ -33,14 +34,7 @@ class MatchesFragment() :
         get() = null
     override val teamId: Int?
         get() = null
-    companion object {
-        fun newInstance(leagueId: Int?): MatchesFragment =
-            MatchesFragment().apply {
-                arguments = Bundle().apply {
-                    if (leagueId != null) {
-                        putInt(Constant.LEAGUE_ID_KEY, leagueId)
-                    }
-                }
-            }
-    }
+
+    companion object : Instance<MatchesFragment>(MatchesFragment::class.java)
+
 }

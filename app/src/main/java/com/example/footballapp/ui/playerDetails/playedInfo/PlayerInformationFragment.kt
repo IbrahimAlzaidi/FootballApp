@@ -1,10 +1,10 @@
 package com.example.footballapp.ui.playerDetails.playedInfo
 
-import android.os.Bundle
 import android.util.Log
 import com.example.footballapp.R
 import com.example.footballapp.databinding.FragmentPlayerInformationsBinding
 import com.example.footballapp.ui.base.BaseFragment
+import com.example.footballapp.ui.base.Instance
 import com.example.footballapp.util.Constant
 
 
@@ -30,27 +30,7 @@ class PlayerInformationFragment() : BaseFragment<FragmentPlayerInformationsBindi
             arguments?.getInt(Constant.TEAM_ID_KEY),
             arguments?.getInt(Constant.LEAGUE_ID_KEY)
         )
-        Log.i(Constant.TAG, "PlayerInformationFragment______________onStart:" +
-                " ${arguments?.getInt(Constant.PLAYER_ID_KEY)}" +
-                " ${arguments?.getInt(Constant.TEAM_ID_KEY)}" +
-                " ${arguments?.getInt(Constant.LEAGUE_ID_KEY)}")
-
     }
 
-    companion object {
-        fun newInstance(playerId: Int?,teamId:Int?, leagueId: Int?): PlayerInformationFragment =
-            PlayerInformationFragment().apply {
-                arguments = Bundle().apply {
-                    if (playerId != null) {
-                        putInt(Constant.PLAYER_ID_KEY, playerId)
-                    }
-                    if (teamId != null) {
-                        putInt(Constant.TEAM_ID_KEY, teamId)
-                    }
-                    if (leagueId != null) {
-                        putInt(Constant.LEAGUE_ID_KEY, leagueId)
-                    }
-                }
-            }
-    }
+    companion object : Instance<PlayerInformationFragment>(PlayerInformationFragment::class.java)
 }

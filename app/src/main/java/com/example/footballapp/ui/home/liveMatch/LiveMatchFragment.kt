@@ -1,11 +1,9 @@
 package com.example.footballapp.ui.home.liveMatch
 
-import android.util.Log
 import com.example.footballapp.R
 import com.example.footballapp.databinding.FragmentLiveMatchBinding
 import com.example.footballapp.ui.base.BaseFragment
 import com.example.footballapp.ui.home.HomeFragmentDirections
-import com.example.footballapp.util.Constant
 import com.example.footballapp.util.OnClickListener
 
 class LiveMatchFragment :

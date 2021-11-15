@@ -5,6 +5,8 @@ import com.example.footballapp.R
 import com.example.footballapp.databinding.FragmentSubstitutesBinding
 import com.example.footballapp.ui.base.BaseFragment
 import com.example.footballapp.ui.base.BaseViewModel
+import com.example.footballapp.ui.base.Instance
+import com.example.footballapp.ui.leagueDetails.scorers.ScorersFragment
 import com.example.footballapp.ui.leagueDetails.standing.StandingFragment
 import com.example.footballapp.util.Constant
 
@@ -31,15 +33,7 @@ class SubstitutesFragment() :
     override val teamId: Int?
         get() = null
 
-    companion object {
-        fun newInstance(matchId: Int?): SubstitutesFragment =
-            SubstitutesFragment().apply {
-                arguments = Bundle().apply {
-                    if (matchId != null) {
-                        putInt(Constant.MATCH_ID_KEY, matchId)
-                    }
-                }
-            }
-    }
+    companion object : Instance<SubstitutesFragment>(SubstitutesFragment::class.java)
+
 
 }

@@ -1,13 +1,9 @@
 package com.example.footballapp.ui.matchDetails.matchState
 
-import android.os.Bundle
 import com.example.footballapp.R
 import com.example.footballapp.databinding.FragmentMatchStateBinding
 import com.example.footballapp.ui.base.BaseFragment
-import com.example.footballapp.ui.base.BaseViewModel
-import com.example.footballapp.ui.leagueDetails.standing.StandingFragment
-import com.example.footballapp.ui.matchDetails.lineup.LineupFragment
-import com.example.footballapp.ui.matchDetails.lineup.LineupViewModel
+import com.example.footballapp.ui.base.Instance
 import com.example.footballapp.util.Constant
 
 class MatchStateFragment() :
@@ -32,15 +28,7 @@ class MatchStateFragment() :
         super.onStart()
         binding.viewModel = MatchStateViewModel(arguments?.getInt(Constant.MATCH_ID_KEY))
     }
-    companion object {
-        fun newInstance(matchId: Int?): MatchStateFragment =
-            MatchStateFragment().apply {
-                arguments = Bundle().apply {
-                    if (matchId != null) {
-                        putInt(Constant.MATCH_ID_KEY, matchId)
-                    }
-                }
-            }
-    }
+    companion object : Instance<MatchStateFragment>(MatchStateFragment::class.java)
+
 
 }

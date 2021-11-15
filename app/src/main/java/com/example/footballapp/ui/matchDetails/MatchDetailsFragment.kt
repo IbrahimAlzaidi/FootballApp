@@ -1,6 +1,5 @@
 package com.example.footballapp.ui.matchDetails
 
-import android.util.Log
 import androidx.navigation.fragment.navArgs
 import com.example.footballapp.R
 import com.example.footballapp.databinding.FragmentMatchDetailsBinding
@@ -8,8 +7,7 @@ import com.example.footballapp.ui.base.BaseViewPagerFragment
 import com.example.footballapp.ui.matchDetails.lineup.LineupFragment
 import com.example.footballapp.ui.matchDetails.matchState.MatchStateFragment
 import com.example.footballapp.ui.matchDetails.substitutes.SubstitutesFragment
-import com.example.footballapp.util.Constant.TAG
-import com.example.footballapp.util.OnClickListener
+import com.example.footballapp.util.Constant.MATCH_ID_KEY
 
 class MatchDetailsFragment :
     BaseViewPagerFragment<FragmentMatchDetailsBinding, MatchDetailsViewModel>(R.layout.fragment_match_details){
@@ -24,9 +22,9 @@ class MatchDetailsFragment :
         val tabLayout = binding.tabLayoutFragments
         val fragmentsList =
             listOf(
-                MatchStateFragment.newInstance(matchID),
-                LineupFragment.newInstance(matchID),
-                SubstitutesFragment.newInstance(matchID)
+                MatchStateFragment.newInstance(MATCH_ID_KEY to matchID),
+                LineupFragment.newInstance(MATCH_ID_KEY to matchID),
+                SubstitutesFragment.newInstance(MATCH_ID_KEY to matchID)
             )
         initViewPager(fragmentsList, viewPager)
         initTabLayout(viewPager, tabLayout)

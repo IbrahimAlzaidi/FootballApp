@@ -1,13 +1,14 @@
 package com.example.footballapp.ui.playerDetails
 
-import android.util.Log
 import androidx.navigation.fragment.navArgs
 import com.example.footballapp.R
 import com.example.footballapp.databinding.FragmentPlayerDetailsBinding
 import com.example.footballapp.ui.base.BaseViewPagerFragment
 import com.example.footballapp.ui.playerDetails.matchPlayedStatistic.PlayedStatisticFragment
 import com.example.footballapp.ui.playerDetails.playedInfo.PlayerInformationFragment
-import com.example.footballapp.util.Constant.TAG
+import com.example.footballapp.util.Constant.LEAGUE_ID_KEY
+import com.example.footballapp.util.Constant.PLAYER_ID_KEY
+import com.example.footballapp.util.Constant.TEAM_ID_KEY
 
 class PlayerDetailsFragment :
     BaseViewPagerFragment<FragmentPlayerDetailsBinding, PlayerDetailsViewModel>(R.layout.fragment_player_details) {
@@ -22,11 +23,15 @@ class PlayerDetailsFragment :
         val fragmentsList =
             listOf(
                 PlayerInformationFragment.newInstance(
-                    playerId = playerId,
-                    teamId = teamId,
-                    leagueId = leagueId,
+                    PLAYER_ID_KEY to playerId,
+                    TEAM_ID_KEY to teamId,
+                    LEAGUE_ID_KEY to leagueId,
                 ),
-                PlayedStatisticFragment.newInstance(playerId = playerId, leagueId = leagueId),
+                PlayedStatisticFragment.newInstance(
+                    PLAYER_ID_KEY to playerId,
+                    TEAM_ID_KEY to teamId,
+                    LEAGUE_ID_KEY to leagueId,
+                ),
             )
         initViewPager(fragmentsList = fragmentsList, viewPager = viewPager)
         indicator.setViewPager2(viewPager)
@@ -39,7 +44,6 @@ class PlayerDetailsFragment :
             teamId = args.teamId,
             leagueId = args.leagueId
         )
-        Log.i(TAG, "PlayerDetailsFragment______________onStart: ${args.playerId} ${args.teamId} ${args.leagueId}")
     }
 
     override fun getViewModel() = PlayerDetailsViewModel::class.java

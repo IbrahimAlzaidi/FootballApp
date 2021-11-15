@@ -1,9 +1,9 @@
 package com.example.footballapp.ui.leagueDetails.standing
 
-import android.os.Bundle
 import com.example.footballapp.R
 import com.example.footballapp.databinding.FragmentStandingBinding
 import com.example.footballapp.ui.base.BaseFragment
+import com.example.footballapp.ui.base.Instance
 import com.example.footballapp.ui.leagueDetails.LeagueDetailsFragmentDirections
 import com.example.footballapp.util.Constant
 import com.example.footballapp.util.OnClickListener
@@ -39,15 +39,6 @@ class StandingFragment() :
     override val teamId: Int?
         get() = null
 
-    companion object {
-        fun newInstance(leagueId: Int?): StandingFragment =
-            StandingFragment().apply {
-                arguments = Bundle().apply {
-                    if (leagueId != null) {
-                        putInt(Constant.LEAGUE_ID_KEY, leagueId)
-                    }
-                }
-            }
-    }
+    companion object : Instance<StandingFragment>(StandingFragment::class.java)
 
 }
