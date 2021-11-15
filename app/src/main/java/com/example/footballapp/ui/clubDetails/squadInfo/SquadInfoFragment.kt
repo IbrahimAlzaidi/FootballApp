@@ -40,12 +40,7 @@ class SquadInfoFragment() :
             )
         )
     }
-    override val leagueId: Int?
-        get() = null
-    override val arg: Int?
-        get() = null
-    override val teamId: Int?
-        get() = null
+
 
     companion object {
         fun newInstance(teamId: Int?, leagueId: Int?): SquadInfoFragment =

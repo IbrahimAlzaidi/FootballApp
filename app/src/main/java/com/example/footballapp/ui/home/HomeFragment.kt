@@ -44,10 +44,4 @@ class HomeFragment : BaseViewPagerFragment<FragmentHomeBinding, HomeViewModel>(R
     override fun onClickItem(id: Int, teamId: Int?, leagueId: Int?) {
         navigate(HomeFragmentDirections.actionHomeFragmentToLeagueDetailsFragment(leagueId!!))
     }
-    override val arg: Int?
-        get() = null
-    override val leagueId: Int?
-        get() = null
-    override val teamId: Int?
-        get() = null
 }

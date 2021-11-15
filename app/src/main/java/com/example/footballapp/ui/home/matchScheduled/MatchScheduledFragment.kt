@@ -14,11 +14,4 @@ class MatchScheduledFragment :
 
     override fun getViewModel() = MatchScheduledViewModel::class.java
 
-    override val leagueId: Int?
-        get() = null
-
-    override val arg: Int?
-        get() = null
-    override val teamId: Int?
-        get() = null
 }

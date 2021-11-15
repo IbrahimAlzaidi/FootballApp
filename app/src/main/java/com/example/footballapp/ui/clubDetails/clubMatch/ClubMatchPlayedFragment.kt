@@ -29,12 +29,6 @@ class ClubMatchPlayedFragment() :
     }
     override fun getViewModel() = ClubMatchPlayedViewModel::class.java
 
-    override val arg: Int?
-        get() = null
-    override val leagueId: Int?
-        get() = null
-    override val teamId: Int?
-        get() = null
 
     companion object {
         fun newInstance(teamId: Int?): ClubMatchPlayedFragment =

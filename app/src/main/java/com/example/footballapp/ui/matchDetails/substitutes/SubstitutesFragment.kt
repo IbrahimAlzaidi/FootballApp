@@ -21,14 +21,6 @@ class SubstitutesFragment() :
 
     override fun getViewModel() = SubstitutesViewModel::class.java
 
-    override val arg: Int?
-        get() = null
-
-    override val leagueId: Int?
-        get() = null
-    override val teamId: Int?
-        get() = null
-
     companion object : InstantsFragments<SubstitutesFragment>(SubstitutesFragment::class.java)
 
 

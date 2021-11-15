@@ -24,12 +24,6 @@ class ClubInformationFragment :
 
     override fun getViewModel() = ClubInformationViewModel::class.java
 
-    override val arg: Int?
-        get() = null
-    override val leagueId: Int?
-        get() = null
-    override val teamId: Int?
-        get() = null
 
 
     companion object {

@@ -25,9 +25,9 @@ abstract class BaseFragment<VDB : ViewDataBinding,VM : BaseViewModel>(
 ) : Fragment() {
     abstract fun setup()
     abstract fun getViewModel(): Class<VM>
-    abstract val arg: Int?
-    abstract val leagueId: Int?
-    abstract val teamId: Int?
+    private val arg: Int? = null
+    private val leagueId: Int? = null
+    private val teamId: Int? = null
     private lateinit var _binding: VDB
     protected val binding: VDB
         get() = _binding

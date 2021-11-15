@@ -25,11 +25,4 @@ class SearchFragment: BaseFragment<FragmentSearchBinding, SearchViewModel>(R.lay
         navigate(SearchFragmentDirections.actionSearchFragmentToLeagueDetailsFragment(id))
     }
 
-    override val arg: Int?
-        get() = null
-    override val leagueId: Int?
-        get() = null
-    override val teamId: Int?
-        get() = null
-
 }

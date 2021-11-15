@@ -24,12 +24,6 @@ class MatchesFragment() :
     override fun onClickItem(id: Int, teamId: Int?, leagueId: Int?) {
         navigate(LeagueDetailsFragmentDirections.actionLeagueDetailsFragmentToMatchDetailsFragment(id))
     }
-    override val arg: Int?
-        get() = null
-    override val leagueId: Int?
-        get() = null
-    override val teamId: Int?
-        get() = null
 
     companion object : InstantsFragments<MatchesFragment>(MatchesFragment::class.java)
 

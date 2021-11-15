@@ -16,13 +16,6 @@ class MatchStateFragment() :
 
     override fun getViewModel() = MatchStateViewModel::class.java
 
-    override val arg: Int?
-        get() = null
-
-    override val leagueId: Int?
-        get() = null
-    override val teamId: Int?
-        get() = null
 
     override fun onStart() {
         super.onStart()

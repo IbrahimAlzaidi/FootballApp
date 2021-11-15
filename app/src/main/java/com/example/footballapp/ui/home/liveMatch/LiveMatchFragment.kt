@@ -18,11 +18,5 @@ class LiveMatchFragment :
     override fun onClickItem(id: Int, teamId: Int?, leagueId: Int?) {
         navigate(HomeFragmentDirections.actionHomeFragmentToMatchDetailsFragment(id))
     }
-    override val leagueId: Int?
-        get() = null
-    override val arg: Int?
-        get() = null
-    override val teamId: Int?
-        get() = null
 
 }

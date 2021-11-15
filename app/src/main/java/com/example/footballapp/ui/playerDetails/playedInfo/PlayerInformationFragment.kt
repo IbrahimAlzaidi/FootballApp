@@ -15,12 +15,7 @@ class PlayerInformationFragment() : BaseFragment<FragmentPlayerInformationsBindi
     override fun getViewModel(): Class<PlayerInformationViewModel> =
         PlayerInformationViewModel::class.java
 
-    override val arg: Int?
-        get() = null
-    override val leagueId: Int?
-        get() = null
-    override val teamId: Int?
-        get() = null
+
 
     override fun onStart() {
         super.onStart()

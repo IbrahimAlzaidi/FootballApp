@@ -31,12 +31,6 @@ class ScorersFragment(): BaseFragment<FragmentScorersBinding, ScorersViewModel>
         )
         )
     }
-    override val arg: Int?
-        get() = null
-    override val leagueId: Int?
-        get() = null
-    override val teamId: Int?
-        get() = null
 
     companion object : InstantsFragments<ScorersFragment>(ScorersFragment::class.java)
 }
