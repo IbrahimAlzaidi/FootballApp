@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.map
 
-class HomeViewModel(state: SavedStateHandle) : BaseViewModel(state) {
+class HomeViewModel() : BaseViewModel() {
     val leaguesInfo = repository.getLeaguesInfo().asLiveData()
 }
 

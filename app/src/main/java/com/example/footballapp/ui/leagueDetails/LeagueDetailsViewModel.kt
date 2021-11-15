@@ -11,10 +11,9 @@ import com.example.footballapp.util.Constant.TAG
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-class LeagueDetailsViewModel(arg: Int?, state: SavedStateHandle) : BaseViewModel(
-    state
+class LeagueDetailsViewModel(leagueId: Int?) : BaseViewModel(
 ) {
-    val leagueDetails = arg?.let { repository.getStandingTeams(leagueId = it).asLiveData() }
+    val leagueDetails = leagueId?.let { repository.getStandingTeams(leagueId = it).asLiveData() }
 
 
 }

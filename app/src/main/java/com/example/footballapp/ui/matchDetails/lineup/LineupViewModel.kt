@@ -10,9 +10,9 @@ import com.example.footballapp.util.toPlayerStart
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-class LineupViewModel(arg: Int?, state: SavedStateHandle) : BaseViewModel(state) {
+class LineupViewModel(matchId: Int?) : BaseViewModel() {
 
-    val lineupsData = arg?.let { repository.getMatchLineup(it).asLiveData() }
+    val lineupsData = matchId?.let { repository.getMatchLineup(it).asLiveData() }
 
     private val _match = MutableLiveData<List<DataPlayer?>>()
 
@@ -20,10 +20,9 @@ class LineupViewModel(arg: Int?, state: SavedStateHandle) : BaseViewModel(state)
         get() = _match
 
     init {
-        Log.i(TAG, "LineupViewModel: $arg")
         viewModelScope.launch {
-            if (arg != null) {
-                repository.getMatchLineup(arg).collect {
+            if (matchId != null) {
+                repository.getMatchLineup(matchId).collect {
                     if (it is State.Success) {
                         _match.postValue(it.toData()?.lineupInfo?.toPlayerStart())
                     }

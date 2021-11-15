@@ -12,7 +12,7 @@ import com.example.footballapp.util.Constant.TAG
 import com.example.footballapp.util.OnClickListener
 
 class MatchDetailsFragment :
-    BaseViewPagerFragment<FragmentMatchDetailsBinding, MatchDetailsViewModel>(R.layout.fragment_match_details),OnClickListener {
+    BaseViewPagerFragment<FragmentMatchDetailsBinding, MatchDetailsViewModel>(R.layout.fragment_match_details){
 
     private val args: MatchDetailsFragmentArgs by navArgs()
 
@@ -24,25 +24,25 @@ class MatchDetailsFragment :
         val tabLayout = binding.tabLayoutFragments
         val fragmentsList =
             listOf(
-                MatchStateFragment(matchID),
-                LineupFragment(matchID),
-                SubstitutesFragment(matchID)
+                MatchStateFragment.newInstance(matchID),
+                LineupFragment.newInstance(matchID),
+                SubstitutesFragment.newInstance(matchID)
             )
         initViewPager(fragmentsList, viewPager)
         initTabLayout(viewPager, tabLayout)
     }
 
+    override fun onStart() {
+        super.onStart()
+        binding.viewModel = MatchDetailsViewModel(matchId = args.matchId)
+    }
+
     override fun getViewModel() = MatchDetailsViewModel::class.java
 
-    override val arg: Int
-        get() = args.matchId
-
+    override val arg: Int?
+        get() = null
     override val leagueId: Int?
         get() = null
     override val teamId: Int?
         get() = null
-
-    override fun onClickItem(id: Int, teamId: Int?, leagueId: Int?) {
-        Log.i(TAG, "onClickItem: $id $teamId $leagueId")
-    }
 }

@@ -19,7 +19,6 @@ class LiveMatchFragment :
     override fun getViewModel() = LiveMatchViewModel::class.java
     override fun onClickItem(id: Int, teamId: Int?, leagueId: Int?) {
         navigate(HomeFragmentDirections.actionHomeFragmentToMatchDetailsFragment(id))
-        Log.i(Constant.TAG, "LiveMatchFragmentOnClickItem: $arg $teamId $leagueId")
     }
     override val leagueId: Int?
         get() = null

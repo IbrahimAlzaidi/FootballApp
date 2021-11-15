@@ -1,9 +1,5 @@
 package com.example.footballapp.util
 
-import android.view.View
-import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
-import com.example.footballapp.R
 import com.example.footballapp.model.response.lineup.DataPlayer
 import com.example.footballapp.model.response.lineup.LineupInfo
 import com.example.footballapp.model.response.lineup.SubstitutesPlayer
@@ -56,19 +52,4 @@ fun List<LineupInfo?>.toSubstitutes(): List<SubstitutesPlayer?> {
         )
     }
     return result
-}
-
-fun Fragment.setupRefreshLayout(
-    refreshLayout: ScrollChildSwipeRefreshLayout,
-    scrollUpChild: View? = null
-) {
-    refreshLayout.setColorSchemeColors(
-        ContextCompat.getColor(requireActivity(), R.color.cardview_dark_background),
-        ContextCompat.getColor(requireActivity(), R.color.design_default_color_secondary),
-        ContextCompat.getColor(requireActivity(), R.color.design_default_color_primary_dark)
-    )
-
-    scrollUpChild?.let{
-        refreshLayout.scroll = it
-    }
 }

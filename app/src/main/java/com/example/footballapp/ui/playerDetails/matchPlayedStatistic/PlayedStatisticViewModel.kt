@@ -6,14 +6,9 @@ import androidx.lifecycle.asLiveData
 import com.example.footballapp.ui.base.BaseViewModel
 import com.example.footballapp.util.Constant.TAG
 
-class PlayedStatisticViewModel(arg: Int?, leagueId: Int?, state: SavedStateHandle) : BaseViewModel(
-    state
+class PlayedStatisticViewModel(playerId: Int?, leagueId: Int?) : BaseViewModel(
 ) {
-    val playerStatisticInfo = arg?.let {
+    val playerStatisticInfo = playerId?.let {
         repository.getPlayerStatistic(playerId = it, leagueId = leagueId!!).asLiveData()
-    }
-
-    init {
-        Log.i(TAG, "PlayedStatisticViewModel: $arg - $leagueId ")
     }
 }

@@ -9,7 +9,7 @@ import com.example.footballapp.model.response.topScorers.TopScorersResponse
 import com.example.footballapp.ui.base.BaseViewModel
 import com.example.footballapp.util.Constant.TAG
 
-class ScorersViewModel(val arg: Int?,val state: SavedStateHandle) : BaseViewModel(state) {
-    val topScorers = arg?.let { repository.getTopScorers(leagueId = it).asLiveData() }
+class ScorersViewModel(val leagueId: Int?) : BaseViewModel() {
+    val topScorers = leagueId?.let { repository.getTopScorers(leagueId = it).asLiveData() }
 
 }

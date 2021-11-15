@@ -11,7 +11,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-class SearchViewModel(state: SavedStateHandle) : BaseViewModel(state) {
+class SearchViewModel() : BaseViewModel() {
     private val _searchLeague = MutableLiveData<State<LeagueSearchResponse?>>()
     val searchLeague: LiveData<State<LeagueSearchResponse?>>
         get() = _searchLeague

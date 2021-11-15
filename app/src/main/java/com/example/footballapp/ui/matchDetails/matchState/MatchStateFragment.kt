@@ -1,11 +1,16 @@
 package com.example.footballapp.ui.matchDetails.matchState
 
+import android.os.Bundle
 import com.example.footballapp.R
 import com.example.footballapp.databinding.FragmentMatchStateBinding
 import com.example.footballapp.ui.base.BaseFragment
 import com.example.footballapp.ui.base.BaseViewModel
+import com.example.footballapp.ui.leagueDetails.standing.StandingFragment
+import com.example.footballapp.ui.matchDetails.lineup.LineupFragment
+import com.example.footballapp.ui.matchDetails.lineup.LineupViewModel
+import com.example.footballapp.util.Constant
 
-class MatchStateFragment(private val matchID: Int?) :
+class MatchStateFragment() :
     BaseFragment<FragmentMatchStateBinding, MatchStateViewModel>(R.layout.fragment_match_state) {
 
     override fun setup() {
@@ -16,11 +21,26 @@ class MatchStateFragment(private val matchID: Int?) :
     override fun getViewModel() = MatchStateViewModel::class.java
 
     override val arg: Int?
-        get() = matchID
+        get() = null
 
     override val leagueId: Int?
         get() = null
     override val teamId: Int?
         get() = null
+
+    override fun onStart() {
+        super.onStart()
+        binding.viewModel = MatchStateViewModel(arguments?.getInt(Constant.MATCH_ID_KEY))
+    }
+    companion object {
+        fun newInstance(matchId: Int?): MatchStateFragment =
+            MatchStateFragment().apply {
+                arguments = Bundle().apply {
+                    if (matchId != null) {
+                        putInt(Constant.MATCH_ID_KEY, matchId)
+                    }
+                }
+            }
+    }
 
 }

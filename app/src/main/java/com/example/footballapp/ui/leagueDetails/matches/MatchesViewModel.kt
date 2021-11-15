@@ -4,8 +4,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.asLiveData
 import com.example.footballapp.ui.base.BaseViewModel
 
-class MatchesViewModel(arg: Int?,state: SavedStateHandle) : BaseViewModel(
-    state
+class MatchesViewModel(leagueId: Int?) : BaseViewModel(
 ){
-    val matchesScheduled = arg?.let { repository.getMatchesResultFT(leagueId = it).asLiveData() }
+    val matchesScheduled = leagueId?.let { repository.getMatchesResultFT(leagueId = it).asLiveData() }
 }

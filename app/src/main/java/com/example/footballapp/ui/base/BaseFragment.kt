@@ -16,9 +16,10 @@ import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.example.footballapp.BR
+import com.example.footballapp.ui.clubDetails.squadInfo.SquadInfoFragment
 import com.example.footballapp.util.*
 
-abstract class BaseFragment<VDB : ViewDataBinding, VM : BaseViewModel>(
+abstract class BaseFragment<VDB : ViewDataBinding,VM : BaseViewModel>(
     @LayoutRes private val layoutResId: Int
 ) : Fragment() {
     abstract fun setup()
@@ -40,11 +41,9 @@ abstract class BaseFragment<VDB : ViewDataBinding, VM : BaseViewModel>(
         savedInstanceState: Bundle?
     ): View? {
         _binding = DataBindingUtil.inflate(inflater, layoutResId, container, false)
-        val baseFragmentFactory = FragmentFactory(arg, leagueId, teamId)//New One
-        childFragmentManager.fragmentFactory = baseFragmentFactory//New One
         _viewModel = ViewModelProvider(
             this,
-            ViewModelFactory(arg = arg, leagueId = leagueId, teamId = teamId,this)//New one
+            ViewModelFactory(arg = arg, leagueId = leagueId, teamId = teamId)//New one
         ).get(getViewModel())
         _binding.apply {
             lifecycleOwner = this@BaseFragment.viewLifecycleOwner

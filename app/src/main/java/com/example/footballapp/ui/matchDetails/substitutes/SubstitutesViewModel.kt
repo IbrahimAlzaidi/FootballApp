@@ -8,8 +8,8 @@ import com.example.footballapp.util.toSubstitutes
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-class SubstitutesViewModel(arg: Int?, state: SavedStateHandle) : BaseViewModel(state) {
-    val matchSubstitutes = arg?.let { repository.getMatchLineup(it).asLiveData() }
+class SubstitutesViewModel(matchId: Int?) : BaseViewModel() {
+    val matchSubstitutes = matchId?.let { repository.getMatchLineup(it).asLiveData() }
 
     private val _substitutesPlayer = MutableLiveData<List<SubstitutesPlayer?>>()
 
@@ -18,8 +18,8 @@ class SubstitutesViewModel(arg: Int?, state: SavedStateHandle) : BaseViewModel(s
 
     init {
         viewModelScope.launch {
-            if (arg != null) {
-                repository.getMatchLineup(arg).collect { state ->
+            if (matchId != null) {
+                repository.getMatchLineup(matchId).collect { state ->
                     if (state is State.Success) {
                         _substitutesPlayer.postValue(state.toData()?.lineupInfo?.toSubstitutes())
                     }

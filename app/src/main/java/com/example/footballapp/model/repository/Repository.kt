@@ -128,7 +128,7 @@ class Repository {
     ): Flow<State<MatchScheduledResponse?>> =
         wrapWithFlow { Api.apiService.getLatestMatchScheduled(matchCount, leagueId) }
 
-    fun getTeamPlayerInfo(teamId: Int, playerId: Int?): Flow<State<SquadPlayer?>> =
+    fun getTeamPlayerInfo(teamId: Int, playerId: Int? = null): Flow<State<SquadPlayer?>> =
         wrapWithFlow { Api.apiService.getTeamPlayer(teamId, playerId) }
 
     fun getTeamMatchPlayed(

@@ -7,4 +7,8 @@ object Constant {
     const val TAG = "GREEN_APPLE"
     const val MIN_SCALE_VIEW_PAGER = 0.85f
     const val MIN_ALPHA_VIEW_PAGER = 0.5f
+    const val TEAM_ID_KEY = "teamId"
+    const val LEAGUE_ID_KEY = "leagueId"
+    const val PLAYER_ID_KEY = "playerId"
+    const val MATCH_ID_KEY = "matchId"
 }

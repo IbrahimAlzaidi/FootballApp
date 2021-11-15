@@ -11,9 +11,9 @@ object Api {
 
     private fun getClient(): Retrofit {
         val clientInterceptor = OkHttpClient.Builder()
-            .readTimeout(60, TimeUnit.SECONDS)
-            .writeTimeout(60, TimeUnit.SECONDS)
-            .connectTimeout(60, TimeUnit.SECONDS)
+            .readTimeout(120, TimeUnit.SECONDS)
+            .writeTimeout(120, TimeUnit.SECONDS)
+            .connectTimeout(120, TimeUnit.SECONDS)
             .addInterceptor(MyInterceptor).build()
 
         return Retrofit.Builder()

@@ -21,22 +21,38 @@ class PlayerDetailsFragment :
 
         val fragmentsList =
             listOf(
-                PlayerInformationFragment(playerId,teamId,leagueId),
-                PlayedStatisticFragment(playerId,leagueId),
+                PlayerInformationFragment.newInstance(
+                    playerId = playerId,
+                    teamId = teamId,
+                    leagueId = leagueId,
+                ),
+                PlayedStatisticFragment.newInstance(playerId = playerId, leagueId = leagueId),
             )
-        initViewPager(fragmentsList,viewPager = viewPager)
+        initViewPager(fragmentsList = fragmentsList, viewPager = viewPager)
         indicator.setViewPager2(viewPager)
     }
 
+    override fun onStart() {
+        super.onStart()
+        binding.viewModel = PlayerDetailsViewModel(
+            playerId = args.playerId,
+            teamId = args.teamId,
+            leagueId = args.leagueId
+        )
+        Log.i(TAG, "PlayerDetailsFragment______________onStart: ${args.playerId} ${args.teamId} ${args.leagueId}")
+    }
+
     override fun getViewModel() = PlayerDetailsViewModel::class.java
-    override val arg: Int
-        get() = args.playerId
+    override val arg: Int?
+        get() = null
 
-    override val leagueId: Int
-        get() = args.leagueId
+    override val leagueId: Int?
+        get() = null
 
-    override val teamId: Int
-        get() = args.teamId
+    override val teamId: Int?
+        get() = null
+
     override val fragmentTitles: List<String?>
         get() = emptyList()
+
 }

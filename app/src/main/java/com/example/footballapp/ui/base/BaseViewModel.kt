@@ -5,6 +5,6 @@ import androidx.lifecycle.ViewModel
 import com.example.footballapp.model.repository.Repository
 
 
-abstract class BaseViewModel(private val state: SavedStateHandle): ViewModel() {
+abstract class BaseViewModel(): ViewModel() {
     protected val repository = Repository()
 }
