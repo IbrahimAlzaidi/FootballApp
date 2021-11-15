@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.example.footballapp.ui.playerDetails.matchPlayedStatistic.PlayedStatisticViewModel" />
@@ -19,12 +20,13 @@
             android:id="@+id/goals"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Goals"
-            android:layout_marginTop="@dimen/margin5X"
             android:layout_marginStart="@dimen/margin4X"
+            android:layout_marginTop="@dimen/margin5X"
+            android:text="Goals"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:showWhenSuccess="@{viewModel.playerStatisticInfo}" />
 
         <ProgressBar
             android:id="@+id/progressGoals"
@@ -37,6 +39,7 @@
             android:progressDrawable="@drawable/custom_progressbar"
             app:layout_constraintStart_toStartOf="@id/goals"
             app:layout_constraintTop_toBottomOf="@id/goals"
+            app:showWhenSuccess="@{viewModel.playerStatisticInfo}"
             tools:progress="10" />
 
         <TextView
@@ -47,7 +50,8 @@
             android:text="Assist"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="@id/goals"
-            app:layout_constraintTop_toBottomOf="@id/progressGoals" />
+            app:layout_constraintTop_toBottomOf="@id/progressGoals"
+            app:showWhenSuccess="@{viewModel.playerStatisticInfo}" />
 
         <ProgressBar
             android:id="@+id/progressAssist"
@@ -60,7 +64,9 @@
             android:progressDrawable="@drawable/custom_progressbar"
             app:layout_constraintStart_toStartOf="@id/assist"
             app:layout_constraintTop_toBottomOf="@id/assist"
+            app:showWhenSuccess="@{viewModel.playerStatisticInfo}"
             tools:progress="11" />
+
         <TextView
             android:id="@+id/passes"
             android:layout_width="wrap_content"
@@ -69,7 +75,8 @@
             android:text="Passes"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="@id/goals"
-            app:layout_constraintTop_toBottomOf="@id/progressAssist" />
+            app:layout_constraintTop_toBottomOf="@id/progressAssist"
+            app:showWhenSuccess="@{viewModel.playerStatisticInfo}" />
 
         <ProgressBar
             android:id="@+id/progressPasses"
@@ -82,7 +89,9 @@
             android:progressDrawable="@drawable/custom_progressbar"
             app:layout_constraintStart_toStartOf="@id/assist"
             app:layout_constraintTop_toBottomOf="@id/passes"
+            app:showWhenSuccess="@{viewModel.playerStatisticInfo}"
             tools:progress="11" />
+
         <TextView
             android:id="@+id/tackles"
             android:layout_width="wrap_content"
@@ -91,7 +100,8 @@
             android:text="Tackles"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="@id/goals"
-            app:layout_constraintTop_toBottomOf="@id/progressPasses" />
+            app:layout_constraintTop_toBottomOf="@id/progressPasses"
+            app:showWhenSuccess="@{viewModel.playerStatisticInfo}" />
 
         <ProgressBar
             android:id="@+id/progressTackles"
@@ -104,7 +114,9 @@
             android:progressDrawable="@drawable/custom_progressbar"
             app:layout_constraintStart_toStartOf="@id/assist"
             app:layout_constraintTop_toBottomOf="@id/tackles"
+            app:showWhenSuccess="@{viewModel.playerStatisticInfo}"
             tools:progress="11" />
+
         <TextView
             android:id="@+id/dribbles"
             android:layout_width="wrap_content"
@@ -113,7 +125,8 @@
             android:text="Dribbles"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="@id/goals"
-            app:layout_constraintTop_toBottomOf="@id/progressTackles" />
+            app:layout_constraintTop_toBottomOf="@id/progressTackles"
+            app:showWhenSuccess="@{viewModel.playerStatisticInfo}" />
 
         <ProgressBar
             android:id="@+id/progressDribbles"
@@ -126,22 +139,25 @@
             android:progressDrawable="@drawable/custom_progressbar"
             app:layout_constraintStart_toStartOf="@id/dribbles"
             app:layout_constraintTop_toBottomOf="@id/dribbles"
+            app:showWhenSuccess="@{viewModel.playerStatisticInfo}"
             tools:progress="11" />
+
         <ProgressBar
             android:id="@+id/progress_bar"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:indeterminateOnly="false"
-            tools:progress="7"
-            app:progressApp="@{String.valueOf(viewModel.playerStatisticInfo.toData().playerStatisticInfo.get(0).statistics.get(0).games.rating)}"
-            android:rotation="-90"
             android:max="20"
             android:progressDrawable="@drawable/circular_progress_bar"
+            android:rotation="-90"
             app:layout_constraintBottom_toBottomOf="@id/progressDribbles"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/progressPasses"
             app:layout_constraintTop_toTopOf="@id/goals"
-            />
+            app:progressApp="@{String.valueOf(viewModel.playerStatisticInfo.toData().playerStatisticInfo.get(0).statistics.get(0).games.rating)}"
+            app:showWhenSuccess="@{viewModel.playerStatisticInfo}"
+            tools:progress="7" />
+
         <TextView
             android:id="@+id/text_view_progress"
             android:layout_width="wrap_content"
@@ -152,6 +168,29 @@
             app:layout_constraintEnd_toEndOf="@id/progress_bar"
             app:layout_constraintStart_toStartOf="@id/progress_bar"
             app:layout_constraintTop_toTopOf="@id/progress_bar"
+            app:showWhenSuccess="@{viewModel.playerStatisticInfo}"
             tools:text="60%" />
+
+        <ProgressBar
+            android:id="@+id/loading_progress"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:showWhenLoading="@{viewModel.playerStatisticInfo}" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottie_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_rawRes="@raw/no_connection"
+            app:showWhenError="@{viewModel.playerStatisticInfo}" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

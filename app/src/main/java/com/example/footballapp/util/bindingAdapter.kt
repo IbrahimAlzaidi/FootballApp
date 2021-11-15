@@ -57,7 +57,7 @@ fun ImageView.setImageUrl(url: String?) {
     if (url != null) {
         GlideApp.with(context)
             .load(url)
-            .placeholder(R.drawable.ic_baseline_cloud_download_24)
+            .placeholder(R.drawable.progress_animation)
             .error(R.drawable.ic_baseline_error_outline_24)
             .into(this)
     }

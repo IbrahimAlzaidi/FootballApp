@@ -27,7 +27,8 @@
             android:elevation="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:showWhenSuccess="@{viewModel.playerData}" />
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/imageHolder"
@@ -38,7 +39,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.25">
+            app:layout_constraintVertical_bias="0.25"
+            app:showWhenSuccess="@{viewModel.playerData}">
 
             <ImageView
                 android:layout_width="300dp"
@@ -62,6 +64,7 @@
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@id/background"
             app:layout_constraintTop_toTopOf="@id/background"
+            app:showWhenSuccess="@{viewModel.playerData}"
             tools:text="10" />
 
         <TextView
@@ -76,6 +79,7 @@
             app:layout_constraintEnd_toEndOf="@id/background"
             app:layout_constraintStart_toStartOf="@id/background"
             app:layout_constraintTop_toBottomOf="@id/imageHolder"
+            app:showWhenSuccess="@{viewModel.playerData}"
             tools:text="L.Messi" />
 
         <View
@@ -87,7 +91,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/background"
             app:layout_constraintStart_toStartOf="@id/background"
-            app:layout_constraintTop_toBottomOf="@id/playerName" />
+            app:layout_constraintTop_toBottomOf="@id/playerName"
+            app:showWhenSuccess="@{viewModel.playerData}" />
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/details_ViewPager"
@@ -105,17 +110,39 @@
             android:id="@+id/indicator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:dotsColor="#C4C4C4"
-            app:dotsStrokeColor="@color/white"
             android:layout_marginBottom="@dimen/margin2X"
+            app:dotsColor="#C4C4C4"
             app:dotsCornerRadius="8dp"
             app:dotsSize="16dp"
             app:dotsSpacing="4dp"
+            app:dotsStrokeColor="@color/white"
             app:dotsStrokeWidth="2dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:showWhenSuccess="@{viewModel.playerData}" />
 
+        <ProgressBar
+            android:id="@+id/loading_progress"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:showWhenLoading="@{viewModel.playerData}" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottie_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_rawRes="@raw/no_connection"
+            app:showWhenError="@{viewModel.playerData}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

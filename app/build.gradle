@@ -73,6 +73,7 @@ dependencies {
     //Glide implementation
     def glide_version = '4.12.0'
     annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
+    implementation "com.github.bumptech.glide:okhttp3-integration:$glide_version"
     //Glide implementation svg
     implementation 'com.github.corouteam:GlideToVectorYou:v2.0.0'
     //noinspection GradleDependency
