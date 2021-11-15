@@ -1,10 +1,9 @@
 package com.example.footballapp.ui.playerDetails.playedInfo
 
-import android.util.Log
 import com.example.footballapp.R
 import com.example.footballapp.databinding.FragmentPlayerInformationsBinding
 import com.example.footballapp.ui.base.BaseFragment
-import com.example.footballapp.ui.base.Instance
+import com.example.footballapp.ui.base.InstantsFragments
 import com.example.footballapp.util.Constant
 
 
@@ -32,5 +31,5 @@ class PlayerInformationFragment() : BaseFragment<FragmentPlayerInformationsBindi
         )
     }
 
-    companion object : Instance<PlayerInformationFragment>(PlayerInformationFragment::class.java)
+    companion object : InstantsFragments<PlayerInformationFragment>(PlayerInformationFragment::class.java)
 }

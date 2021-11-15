@@ -3,7 +3,7 @@ package com.example.footballapp.ui.leagueDetails.standing
 import com.example.footballapp.R
 import com.example.footballapp.databinding.FragmentStandingBinding
 import com.example.footballapp.ui.base.BaseFragment
-import com.example.footballapp.ui.base.Instance
+import com.example.footballapp.ui.base.InstantsFragments
 import com.example.footballapp.ui.leagueDetails.LeagueDetailsFragmentDirections
 import com.example.footballapp.util.Constant
 import com.example.footballapp.util.OnClickListener
@@ -39,6 +39,6 @@ class StandingFragment() :
     override val teamId: Int?
         get() = null
 
-    companion object : Instance<StandingFragment>(StandingFragment::class.java)
+    companion object : InstantsFragments<StandingFragment>(StandingFragment::class.java)
 
 }

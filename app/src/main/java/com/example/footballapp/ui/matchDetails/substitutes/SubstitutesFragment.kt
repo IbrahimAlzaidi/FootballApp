@@ -1,13 +1,9 @@
 package com.example.footballapp.ui.matchDetails.substitutes
 
-import android.os.Bundle
 import com.example.footballapp.R
 import com.example.footballapp.databinding.FragmentSubstitutesBinding
 import com.example.footballapp.ui.base.BaseFragment
-import com.example.footballapp.ui.base.BaseViewModel
-import com.example.footballapp.ui.base.Instance
-import com.example.footballapp.ui.leagueDetails.scorers.ScorersFragment
-import com.example.footballapp.ui.leagueDetails.standing.StandingFragment
+import com.example.footballapp.ui.base.InstantsFragments
 import com.example.footballapp.util.Constant
 
 class SubstitutesFragment() :
@@ -33,7 +29,7 @@ class SubstitutesFragment() :
     override val teamId: Int?
         get() = null
 
-    companion object : Instance<SubstitutesFragment>(SubstitutesFragment::class.java)
+    companion object : InstantsFragments<SubstitutesFragment>(SubstitutesFragment::class.java)
 
 
 }

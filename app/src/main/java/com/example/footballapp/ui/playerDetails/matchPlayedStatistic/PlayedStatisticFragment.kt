@@ -1,12 +1,10 @@
 package com.example.footballapp.ui.playerDetails.matchPlayedStatistic
 
-import android.os.Bundle
 import android.util.Log
 import com.example.footballapp.R
 import com.example.footballapp.databinding.FragmentPlayedStatisticBinding
 import com.example.footballapp.ui.base.BaseFragment
-import com.example.footballapp.ui.base.Instance
-import com.example.footballapp.ui.matchDetails.substitutes.SubstitutesFragment
+import com.example.footballapp.ui.base.InstantsFragments
 import com.example.footballapp.util.Constant
 
 class PlayedStatisticFragment() :
@@ -34,5 +32,5 @@ class PlayedStatisticFragment() :
                 " ${arguments?.getInt(Constant.LEAGUE_ID_KEY)}")
     }
 
-    companion object : Instance<PlayedStatisticFragment>(PlayedStatisticFragment::class.java)
+    companion object : InstantsFragments<PlayedStatisticFragment>(PlayedStatisticFragment::class.java)
 }

@@ -3,7 +3,7 @@ package com.example.footballapp.ui.leagueDetails.scorers
 import com.example.footballapp.R
 import com.example.footballapp.databinding.FragmentScorersBinding
 import com.example.footballapp.ui.base.BaseFragment
-import com.example.footballapp.ui.base.Instance
+import com.example.footballapp.ui.base.InstantsFragments
 import com.example.footballapp.ui.leagueDetails.LeagueDetailsFragmentDirections
 import com.example.footballapp.util.Constant
 import com.example.footballapp.util.OnClickListener
@@ -38,5 +38,5 @@ class ScorersFragment(): BaseFragment<FragmentScorersBinding, ScorersViewModel>
     override val teamId: Int?
         get() = null
 
-    companion object : Instance<ScorersFragment>(ScorersFragment::class.java)
+    companion object : InstantsFragments<ScorersFragment>(ScorersFragment::class.java)
 }

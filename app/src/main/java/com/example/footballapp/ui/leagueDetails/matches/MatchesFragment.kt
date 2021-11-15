@@ -1,14 +1,10 @@
 package com.example.footballapp.ui.leagueDetails.matches
 
-import android.os.Bundle
-import android.util.Log
 import com.example.footballapp.R
 import com.example.footballapp.databinding.FragmentMatchesBinding
 import com.example.footballapp.ui.base.BaseFragment
-import com.example.footballapp.ui.base.Instance
+import com.example.footballapp.ui.base.InstantsFragments
 import com.example.footballapp.ui.leagueDetails.LeagueDetailsFragmentDirections
-import com.example.footballapp.ui.leagueDetails.standing.StandingFragment
-import com.example.footballapp.ui.leagueDetails.standing.StandingViewModel
 import com.example.footballapp.util.Constant
 import com.example.footballapp.util.OnClickListener
 
@@ -35,6 +31,6 @@ class MatchesFragment() :
     override val teamId: Int?
         get() = null
 
-    companion object : Instance<MatchesFragment>(MatchesFragment::class.java)
+    companion object : InstantsFragments<MatchesFragment>(MatchesFragment::class.java)
 
 }
