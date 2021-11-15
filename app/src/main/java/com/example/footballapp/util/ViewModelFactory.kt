@@ -22,7 +22,9 @@ import com.example.footballapp.ui.playerDetails.matchPlayedStatistic.PlayedStati
 import com.example.footballapp.ui.playerDetails.playedInfo.PlayerInformationViewModel
 import com.example.footballapp.ui.search.SearchViewModel
 
-class ViewModelFactory(private val arg: Int? , private val leagueId : Int? , private val teamId:Int?): ViewModelProvider.NewInstanceFactory() {
+class ViewModelFactory(private val arg: Int? = null ,
+                       private val leagueId : Int? = null ,
+                       private val teamId:Int? = null): ViewModelProvider.NewInstanceFactory() {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         return when{
             modelClass.isAssignableFrom(ClubDetailsViewModel::class.java) -> ClubDetailsViewModel(teamID = teamId,leagueId = leagueId) as T

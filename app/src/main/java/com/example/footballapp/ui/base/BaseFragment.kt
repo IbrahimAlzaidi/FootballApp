@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
-import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
@@ -17,17 +16,13 @@ import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.example.footballapp.BR
-import com.example.footballapp.ui.clubDetails.squadInfo.SquadInfoFragment
 import com.example.footballapp.util.*
 
-abstract class BaseFragment<VDB : ViewDataBinding,VM : BaseViewModel>(
-    @LayoutRes private val layoutResId: Int
+abstract class BaseFragment<VDB : ViewDataBinding, VM : BaseViewModel>(
+    @LayoutRes private val layoutResId: Int,
 ) : Fragment() {
     abstract fun setup()
     abstract fun getViewModel(): Class<VM>
-    private val arg: Int? = null
-    private val leagueId: Int? = null
-    private val teamId: Int? = null
     private lateinit var _binding: VDB
     protected val binding: VDB
         get() = _binding
@@ -39,12 +34,12 @@ abstract class BaseFragment<VDB : ViewDataBinding,VM : BaseViewModel>(
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
         _binding = DataBindingUtil.inflate(inflater, layoutResId, container, false)
         _viewModel = ViewModelProvider(
             this,
-            ViewModelFactory(arg = arg, leagueId = leagueId, teamId = teamId)//New one
+            ViewModelFactory()//New one
         ).get(getViewModel())
         _binding.apply {
             lifecycleOwner = this@BaseFragment.viewLifecycleOwner
