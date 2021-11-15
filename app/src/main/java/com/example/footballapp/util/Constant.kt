@@ -11,4 +11,5 @@ object Constant {
     const val LEAGUE_ID_KEY = "leagueId"
     const val PLAYER_ID_KEY = "playerId"
     const val MATCH_ID_KEY = "matchId"
+    const val MATCH_COUNT = 50
 }
