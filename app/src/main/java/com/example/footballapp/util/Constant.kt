@@ -1,5 +1,7 @@
 package com.example.footballapp.util
 
+import android.icu.util.Calendar
+
 object Constant {
     const val BASE_URL = "https://api-football-v1.p.rapidapi.com"
     const val AUTH_NAME_HEADER = "x-rapidapi-key"
@@ -11,4 +13,10 @@ object Constant {
     const val LEAGUE_ID_KEY = "leagueId"
     const val PLAYER_ID_KEY = "playerId"
     const val MATCH_ID_KEY = "matchId"
+    const val TIME_OUT = 120
+    const val CURRENT_YEAR = Calendar.YEAR
+    const val MATCH_COUNT = 50
+    const val ZERO = 0f
+    const val ONE = 1
+    const val TWO = 2
 }

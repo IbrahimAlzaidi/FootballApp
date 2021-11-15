@@ -14,7 +14,11 @@ class MatchDetailsFragment :
 
     private val args: MatchDetailsFragmentArgs by navArgs()
 
-    override val fragmentTitles = listOf("STATS", "LINEUPS", "SUBSTITUTES")
+    override val fragmentTitles = listOf(
+        getString(R.string.stats),
+        getString(R.string.lineups),
+        getString(R.string.substitutes)
+    )
 
     override fun onStart() {
         super.onStart()

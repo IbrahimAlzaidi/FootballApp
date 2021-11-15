@@ -19,36 +19,36 @@ import com.github.twocoffeesoneteam.glidetovectoryou.GlideApp
 @BindingAdapter(value = ["app:showWhenLoading"])
 fun <T> View.showWhenLoading(state: State<T>?) {
     if (state is State.Loading) {
-        this.visibility = View.VISIBLE
+        this.visibility = VISIBLE
     } else {
-        this.visibility = View.GONE
+        this.visibility = GONE
     }
 }
 
 @BindingAdapter(value = ["app:showWhenError"])
 fun <T> View.showWhenError(state: State<T>?) {
     if (state is State.Error) {
-        this.visibility = View.VISIBLE
+        this.visibility = VISIBLE
     } else {
-        this.visibility = View.GONE
+        this.visibility = GONE
     }
 }
 
 @BindingAdapter(value = ["app:showWhenSuccess"])
 fun <T> View.showWhenSuccess(state: State<T>?) {
     if (state is State.Success) {
-        this.visibility = View.VISIBLE
+        this.visibility = VISIBLE
     } else {
-        this.visibility = View.GONE
+        this.visibility = GONE
     }
 }
 
 @BindingAdapter(value = ["app:showWhenSearch"])
 fun <T> View.showWhenSearch(state: State<T>?) {
     if (state is State.Success || state is State.Loading || state is State.Error) {
-        this.visibility = View.GONE
+        this.visibility = GONE
     } else {
-        this.visibility = View.VISIBLE
+        this.visibility = VISIBLE
     }
 }
 
@@ -57,7 +57,7 @@ fun ImageView.setImageUrl(url: String?) {
     if (url != null) {
         GlideApp.with(context)
             .load(url)
-            .placeholder(R.drawable.ic_baseline_cloud_download_24)
+            .placeholder(ProgressBar.generateViewId())
             .error(R.drawable.ic_baseline_error_outline_24)
             .into(this)
     }

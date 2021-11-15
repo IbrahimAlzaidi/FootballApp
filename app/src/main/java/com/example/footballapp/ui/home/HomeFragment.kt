@@ -13,7 +13,10 @@ class HomeFragment : BaseViewPagerFragment<FragmentHomeBinding, HomeViewModel>(R
 
     override fun getViewModel() = HomeViewModel::class.java
 
-    override val fragmentTitles = listOf("Live", "Match Scheduled")
+    override val fragmentTitles = listOf(
+        getString(R.string.live),
+        getString(R.string.match_scheduled)
+    )
 
     override fun onStart() {
         super.onStart()

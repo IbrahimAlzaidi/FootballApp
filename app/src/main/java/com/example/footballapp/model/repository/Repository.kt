@@ -19,6 +19,8 @@ import com.example.footballapp.model.response.standing.StandingTeamsResponse
 import com.example.footballapp.model.response.teamCurrentMatch.CurrentTeamMatchResponse
 import com.example.footballapp.model.response.teamInfo.TeamInformationResponse
 import com.example.footballapp.model.response.topScorers.TopScorersResponse
+import com.example.footballapp.util.Constant.CURRENT_YEAR
+import com.example.footballapp.util.Constant.MATCH_COUNT
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
@@ -36,13 +38,13 @@ class Repository {
         wrapWithFlow { Api.apiService.getMatchesLive() }
 
     // function to get standing for current leagues
-    fun getStandingTeams(season: Int = 2021, leagueId: Int): Flow<State<StandingTeamsResponse?>> =
+    fun getStandingTeams(season: Int = CURRENT_YEAR, leagueId: Int): Flow<State<StandingTeamsResponse?>> =
         wrapWithFlow { Api.apiService.getStandingTeams(season = season, leagueId = leagueId) }
 
     // function to get team information
     fun getTeamInformation(
         leagueId: Int,
-        season: Int = 2021,
+        season: Int = CURRENT_YEAR,
         teamId: Int
     ): Flow<State<TeamInformationResponse?>> =
         wrapWithFlow {
@@ -54,14 +56,14 @@ class Repository {
         }
 
     // function to get top scorers
-    fun getTopScorers(leagueId: Int, season: Int = 2021): Flow<State<TopScorersResponse?>> =
+    fun getTopScorers(leagueId: Int, season: Int = CURRENT_YEAR): Flow<State<TopScorersResponse?>> =
         wrapWithFlow { Api.apiService.getTopScorers(leagueId = leagueId, season = season) }
 
     // function to get stadium info
     fun getStadiumInfo(
         teamId: Int,
         leagueId: Int,
-        season: Int = 2021
+        season: Int = CURRENT_YEAR
     ): Flow<State<StadiumInfoResponse?>> =
         wrapWithFlow {
             Api.apiService.getStadiumInfo(
@@ -74,7 +76,7 @@ class Repository {
     // function to get matches result
     fun getMatchesResult(
         leagueId: Int,
-        season: Int = 2021,
+        season: Int = CURRENT_YEAR,
         status: String = "NS"
     ): Flow<State<MatchesResponse?>> =
         wrapWithFlow {
@@ -87,8 +89,8 @@ class Repository {
 
     // function to get matches result FT
     fun getMatchesResultFT(
-        leagueId: Int = 39,
-        season: Int = 2021
+        leagueId: Int,
+        season: Int = CURRENT_YEAR
     ): Flow<State<SchedulerMatchResponse?>> =
         wrapWithFlow { Api.apiService.getMatchesResultFT(leagueId = leagueId, season = season) }
 
@@ -103,7 +105,7 @@ class Repository {
     // function to get player statistic
     fun getPlayerStatistic(
         playerId: Int,
-        season: Int = 2021,
+        season: Int = CURRENT_YEAR,
         leagueId: Int,
     ): Flow<State<PlayerStatisticResponse?>> =
         wrapWithFlow {
@@ -123,7 +125,7 @@ class Repository {
         wrapWithFlow { Api.apiService.searchLeague(leagueName) }
 
     fun getLatestMatchScheduled(
-        matchCount: Int = 50,
+        matchCount: Int = MATCH_COUNT,
         leagueId: Int?= null
     ): Flow<State<MatchScheduledResponse?>> =
         wrapWithFlow { Api.apiService.getLatestMatchScheduled(matchCount, leagueId) }
@@ -132,7 +134,7 @@ class Repository {
         wrapWithFlow { Api.apiService.getTeamPlayer(teamId, playerId) }
 
     fun getTeamMatchPlayed(
-        season: Int = 2021,
+        season: Int = CURRENT_YEAR,
         teamId: Int,
         status: String = "FT"
     ): Flow<State<CurrentTeamMatchResponse?>> =

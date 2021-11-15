@@ -14,7 +14,11 @@ class LeagueDetailsFragment :
 
     private val args: LeagueDetailsFragmentArgs by navArgs()
 
-    override val fragmentTitles = listOf("Standings", "Top Score", "Matches")
+    override val fragmentTitles = listOf(
+        getString(R.string.standings),
+        getString(R.string.top_score),
+        getString(R.string.matches)
+    )
 
     override fun onStart() {
         super.onStart()
