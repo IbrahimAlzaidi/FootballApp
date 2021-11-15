@@ -6,29 +6,15 @@ import com.example.footballapp.ui.base.BaseFragment
 import com.example.footballapp.ui.base.InstantsFragments
 import com.example.footballapp.util.Constant
 
-class LineupFragment() :
+class LineupFragment :
     BaseFragment<FragmentLineupBinding, LineupViewModel>(R.layout.fragment_lineup) {
 
-    override fun setup() {
-        val lineupAdapter = LineupAdapter(emptyList())
-        binding.lineupRecyclerView.adapter = lineupAdapter
-    }
-
     override fun getViewModel() = LineupViewModel::class.java
-
-    override val arg: Int?
-        get() = null
-
-    override val leagueId: Int?
-        get() = null
-    override val teamId: Int?
-        get() = null
-
     override fun onStart() {
         super.onStart()
         binding.viewModel = LineupViewModel(arguments?.getInt(Constant.MATCH_ID_KEY))
+        val lineupAdapter = LineupAdapter(emptyList())
+        binding.lineupRecyclerView.adapter = lineupAdapter
     }
     companion object : InstantsFragments<LineupFragment>(LineupFragment::class.java)
-
-
 }

@@ -124,7 +124,7 @@ class Repository {
 
     fun getLatestMatchScheduled(
         matchCount: Int = 50,
-        leagueId: Int?
+        leagueId: Int?= null
     ): Flow<State<MatchScheduledResponse?>> =
         wrapWithFlow { Api.apiService.getLatestMatchScheduled(matchCount, leagueId) }
 

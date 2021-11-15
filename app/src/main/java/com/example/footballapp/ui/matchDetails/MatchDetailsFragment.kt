@@ -16,7 +16,9 @@ class MatchDetailsFragment :
 
     override val fragmentTitles = listOf("STATS", "LINEUPS", "SUBSTITUTES")
 
-    override fun setup() {
+    override fun onStart() {
+        super.onStart()
+        binding.viewModel = MatchDetailsViewModel(matchId = args.matchId)
         val matchID = args.matchId
         val viewPager = binding.detailsViewPager
         val tabLayout = binding.tabLayoutFragments
@@ -30,17 +32,5 @@ class MatchDetailsFragment :
         initTabLayout(viewPager, tabLayout)
     }
 
-    override fun onStart() {
-        super.onStart()
-        binding.viewModel = MatchDetailsViewModel(matchId = args.matchId)
-    }
-
     override fun getViewModel() = MatchDetailsViewModel::class.java
-
-    override val arg: Int?
-        get() = null
-    override val leagueId: Int?
-        get() = null
-    override val teamId: Int?
-        get() = null
 }

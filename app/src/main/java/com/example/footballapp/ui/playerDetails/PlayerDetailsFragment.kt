@@ -12,14 +12,21 @@ import com.example.footballapp.util.Constant.TEAM_ID_KEY
 
 class PlayerDetailsFragment :
     BaseViewPagerFragment<FragmentPlayerDetailsBinding, PlayerDetailsViewModel>(R.layout.fragment_player_details) {
+
     private val args: PlayerDetailsFragmentArgs by navArgs()
-    override fun setup() {
+
+    override fun onStart() {
+        super.onStart()
+        binding.viewModel = PlayerDetailsViewModel(
+            playerId = args.playerId,
+            teamId = args.teamId,
+            leagueId = args.leagueId
+        )
         val playerId = args.playerId
         val teamId = args.teamId
         val leagueId = args.leagueId
         val viewPager = binding.detailsViewPager
         val indicator = binding.indicator
-
         val fragmentsList =
             listOf(
                 PlayerInformationFragment.newInstance(
@@ -37,26 +44,8 @@ class PlayerDetailsFragment :
         indicator.setViewPager2(viewPager)
     }
 
-    override fun onStart() {
-        super.onStart()
-        binding.viewModel = PlayerDetailsViewModel(
-            playerId = args.playerId,
-            teamId = args.teamId,
-            leagueId = args.leagueId
-        )
-    }
-
     override fun getViewModel() = PlayerDetailsViewModel::class.java
-    override val arg: Int?
-        get() = null
-
-    override val leagueId: Int?
-        get() = null
-
-    override val teamId: Int?
-        get() = null
 
     override val fragmentTitles: List<String?>
         get() = emptyList()
-
 }

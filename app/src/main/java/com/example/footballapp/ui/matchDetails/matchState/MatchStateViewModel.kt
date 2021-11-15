@@ -8,7 +8,7 @@ import com.example.footballapp.util.toMatchStatistic
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-class MatchStateViewModel(matchId: Int?) : BaseViewModel() {
+class MatchStateViewModel(matchId: Int?= null) : BaseViewModel() {
 
     val matchStatistic = matchId?.let { repository.getMatchStatistic(it).asLiveData() }
 

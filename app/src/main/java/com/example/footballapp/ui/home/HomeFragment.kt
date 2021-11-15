@@ -1,6 +1,5 @@
 package com.example.footballapp.ui.home
 
-import android.util.Log
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.example.footballapp.R
@@ -8,7 +7,6 @@ import com.example.footballapp.databinding.FragmentHomeBinding
 import com.example.footballapp.ui.base.BaseViewPagerFragment
 import com.example.footballapp.ui.home.liveMatch.LiveMatchFragment
 import com.example.footballapp.ui.home.matchScheduled.MatchScheduledFragment
-import com.example.footballapp.util.Constant.TAG
 import com.example.footballapp.util.OnClickListener
 
 class HomeFragment : BaseViewPagerFragment<FragmentHomeBinding, HomeViewModel>(R.layout.fragment_home), OnClickListener {
@@ -17,7 +15,8 @@ class HomeFragment : BaseViewPagerFragment<FragmentHomeBinding, HomeViewModel>(R
 
     override val fragmentTitles = listOf("Live", "Match Scheduled")
 
-    override fun setup() {
+    override fun onStart() {
+        super.onStart()
         val fragmentsList = listOf(LiveMatchFragment(), MatchScheduledFragment())
         val viewPager = binding.homeViewPager
         val tabLayout = binding.homeTabLayoutFragments
@@ -41,13 +40,7 @@ class HomeFragment : BaseViewPagerFragment<FragmentHomeBinding, HomeViewModel>(R
         }
     }
 
-    override fun onClickItem(id: Int, teamId: Int?, leagueId: Int?) {
-        navigate(HomeFragmentDirections.actionHomeFragmentToLeagueDetailsFragment(leagueId!!))
+    override fun onClickItem(id: Int, teamId: Int, leagueId: Int) {
+        navigate(HomeFragmentDirections.actionHomeFragmentToLeagueDetailsFragment(leagueId))
     }
-    override val arg: Int?
-        get() = null
-    override val leagueId: Int?
-        get() = null
-    override val teamId: Int?
-        get() = null
 }

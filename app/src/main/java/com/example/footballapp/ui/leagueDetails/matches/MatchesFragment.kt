@@ -8,29 +8,21 @@ import com.example.footballapp.ui.leagueDetails.LeagueDetailsFragmentDirections
 import com.example.footballapp.util.Constant
 import com.example.footballapp.util.OnClickListener
 
-class MatchesFragment() :
-    BaseFragment<FragmentMatchesBinding, MatchesViewModel>(R.layout.fragment_matches), OnClickListener{
-    override fun setup() {
-        val matchScheduledAdapter = MatchAdapter(emptyList(),this)
-        binding.matchScheduledRecycler.adapter = matchScheduledAdapter
+class MatchesFragment :
+    BaseFragment<FragmentMatchesBinding, MatchesViewModel>(R.layout.fragment_matches),
+    OnClickListener {
 
-    }
     override fun onStart() {
         super.onStart()
         binding.viewModel = MatchesViewModel(arguments?.getInt(Constant.LEAGUE_ID_KEY))
+        val matchScheduledAdapter = MatchAdapter(emptyList(), this)
+        binding.matchScheduledRecycler.adapter = matchScheduledAdapter
     }
 
     override fun getViewModel() = MatchesViewModel::class.java
-    override fun onClickItem(id: Int, teamId: Int?, leagueId: Int?) {
+    override fun onClickItem(id: Int, teamId: Int, leagueId: Int) {
         navigate(LeagueDetailsFragmentDirections.actionLeagueDetailsFragmentToMatchDetailsFragment(id))
     }
-    override val arg: Int?
-        get() = null
-    override val leagueId: Int?
-        get() = null
-    override val teamId: Int?
-        get() = null
 
     companion object : InstantsFragments<MatchesFragment>(MatchesFragment::class.java)
-
 }

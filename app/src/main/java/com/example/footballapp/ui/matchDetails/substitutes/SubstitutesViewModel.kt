@@ -8,7 +8,7 @@ import com.example.footballapp.util.toSubstitutes
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-class SubstitutesViewModel(matchId: Int?) : BaseViewModel() {
+class SubstitutesViewModel(matchId: Int?= null) : BaseViewModel() {
     val matchSubstitutes = matchId?.let { repository.getMatchLineup(it).asLiveData() }
 
     private val _substitutesPlayer = MutableLiveData<List<SubstitutesPlayer?>>()

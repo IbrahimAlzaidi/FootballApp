@@ -1,6 +1,5 @@
 package com.example.footballapp.ui.clubDetails
 
-import android.os.Bundle
 import androidx.navigation.fragment.navArgs
 import com.example.footballapp.R
 import com.example.footballapp.databinding.FragmentClubDetailsBinding
@@ -18,47 +17,25 @@ class ClubDetailsFragment :
 
     override val fragmentTitles = listOf("Team Information", "Squad Member", "Latest Match")
 
-    override fun setup() {
+    override fun onStart() {
+        super.onStart()
+        binding.viewModel = ClubDetailsViewModel(
+            arguments?.getInt(TEAM_ID_KEY),
+            arguments?.getInt(LEAGUE_ID_KEY)
+        )
         val leagueID = args.leagueId
         val teamID = args.teamId
         val viewPager = binding.detailsViewPager
         val tabLayout = binding.tabLayoutFragments
         val fragmentsList =
             listOf(
-                ClubInformationFragment.newInstance(teamId = teamID, leagueId = leagueID),
-                SquadInfoFragment.newInstance(teamId = teamID, leagueId = leagueID),
-                ClubMatchPlayedFragment.newInstance(teamId = teamID)
+                ClubInformationFragment.newInstance(TEAM_ID_KEY to teamID, LEAGUE_ID_KEY to leagueID),
+                SquadInfoFragment.newInstance(TEAM_ID_KEY to teamID, LEAGUE_ID_KEY to leagueID),
+                ClubMatchPlayedFragment.newInstance(TEAM_ID_KEY to teamID)
             )
         initViewPager(fragmentsList, viewPager)
         initTabLayout(viewPager, tabLayout)
     }
 
-    override fun onStart() {
-        super.onStart()
-        binding.viewModel =
-            ClubDetailsViewModel(arguments?.getInt(TEAM_ID_KEY), arguments?.getInt(LEAGUE_ID_KEY))
-    }
-
     override fun getViewModel() = ClubDetailsViewModel::class.java
-
-    override val arg: Int?
-        get() = null
-    override val leagueId: Int?
-        get() = null
-    override val teamId: Int?
-        get() = null
-
-    companion object {
-        fun newInstance(teamId: Int?, leagueId: Int?): ClubDetailsFragment =
-            ClubDetailsFragment().apply {
-                arguments = Bundle().apply {
-                    if (teamId != null) {
-                        putInt(TEAM_ID_KEY, teamId)
-                    }
-                    if (leagueId != null) {
-                        putInt(LEAGUE_ID_KEY, leagueId)
-                    }
-                }
-            }
-    }
 }

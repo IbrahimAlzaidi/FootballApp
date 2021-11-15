@@ -9,20 +9,14 @@ import com.example.footballapp.util.OnClickListener
 class LiveMatchFragment :
     BaseFragment<FragmentLiveMatchBinding, LiveMatchViewModel>(R.layout.fragment_live_match), OnClickListener{
 
-    override fun setup() {
+    override fun onStart() {
+        super.onStart()
         val matchAdapter = LiveMatchAdapter(mutableListOf(), this)
         binding.matchRecycler.adapter = matchAdapter
     }
 
     override fun getViewModel() = LiveMatchViewModel::class.java
-    override fun onClickItem(id: Int, teamId: Int?, leagueId: Int?) {
+    override fun onClickItem(id: Int, teamId: Int, leagueId: Int) {
         navigate(HomeFragmentDirections.actionHomeFragmentToMatchDetailsFragment(id))
     }
-    override val leagueId: Int?
-        get() = null
-    override val arg: Int?
-        get() = null
-    override val teamId: Int?
-        get() = null
-
 }
