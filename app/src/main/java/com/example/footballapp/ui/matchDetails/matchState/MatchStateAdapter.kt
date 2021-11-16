@@ -5,4 +5,4 @@ import com.example.footballapp.model.response.matchStatistic.MatchResultData
 import com.example.footballapp.ui.base.BaseAdapter
 
 class MatchStateAdapter(items: List<MatchResultData>) :
-    BaseAdapter<MatchResultData>(items,null, R.layout.match_statistic_item)
+    BaseAdapter<MatchResultData>(items, null, R.layout.match_statistic_item)

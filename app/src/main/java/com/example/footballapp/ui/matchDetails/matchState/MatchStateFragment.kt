@@ -17,5 +17,6 @@ class MatchStateFragment :
         val matchStatisticInformation = MatchStateAdapter(emptyList())
         binding.myRecycle.adapter = matchStatisticInformation
     }
+
     companion object : InstantsFragments<MatchStateFragment>(MatchStateFragment::class.java)
 }

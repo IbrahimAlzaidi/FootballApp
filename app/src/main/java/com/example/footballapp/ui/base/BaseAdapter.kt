@@ -8,8 +8,8 @@ import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.footballapp.BR
-import com.example.footballapp.util.OnClickListener
 import com.example.footballapp.util.DiffUtilAdapter
+import com.example.footballapp.util.OnClickListener
 
 
 abstract class BaseAdapter<T>(
@@ -34,7 +34,7 @@ abstract class BaseAdapter<T>(
             is ItemViewHolder -> {
                 holder.binding.apply {
                     setVariable(BR.item, current)
-                    setVariable(BR.listener,listener)
+                    setVariable(BR.listener, listener)
                 }
             }
         }
@@ -44,7 +44,7 @@ abstract class BaseAdapter<T>(
 
     @SuppressLint("NotifyDataSetChanged")
     fun setItems(newItems: List<T>) {
-        val diffUtilResult = DiffUtil.calculateDiff(DiffUtilAdapter(items,newItems))
+        val diffUtilResult = DiffUtil.calculateDiff(DiffUtilAdapter(items, newItems))
         items = newItems
         diffUtilResult.dispatchUpdatesTo(this)
     }

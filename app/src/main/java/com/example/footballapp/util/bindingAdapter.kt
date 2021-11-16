@@ -10,8 +10,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.footballapp.R
 import com.example.footballapp.model.network.State
 import com.example.footballapp.model.response.base.baseLeagueInfo.LeagueInfo
-import com.example.footballapp.model.response.matchStatistic.MatchResultData
-import com.example.footballapp.model.response.topScorers.TopScorersInfo
 import com.example.footballapp.ui.base.BaseAdapter
 import com.example.footballapp.ui.home.LeaguesAdapter
 import com.github.twocoffeesoneteam.glidetovectoryou.GlideApp
@@ -19,36 +17,36 @@ import com.github.twocoffeesoneteam.glidetovectoryou.GlideApp
 @BindingAdapter(value = ["app:showWhenLoading"])
 fun <T> View.showWhenLoading(state: State<T>?) {
     if (state is State.Loading) {
-        this.visibility = View.VISIBLE
+        this.visibility = VISIBLE
     } else {
-        this.visibility = View.GONE
+        this.visibility = GONE
     }
 }
 
 @BindingAdapter(value = ["app:showWhenError"])
 fun <T> View.showWhenError(state: State<T>?) {
     if (state is State.Error) {
-        this.visibility = View.VISIBLE
+        this.visibility = VISIBLE
     } else {
-        this.visibility = View.GONE
+        this.visibility = GONE
     }
 }
 
 @BindingAdapter(value = ["app:showWhenSuccess"])
 fun <T> View.showWhenSuccess(state: State<T>?) {
     if (state is State.Success) {
-        this.visibility = View.VISIBLE
+        this.visibility = VISIBLE
     } else {
-        this.visibility = View.GONE
+        this.visibility = GONE
     }
 }
 
 @BindingAdapter(value = ["app:showWhenSearch"])
 fun <T> View.showWhenSearch(state: State<T>?) {
     if (state is State.Success || state is State.Loading || state is State.Error) {
-        this.visibility = View.GONE
+        this.visibility = GONE
     } else {
-        this.visibility = View.VISIBLE
+        this.visibility = VISIBLE
     }
 }
 
@@ -75,7 +73,7 @@ fun <T> RecyclerView.setRecyclerView(items: List<T>?) {
 @BindingAdapter(value = ["app:itemsDropFirstTow"])
 fun <T> setRecyclerViewDrop(view: RecyclerView, items: List<LeagueInfo>?) {
     if (items != null) {
-            val itemDropTow = items.drop(2)
+        val itemDropTow = items.drop(2)
         (view.adapter as LeaguesAdapter?)?.setItems(itemDropTow)
     } else {
         (view.adapter as LeaguesAdapter?)?.setItems(emptyList())
@@ -83,10 +81,10 @@ fun <T> setRecyclerViewDrop(view: RecyclerView, items: List<LeagueInfo>?) {
 }
 
 @BindingAdapter(value = ["app:textNull"])
-fun setText(view: TextView, text: String?){
-    if (text == null){
+fun setText(view: TextView, text: String?) {
+    if (text == null) {
         view.text = "0"
-    }else{
+    } else {
         view.text = text
     }
 }
@@ -104,7 +102,8 @@ var View.gone
     set(value) {
         visibility = if (value) GONE else VISIBLE
     }
-@BindingAdapter(value=["app:progressApp"])
-fun ProgressBar.setProgress(text:String?){
-    text?.subSequence(0,1)?.also { this.progress = it[0].code }
+
+@BindingAdapter(value = ["app:progressApp"])
+fun ProgressBar.setProgress(text: String?) {
+    text?.subSequence(0, 1)?.also { this.progress = it[0].code }
 }

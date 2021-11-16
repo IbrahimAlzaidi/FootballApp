@@ -12,4 +12,15 @@ object Constant {
     const val PLAYER_ID_KEY = "playerId"
     const val MATCH_ID_KEY = "matchId"
     const val MATCH_COUNT = 50
+    const val TEAM_INFORMATION = "Team Information"
+    const val SQUAD_MEMBER = "Squad Member"
+    const val LATEST_MATCH = "Latest Match"
+    const val LIVE = "Live"
+    const val MATCH_SCHEDULED = "Match Scheduled"
+    const val STANDINGS = "Standings"
+    const val TOP_SCORE = "Top Score"
+    const val MATCHES = "Matches"
+    const val STATS = "STATS"
+    const val LINEUPS = "LINEUPS"
+    const val SUBSTITUTES = "SUBSTITUTES"
 }

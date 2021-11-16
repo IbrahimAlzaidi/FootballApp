@@ -17,5 +17,6 @@ class SubstitutesFragment :
     }
 
     override fun getViewModel() = SubstitutesViewModel::class.java
+
     companion object : InstantsFragments<SubstitutesFragment>(SubstitutesFragment::class.java)
 }

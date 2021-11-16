@@ -7,14 +7,17 @@ import com.example.footballapp.ui.base.BaseViewPagerFragment
 import com.example.footballapp.ui.matchDetails.lineup.LineupFragment
 import com.example.footballapp.ui.matchDetails.matchState.MatchStateFragment
 import com.example.footballapp.ui.matchDetails.substitutes.SubstitutesFragment
+import com.example.footballapp.util.Constant.LINEUPS
 import com.example.footballapp.util.Constant.MATCH_ID_KEY
+import com.example.footballapp.util.Constant.STATS
+import com.example.footballapp.util.Constant.SUBSTITUTES
 
 class MatchDetailsFragment :
-    BaseViewPagerFragment<FragmentMatchDetailsBinding, MatchDetailsViewModel>(R.layout.fragment_match_details){
+    BaseViewPagerFragment<FragmentMatchDetailsBinding, MatchDetailsViewModel>(R.layout.fragment_match_details) {
 
     private val args: MatchDetailsFragmentArgs by navArgs()
 
-    override val fragmentTitles = listOf("STATS", "LINEUPS", "SUBSTITUTES")
+    override val fragmentTitles = listOf(STATS, LINEUPS, SUBSTITUTES)
 
     override fun onStart() {
         super.onStart()

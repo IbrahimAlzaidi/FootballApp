@@ -6,4 +6,4 @@ import com.example.footballapp.ui.base.BaseAdapter
 import com.example.footballapp.util.OnClickListener
 
 class SearchAdapter(item: List<LeagueInfo>, listener: OnClickListener) :
-    BaseAdapter<LeagueInfo>(item,listener, R.layout.search_item)
+    BaseAdapter<LeagueInfo>(item, listener, R.layout.search_item)

@@ -18,5 +18,7 @@ class PlayedStatisticFragment :
             arguments?.getInt(Constant.LEAGUE_ID_KEY)
         )
     }
-    companion object : InstantsFragments<PlayedStatisticFragment>(PlayedStatisticFragment::class.java)
+
+    companion object :
+        InstantsFragments<PlayedStatisticFragment>(PlayedStatisticFragment::class.java)
 }
