@@ -51,4 +51,37 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">20dp</item>
     </style>
+
+    <style name="ProgressBar">
+        <item name="android:id"><![CDATA[@+id/loading_progress]]></item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="enlarge">5</item>
+        <item name="layout_constraintStart_toStartOf">parent</item>
+        <item name="layout_constraintEnd_toEndOf">parent</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
+    </style>
+
+    <style name="ProgressBar.FootBall"
+        parent="ProgressBar">
+       <item name="barType">@drawable/football</item>
+    </style>
+
+    <style name="ProgressBar.RainBow"
+        parent="ProgressBar">
+        <item name="barType">@drawable/triad_ring</item>
+    </style>
+
+    <style name="LottieError">
+        <item name="android:id"><![CDATA[@+id/lottie_error]]></item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="layout_constraintStart_toStartOf">parent</item>
+        <item name="layout_constraintEnd_toEndOf">parent</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
+        <item name="lottie_autoPlay">true</item>
+        <item name="lottie_rawRes">@raw/no_connection</item>
+    </style>
 </resources>

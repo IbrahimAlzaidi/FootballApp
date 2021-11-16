@@ -81,27 +81,15 @@
             app:showWhenSuccess="@{viewModel.playerData}"
             tools:text="Ratings" />
 
-        <ProgressBar
-            android:id="@+id/loading_progress"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:showWhenLoading="@{viewModel.playerData}" />
+        <com.example.loadinganimation.LoadingAnimation
+            style="@style/ProgressBar.FootBall"
+            app:showWhenLoading="@{viewModel.playerData}"
+            tools:ignore="MissingConstraints" />
 
         <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/lottie_error"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:lottie_autoPlay="true"
-            app:lottie_rawRes="@raw/no_connection"
-            app:showWhenError="@{viewModel.playerData}" />
+            style="@style/LottieError"
+            app:showWhenError="@{viewModel.playerData}"
+            tools:ignore="MissingConstraints" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

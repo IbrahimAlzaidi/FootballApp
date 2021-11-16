@@ -48,8 +48,8 @@
             android:id="@+id/recycle_view"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginVertical="@dimen/margin2X"
+            android:orientation="horizontal"
             app:itemsDropFirstTow="@{viewModel.leaguesInfo.toData().leaguesDetails}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="@id/edit_text"
@@ -61,12 +61,12 @@
             android:id="@+id/homeTabLayoutFragments"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin2X"
             android:layout_marginTop="@dimen/margin0X"
             android:background="#E5E5E5"
-            android:layout_marginHorizontal="@dimen/margin2X"
-            app:layout_constraintTop_toBottomOf="@id/recycle_view"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recycle_view"
             app:showWhenSuccess="@{viewModel.leaguesInfo}" />
 
         <androidx.viewpager2.widget.ViewPager2
@@ -80,29 +80,14 @@
             app:showWhenSuccess="@{viewModel.leaguesInfo}" />
 
         <com.example.loadinganimation.LoadingAnimation
-            android:id="@+id/loading_progress"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            style="@style/ProgressBar.RainBow"
             app:showWhenLoading="@{viewModel.leaguesInfo}"
-            android:elevation="10dp"
-            app:barType="@drawable/football"
-            app:enlarge="5"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            tools:ignore="MissingConstraints" />
 
         <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/lottie_error"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:lottie_autoPlay="true"
-            app:lottie_rawRes="@raw/no_connection"
-            app:showWhenError="@{viewModel.leaguesInfo}" />
+            style="@style/LottieError"
+            app:showWhenError="@{viewModel.leaguesInfo}"
+            tools:ignore="MissingConstraints" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -5,7 +5,6 @@ import com.example.footballapp.databinding.FragmentClupInformationBinding
 import com.example.footballapp.ui.base.BaseFragment
 import com.example.footballapp.ui.base.InstantsFragments
 import com.example.footballapp.ui.clubDetails.ClubDetailsFragmentDirections
-import com.example.footballapp.util.Constant
 import com.example.footballapp.util.Constant.LEAGUE_ID_KEY
 import com.example.footballapp.util.Constant.TEAM_ID_KEY
 import com.example.footballapp.util.OnClickListener
@@ -42,8 +41,8 @@ class ClubInformationFragment :
 
     override fun getViewModel() = ClubInformationViewModel::class.java
     override fun onClickItem(id: Int, teamId: Int, leagueId: Int) {
-        val leagueID = arguments?.getInt(Constant.LEAGUE_ID_KEY)
-        arguments?.getInt(Constant.TEAM_ID_KEY)?.let { team ->
+        val leagueID = arguments?.getInt(LEAGUE_ID_KEY)
+        arguments?.getInt(TEAM_ID_KEY)?.let { team ->
             leagueID?.let { leagueID ->
                 ClubDetailsFragmentDirections.actionClubDetailsFragmentToPlayerDetailsFragment(
                     playerId = id,

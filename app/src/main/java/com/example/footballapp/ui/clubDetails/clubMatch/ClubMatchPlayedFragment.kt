@@ -5,7 +5,6 @@ import com.example.footballapp.databinding.FragmentClubMatchPlayedBinding
 import com.example.footballapp.ui.base.BaseFragment
 import com.example.footballapp.ui.base.InstantsFragments
 import com.example.footballapp.ui.clubDetails.ClubDetailsFragmentDirections
-import com.example.footballapp.util.Constant
 import com.example.footballapp.util.Constant.TEAM_ID_KEY
 import com.example.footballapp.util.OnClickListener
 

@@ -66,29 +66,15 @@
             app:layout_constraintTop_toTopOf="parent"
             app:showWhenLoading="@{viewModel.searchLeague}" />
 
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/lottie_error"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:lottie_autoPlay="true"
-            app:lottie_rawRes="@raw/no_connection"
-            app:showWhenError="@{viewModel.searchLeague}" />
+        <com.example.loadinganimation.LoadingAnimation
+            style="@style/ProgressBar.FootBall"
+            app:showWhenLoading="@{viewModel.searchLeague}"
+            tools:ignore="MissingConstraints" />
 
         <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/lottie_search"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:lottie_autoPlay="true"
-            app:lottie_rawRes="@raw/sad_face"
-            app:showWhenSearch="@{viewModel.searchLeague}" />
+            style="@style/LottieError"
+            app:showWhenError="@{viewModel.searchLeague}"
+            tools:ignore="MissingConstraints" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
