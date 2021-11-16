@@ -107,3 +107,9 @@ var View.gone
 fun ProgressBar.setProgress(text: String?) {
     text?.subSequence(0, 1)?.also { this.progress = it[0].code }
 }
+
+@BindingAdapter(value=["app:setScoreSeparator"])
+fun TextView.setHomeScoreSeparator(text: String?){
+    if (text == null){
+        this.text = "-"}
+}

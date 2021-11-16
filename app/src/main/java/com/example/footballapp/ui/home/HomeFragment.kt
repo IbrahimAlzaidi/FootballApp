@@ -37,7 +37,6 @@ class HomeFragment :
                 val action = HomeFragmentDirections.actionHomeFragmentToSearchFragment()
                 val extras = FragmentNavigatorExtras(
                     binding.editText to getString(R.string.searchTransition),
-                    binding.clearTextImage to getString(R.string.closeTransition),
                 )
                 findNavController().navigate(action, extras)
             }
