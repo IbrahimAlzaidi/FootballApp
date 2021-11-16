@@ -6,7 +6,6 @@ import com.example.footballapp.databinding.FragmentClubDetailsBinding
 import com.example.footballapp.ui.base.BaseViewPagerFragment
 import com.example.footballapp.ui.clubDetails.clubInfo.ClubInformationFragment
 import com.example.footballapp.ui.clubDetails.clubMatch.ClubMatchPlayedFragment
-import com.example.footballapp.ui.clubDetails.squadInfo.SquadInfoFragment
 import com.example.footballapp.util.Constant.LATEST_MATCH
 import com.example.footballapp.util.Constant.LEAGUE_ID_KEY
 import com.example.footballapp.util.Constant.SQUAD_MEMBER
@@ -33,7 +32,6 @@ class ClubDetailsFragment :
         val fragmentsList =
             listOf(
                 ClubInformationFragment.newInstance(TEAM_ID_KEY to teamID, LEAGUE_ID_KEY to leagueID),
-                SquadInfoFragment.newInstance(TEAM_ID_KEY to teamID, LEAGUE_ID_KEY to leagueID),
                 ClubMatchPlayedFragment.newInstance(TEAM_ID_KEY to teamID)
             )
         initViewPager(fragmentsList, viewPager)

@@ -14,4 +14,5 @@ class ClubInformationViewModel(teamId: Int?= null, leagueId: Int?= null) : BaseV
             ).asLiveData()
         }
     }
+    val team = teamId?.let { repository.getTeamPlayerInfo(teamId = it).asLiveData() }
 }

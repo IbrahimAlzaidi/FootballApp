@@ -16,146 +16,112 @@
         android:layout_height="match_parent"
         tools:context=".ui.clubDetails.clubInfo.ClubInformationFragment">
 
-        <View
-            android:id="@+id/infoHolder"
+        <com.yarolegovich.discretescrollview.DiscreteScrollView
+            android:id="@+id/playerRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="420dp"
-            android:layout_margin="@dimen/margin0X"
-            android:background="@drawable/rectangle_shape"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_height="wrap_content"
+            app:items="@{viewModel.team.toData().squadPlayerInfo.get(0).players}"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="@dimen/margin2X"
+            app:layout_constraintBottom_toTopOf="@id/venueHolder"
             app:layout_constraintTop_toTopOf="parent"
-            app:showWhenSuccess="@{viewModel.clubInformation}" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:showWhenSuccess="@{viewModel.clubInformation}"
+            tools:listitem="@layout/team_player_item"/>
 
         <TextView
-            android:id="@+id/title"
+            android:id="@+id/venueName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/rectangle_shape"
-            android:paddingStart="@dimen/margin1X"
-            android:text="@string/team_information"
+            android:elevation="@dimen/elevation2X"
+            android:gravity="start"
+            android:maxWidth="90dp"
+            android:text="@{viewModel.clubInformation.toData().stadiumDetails.get(0).venue.name.toString()}"
             android:textSize="@dimen/size5X"
-            app:layout_constraintEnd_toEndOf="@id/infoHolder"
-            app:layout_constraintStart_toStartOf="@id/infoHolder"
-            app:layout_constraintTop_toTopOf="@id/infoHolder"
-            app:showWhenSuccess="@{viewModel.clubInformation}"
-            tools:ignore="RtlSymmetry" />
 
-        <TextView
-            android:id="@+id/teamName"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:paddingStart="@dimen/margin1X"
-            android:textSize="@dimen/size5X"
-            app:layout_constraintEnd_toEndOf="@id/infoHolder"
-            app:layout_constraintStart_toStartOf="@id/title"
-            app:layout_constraintTop_toBottomOf="@id/title"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/venueHolder"
+            app:layout_constraintTop_toBottomOf="@id/imageHolder"
             app:showWhenSuccess="@{viewModel.clubInformation}"
-            android:text="@{viewModel.clubInformation.toData().stadiumDetails.get(0).team.name}"
-            tools:ignore="RtlSymmetry"
             tools:text="Hello" />
-
         <TextView
             android:id="@+id/founded"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingStart="@dimen/margin1X"
-            android:textSize="@dimen/size5X"
-            app:layout_constraintStart_toStartOf="@id/teamName"
-            app:layout_constraintTop_toBottomOf="@id/teamName"
+            android:textSize="@dimen/size2X"
+            app:layout_constraintStart_toStartOf="@id/venueName"
+            app:layout_constraintTop_toBottomOf="@id/venueName"
             app:showWhenSuccess="@{viewModel.clubInformation}"
             android:text="@{viewModel.clubInformation.toData().stadiumDetails.get(0).team.founded.toString()}"
             tools:ignore="RtlSymmetry"
-            tools:text="Hello" />
-
-        <TextView
-            android:id="@+id/country"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingStart="@dimen/margin1X"
-            android:textSize="@dimen/size5X"
-            app:layout_constraintStart_toStartOf="@id/founded"
-            app:layout_constraintTop_toBottomOf="@id/founded"
-            app:showWhenSuccess="@{viewModel.clubInformation}"
-            android:text="@{viewModel.clubInformation.toData().stadiumDetails.get(0).team.country}"
-            tools:ignore="RtlSymmetry"
-            tools:text="Hello" />
-
-        <View
-            android:id="@+id/venueHolder"
-            android:layout_width="0dp"
-            android:layout_height="220dp"
-            android:layout_marginTop="@dimen/margin0X"
-            android:background="@drawable/rectangle_shape"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="@id/infoHolder"
-            app:layout_constraintEnd_toEndOf="@id/infoHolder"
-            app:layout_constraintStart_toStartOf="@id/infoHolder"
-            app:showWhenSuccess="@{viewModel.clubInformation}" />
-
-        <TextView
-            android:id="@+id/venueInfo"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/rectangle_shape"
-            android:paddingStart="@dimen/margin1X"
-            android:text="@string/venue_information"
-            android:textSize="@dimen/size5X"
+            tools:text="1994" />
+        <ImageView
+            android:id="@+id/imageHolder"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:elevation="@dimen/elevation1X"
+            android:src="@drawable/venue"
+            app:layout_constraintBottom_toBottomOf="@id/venueHolder"
             app:layout_constraintEnd_toEndOf="@id/venueHolder"
             app:layout_constraintStart_toStartOf="@id/venueHolder"
             app:layout_constraintTop_toTopOf="@id/venueHolder"
-            app:showWhenSuccess="@{viewModel.clubInformation}"
-            tools:ignore="RtlSymmetry" />
-
-        <TextView
-            android:id="@+id/venueName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingStart="@dimen/margin1X"
-            android:textSize="@dimen/size5X"
-            app:layout_constraintStart_toStartOf="@id/venueInfo"
-            app:layout_constraintTop_toBottomOf="@id/venueInfo"
-            app:showWhenSuccess="@{viewModel.clubInformation}"
-            android:text="@{viewModel.clubInformation.toData().stadiumDetails.get(0).venue.name.toString()}"
-            tools:ignore="RtlSymmetry"
-            tools:text="Hello" />
-
+            app:showWhenSuccess="@{viewModel.clubInformation}" />
         <TextView
             android:id="@+id/capacity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingStart="@dimen/margin1X"
-            android:textSize="@dimen/size5X"
-            app:layout_constraintStart_toStartOf="@id/venueInfo"
-            app:layout_constraintTop_toBottomOf="@id/venueName"
+            tools:text="1990"
+            android:text="@{String.valueOf(viewModel.clubInformation.toData().stadiumDetails.get(0).venue.capacity)}"
+            android:textSize="22sp"
             app:showWhenSuccess="@{viewModel.clubInformation}"
-            android:text="@{viewModel.clubInformation.toData().stadiumDetails.get(0).venue.address}"
-            tools:ignore="RtlSymmetry"
-            tools:text="Hello" />
-
-        <TextView
-            android:id="@+id/address"
+            android:layout_marginTop="@dimen/margin1X"
+            android:textColor="@color/black"
+            android:elevation="@dimen/elevation1X"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintEnd_toStartOf="@id/crowd"
+            app:layout_constraintTop_toTopOf="@id/venueHolder"
+            app:layout_constraintStart_toStartOf="@id/venueHolder"
+            />
+        <ImageView
+            android:id="@+id/crowd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingStart="@dimen/margin1X"
-            android:textSize="@dimen/size5X"
-            app:layout_constraintStart_toStartOf="@id/venueInfo"
-            app:layout_constraintTop_toBottomOf="@id/capacity"
+            android:elevation="@dimen/elevation1X"
+            android:layout_marginStart="2dp"
+            android:src="@drawable/ic_baseline_people_alt_24"
+            app:layout_constraintStart_toEndOf="@id/capacity"
+            app:layout_constraintTop_toTopOf="@id/capacity"
+            app:layout_constraintEnd_toEndOf="@id/venueHolder"
             app:showWhenSuccess="@{viewModel.clubInformation}"
-            android:text="@{viewModel.clubInformation.toData().stadiumDetails.get(0).venue.capacity.toString()}"
-            tools:ignore="RtlSymmetry"
-            tools:text="Hello" />
+            app:layout_constraintBottom_toBottomOf="@id/capacity"
+            />
+        <View
+            android:id="@+id/venueHolder"
+            android:layout_width="210dp"
+            android:layout_height="200dp"
+            app:showWhenSuccess="@{viewModel.clubInformation}"
+            android:background="@drawable/circlue_venum"
+            app:layout_constraintVertical_bias="0.75"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
 
-        <ProgressBar
+        <com.example.loadinganimation.LoadingAnimation
             android:id="@+id/loading_progress"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            app:showWhenLoading="@{viewModel.clubInformation}"
+            android:elevation="10dp"
+            app:barType="@drawable/triad_ring"
+            app:enlarge="5"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:showWhenLoading="@{viewModel.clubInformation}" />
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/lottie_error"

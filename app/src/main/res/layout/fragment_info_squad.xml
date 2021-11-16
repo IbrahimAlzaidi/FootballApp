@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.footballapp.ui.clubDetails.squadInfo.SquadInfoViewModel" />
+            type="com.example.footballapp.ui.clubDetails.clubInfo.ClubInformationViewModel" />
 
     </data>
 

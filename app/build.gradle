@@ -90,5 +90,12 @@ dependencies {
     //PagerIndicator
     implementation 'com.tbuonomo:dotsindicator:4.2'
 
+    //Custom Recycler View
+    implementation 'com.yarolegovich:discrete-scrollview:1.5.1'
+
+    //progress bar
+    implementation 'com.github.Marvel999:Android-Loading-Animation:1.0.0'
+
+
 
 }
