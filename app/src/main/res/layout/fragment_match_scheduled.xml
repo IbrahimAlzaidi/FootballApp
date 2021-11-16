@@ -20,14 +20,14 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:orientation="vertical"
-            app:items="@{viewModel.matchScheduled.toData().matchScheduledInfo}"
+            app:items="@{viewModel.matchInfo}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:showWhenSuccess="@{viewModel.matchScheduled}"
-            tools:listitem="@layout/matches_item" />
+            tools:listitem="@layout/matches_scheduled_item" />
 
         <com.example.loadinganimation.LoadingAnimation
             style="@style/ProgressBar.FootBall"

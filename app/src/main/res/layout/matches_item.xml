@@ -18,7 +18,7 @@
         android:id="@+id/myConstraint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="@{()-> listener.onClickItem(item.fixture.id, 0,0)}">
+        android:onClick="@{() -> listener.onClickItem(item.fixture.id,0,0)}">
 
         <View
             android:id="@+id/myCardView"
@@ -36,11 +36,11 @@
             android:id="@+id/matchDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin0X"
             android:elevation="@dimen/size0X"
             android:text="@{item.fixture.date.subSequence(0,10).toString()}"
             android:textColor="@color/white"
             android:textSize="@dimen/size2X"
-            android:layout_marginTop="@dimen/margin0X"
             app:layout_constraintEnd_toEndOf="@id/scoreAwayTeam"
             app:layout_constraintStart_toStartOf="@id/scoreHomeTeam"
             app:layout_constraintTop_toBottomOf="@id/separator"
@@ -167,6 +167,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin9X"
             android:elevation="@dimen/elevation0X"
+            android:text="@{String.valueOf(item.goals.home)}"
             android:textColor="@color/white"
             android:textSize="28sp"
             android:textStyle="bold"
@@ -174,7 +175,6 @@
             app:layout_constraintEnd_toStartOf="@id/separator"
             app:layout_constraintStart_toEndOf="@id/homeTeamLogoHolder"
             app:layout_constraintTop_toTopOf="@id/homeTeamLogoHolder"
-            android:text="@{String.valueOf(item.goals.home)}"
             tools:text="0" />
 
         <TextView
@@ -198,6 +198,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/margin9X"
             android:elevation="@dimen/elevation0X"
+            android:text="@{String.valueOf(item.goals.away)}"
             android:textColor="@color/white"
             android:textSize="28sp"
             android:textStyle="bold"
@@ -205,7 +206,6 @@
             app:layout_constraintEnd_toStartOf="@id/awayTeamLogoHolder"
             app:layout_constraintStart_toEndOf="@id/separator"
             app:layout_constraintTop_toTopOf="@id/awayTeamLogoHolder"
-            android:text="@{String.valueOf(item.goals.away)}"
             tools:text="0" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

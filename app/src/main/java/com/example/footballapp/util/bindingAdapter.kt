@@ -70,16 +70,6 @@ fun <T> RecyclerView.setRecyclerView(items: List<T>?) {
     }
 }
 
-@BindingAdapter(value = ["app:itemsDropFirstTow"])
-fun <T> setRecyclerViewDrop(view: RecyclerView, items: List<LeagueInfo>?) {
-    if (items != null) {
-        val itemDropTow = items.drop(2)
-        (view.adapter as LeaguesAdapter?)?.setItems(itemDropTow)
-    } else {
-        (view.adapter as LeaguesAdapter?)?.setItems(emptyList())
-    }
-}
-
 @BindingAdapter(value = ["app:textNull"])
 fun setText(view: TextView, text: String?) {
     if (text == null) {

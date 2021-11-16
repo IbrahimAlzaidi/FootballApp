@@ -8,6 +8,10 @@
         <variable
             name="item"
             type="com.example.footballapp.model.response.matchScheduled.MatchScheduledInfo" />
+
+        <variable
+            name="listener"
+            type="com.example.footballapp.util.OnClickListener"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -99,6 +103,7 @@
             android:layout_height="70dp"
             android:layout_marginStart="@dimen/size6X"
             android:layout_marginTop="@dimen/margin2X"
+            android:onClick="@{() -> listener.onClickItem(0,item.teams.home.id,item.league.id)}"
             android:background="@drawable/circlue_image_shape"
             app:layout_constraintBottom_toBottomOf="@id/myCardView"
             app:layout_constraintStart_toStartOf="@id/myCardView"
@@ -121,6 +126,7 @@
             android:layout_height="70dp"
             android:layout_marginTop="@dimen/margin2X"
             android:layout_marginEnd="@dimen/size6X"
+            android:onClick="@{() -> listener.onClickItem(0,item.teams.away.id,item.league.id)}"
             android:background="@drawable/circlue_image_shape"
             app:layout_constraintBottom_toBottomOf="@id/myCardView"
             app:layout_constraintEnd_toEndOf="@id/myCardView"
