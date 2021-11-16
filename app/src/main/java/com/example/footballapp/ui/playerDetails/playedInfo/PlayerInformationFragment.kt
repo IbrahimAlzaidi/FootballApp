@@ -6,8 +6,9 @@ import com.example.footballapp.ui.base.BaseFragment
 import com.example.footballapp.ui.base.InstantsFragments
 import com.example.footballapp.util.Constant
 
-class PlayerInformationFragment : BaseFragment<FragmentPlayerInformationsBinding, PlayerInformationViewModel>
-    (R.layout.fragment_player_informations) {
+class PlayerInformationFragment :
+    BaseFragment<FragmentPlayerInformationsBinding, PlayerInformationViewModel>
+        (R.layout.fragment_player_informations) {
 
     override fun getViewModel(): Class<PlayerInformationViewModel> =
         PlayerInformationViewModel::class.java
@@ -20,5 +21,7 @@ class PlayerInformationFragment : BaseFragment<FragmentPlayerInformationsBinding
             arguments?.getInt(Constant.LEAGUE_ID_KEY)
         )
     }
-    companion object : InstantsFragments<PlayerInformationFragment>(PlayerInformationFragment::class.java)
+
+    companion object :
+        InstantsFragments<PlayerInformationFragment>(PlayerInformationFragment::class.java)
 }

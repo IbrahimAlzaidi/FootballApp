@@ -7,7 +7,8 @@ import com.example.footballapp.ui.home.HomeFragmentDirections
 import com.example.footballapp.util.OnClickListener
 
 class LiveMatchFragment :
-    BaseFragment<FragmentLiveMatchBinding, LiveMatchViewModel>(R.layout.fragment_live_match), OnClickListener{
+    BaseFragment<FragmentLiveMatchBinding, LiveMatchViewModel>(R.layout.fragment_live_match),
+    OnClickListener {
 
     override fun onStart() {
         super.onStart()

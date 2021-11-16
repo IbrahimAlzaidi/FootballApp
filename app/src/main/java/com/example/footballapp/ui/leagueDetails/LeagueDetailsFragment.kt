@@ -8,13 +8,16 @@ import com.example.footballapp.ui.leagueDetails.matches.MatchesFragment
 import com.example.footballapp.ui.leagueDetails.scorers.ScorersFragment
 import com.example.footballapp.ui.leagueDetails.standing.StandingFragment
 import com.example.footballapp.util.Constant.LEAGUE_ID_KEY
+import com.example.footballapp.util.Constant.MATCHES
+import com.example.footballapp.util.Constant.STANDINGS
+import com.example.footballapp.util.Constant.TOP_SCORE
 
 class LeagueDetailsFragment :
     BaseViewPagerFragment<FragmentLeagueDetailsBinding, LeagueDetailsViewModel>(R.layout.fragment_league_details) {
 
     private val args: LeagueDetailsFragmentArgs by navArgs()
 
-    override val fragmentTitles = listOf("Standings", "Top Score", "Matches")
+    override val fragmentTitles = listOf(STANDINGS, TOP_SCORE, MATCHES)
 
     override fun onStart() {
         super.onStart()

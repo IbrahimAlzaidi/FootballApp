@@ -16,5 +16,6 @@ class LineupFragment :
         val lineupAdapter = LineupAdapter(emptyList())
         binding.lineupRecyclerView.adapter = lineupAdapter
     }
+
     companion object : InstantsFragments<LineupFragment>(LineupFragment::class.java)
 }

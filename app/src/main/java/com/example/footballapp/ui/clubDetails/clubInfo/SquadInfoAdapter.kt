@@ -1,4 +1,4 @@
-package com.example.footballapp.ui.clubDetails.squadInfo
+package com.example.footballapp.ui.clubDetails.clubInfo
 
 import com.example.footballapp.R
 import com.example.footballapp.model.response.squadPlayer.Player

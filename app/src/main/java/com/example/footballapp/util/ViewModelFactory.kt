@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.footballapp.ui.clubDetails.ClubDetailsViewModel
 import com.example.footballapp.ui.clubDetails.clubInfo.ClubInformationViewModel
 import com.example.footballapp.ui.clubDetails.clubMatch.ClubMatchPlayedViewModel
-import com.example.footballapp.ui.clubDetails.squadInfo.SquadInfoViewModel
 import com.example.footballapp.ui.home.HomeViewModel
 import com.example.footballapp.ui.home.liveMatch.LiveMatchViewModel
 import com.example.footballapp.ui.home.matchScheduled.MatchScheduledViewModel
@@ -37,7 +36,6 @@ class ViewModelFactory : ViewModelProvider.NewInstanceFactory() {
             modelClass.isAssignableFrom(MatchScheduledViewModel::class.java) -> MatchScheduledViewModel() as T
             modelClass.isAssignableFrom(SearchViewModel::class.java) -> SearchViewModel() as T
             modelClass.isAssignableFrom(ClubInformationViewModel::class.java) -> ClubInformationViewModel() as T
-            modelClass.isAssignableFrom(SquadInfoViewModel::class.java) -> SquadInfoViewModel() as T
             modelClass.isAssignableFrom(ClubMatchPlayedViewModel::class.java) -> ClubMatchPlayedViewModel() as T
             modelClass.isAssignableFrom(MatchStateViewModel::class.java) -> MatchStateViewModel() as T
             modelClass.isAssignableFrom(LineupViewModel::class.java) -> LineupViewModel() as T

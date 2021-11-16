@@ -1,6 +1,9 @@
 package com.example.footballapp.ui.matchDetails.substitutes
 
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.asLiveData
+import androidx.lifecycle.viewModelScope
 import com.example.footballapp.model.network.State
 import com.example.footballapp.model.response.lineup.SubstitutesPlayer
 import com.example.footballapp.ui.base.BaseViewModel
@@ -8,7 +11,7 @@ import com.example.footballapp.util.toSubstitutes
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-class SubstitutesViewModel(matchId: Int?= null) : BaseViewModel() {
+class SubstitutesViewModel(matchId: Int? = null) : BaseViewModel() {
     val matchSubstitutes = matchId?.let { repository.getMatchLineup(it).asLiveData() }
 
     private val _substitutesPlayer = MutableLiveData<List<SubstitutesPlayer?>>()

@@ -15,61 +15,75 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="@{() -> listener.onClickItem(item.id,0,0)}">
 
-        <ImageView
-            android:id="@+id/playerImage"
-            android:layout_width="70dp"
-            android:layout_height="80dp"
-            android:layout_marginTop="@dimen/margin1X"
-            app:ImageUrl="@{item.photo}"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/imageHolder"
+            android:layout_width="135dp"
+            android:layout_height="135dp"
+            android:backgroundTint="#D6DFFF"
+            app:cardCornerRadius="@dimen/margin0X"
+            android:layout_marginHorizontal="@dimen/margin1X"
+            android:layout_marginVertical="@dimen/margin1X"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+            <ImageView
+                android:id="@+id/playerImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:ImageUrl="@{item.photo}"
+                tools:src="@tools:sample/avatars"
+                app:layout_constraintEnd_toEndOf="@id/imageHolder"
+                app:layout_constraintBottom_toBottomOf="@id/imageHolder"
+                app:layout_constraintStart_toStartOf="@id/imageHolder"
+                app:layout_constraintTop_toTopOf="@id/imageHolder"/>
+        </androidx.cardview.widget.CardView>
+
+        <View
+            android:id="@+id/playerNameHolder"
+            android:layout_width="0dp"
+            android:layout_height="18dp"
+            android:background="@color/gradient_blue_1_start_color"
+            android:elevation="@dimen/elevation1X"
+            app:layout_constraintBottom_toBottomOf="@id/imageHolder"
+            app:layout_constraintStart_toStartOf="@id/imageHolder"
+            app:layout_constraintEnd_toEndOf="@id/imageHolder"/>
+
 
         <TextView
+            android:id="@+id/position"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin4X"
-            android:layout_marginEnd="@dimen/margin7X"
+            android:layout_height="0dp"
             android:text="@{item.number.toString()}"
-            android:textSize="@dimen/size4X"
-            app:layout_constraintBottom_toBottomOf="@id/playerName"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="@dimen/size2X"
+            android:elevation="@dimen/elevation1X"
+            android:paddingEnd="3dp"
+            android:gravity="center"
+            android:textColor="@color/white"
             app:layout_constraintTop_toTopOf="@id/playerName"
+            app:layout_constraintEnd_toEndOf="@id/playerNameHolder"
+            app:layout_constraintBottom_toBottomOf="@id/playerName"
+            app:layout_constraintStart_toEndOf="@id/playerName"
             tools:text="19" />
 
         <TextView
             android:id="@+id/playerName"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin6X"
             android:text="@{item.name}"
-            android:textSize="@dimen/size4X"
-            app:layout_constraintBottom_toTopOf="@id/positions"
-            app:layout_constraintStart_toEndOf="@id/playerImage"
-            app:layout_constraintTop_toTopOf="@id/playerImage"
-            app:layout_constraintVertical_chainStyle="packed"
-            tools:text="MOHAMED" />
-
-        <TextView
-            android:id="@+id/positions"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{item.position}"
+            android:elevation="@dimen/elevation1X"
+            android:textStyle="bold"
+            android:textColor="@color/white"
             android:textSize="@dimen/size2X"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@id/playerName"
-            app:layout_constraintTop_toBottomOf="@id/playerName"
-            tools:text="Hello Mama" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@color/black"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            android:paddingStart="2dp"
+            app:layout_constraintBottom_toBottomOf="@id/playerNameHolder"
+            app:layout_constraintStart_toStartOf="@id/playerNameHolder"
+            app:layout_constraintEnd_toStartOf="@id/position"
+            tools:text="MOHAMED" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -12,5 +12,6 @@ class MatchScheduledFragment :
         val matchScheduledAdapter = MatchAdapter(emptyList())
         binding.matchScheduledRecycler.adapter = matchScheduledAdapter
     }
+
     override fun getViewModel() = MatchScheduledViewModel::class.java
 }

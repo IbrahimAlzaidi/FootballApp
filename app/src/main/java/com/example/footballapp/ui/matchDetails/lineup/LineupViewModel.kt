@@ -11,7 +11,7 @@ import com.example.footballapp.util.toPlayerStart
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-class LineupViewModel(matchId: Int?= null) : BaseViewModel() {
+class LineupViewModel(matchId: Int? = null) : BaseViewModel() {
 
     val lineupsData = matchId?.let { repository.getMatchLineup(it).asLiveData() }
 

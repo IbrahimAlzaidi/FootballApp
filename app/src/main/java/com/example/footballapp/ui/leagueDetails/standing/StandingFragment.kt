@@ -32,5 +32,6 @@ class StandingFragment :
             )
         }
     }
+
     companion object : InstantsFragments<StandingFragment>(StandingFragment::class.java)
 }
