@@ -13,7 +13,7 @@ class MatchScheduledFragment : BaseFragment<FragmentMatchScheduledBinding, Match
 
     override fun onStart() {
         super.onStart()
-        val matchScheduledAdapter = MatchAdapter(emptyList(), this)
+        val matchScheduledAdapter = MatchScheduledAdapter(emptyList(), this)
         binding.matchScheduledRecycler.adapter = matchScheduledAdapter
     }
 

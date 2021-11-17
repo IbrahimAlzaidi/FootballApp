@@ -23,4 +23,9 @@ object Constant {
     const val STATS = "STATS"
     const val LINEUPS = "LINEUPS"
     const val SUBSTITUTES = "SUBSTITUTES"
+    const val ZERO_FLOUT = 0f
+    const val ZERO = 0
+    const val ONE = 1
+    const val MINUS_ONE = -1
+    const val TWO = 2
 }

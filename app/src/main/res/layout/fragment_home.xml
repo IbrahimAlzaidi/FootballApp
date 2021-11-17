@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_marginVertical="@dimen/margin2X"
             android:orientation="horizontal"
-            app:items="@{viewModel.leagues}"
+            app:itemsLeagues="@{viewModel.leaguesInfo.toData().leaguesDetails}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="@id/edit_text"
             app:layout_constraintStart_toStartOf="@id/edit_text"

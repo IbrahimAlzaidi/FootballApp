@@ -43,10 +43,13 @@ abstract class BaseAdapter<T>(
     override fun getItemViewType(position: Int) = position
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setItems(newItems: List<T>) {
+    fun setItems(view: RecyclerView,newItems: List<T> , position: Int? = null) {
         val diffUtilResult = DiffUtil.calculateDiff(DiffUtilAdapter(items, newItems))
         items = newItems
         diffUtilResult.dispatchUpdatesTo(this)
+        if (position != null){
+            view.smoothScrollToPosition(position)
+        }
     }
 
     override fun getItemCount() = items.size
