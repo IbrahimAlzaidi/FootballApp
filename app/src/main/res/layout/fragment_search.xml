@@ -45,15 +45,13 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycle_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/RecycleViewStyle"
             android:layout_marginHorizontal="@dimen/margin2X"
             android:layout_marginTop="@dimen/margin3X"
-            android:orientation="vertical"
             app:items="@{viewModel.searchLeague.toData().leagueSearchInfo}"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintTop_toBottomOf="@id/edit_text"
             app:showWhenSuccess="@{viewModel.searchLeague}"
+            tools:ignore="MissingConstraints"
             tools:listitem="@layout/search_item" />
 
         <ProgressBar

@@ -18,18 +18,13 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/matchRecycler"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            style="@style/RecycleViewStyle"
             android:layout_marginHorizontal="@dimen/margin1X"
-            android:orientation="vertical"
             app:items="@{viewModel.matchLive.toData().liveMatchDetails}"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:showWhenSuccess="@{viewModel.matchLive}"
-            tools:listitem="@layout/live_matches_item" />
+            tools:listitem="@layout/live_matches_item"
+            tools:ignore="MissingConstraints" />
 
         <com.example.loadinganimation.LoadingAnimation
            style="@style/ProgressBar.FootBall"

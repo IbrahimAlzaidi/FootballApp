@@ -45,19 +45,18 @@
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabLayoutFragments"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/TabLayoutStyle"
             app:layout_constraintBottom_toTopOf="@id/myViewPager"
             app:layout_constraintTop_toBottomOf="@id/leagueImage"
-            app:showWhenSuccess="@{viewModel.leagueDetails}" />
+            app:showWhenSuccess="@{viewModel.leagueDetails}"
+            tools:ignore="MissingConstraints" />
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/myViewPager"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            style="@style/ViewPagerStyle"
             app:layout_constraintTop_toBottomOf="@id/tabLayoutFragments"
-            app:showWhenSuccess="@{viewModel.leagueDetails}" />
+            app:showWhenSuccess="@{viewModel.leagueDetails}"
+            tools:ignore="MissingConstraints" />
 
         <com.example.loadinganimation.LoadingAnimation
             style="@style/ProgressBar.RainBow"

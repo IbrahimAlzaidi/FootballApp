@@ -18,17 +18,12 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/teamPlayers"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            style="@style/RecycleViewStyle"
             android:background="@drawable/rectangle_shape"
-            android:orientation="vertical"
             app:items="@{viewModel.team.toData().squadPlayerInfo.get(0).players}"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:showWhenSuccess="@{viewModel.team}"
+            tools:ignore="MissingConstraints"
             tools:listitem="@layout/team_player_item" />
 
         <com.example.loadinganimation.LoadingAnimation

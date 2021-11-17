@@ -17,15 +17,12 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/myRecycle"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            style="@style/RecycleViewStyle"
             android:layout_marginTop="@dimen/margin0X"
-            android:orientation="vertical"
             app:items="@{viewModel.match}"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:showWhenSuccess="@{viewModel.matchStatistic}"
+            tools:ignore="MissingConstraints"
             tools:listitem="@layout/match_statistic_item" />
 
         <com.example.loadinganimation.LoadingAnimation

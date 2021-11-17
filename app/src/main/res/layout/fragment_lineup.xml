@@ -18,16 +18,12 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/lineupRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="500dp"
-            android:orientation="vertical"
+            style="@style/RecycleViewStyle"
             app:items="@{viewModel.match}"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:showWhenSuccess="@{viewModel.lineupsData}"
-            tools:listitem="@layout/lineup_match_item" />
+            tools:listitem="@layout/lineup_match_item"
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/titleManger"

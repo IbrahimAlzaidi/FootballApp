@@ -17,16 +17,11 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/matchScheduledRecycler"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:orientation="vertical"
+            style="@style/RecycleViewStyle"
             app:itemsMatches="@{viewModel.matchScheduled.toData().matchScheduledInfo}"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:showWhenSuccess="@{viewModel.matchScheduled}"
+            tools:ignore="MissingConstraints"
             tools:listitem="@layout/matches_scheduled_item" />
 
         <com.example.loadinganimation.LoadingAnimation
@@ -35,7 +30,7 @@
             tools:ignore="MissingConstraints" />
 
         <com.airbnb.lottie.LottieAnimationView
-           style="@style/LottieError"
+            style="@style/LottieError"
             app:showWhenError="@{viewModel.matchScheduled}"
             tools:ignore="MissingConstraints" />
 

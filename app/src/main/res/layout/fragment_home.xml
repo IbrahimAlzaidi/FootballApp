@@ -59,25 +59,20 @@
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/homeTabLayoutFragments"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            style="@style/TabLayoutStyle"
             android:layout_marginHorizontal="@dimen/margin2X"
             android:layout_marginTop="@dimen/margin0X"
             android:background="#E5E5E5"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/recycle_view"
-            app:showWhenSuccess="@{viewModel.leaguesInfo}" />
+            app:showWhenSuccess="@{viewModel.leaguesInfo}"
+            tools:ignore="MissingConstraints" />
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/homeViewPager"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            style="@style/ViewPagerStyle"
             app:layout_constraintTop_toBottomOf="@id/homeTabLayoutFragments"
-            app:showWhenSuccess="@{viewModel.leaguesInfo}" />
+            app:showWhenSuccess="@{viewModel.leaguesInfo}"
+            tools:ignore="MissingConstraints" />
 
         <com.example.loadinganimation.LoadingAnimation
             style="@style/ProgressBar.RainBow"

@@ -66,25 +66,20 @@
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabLayoutFragments"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/TabLayoutStyle"
             android:layout_marginTop="@dimen/margin7X"
             app:layout_constraintBottom_toTopOf="@id/details_ViewPager"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/imageTeam"
-            app:showWhenSuccess="@{viewModel.stadiumInformation}" />
+            app:showWhenSuccess="@{viewModel.stadiumInformation}"
+            tools:ignore="MissingConstraints" />
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/details_ViewPager"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
+            style="@style/ViewPagerStyle"
             android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tabLayoutFragments"
-            app:showWhenSuccess="@{viewModel.stadiumInformation}" />
+            app:showWhenSuccess="@{viewModel.stadiumInformation}"
+            tools:ignore="MissingConstraints" />
 
         <com.example.loadinganimation.LoadingAnimation
             style="@style/ProgressBar.RainBow"

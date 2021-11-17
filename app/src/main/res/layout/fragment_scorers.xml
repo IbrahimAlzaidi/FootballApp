@@ -19,20 +19,22 @@
             android:id="@+id/playerTitle"
             android:layout_width="0dp"
             android:layout_height="40dp"
+            android:layout_marginTop="@dimen/margin1X"
             android:background="@drawable/live_match_header"
             android:elevation="@dimen/elevation1X"
-            android:layout_marginTop="@dimen/margin1X"
-            app:layout_constraintStart_toStartOf="@id/topScoreRecycler"
             app:layout_constraintEnd_toEndOf="@id/topScoreRecycler"
+            app:layout_constraintStart_toStartOf="@id/topScoreRecycler"
             app:layout_constraintTop_toTopOf="parent"
             app:showWhenSuccess="@{viewModel.topScorers}" />
+
         <View
             android:layout_width="0dp"
             android:layout_height="2dp"
+            android:background="#FAF8F8"
             app:layout_constraintBottom_toBottomOf="@id/playerTitle"
-            app:layout_constraintStart_toStartOf="@id/topScoreRecycler"
             app:layout_constraintEnd_toEndOf="@id/topScoreRecycler"
-            android:background="#FAF8F8" />
+            app:layout_constraintStart_toStartOf="@id/topScoreRecycler" />
+
         <TextView
             android:id="@+id/player"
             android:layout_width="wrap_content"
@@ -44,43 +46,40 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/playerTitle"
             app:showWhenSuccess="@{viewModel.topScorers}" />
+
         <TextView
             android:id="@+id/titleTeam"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Team"
             android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@id/player"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.73"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/player"
-            app:layout_constraintBottom_toBottomOf="@id/player"
-            app:showWhenSuccess="@{viewModel.topScorers}"/>
+            app:showWhenSuccess="@{viewModel.topScorers}" />
+
         <TextView
             android:id="@+id/goalsTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Goals"
             android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@id/playerTitle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/titleTeam"
             app:layout_constraintTop_toTopOf="@id/playerTitle"
-            app:layout_constraintBottom_toBottomOf="@id/playerTitle"
-            app:showWhenSuccess="@{viewModel.topScorers}"/>
+            app:showWhenSuccess="@{viewModel.topScorers}" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/topScoreRecycler"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
+            style="@style/RecycleViewStyle"
             android:layout_marginHorizontal="@dimen/margin0X"
-            android:orientation="vertical"
             app:items="@{viewModel.topScorers.toData().topScorersInfo}"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/playerTitle"
             app:showWhenSuccess="@{viewModel.topScorers}"
+            tools:ignore="MissingConstraints"
             tools:listitem="@layout/top_score_item" />
 
         <com.example.loadinganimation.LoadingAnimation

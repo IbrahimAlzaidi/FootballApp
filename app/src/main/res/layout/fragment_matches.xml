@@ -17,16 +17,11 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/matchScheduledRecycler"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:orientation="vertical"
+            style="@style/RecycleViewStyle"
             app:itemsScroll="@{viewModel.matchesScheduled.toData().schedulerMatchInfo}"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:showWhenSuccess="@{viewModel.matchesScheduled}"
+            tools:ignore="MissingConstraints"
             tools:listitem="@layout/matches_item" />
 
         <com.example.loadinganimation.LoadingAnimation
