@@ -18,112 +18,300 @@
         android:layout_height="match_parent"
         tools:context=".ui.playerDetails.PlayerDetailsFragment">
 
-        <View
-            android:id="@+id/background"
-            android:layout_width="match_parent"
-            android:layout_height="350dp"
-            android:layout_marginStart="@dimen/margin3X"
-            android:background="@drawable/player_background_shape"
-            android:elevation="0dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:showWhenSuccess="@{viewModel.playerData}" />
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/imageHolder"
-            style="@style/Widget.App.CardView"
-            android:layout_width="280dp"
-            android:layout_height="270dp"
-            app:cardCornerRadius="@dimen/margin2X"
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/teamHolder"
+            android:layout_width="290dp"
+            android:layout_height="300dp"
+            android:layout_marginStart="@dimen/margin4X"
+            android:alpha="0.1"
+            android:scaleType="centerCrop"
+            app:ImageUrl="@{viewModel.playerData.toData().squadPlayerInfo.get(0).team.logo}"
+            app:brightness="1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.25"
-            app:showWhenSuccess="@{viewModel.playerData}">
+            app:layout_constraintVertical_bias="0.15"
+            app:saturation="0"
+            tools:src="@tools:sample/avatars" />
 
-            <ImageView
-                android:layout_width="300dp"
-                android:layout_height="270dp"
-                android:layout_gravity="center"
-                android:elevation="1dp"
-                app:ImageUrl="@{viewModel.playerData.toData().squadPlayerInfo.get(0).players.get(0).photo}"
-                tools:src="@tools:sample/avatars" />
-        </com.google.android.material.card.MaterialCardView>
-
-        <TextView
-            android:id="@+id/playerNumber"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/margin2X"
-            android:elevation="@dimen/elevation0X"
-            android:gravity="center"
-            android:text="@{String.valueOf(viewModel.playerData.toData().squadPlayerInfo.get(0).players.get(0).number)}"
-            android:textColor="#C4C4C4"
-            android:textSize="170dp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@id/background"
-            app:layout_constraintTop_toTopOf="@id/background"
-            app:showWhenSuccess="@{viewModel.playerData}"
-            tools:text="10" />
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/teamImage"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="@dimen/margin1X"
+            android:padding="5dp"
+            app:ImageUrl="@{viewModel.playerData.toData().squadPlayerInfo.get(0).team.logo}"
+            app:layout_constraintHorizontal_bias="0.85"
+            app:layout_constraintStart_toStartOf="@id/teamHolder"
+            app:layout_constraintTop_toTopOf="@id/teamHolder"
+            app:layout_constraintVertical_bias="0.4"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+            app:strokeColor="#5CAAAAAA"
+            app:strokeWidth="2dp"
+            tools:src="@tools:sample/avatars" />
 
         <TextView
             android:id="@+id/playerName"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin4X"
-            android:text="@{viewModel.playerData.toData().squadPlayerInfo.get(0).players.get(0).name}"
-            android:textSize="35sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/holderViewPager"
-            app:layout_constraintEnd_toEndOf="@id/background"
-            app:layout_constraintStart_toStartOf="@id/background"
-            app:layout_constraintTop_toBottomOf="@id/imageHolder"
-            app:showWhenSuccess="@{viewModel.playerData}"
-            tools:text="L.Messi" />
-
-        <View
-            android:id="@+id/holderViewPager"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginBottom="@dimen/margin6X"
-            android:background="@drawable/holder_player_details_shape"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@id/background"
-            app:layout_constraintStart_toStartOf="@id/background"
-            app:layout_constraintTop_toBottomOf="@id/playerName"
-            app:showWhenSuccess="@{viewModel.playerData}" />
-
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/details_ViewPager"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="#E8E8E8"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="@id/holderViewPager"
-            app:layout_constraintEnd_toEndOf="@id/holderViewPager"
-            app:layout_constraintStart_toStartOf="@id/holderViewPager"
-            app:layout_constraintTop_toTopOf="@id/holderViewPager"
-            app:showWhenSuccess="@{viewModel.playerData}" />
-
-        <com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
-            android:id="@+id/indicator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/margin2X"
-            app:dotsColor="#C4C4C4"
-            app:dotsCornerRadius="8dp"
-            app:dotsSize="16dp"
-            app:dotsSpacing="4dp"
-            app:dotsStrokeColor="@color/white"
-            app:dotsStrokeWidth="2dp"
+            android:layout_marginTop="@dimen/margin0X"
+            android:text="@{viewModel.playerStatisticInfo.toData().playerStatisticInfo.get(0).player.name}"
+            android:textColor="@color/black"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/teamImage"
+            app:layout_constraintTop_toBottomOf="@id/teamImage"
+            tools:text="Neymar" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.playerStatisticInfo.toData().playerStatisticInfo.get(0).player.nationality}"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/playerName"
+            app:layout_constraintTop_toBottomOf="@id/playerName"
+            tools:text="Egypt" />
+
+        <ImageView
+            android:id="@+id/shirt"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/shirt"
+            app:layout_constraintBottom_toBottomOf="@id/playerHolder"
+            app:layout_constraintStart_toStartOf="@+id/textView" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            tools:text="15"
+            android:textColor="@color/black"
+            android:text="@{String.valueOf(viewModel.playerData.toData().squadPlayerInfo.get(0).players.get(0).number)}"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            app:layout_constraintStart_toStartOf="@id/shirt"
+            app:layout_constraintBottom_toBottomOf="@id/shirt"
+            app:layout_constraintEnd_toEndOf="@id/shirt"
+            app:layout_constraintTop_toTopOf="@id/shirt"/>
+
+        <TextView
+            android:id="@+id/poistions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Attack"
+            android:textColor="@color/black"
+            android:text="@{String.valueOf(viewModel.playerData.toData().squadPlayerInfo.get(0).players.get(0).position)}"
+            android:layout_marginStart="@dimen/margin0X"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@id/shirt"
+            app:layout_constraintStart_toEndOf="@id/shirt"
+            />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/playerHolder"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:padding="5dp"
+            app:ImageUrl="@{viewModel.playerData.toData().squadPlayerInfo.get(0).players.get(0).photo}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.90"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.38"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+            app:strokeColor="#5CAAAAAA"
+            app:strokeWidth="5dp"
+            tools:src="@tools:sample/avatars" />
+
+        <View
+            android:id="@+id/statisticHolder"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@id/playerHolder"
+            app:layout_constraintStart_toStartOf="@id/teamHolder"
+            app:layout_constraintTop_toBottomOf="@id/playerHolder" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/agePlayerHolder"
+            android:layout_width="0dp"
+            android:layout_height="85dp"
+            android:layout_marginVertical="@dimen/margin0X"
+            app:layout_constraintBottom_toBottomOf="@id/statisticHolder"
+            app:layout_constraintEnd_toStartOf="@id/nationalityPlayerHolder"
+            app:layout_constraintStart_toStartOf="@id/statisticHolder"
+            app:layout_constraintTop_toTopOf="@id/statisticHolder" />
+
+        <TextView
+            android:id="@+id/playerAge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin3X"
+            android:elevation="@dimen/elevation0X"
+            android:gravity="start"
+            android:text="@{String.valueOf(viewModel.playerStatisticInfo.toData().playerStatisticInfo.get(0).statistics.get(0).games.appearances)}"
+            android:textColor="@color/black"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/agePlayerHolder"
+            app:layout_constraintEnd_toEndOf="@id/agePlayerHolder"
+            app:layout_constraintStart_toStartOf="@id/agePlayerHolder"
+            app:layout_constraintTop_toTopOf="@id/agePlayerHolder"
+            app:showWhenSuccess="@{viewModel.playerData}"
+            tools:text="35" />
+
+        <TextView
+            android:id="@+id/titleAge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin0X"
+            android:elevation="@dimen/elevation0X"
+            android:gravity="start"
+            android:text="Games"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/agePlayerHolder"
+            app:layout_constraintEnd_toEndOf="@id/agePlayerHolder"
+            app:layout_constraintStart_toStartOf="@id/agePlayerHolder"
             app:showWhenSuccess="@{viewModel.playerData}" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/nationalityPlayerHolder"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/agePlayerHolder"
+            app:layout_constraintEnd_toStartOf="@id/matchPlayerHolder"
+            app:layout_constraintStart_toEndOf="@id/agePlayerHolder"
+            app:layout_constraintTop_toTopOf="@id/agePlayerHolder" />
+
+        <TextView
+            android:id="@+id/playerNationalty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin3X"
+            android:elevation="@dimen/elevation0X"
+            android:gravity="start"
+            android:text="@{String.valueOf(viewModel.playerStatisticInfo.toData().playerStatisticInfo.get(0).statistics.get(0).games.minutes)}"
+            android:textColor="@color/black"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/nationalityPlayerHolder"
+            app:layout_constraintEnd_toEndOf="@id/nationalityPlayerHolder"
+            app:layout_constraintStart_toStartOf="@id/nationalityPlayerHolder"
+            app:layout_constraintTop_toTopOf="@id/nationalityPlayerHolder"
+            app:showWhenSuccess="@{viewModel.playerData}"
+            tools:text="1783" />
+
+        <TextView
+            android:id="@+id/titleNationalty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin0X"
+            android:elevation="@dimen/elevation0X"
+            android:gravity="start"
+            android:text="Minutes"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/nationalityPlayerHolder"
+            app:layout_constraintEnd_toEndOf="@id/nationalityPlayerHolder"
+            app:layout_constraintStart_toStartOf="@id/nationalityPlayerHolder"
+            app:showWhenSuccess="@{viewModel.playerData}" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/matchPlayerHolder"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/nationalityPlayerHolder"
+            app:layout_constraintEnd_toStartOf="@id/goalsPlayerHolder"
+            app:layout_constraintStart_toEndOf="@id/nationalityPlayerHolder"
+            app:layout_constraintTop_toTopOf="@+id/nationalityPlayerHolder" />
+
+        <TextView
+            android:id="@+id/playerMatch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin3X"
+            android:elevation="@dimen/elevation0X"
+            android:gravity="start"
+            android:text="@{String.valueOf(viewModel.playerStatisticInfo.toData().playerStatisticInfo.get(0).statistics.get(0).goals.total)}"
+            android:textColor="@color/black"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/matchPlayerHolder"
+            app:layout_constraintEnd_toEndOf="@id/matchPlayerHolder"
+            app:layout_constraintStart_toStartOf="@id/matchPlayerHolder"
+            app:layout_constraintTop_toTopOf="@id/matchPlayerHolder"
+            app:showWhenSuccess="@{viewModel.playerData}"
+            tools:text="37" />
+
+        <TextView
+            android:id="@+id/titleMatch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin0X"
+            android:elevation="@dimen/elevation0X"
+            android:gravity="start"
+            android:text="Goals"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/matchPlayerHolder"
+            app:layout_constraintEnd_toEndOf="@id/matchPlayerHolder"
+            app:layout_constraintStart_toStartOf="@id/matchPlayerHolder"
+            app:showWhenSuccess="@{viewModel.playerData}" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/goalsPlayerHolder"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/matchPlayerHolder"
+            app:layout_constraintEnd_toEndOf="@id/statisticHolder"
+            app:layout_constraintStart_toEndOf="@id/matchPlayerHolder"
+            app:layout_constraintTop_toTopOf="@+id/matchPlayerHolder" />
+
+        <TextView
+            android:id="@+id/playerRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin3X"
+            android:elevation="@dimen/elevation0X"
+            android:gravity="start"
+            android:text="@{String.valueOf(viewModel.playerStatisticInfo.toData().playerStatisticInfo.get(0).statistics.get(0).goals.assists)}"
+            android:textColor="@color/black"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/goalsPlayerHolder"
+            app:layout_constraintEnd_toEndOf="@id/goalsPlayerHolder"
+            app:layout_constraintStart_toStartOf="@id/goalsPlayerHolder"
+            app:layout_constraintTop_toTopOf="@id/goalsPlayerHolder"
+            app:showWhenSuccess="@{viewModel.playerData}"
+            tools:text="37" />
+
+        <TextView
+            android:id="@+id/titleRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin0X"
+            android:elevation="@dimen/elevation0X"
+            android:gravity="start"
+            android:text="Assists"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/goalsPlayerHolder"
+            app:layout_constraintEnd_toEndOf="@id/goalsPlayerHolder"
+            app:layout_constraintStart_toStartOf="@id/goalsPlayerHolder"
+            app:showWhenSuccess="@{viewModel.playerData}" />
+
+        
 
         <com.example.loadinganimation.LoadingAnimation
             style="@style/ProgressBar.RainBow"
+            android:visibility="gone"
             app:showWhenLoading="@{viewModel.playerData}"
             tools:ignore="MissingConstraints" />
 

@@ -10,79 +10,187 @@
             type="com.example.footballapp.ui.playerDetails.playedInfo.PlayerInformationViewModel" />
     </data>
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         tools:context=".ui.playerDetails.PlayerInformationFragment">
 
-        <TextView
-            android:id="@+id/teamName"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin4X"
-            android:layout_marginTop="@dimen/margin5X"
-            android:gravity="start"
-            android:text="@{@string/team_title+viewModel.playerData.toData().squadPlayerInfo.get(0).team.name}"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:showWhenSuccess="@{viewModel.playerData}"
-            tools:text="Team" />
+        <androidx.cardview.widget.CardView
+            android:id="@+id/nationaltyTeamHolder"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:backgroundTint="@color/gradient_red_end_color"
+            app:layout_constraintBottom_toBottomOf="@id/ageHolder"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toEndOf="@+id/ageHolder"
+            app:layout_constraintTop_toTopOf="@id/ageHolder" />
 
         <TextView
             android:id="@+id/playerAge"
-            android:layout_width="300dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin1X"
+            android:elevation="@dimen/elevation0X"
             android:gravity="start"
-            android:text="@{@string/player_age+String.valueOf(viewModel.playerData.toData().squadPlayerInfo.get(0).players.get(0).age)}"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="@id/teamName"
-            app:layout_constraintTop_toBottomOf="@id/teamName"
+            android:text="@{String.valueOf(viewModel.playerData.toData().squadPlayerInfo.get(0).players.get(0).age)}"
+            android:textColor="@color/white"
+            android:textSize="38sp"
+            app:layout_constraintBottom_toBottomOf="@id/ageHolder"
+            app:layout_constraintEnd_toEndOf="@id/ageHolder"
+            app:layout_constraintStart_toStartOf="@id/ageHolder"
+            app:layout_constraintTop_toTopOf="@id/ageHolder"
             app:showWhenSuccess="@{viewModel.playerData}"
-            tools:text="Age" />
+            tools:text="35" />
 
         <TextView
-            android:id="@+id/playerNationality"
-            android:layout_width="300dp"
+            android:id="@+id/titleAge"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin1X"
+            android:layout_marginBottom="@dimen/margin0X"
+            android:elevation="@dimen/elevation0X"
             android:gravity="start"
-            android:text="@{@string/player_nationality+viewModel.playerStatisticInfo.toData().playerStatisticInfo.get(0).player.nationality}"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="@id/playerAge"
-            app:layout_constraintTop_toBottomOf="@id/playerAge"
-            app:showWhenSuccess="@{viewModel.playerData}"
-            tools:text="Nationality" />
+            android:text="Age"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/ageHolder"
+            app:layout_constraintEnd_toEndOf="@id/ageHolder"
+            app:layout_constraintStart_toStartOf="@id/ageHolder"
+            app:showWhenSuccess="@{viewModel.playerData}" />
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/ageHolder"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="@dimen/margin2X"
+            android:backgroundTint="@color/gradient_blue_2_start_color"
+            app:layout_constraintEnd_toStartOf="@+id/nationaltyTeamHolder"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/playerMatches"
-            android:layout_width="300dp"
+            android:id="@+id/playerNationalty"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin1X"
+            android:elevation="@dimen/elevation0X"
             android:gravity="start"
-            android:text="@{@string/player_matches+String.valueOf(viewModel.playerStatisticInfo.toData().playerStatisticInfo.get(0).statistics.get(0).games.appearances)}"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="@id/playerNationality"
-            app:layout_constraintTop_toBottomOf="@id/playerNationality"
+            android:text="@{viewModel.playerStatisticInfo.toData().playerStatisticInfo.get(0).player.nationality}"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/nationaltyTeamHolder"
+            app:layout_constraintEnd_toEndOf="@id/nationaltyTeamHolder"
+            app:layout_constraintStart_toStartOf="@id/nationaltyTeamHolder"
+            app:layout_constraintTop_toTopOf="@id/nationaltyTeamHolder"
             app:showWhenSuccess="@{viewModel.playerData}"
-            tools:text="Matches" />
+            tools:text="Spain" />
+
+        <TextView
+            android:id="@+id/titleNationalty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin0X"
+            android:elevation="@dimen/elevation0X"
+            android:gravity="start"
+            android:text="Nationality"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/nationaltyTeamHolder"
+            app:layout_constraintEnd_toEndOf="@id/nationaltyTeamHolder"
+            app:layout_constraintStart_toStartOf="@id/nationaltyTeamHolder"
+            app:showWhenSuccess="@{viewModel.playerData}" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/matchTeamHolder"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginVertical="@dimen/margin2X"
+            android:backgroundTint="@color/gradient_yellow_start_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/ageHolder"
+            app:layout_constraintStart_toStartOf="@id/ageHolder"
+            app:layout_constraintTop_toBottomOf="@id/ageHolder" />
+
+        <TextView
+            android:id="@+id/playerMatch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/elevation0X"
+            android:gravity="start"
+            android:text="@{String.valueOf(viewModel.playerStatisticInfo.toData().playerStatisticInfo.get(0).statistics.get(0).games.appearances)}"
+            android:textColor="@color/black"
+            android:textSize="38sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/matchTeamHolder"
+            app:layout_constraintEnd_toEndOf="@id/matchTeamHolder"
+            app:layout_constraintStart_toStartOf="@id/matchTeamHolder"
+            app:layout_constraintTop_toTopOf="@id/matchTeamHolder"
+            app:showWhenSuccess="@{viewModel.playerData}"
+            tools:text="37" />
+
+        <TextView
+            android:id="@+id/titleMatch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin0X"
+            android:elevation="@dimen/elevation0X"
+            android:gravity="start"
+            android:text="Match"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/matchTeamHolder"
+            app:layout_constraintEnd_toEndOf="@id/matchTeamHolder"
+            app:layout_constraintStart_toStartOf="@id/matchTeamHolder"
+            app:showWhenSuccess="@{viewModel.playerData}" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/ratingHolder"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginVertical="@dimen/margin3X"
+            android:backgroundTint="@color/gradient_green_start_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/nationaltyTeamHolder"
+            app:layout_constraintStart_toStartOf="@id/nationaltyTeamHolder"
+            app:layout_constraintTop_toBottomOf="@id/nationaltyTeamHolder" />
 
         <TextView
             android:id="@+id/playerRating"
-            android:layout_width="300dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin1X"
+            android:elevation="@dimen/elevation0X"
             android:gravity="start"
-            android:text="@{@string/player_rating+String.valueOf(viewModel.playerStatisticInfo.toData().playerStatisticInfo.get(0).statistics.get(0).games.rating).subSequence(0,3)}"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="@id/playerMatches"
-            app:layout_constraintTop_toBottomOf="@id/playerMatches"
+            android:text="@{viewModel.playerStatisticInfo.toData().playerStatisticInfo.get(0).statistics.get(0).games.rating.substring(0,3)}"
+            android:textColor="@color/black"
+            android:textSize="38sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/ratingHolder"
+            app:layout_constraintEnd_toEndOf="@id/ratingHolder"
+            app:layout_constraintStart_toStartOf="@id/ratingHolder"
+            app:layout_constraintTop_toTopOf="@id/ratingHolder"
             app:showWhenSuccess="@{viewModel.playerData}"
-            tools:text="Ratings" />
+            tools:text="37" />
+
+        <TextView
+            android:id="@+id/titleRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin0X"
+            android:elevation="@dimen/elevation0X"
+            android:gravity="start"
+            android:text="Rating"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/ratingHolder"
+            app:layout_constraintEnd_toEndOf="@id/ratingHolder"
+            app:layout_constraintStart_toStartOf="@id/ratingHolder"
+            app:showWhenSuccess="@{viewModel.playerData}" />
+
 
         <com.example.loadinganimation.LoadingAnimation
             style="@style/ProgressBar.FootBall"
+            android:visibility="gone"
             app:showWhenLoading="@{viewModel.playerData}"
             tools:ignore="MissingConstraints" />
 
@@ -90,7 +198,6 @@
             style="@style/LottieError"
             app:showWhenError="@{viewModel.playerData}"
             tools:ignore="MissingConstraints" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
