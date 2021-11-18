@@ -103,3 +103,13 @@ fun TextView.setHomeScoreSeparator(text: String?){
     if (text == null){
         this.text = "-"}
 }
+
+
+@BindingAdapter(value = ["app:visibilityView"])
+fun View.showIfTrue(value:Boolean?){
+    if (value == true){
+        this.visibility = View.VISIBLE
+    }else{
+        this.visibility = View.GONE
+    }
+}
