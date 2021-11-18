@@ -1,21 +1,14 @@
 package com.example.footballapp.util
 
-import android.app.AlertDialog
-import android.app.Dialog
-import android.content.Context
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.util.Log
-import android.view.*
+import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.airbnb.lottie.parser.IntegerParser
 import com.example.footballapp.R
 import com.example.footballapp.model.network.State
 import com.example.footballapp.model.response.base.baseLeagueInfo.LeagueInfo
@@ -27,8 +20,6 @@ import com.example.footballapp.ui.home.matchScheduled.MatchScheduledAdapter
 import com.example.footballapp.ui.leagueDetails.matches.MatchAdapter
 import com.example.footballapp.util.Constant.TAG
 import com.github.twocoffeesoneteam.glidetovectoryou.GlideApp
-import java.text.NumberFormat
-import kotlin.math.log
 
 @BindingAdapter(value = ["app:showWhenLoading"])
 fun <T> View.showWhenLoading(state: State<T>?) {
@@ -98,12 +89,13 @@ fun setText(view: TextView, text: String?) {
 
 @BindingAdapter(value = ["app:progressApp"])
 fun ProgressBar.setProgress(text: String?) {
-    if (text != null){
-        if (text.contains("%")){
-        this.progress = (text.subSequence(0,1).toString()).toInt()
-    }else{
-        this.progress = text.toInt()
-    }}
+    if (text != null) {
+        if (text.contains("%")) {
+            this.progress = (text.subSequence(0, 1).toString()).toInt()
+        } else {
+            this.progress = text.toInt()
+        }
+    }
 }
 
 
