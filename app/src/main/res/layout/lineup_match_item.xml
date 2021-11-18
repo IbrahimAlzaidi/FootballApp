@@ -22,9 +22,9 @@
             android:layout_height="match_parent"
             android:layout_weight="0.5"
             android:gravity="center"
+            android:text="@{item.numberHomeTeam.toString()}"
             android:textColor="@color/black"
             android:textSize="@dimen/size3X"
-            android:text="@{item.numberHomeTeam.toString()}"
             tools:text="1" />
 
         <TextView
@@ -32,19 +32,16 @@
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:gravity="start"
-            android:textColor="@color/black"
-            android:textSize="@dimen/size4X"
             android:text="@{item.playerHomeTeam}"
+            android:textSize="@dimen/size4X"
             tools:text="Ronaldo" />
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:gravity="end"
-            android:textColor="@color/black"
-            android:textSize="@dimen/size4X"
             android:text="@{item.playerAwayTeam}"
+            android:textSize="@dimen/size4X"
             tools:text="Ronaldo" />
 
         <TextView
@@ -52,9 +49,9 @@
             android:layout_height="match_parent"
             android:layout_weight="0.5"
             android:gravity="center"
+            android:text="@{item.numberAwayTeam.toString()}"
             android:textColor="@color/black"
             android:textSize="@dimen/size3X"
-            android:text="@{item.numberAwayTeam.toString()}"
             tools:text="1" />
 
     </LinearLayout>

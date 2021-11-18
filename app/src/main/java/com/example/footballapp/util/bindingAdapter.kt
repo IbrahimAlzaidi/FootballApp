@@ -1,14 +1,21 @@
 package com.example.footballapp.util
 
+import android.app.AlertDialog
+import android.app.Dialog
+import android.content.Context
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.util.Log
-import android.view.View
+import android.view.*
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.airbnb.lottie.parser.IntegerParser
 import com.example.footballapp.R
 import com.example.footballapp.model.network.State
 import com.example.footballapp.model.response.base.baseLeagueInfo.LeagueInfo
@@ -20,6 +27,8 @@ import com.example.footballapp.ui.home.matchScheduled.MatchScheduledAdapter
 import com.example.footballapp.ui.leagueDetails.matches.MatchAdapter
 import com.example.footballapp.util.Constant.TAG
 import com.github.twocoffeesoneteam.glidetovectoryou.GlideApp
+import java.text.NumberFormat
+import kotlin.math.log
 
 @BindingAdapter(value = ["app:showWhenLoading"])
 fun <T> View.showWhenLoading(state: State<T>?) {
@@ -89,8 +98,14 @@ fun setText(view: TextView, text: String?) {
 
 @BindingAdapter(value = ["app:progressApp"])
 fun ProgressBar.setProgress(text: String?) {
-    text?.subSequence(0, 1)?.also { this.progress = it[0].code }
+    if (text != null){
+        if (text.contains("%")){
+        this.progress = (text.subSequence(0,1).toString()).toInt()
+    }else{
+        this.progress = text.toInt()
+    }}
 }
+
 
 @BindingAdapter(value = ["app:setScoreSeparator"])
 fun TextView.setHomeScoreSeparator(text: String?) {
@@ -102,7 +117,7 @@ fun TextView.setHomeScoreSeparator(text: String?) {
 @BindingAdapter(value = ["app:itemsScroll"])
 fun RecyclerView.setRecyclerViewScroll(items: List<SchedulerMatchInfo>?) {
     if (items != null) {
-        val position = items.filter { it.fixture?.status?.longMatch == "Match Finished"}.size
+        val position = items.filter { it.fixture?.status?.longMatch == "Match Finished" }.size
         Log.i(TAG, "setRecyclerViewScroll: $position")
         (this.adapter as MatchAdapter?)?.setItems(this, items, position)
     } else {
@@ -112,10 +127,10 @@ fun RecyclerView.setRecyclerViewScroll(items: List<SchedulerMatchInfo>?) {
 
 
 @BindingAdapter(value = ["app:visibilityView"])
-fun View.showIfTrue(value:Boolean?){
-    if (value == true){
+fun View.showIfTrue(value: Boolean?) {
+    if (value == true) {
         this.visibility = VISIBLE
-    }else{
+    } else {
         this.visibility = GONE
     }
 }
@@ -123,7 +138,7 @@ fun View.showIfTrue(value:Boolean?){
 @BindingAdapter(value = ["app:itemsLeagues"])
 fun RecyclerView.setRecyclerViewLeagues(items: List<LeagueInfo>?) {
     if (items != null) {
-            val item = items.filter { it.country?.name != "World" && it.league?.type != "Cup" }
+        val item = items.filter { it.country?.name != "World" && it.league?.type != "Cup" }
         (this.adapter as LeaguesAdapter?)?.setItems(this, item)
     } else {
         (this.adapter as LeaguesAdapter?)?.setItems(this, emptyList())
@@ -133,10 +148,28 @@ fun RecyclerView.setRecyclerViewLeagues(items: List<LeagueInfo>?) {
 @BindingAdapter(value = ["app:itemsMatches"])
 fun RecyclerView.setRecyclerViewMatches(items: List<MatchScheduledInfo>?) {
     if (items != null) {
-        val item = items.filter { it.league?.country != "World" && it.league?.name != "I Liga - Women" }
+        val item =
+            items.filter { it.league?.country != "World" && it.league?.name != "I Liga - Women" }
         (this.adapter as MatchScheduledAdapter?)?.setItems(this, item)
     } else {
         (this.adapter as MatchScheduledAdapter?)?.setItems(this, emptyList())
     }
 }
 
+@BindingAdapter(value = ["app:teamPositionsPlayer"])
+fun TextView.setTeamColor(text: String?) {
+    when (text) {
+        "G" -> {
+            this.text = "Goal Keeper"
+        }
+        "D" -> {
+            this.text = "Defender"
+        }
+        "M" -> {
+            this.text = "Midfielder"
+        }
+        "F" -> {
+            this.text = "Attacker"
+        }
+    }
+}

@@ -11,45 +11,99 @@
 
     </data>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin3X"
-        android:orientation="horizontal">
+        android:layout_height="55dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/amountHolder"
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:layout_margin="@dimen/margin1X"
+            android:elevation="@dimen/elevation0X"
+            app:cardCornerRadius="@dimen/margin0X"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:id="@+id/home_team_value"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_height="0dp"
+            android:elevation="@dimen/elevation1X"
             android:gravity="center"
-            android:paddingStart="@dimen/margin4X"
-            android:textSize="@dimen/size3X"
-            app:textNull="@{item.homeValue}"
-            tools:ignore="RtlSymmetry"
-            tools:text="30" />
+            android:text="@{String.valueOf(item.homeValue !=null ? item.homeValue : 0)}"
+            app:layout_constraintBottom_toBottomOf="@id/amountHolder"
+            app:layout_constraintEnd_toEndOf="@id/amountHolder"
+            app:layout_constraintStart_toStartOf="@id/amountHolder"
+            app:layout_constraintTop_toTopOf="@id/amountHolder"
+            tools:text="19" />
+
+        <ProgressBar
+            android:id="@+id/progressHomeTeam"
+            style="?android:progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="10dp"
+            android:layout_marginStart="@dimen/margin5X"
+            android:layout_marginEnd="@dimen/margin1X"
+            android:max="20"
+            android:progressDrawable="@drawable/custom_progressbar"
+            app:layout_constraintBottom_toBottomOf="@id/amountHolder"
+            app:layout_constraintEnd_toStartOf="@id/progressAwayTeam"
+            app:layout_constraintStart_toStartOf="@id/amountHolder"
+            app:layout_constraintTop_toTopOf="@id/amountHolder"
+            app:progressApp="@{item.homeValue}"
+            tools:progress="10" />
 
         <TextView
-            android:id="@+id/stats_type"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:gravity="center"
             android:text="@{item.type}"
-            android:textSize="@dimen/size4X"
-            tools:text="shot" />
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toTopOf="@id/progressAwayTeam"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Shots outsideBox" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/amountHolderAwayTeam"
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:layout_margin="@dimen/margin1X"
+            android:elevation="@dimen/elevation0X"
+            app:cardCornerRadius="@dimen/margin0X"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
-            android:id="@+id/away_team_value"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_height="0dp"
+            android:elevation="@dimen/elevation1X"
             android:gravity="center"
-            android:paddingEnd="@dimen/margin4X"
-            app:textNull="@{item.awayValue}"
-            android:textSize="@dimen/size3X"
-            tools:ignore="RtlSymmetry"
-            tools:text="30" />
+            android:text="@{String.valueOf(item.awayValue !=null ? item.awayValue : 0)}"
+            app:layout_constraintBottom_toBottomOf="@id/amountHolderAwayTeam"
+            app:layout_constraintEnd_toEndOf="@id/amountHolderAwayTeam"
+            app:layout_constraintStart_toStartOf="@id/amountHolderAwayTeam"
+            app:layout_constraintTop_toTopOf="@id/amountHolderAwayTeam"
+            tools:text="19" />
 
-    </LinearLayout>
+        <ProgressBar
+            android:id="@+id/progressAwayTeam"
+            style="?android:progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="10dp"
+            android:layout_marginEnd="@dimen/margin5X"
+            android:layout_marginStart="@dimen/margin1X"
+            android:max="20"
+            android:progressDrawable="@drawable/custom_progressbar"
+            android:rotation="180"
+            app:layout_constraintBottom_toBottomOf="@id/amountHolderAwayTeam"
+            app:layout_constraintEnd_toEndOf="@id/amountHolderAwayTeam"
+            app:layout_constraintStart_toEndOf="@id/progressHomeTeam"
+            app:layout_constraintTop_toTopOf="@id/amountHolderAwayTeam"
+            app:progressApp="@{item.awayValue}"
+            tools:progress="10" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -9,5 +9,5 @@ data class Status(
     @SerializedName("long")
     val longMatch: String?,
     @SerializedName("short")
-    val short: String?
+    val shortStatesMatch: String?
 )

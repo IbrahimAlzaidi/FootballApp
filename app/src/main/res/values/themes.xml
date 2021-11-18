@@ -107,4 +107,14 @@
         <item name="layoutManager">androidx.recyclerview.widget.LinearLayoutManager</item>
         <item name="layout_constraintBottom_toBottomOf">parent</item>
     </style>
+
+    <style name="MatchCardView"
+        parent="Widget.MaterialComponents.CardView">
+        <item name="shapeAppearance">@style/ShapeAppearance.App.MediumComponent</item>
+        <item name="cardElevation">2dp</item>
+        <item name="cornerSizeBottomLeft">8dp</item>
+        <item name="cornerSizeBottomRight">8dp</item>
+        <item name="cornerSizeTopRight">0dp</item>
+        <item name="cornerSizeTopLeft">0dp</item>
+    </style>
 </resources>

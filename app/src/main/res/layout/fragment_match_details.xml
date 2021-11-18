@@ -15,27 +15,100 @@
         android:layout_height="match_parent"
         tools:context=".ui.matchDetails.MatchDetailsFragment">
 
-        <ImageView
-            android:id="@+id/homeImage"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginStart="@dimen/margin5X"
-            android:layout_marginTop="@dimen/margin5X"
-            app:ImageUrl="@{viewModel.matchDetails.toData().fixtureDataInfo.get(0).teams.home.logo}"
+
+        <View
+            android:id="@+id/leagueHolder"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="#101f25"
+            app:showWhenSuccess="@{viewModel.matchDetails}"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/leagueImage"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:alpha="0.8"
+            app:ImageUrl="@{viewModel.matchDetails.toData().fixtureDataInfo.get(0).league.logo}"
+            android:scaleType="centerCrop"
+            app:brightness="0.9"
+            app:layout_constraintBottom_toBottomOf="@id/leagueHolder"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:saturation="0"
+            app:showWhenSuccess="@{viewModel.matchDetails}"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/leagueName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin6X"
+            android:gravity="center"
+            android:text="@{viewModel.matchDetails.toData().fixtureDataInfo.get(0).league.name}"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            app:showWhenSuccess="@{viewModel.matchDetails}"
+            app:layout_constraintEnd_toEndOf="@id/leagueHolder"
+            app:layout_constraintStart_toStartOf="@id/leagueHolder"
+            app:layout_constraintTop_toTopOf="@id/leagueHolder"
+            tools:text="Serie A" />
+
+        <TextView
+            android:id="@+id/matchData"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{viewModel.matchDetails.toData().fixtureDataInfo.get(0).fixture.date.substring(0,10)}"
+            android:textColor="#77FFFFFF"
+            android:textSize="16sp"
+            app:showWhenSuccess="@{viewModel.matchDetails}"
+            app:layout_constraintEnd_toEndOf="@id/leagueName"
+            app:layout_constraintStart_toStartOf="@id/leagueName"
+            app:layout_constraintTop_toBottomOf="@id/leagueName"
+            tools:text="23-2-2010" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/matchHolder"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginHorizontal="@dimen/margin4X"
+            android:layout_marginTop="90dp"
+            android:elevation="@dimen/elevation2X"
+            app:cardCornerRadius="@dimen/margin1X"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:showWhenSuccess="@{viewModel.matchDetails}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/homeTeamImage"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="@dimen/margin6X"
+            android:elevation="@dimen/elevation0X"
+            app:ImageUrl="@{viewModel.matchDetails.toData().fixtureDataInfo.get(0).teams.home.logo}"
+            app:layout_constraintBottom_toTopOf="@id/nameHome"
+            app:layout_constraintStart_toStartOf="@id/matchHolder"
+            app:layout_constraintTop_toTopOf="@id/matchHolder"
+            app:layout_constraintVertical_chainStyle="packed"
             app:showWhenSuccess="@{viewModel.matchDetails}"
             tools:src="@tools:sample/avatars" />
 
         <ImageView
-            android:id="@+id/awayImage"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginEnd="@dimen/margin5X"
+            android:id="@+id/awayTeamImage"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginEnd="@dimen/margin6X"
+            android:elevation="@dimen/elevation0X"
             app:ImageUrl="@{viewModel.matchDetails.toData().fixtureDataInfo.get(0).teams.away.logo}"
-            app:layout_constraintBottom_toBottomOf="@id/homeImage"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/homeImage"
+            app:layout_constraintBottom_toTopOf="@id/awayTeamName"
+            app:layout_constraintEnd_toEndOf="@id/matchHolder"
+            app:layout_constraintTop_toTopOf="@id/matchHolder"
+            app:layout_constraintVertical_chainStyle="packed"
             app:showWhenSuccess="@{viewModel.matchDetails}"
             tools:src="@tools:sample/avatars" />
 
@@ -43,47 +116,78 @@
             android:id="@+id/nameHome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin3X"
+            android:layout_marginTop="@dimen/margin0X"
+            android:elevation="@dimen/elevation0X"
             android:ellipsize="end"
-            android:maxWidth="120dp"
+            android:maxWidth="140dp"
             android:singleLine="true"
-            android:textSize="@dimen/size3X"
-            app:layout_constraintEnd_toEndOf="@+id/homeImage"
-            app:layout_constraintStart_toStartOf="@id/homeImage"
-            app:layout_constraintTop_toBottomOf="@id/homeImage"
-            app:showWhenSuccess="@{viewModel.matchDetails}"
             android:text="@{viewModel.matchDetails.toData().fixtureDataInfo.get(0).teams.home.name}"
+            android:textSize="@dimen/size3X"
+            app:layout_constraintBottom_toBottomOf="@id/matchHolder"
+            app:layout_constraintEnd_toEndOf="@id/homeTeamImage"
+            app:layout_constraintStart_toStartOf="@id/homeTeamImage"
+            app:layout_constraintTop_toBottomOf="@id/homeTeamImage"
+            app:showWhenSuccess="@{viewModel.matchDetails}"
             tools:text="Livebool" />
 
         <TextView
+            android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin3X"
+            android:elevation="@dimen/elevation0X"
+            android:gravity="center"
+            android:text="-"
+            android:textColor="@color/gray_300"
+            android:textSize="@dimen/size6X"
+            app:layout_constraintBottom_toBottomOf="@id/homeGoals"
+            app:layout_constraintEnd_toStartOf="@id/awayGoals"
+            app:layout_constraintStart_toEndOf="@id/homeGoals"
+            app:layout_constraintTop_toTopOf="@id/awayGoals"
+            app:showWhenSuccess="@{viewModel.matchDetails}" />
+
+        <TextView
+            android:id="@+id/awayTeamName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin0X"
+            android:elevation="@dimen/elevation0X"
             android:ellipsize="end"
             android:maxWidth="120dp"
             android:maxLines="1"
             android:singleLine="true"
-            android:textSize="@dimen/size3X"
-            app:layout_constraintEnd_toEndOf="@id/awayImage"
-            app:layout_constraintStart_toStartOf="@+id/awayImage"
-            app:layout_constraintTop_toBottomOf="@id/awayImage"
-            app:showWhenSuccess="@{viewModel.matchDetails}"
             android:text="@{viewModel.matchDetails.toData().fixtureDataInfo.get(0).teams.away.name}"
+            android:textSize="@dimen/size3X"
+            app:layout_constraintBottom_toBottomOf="@id/matchHolder"
+            app:layout_constraintEnd_toEndOf="@id/awayTeamImage"
+            app:layout_constraintStart_toStartOf="@id/awayTeamImage"
+            app:layout_constraintTop_toBottomOf="@id/awayTeamImage"
+            app:showWhenSuccess="@{viewModel.matchDetails}"
             tools:text="Liverpool" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/stateMatchHolder"
+            style="@style/MatchCardView"
+            android:layout_width="70dp"
+            android:layout_height="20dp"
+            app:layout_constraintEnd_toEndOf="@id/matchHolder"
+            app:layout_constraintStart_toStartOf="@id/matchHolder"
+            app:layout_constraintTop_toBottomOf="@id/matchHolder" />
 
         <TextView
             android:id="@+id/homeGoals"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin3X"
+            android:elevation="@dimen/margin0X"
             android:gravity="center"
-            android:textSize="@dimen/size6X"
-            app:layout_constraintBottom_toBottomOf="@id/homeImage"
-            app:layout_constraintEnd_toStartOf="@id/awayGoals"
-            app:layout_constraintStart_toEndOf="@id/homeImage"
-            app:layout_constraintTop_toTopOf="@id/homeImage"
-            app:showWhenSuccess="@{viewModel.matchDetails}"
             android:text="@{viewModel.matchDetails.toData().fixtureDataInfo.get(0).goals.home.toString()}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/size6X"
+            app:layout_constraintBottom_toBottomOf="@id/homeTeamImage"
+            app:layout_constraintEnd_toStartOf="@id/awayGoals"
+            app:layout_constraintStart_toEndOf="@id/homeTeamImage"
+            app:layout_constraintTop_toTopOf="@id/homeTeamImage"
+            app:showWhenSuccess="@{viewModel.matchDetails}"
             tools:text="6" />
 
         <TextView
@@ -91,73 +195,68 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin3X"
+            android:elevation="@dimen/elevation0X"
             android:gravity="center"
-            android:textSize="@dimen/size6X"
-            app:layout_constraintBottom_toBottomOf="@id/awayImage"
-            app:layout_constraintEnd_toStartOf="@id/awayImage"
-            app:layout_constraintStart_toEndOf="@id/homeGoals"
-            app:layout_constraintTop_toTopOf="@id/awayImage"
-            app:showWhenSuccess="@{viewModel.matchDetails}"
             android:text="@{viewModel.matchDetails.toData().fixtureDataInfo.get(0).goals.away.toString()}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/size6X"
+            app:layout_constraintBottom_toBottomOf="@id/awayTeamImage"
+            app:layout_constraintEnd_toStartOf="@id/awayTeamImage"
+            app:layout_constraintStart_toEndOf="@id/homeGoals"
+            app:layout_constraintTop_toTopOf="@id/awayTeamImage"
+            app:showWhenSuccess="@{viewModel.matchDetails}"
             tools:text="5" />
 
         <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="-"
-            android:textSize="@dimen/size4X"
-            app:layout_constraintBottom_toBottomOf="@id/homeGoals"
-            app:layout_constraintEnd_toStartOf="@id/awayGoals"
-            app:layout_constraintStart_toEndOf="@id/homeGoals"
-            app:layout_constraintTop_toTopOf="@id/awayGoals"
-            app:showWhenSuccess="@{viewModel.matchDetails}" />
-
-        <View
-            android:id="@+id/divider"
+            android:id="@+id/matchState"
             android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_marginTop="@dimen/margin0X"
-            android:background="@color/black"
-            app:layout_constraintEnd_toEndOf="@id/awayImage"
-            app:layout_constraintStart_toStartOf="@id/homeImage"
-            app:layout_constraintTop_toBottomOf="@id/nameHome"
-            app:showWhenSuccess="@{viewModel.matchDetails}" />
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/elevation1X"
+            android:gravity="center"
+            android:text="@{viewModel.matchDetails.toData().fixtureDataInfo.get(0).fixture.status.shortStatesMatch}"
+            android:textColor="@color/gray_300"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="@id/stateMatchHolder"
+            app:layout_constraintEnd_toEndOf="@id/stateMatchHolder"
+            app:layout_constraintStart_toStartOf="@id/stateMatchHolder"
+            app:layout_constraintTop_toTopOf="@id/stateMatchHolder"
+            app:showWhenSuccess="@{viewModel.matchDetails}"
+            tools:text="Full Time" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabLayoutFragments"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/margin5X"
+            android:layout_marginTop="@dimen/margin2X"
             app:layout_constraintBottom_toTopOf="@id/details_ViewPager"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/divider"
+            app:layout_constraintEnd_toEndOf="@id/matchHolder"
+            app:layout_constraintStart_toStartOf="@id/matchHolder"
+            app:layout_constraintTop_toBottomOf="@id/matchState"
             app:showWhenSuccess="@{viewModel.matchDetails}" />
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/details_ViewPager"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginHorizontal="@dimen/margin5X"
-            android:background="@drawable/rectangle_shape"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/tabLayoutFragments"
+            app:layout_constraintStart_toStartOf="@id/tabLayoutFragments"
             app:layout_constraintTop_toBottomOf="@id/tabLayoutFragments"
             app:showWhenSuccess="@{viewModel.matchDetails}" />
 
         <com.example.loadinganimation.LoadingAnimation
             style="@style/ProgressBar.RainBow"
+            android:visibility="gone"
             app:showWhenLoading="@{viewModel.matchDetails}"
             tools:ignore="MissingConstraints" />
 
         <com.airbnb.lottie.LottieAnimationView
             style="@style/LottieError"
+            android:visibility="gone"
             app:showWhenError="@{viewModel.matchDetails}"
             tools:ignore="MissingConstraints" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
