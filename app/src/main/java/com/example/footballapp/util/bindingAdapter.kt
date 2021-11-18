@@ -1,7 +1,8 @@
 package com.example.footballapp.util
 
 import android.view.View
-import android.view.View.*
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
@@ -9,9 +10,7 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.footballapp.R
 import com.example.footballapp.model.network.State
-import com.example.footballapp.model.response.base.baseLeagueInfo.LeagueInfo
 import com.example.footballapp.ui.base.BaseAdapter
-import com.example.footballapp.ui.home.LeaguesAdapter
 import com.github.twocoffeesoneteam.glidetovectoryou.GlideApp
 
 @BindingAdapter(value = ["app:showWhenLoading"])
@@ -79,20 +78,6 @@ fun setText(view: TextView, text: String?) {
     }
 }
 
-@set:BindingAdapter("invisible")
-var View.invisible
-    get() = visibility == INVISIBLE
-    set(value) {
-        visibility = if (value) INVISIBLE else VISIBLE
-    }
-
-@set:BindingAdapter("gone")
-var View.gone
-    get() = visibility == GONE
-    set(value) {
-        visibility = if (value) GONE else VISIBLE
-    }
-
 @BindingAdapter(value = ["app:progressApp"])
 fun ProgressBar.setProgress(text: String?) {
     text?.subSequence(0, 1)?.also { this.progress = it[0].code }
@@ -108,8 +93,8 @@ fun TextView.setHomeScoreSeparator(text: String?){
 @BindingAdapter(value = ["app:visibilityView"])
 fun View.showIfTrue(value:Boolean?){
     if (value == true){
-        this.visibility = View.VISIBLE
+        this.visibility = VISIBLE
     }else{
-        this.visibility = View.GONE
+        this.visibility = GONE
     }
 }
