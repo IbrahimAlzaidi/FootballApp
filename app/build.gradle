@@ -97,6 +97,4 @@ dependencies {
     //progress bar
     implementation 'com.github.Marvel999:Android-Loading-Animation:1.0.0'
 
-
-
 }

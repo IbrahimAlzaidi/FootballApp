@@ -2,6 +2,7 @@
     <string name="app_name">Football app</string>
     <string name="search">Search</string>
     <string name="Live_Match_Symbol">\%s\ °</string>
+    <string name="years_symbol">\%s\ Years</string>
     <string name="searchTransition">searchTransition</string>
     <string name="team_information">Team Information</string>
     <string name="venue_information">Venue Information</string>

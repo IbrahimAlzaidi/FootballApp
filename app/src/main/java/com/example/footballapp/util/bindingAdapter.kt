@@ -2,7 +2,8 @@ package com.example.footballapp.util
 
 import android.util.Log
 import android.view.View
-import android.view.View.*
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
@@ -86,20 +87,6 @@ fun setText(view: TextView, text: String?) {
     }
 }
 
-@set:BindingAdapter("invisible")
-var View.invisible
-    get() = visibility == INVISIBLE
-    set(value) {
-        visibility = if (value) INVISIBLE else VISIBLE
-    }
-
-@set:BindingAdapter("gone")
-var View.gone
-    get() = visibility == GONE
-    set(value) {
-        visibility = if (value) GONE else VISIBLE
-    }
-
 @BindingAdapter(value = ["app:progressApp"])
 fun ProgressBar.setProgress(text: String?) {
     text?.subSequence(0, 1)?.also { this.progress = it[0].code }
@@ -120,6 +107,16 @@ fun RecyclerView.setRecyclerViewScroll(items: List<SchedulerMatchInfo>?) {
         (this.adapter as MatchAdapter?)?.setItems(this, items, position)
     } else {
         (this.adapter as MatchAdapter?)?.setItems(this, emptyList())
+    }
+}
+
+
+@BindingAdapter(value = ["app:visibilityView"])
+fun View.showIfTrue(value:Boolean?){
+    if (value == true){
+        this.visibility = VISIBLE
+    }else{
+        this.visibility = GONE
     }
 }
 

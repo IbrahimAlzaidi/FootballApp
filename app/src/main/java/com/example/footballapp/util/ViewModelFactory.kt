@@ -17,8 +17,6 @@ import com.example.footballapp.ui.matchDetails.lineup.LineupViewModel
 import com.example.footballapp.ui.matchDetails.matchState.MatchStateViewModel
 import com.example.footballapp.ui.matchDetails.substitutes.SubstitutesViewModel
 import com.example.footballapp.ui.playerDetails.PlayerDetailsViewModel
-import com.example.footballapp.ui.playerDetails.matchPlayedStatistic.PlayedStatisticViewModel
-import com.example.footballapp.ui.playerDetails.playedInfo.PlayerInformationViewModel
 import com.example.footballapp.ui.search.SearchViewModel
 
 class ViewModelFactory : ViewModelProvider.NewInstanceFactory() {
@@ -40,8 +38,6 @@ class ViewModelFactory : ViewModelProvider.NewInstanceFactory() {
             modelClass.isAssignableFrom(MatchStateViewModel::class.java) -> MatchStateViewModel() as T
             modelClass.isAssignableFrom(LineupViewModel::class.java) -> LineupViewModel() as T
             modelClass.isAssignableFrom(SubstitutesViewModel::class.java) -> SubstitutesViewModel() as T
-            modelClass.isAssignableFrom(PlayedStatisticViewModel::class.java) -> PlayedStatisticViewModel() as T
-            modelClass.isAssignableFrom(PlayerInformationViewModel::class.java) -> PlayerInformationViewModel() as T
             else -> throw IllegalArgumentException("View Model Class Not Found")
         }
     }
