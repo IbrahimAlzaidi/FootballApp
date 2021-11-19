@@ -15,11 +15,37 @@
         android:layout_height="match_parent"
         tools:context=".ui.matchDetails.matchState.MatchStateFragment">
 
+        <ImageView
+            android:id="@+id/coachTable"
+            android:layout_width="350dp"
+            android:layout_height="350dp"
+            android:src="@drawable/ic_coachbord"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:visibilityView="@{viewModel.matchStatistic.toData().matchStatisticInfo.empty}" />
+
+        <TextView
+            android:id="@+id/noMatchAvailable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No Information Available"
+            android:textColor="@color/red_200"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/coachTable"
+            app:layout_constraintStart_toStartOf="@id/coachTable"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.75"
+            app:visibilityView="@{viewModel.matchStatistic.toData().matchStatisticInfo.empty}" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/myRecycle"
             style="@style/RecycleViewStyle"
             android:layout_marginTop="@dimen/margin0X"
             app:items="@{viewModel.match}"
+            android:visibility="gone"
             app:layout_constraintTop_toTopOf="parent"
             app:showWhenSuccess="@{viewModel.matchStatistic}"
             tools:ignore="MissingConstraints"
