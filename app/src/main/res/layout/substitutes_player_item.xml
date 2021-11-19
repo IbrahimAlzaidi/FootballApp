@@ -10,47 +10,117 @@
             type="com.example.footballapp.model.response.lineup.SubstitutesPlayer" />
     </data>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin1X"
-        android:orientation="horizontal">
+        android:layout_marginTop="@dimen/margin1X">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="0.5"
-            android:gravity="center"
-            android:text="@{item.homeTeamNumberSubstitutes.toString()}"
-            android:textSize="@dimen/size3X"
-            tools:text="1" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:gravity="start"
-            android:text="@{item.homeTeamSubstitutes}"
-            android:textSize="@dimen/size4X"
-            tools:text="Ronaldo" />
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/playerHome"
+            app:layout_constraintStart_toStartOf="@id/playerHome"
+            app:layout_constraintTop_toBottomOf="@id/playerHome"
+            app:teamPositionsPlayer="@{item.substitutesHomePlayerPosition}"
+            tools:text="Attacker" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="2"
+            android:id="@+id/textView4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:gravity="end"
-            android:text="@{item.awayTeamSubstitute}"
-            android:textSize="@dimen/size4X"
-            tools:text="Ronaldo" />
+            android:text="Attacker"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@id/playerAway"
+            app:layout_constraintStart_toEndOf="@+id/playerHome"
+            app:layout_constraintTop_toBottomOf="@id/playerAway"
+            app:teamPositionsPlayer="@{item.substitutesAwayPlayerPosition}" />
+
+        <ImageView
+            android:id="@+id/homeNumber"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="@dimen/margin0X"
+            android:src="@drawable/shirt"
+            app:layout_constraintEnd_toStartOf="@id/playerHome"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="0.5"
+            android:id="@+id/holderHome"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
             android:gravity="center"
-            android:text="@{item.awayTeamNumberSubstitutes.toString()}"
-            android:textSize="@dimen/size3X"
-            tools:text="1" />
+            android:text="@{String.valueOf(item.homeTeamNumberSubstitutes)}"
+            android:textColor="@color/black"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="@id/homeNumber"
+            app:layout_constraintEnd_toEndOf="@id/homeNumber"
+            app:layout_constraintStart_toStartOf="@id/homeNumber"
+            app:layout_constraintTop_toTopOf="@id/homeNumber"
+            tools:text="3" />
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/playerHome"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin0X"
+            android:gravity="start"
+            android:lines="1"
+            android:maxWidth="60dp"
+            android:text="@{item.homeTeamSubstitutes}"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@id/homeNumber"
+            app:layout_constraintEnd_toStartOf="@id/playerAway"
+            app:layout_constraintStart_toEndOf="@id/homeNumber"
+            app:layout_constraintTop_toTopOf="@id/homeNumber"
+            tools:text="Naymar" />
+
+        <ImageView
+            android:id="@+id/awayNumber"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/shirt"
+            app:layout_constraintBottom_toBottomOf="@id/playerHome"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/playerHome" />
+
+        <TextView
+            android:id="@+id/holderAway"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="@{String.valueOf(item.awayTeamNumberSubstitutes)}"
+            android:textColor="@color/black"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="@id/awayNumber"
+            app:layout_constraintEnd_toEndOf="@id/awayNumber"
+            app:layout_constraintStart_toStartOf="@id/awayNumber"
+            app:layout_constraintTop_toTopOf="@id/awayNumber"
+            tools:text="3" />
+
+        <TextView
+            android:id="@+id/playerAway"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin0X"
+            android:gravity="end"
+            android:lines="1"
+            android:maxWidth="60dp"
+            android:text="@{item.awayTeamSubstitute}"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@id/awayNumber"
+            app:layout_constraintEnd_toStartOf="@id/awayNumber"
+            app:layout_constraintStart_toEndOf="@id/playerHome"
+            app:layout_constraintTop_toTopOf="@id/awayNumber"
+            tools:text="Naymar" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

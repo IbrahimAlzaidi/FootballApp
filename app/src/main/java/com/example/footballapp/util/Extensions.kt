@@ -1,5 +1,6 @@
 package com.example.footballapp.util
 
+import com.example.footballapp.model.response.fixtureData.FixtureDataInfo
 import com.example.footballapp.model.response.lineup.DataPlayer
 import com.example.footballapp.model.response.lineup.LineupInfo
 import com.example.footballapp.model.response.lineup.SubstitutesPlayer
@@ -48,6 +49,8 @@ fun List<LineupInfo?>.toSubstitutes(): List<SubstitutesPlayer?> {
                 this[1]?.substitutes?.get(i)?.player?.name,
                 this[0]?.substitutes?.get(i)?.player?.number,
                 this[1]?.substitutes?.get(i)?.player?.number,
+                this[0]?.substitutes?.get(i)?.player?.position,
+                this[1]?.substitutes?.get(i)?.player?.position,
             )
         )
     }

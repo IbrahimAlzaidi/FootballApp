@@ -119,10 +119,13 @@
             android:layout_marginTop="@dimen/margin0X"
             android:elevation="@dimen/elevation0X"
             android:ellipsize="end"
-            android:maxWidth="140dp"
+            android:maxWidth="100dp"
+            android:maxLines="1"
             android:singleLine="true"
             android:text="@{viewModel.matchDetails.toData().fixtureDataInfo.get(0).teams.home.name}"
             android:textSize="@dimen/size3X"
+
+
             app:layout_constraintBottom_toBottomOf="@id/matchHolder"
             app:layout_constraintEnd_toEndOf="@id/homeTeamImage"
             app:layout_constraintStart_toStartOf="@id/homeTeamImage"
@@ -152,7 +155,7 @@
             android:layout_marginTop="@dimen/margin0X"
             android:elevation="@dimen/elevation0X"
             android:ellipsize="end"
-            android:maxWidth="120dp"
+            android:maxWidth="100dp"
             android:maxLines="1"
             android:singleLine="true"
             android:text="@{viewModel.matchDetails.toData().fixtureDataInfo.get(0).teams.away.name}"
