@@ -17,6 +17,7 @@
         tools:context=".ui.search.SearchFragment">
 
         <EditText
+            android:keyboardNavigationCluster="true"
             android:id="@+id/edit_text"
             style="@style/SearchBar"
             android:layout_width="match_parent"
