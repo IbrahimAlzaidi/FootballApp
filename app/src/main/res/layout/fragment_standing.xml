@@ -127,7 +127,6 @@
 
         <com.example.loadinganimation.LoadingAnimation
             style="@style/ProgressBar.FootBall"
-            android:visibility="gone"
             app:showWhenLoading="@{viewModel.standingTeam}"
             tools:ignore="MissingConstraints" />
 
