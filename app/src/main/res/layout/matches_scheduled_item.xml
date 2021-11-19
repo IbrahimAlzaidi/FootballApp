@@ -11,13 +11,14 @@
 
         <variable
             name="listener"
-            type="com.example.footballapp.util.OnClickListener"/>
+            type="com.example.footballapp.util.OnClickListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/myConstraint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
+
         <View
             android:id="@+id/myCardView"
             android:layout_width="match_parent"
@@ -38,8 +39,9 @@
             android:text="@{item.fixture.date.subSequence(0,10).toString()}"
             android:textColor="@color/white"
             android:textSize="@dimen/size2X"
-            app:layout_constraintEnd_toEndOf="@id/scoreAwayTeam"
-            app:layout_constraintStart_toStartOf="@id/scoreHomeTeam"
+            android:layout_marginTop="2dp"
+            app:layout_constraintEnd_toEndOf="@id/separator"
+            app:layout_constraintStart_toStartOf="@id/separator"
             app:layout_constraintTop_toBottomOf="@id/separator"
             tools:text="First Half" />
 
@@ -51,6 +53,8 @@
             android:src="@drawable/ic_baseline_timer_24"
             app:layout_constraintBottom_toBottomOf="@id/matchTime"
             app:layout_constraintEnd_toStartOf="@id/matchTime"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@+id/homeTeamLogoHolder"
             app:layout_constraintTop_toTopOf="@id/matchTime" />
 
         <TextView
@@ -61,8 +65,8 @@
             android:text="@{item.fixture.date.subSequence(11,16).toString()}"
             android:textColor="@color/white"
             android:textSize="@dimen/size2X"
-            app:layout_constraintEnd_toEndOf="@id/matchDate"
-            app:layout_constraintStart_toStartOf="@id/matchDate"
+            app:layout_constraintEnd_toStartOf="@+id/awayTeamLogoHolder"
+            app:layout_constraintStart_toEndOf="@id/iconTime"
             app:layout_constraintTop_toBottomOf="@id/matchDate"
             tools:text="First Half" />
 
@@ -101,10 +105,10 @@
             android:id="@+id/homeTeamLogoHolder"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:layout_marginStart="@dimen/size6X"
+            android:layout_marginStart="@dimen/size7X"
             android:layout_marginTop="@dimen/margin2X"
-            android:onClick="@{() -> listener.onClickItem(0,item.teams.home.id,item.league.id)}"
             android:background="@drawable/circlue_image_shape"
+            android:onClick="@{() -> listener.onClickItem(0,item.teams.home.id,item.league.id)}"
             app:layout_constraintBottom_toBottomOf="@id/myCardView"
             app:layout_constraintStart_toStartOf="@id/myCardView"
             app:layout_constraintTop_toTopOf="@id/myCardView" />
@@ -125,9 +129,9 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_marginTop="@dimen/margin2X"
-            android:layout_marginEnd="@dimen/size6X"
-            android:onClick="@{() -> listener.onClickItem(0,item.teams.away.id,item.league.id)}"
+            android:layout_marginEnd="@dimen/size7X"
             android:background="@drawable/circlue_image_shape"
+            android:onClick="@{() -> listener.onClickItem(0,item.teams.away.id,item.league.id)}"
             app:layout_constraintBottom_toBottomOf="@id/myCardView"
             app:layout_constraintEnd_toEndOf="@id/myCardView"
             app:layout_constraintTop_toTopOf="@id/myCardView" />
@@ -184,51 +188,28 @@
             tools:text="Away" />
 
         <TextView
-            android:id="@+id/scoreHomeTeam"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin9X"
             android:elevation="@dimen/elevation0X"
-            android:textColor="@color/white"
-            android:textSize="28sp"
+            android:text="VS"
+            android:textColor="#D2C9FF"
+            android:textSize="@dimen/size3X"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@id/homeTeamLogoHolder"
-            app:layout_constraintEnd_toStartOf="@id/separator"
-            app:layout_constraintStart_toEndOf="@id/homeTeamLogoHolder"
-            app:layout_constraintTop_toTopOf="@id/homeTeamLogoHolder"
-            app:setScoreSeparator="@{item.goals.home}"
-            tools:text="0" />
+            app:layout_constraintBottom_toBottomOf="@id/separator"
+            app:layout_constraintEnd_toEndOf="@id/separator"
+            app:layout_constraintStart_toStartOf="@id/separator"
+            app:layout_constraintTop_toTopOf="@id/separator" />
 
-        <TextView
+        <View
             android:id="@+id/separator"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin0X"
-            android:elevation="@dimen/elevation0X"
-            android:text=":"
-            android:textColor="@color/white"
-            android:textSize="@dimen/size5X"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@id/scoreHomeTeam"
-            app:layout_constraintEnd_toStartOf="@id/scoreAwayTeam"
-            app:layout_constraintStart_toEndOf="@id/scoreHomeTeam"
-            app:layout_constraintTop_toTopOf="@id/scoreHomeTeam" />
-
-        <TextView
-            android:id="@+id/scoreAwayTeam"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/margin9X"
-            android:elevation="@dimen/elevation0X"
-            android:textColor="@color/white"
-            android:textSize="28sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@id/awayTeamLogoHolder"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@drawable/vs_shape"
+            app:layout_constraintBottom_toTopOf="@+id/homeTeamName"
             app:layout_constraintEnd_toStartOf="@id/awayTeamLogoHolder"
-            app:layout_constraintStart_toEndOf="@id/separator"
-            app:layout_constraintTop_toTopOf="@id/awayTeamLogoHolder"
-            app:setScoreSeparator="@{item.goals.away}"
-            tools:text="0" />
+            app:layout_constraintStart_toEndOf="@id/homeTeamLogoHolder"
+            app:layout_constraintTop_toBottomOf="@id/leaguesName"
+            app:layout_constraintTop_toTopOf="@id/homeTeamLogoHolder" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

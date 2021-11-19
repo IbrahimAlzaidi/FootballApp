@@ -129,6 +129,7 @@
             android:id="@+id/tabLayoutFragments"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#61E5E5E5"
             android:layout_marginHorizontal="@dimen/margin5X"
             app:layout_constraintBottom_toTopOf="@id/details_ViewPager"
             app:layout_constraintEnd_toEndOf="parent"

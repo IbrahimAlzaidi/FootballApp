@@ -68,6 +68,7 @@
             android:id="@+id/tabLayoutFragments"
             style="@style/TabLayoutStyle"
             android:layout_marginTop="@dimen/margin7X"
+            android:background="#61E5E5E5"
             app:layout_constraintBottom_toTopOf="@id/details_ViewPager"
             app:layout_constraintTop_toBottomOf="@id/imageTeam"
             app:showWhenSuccess="@{viewModel.stadiumInformation}"

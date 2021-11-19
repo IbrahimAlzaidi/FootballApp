@@ -89,6 +89,7 @@
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabLayoutFragments"
             style="@style/TabLayoutStyle"
+            android:background="#61E5E5E5"
             app:layout_constraintBottom_toTopOf="@id/myViewPager"
             app:layout_constraintTop_toBottomOf="@id/viewHolder"
             app:showWhenSuccess="@{viewModel.leagueDetails}"
