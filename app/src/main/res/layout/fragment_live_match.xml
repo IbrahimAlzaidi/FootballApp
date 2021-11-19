@@ -19,7 +19,6 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/matchRecycler"
             style="@style/RecycleViewStyle"
-            android:layout_marginHorizontal="@dimen/margin1X"
             app:items="@{viewModel.matchLive.toData().liveMatchDetails}"
             app:layout_constraintTop_toTopOf="parent"
             app:showWhenSuccess="@{viewModel.matchLive}"

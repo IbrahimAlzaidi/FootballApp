@@ -16,8 +16,6 @@ class ViewModelFactory : ViewModelProvider.NewInstanceFactory() {
     companion object {
         val listOfViewModels = mutableListOf<Class<*>>()
     }
-
-
 }
 
 
