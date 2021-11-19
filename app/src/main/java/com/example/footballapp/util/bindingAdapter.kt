@@ -105,6 +105,8 @@ fun ProgressBar.setProgress(text: String?) {
 fun TextView.setHomeScoreSeparator(text: String?) {
     if (text == null) {
         this.text = "-"
+    }else{
+        this.text = text
     }
 }
 

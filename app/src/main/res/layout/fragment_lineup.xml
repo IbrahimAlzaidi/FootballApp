@@ -16,16 +16,41 @@
         android:layout_height="match_parent"
         tools:context=".ui.matchDetails.lineup.LineupFragment">
 
+        <ImageView
+            android:id="@+id/coachTable"
+            android:layout_width="350dp"
+            android:layout_height="350dp"
+            android:src="@drawable/ic_coachbord"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:visibilityView="@{viewModel.lineupsData.toData().lineupInfo.empty}" />
+
+        <TextView
+            android:id="@+id/noMatchAvailable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No Information Available"
+            android:textColor="@color/red_200"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/coachTable"
+            app:layout_constraintStart_toStartOf="@id/coachTable"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.75"
+            app:visibilityView="@{viewModel.lineupsData.toData().lineupInfo.empty}" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/lineupRecyclerView"
             style="@style/RecycleViewStyle"
-            app:items="@{viewModel.match}"
             android:orientation="vertical"
+            app:items="@{viewModel.match}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintTop_toTopOf="parent"
             app:showWhenSuccess="@{viewModel.lineupsData}"
-            tools:listitem="@layout/lineup_match_item"
-            tools:ignore="MissingConstraints" />
+            tools:ignore="MissingConstraints"
+            tools:listitem="@layout/lineup_match_item" />
 
         <com.example.loadinganimation.LoadingAnimation
             style="@style/ProgressBar.FootBall"

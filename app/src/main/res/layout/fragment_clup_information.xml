@@ -23,6 +23,7 @@
             app:items="@{viewModel.team.toData().squadPlayerInfo.get(0).players}"
             android:orientation="horizontal"
             android:layout_marginHorizontal="@dimen/margin2X"
+            app:layout_constraintVertical_bias="0.60"
             app:layout_constraintBottom_toTopOf="@id/venueHolder"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -39,7 +40,6 @@
             android:maxWidth="90dp"
             android:text="@{viewModel.clubInformation.toData().stadiumDetails.get(0).venue.name.toString()}"
             android:textSize="@dimen/size5X"
-
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/venueHolder"
