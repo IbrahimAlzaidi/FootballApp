@@ -27,6 +27,7 @@ class ClubDetailsFragment :
         val leagueID = args.leagueId
         val teamID = args.teamId
         val viewPager = binding.detailsViewPager
+        viewPager.isUserInputEnabled = false
         val tabLayout = binding.tabLayoutFragments
         val fragmentsList =
             listOf(

@@ -15,12 +15,14 @@
         android:layout_height="match_parent"
         tools:context=".ui.clubDetails.ClubDetailsFragment">
 
-        <com.santalu.diagonalimageview.DiagonalImageView
+        <androidx.constraintlayout.utils.widget.ImageFilterView
             android:id="@+id/image"
             android:layout_width="match_parent"
-            android:layout_height="220dp"
+            android:layout_height="230dp"
+            android:alpha="0.6"
             android:scaleType="centerCrop"
             app:ImageUrl="@{viewModel.stadiumInformation.toData().stadiumDetails.get(0).venue.image}"
+            app:brightness="1"
             app:di_borderColor="#A3B1F8"
             app:di_borderEnabled="true"
             app:di_borderSize="5dp"
@@ -30,21 +32,23 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:showWhenSuccess="@{viewModel.stadiumInformation}" />
+            app:saturation="1"
+            app:showWhenSuccess="@{viewModel.stadiumInformation}"
+            tools:src="@tools:sample/avatars"/>
 
         <ImageView
             android:id="@+id/imageTeam"
             android:layout_width="110dp"
             android:layout_height="110dp"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="138dp"
             android:background="@drawable/rectingle"
             android:padding="@dimen/margin2X"
             app:ImageUrl="@{viewModel.teamInformation.toData().teamInformation.team.logo}"
             app:civ_border_color="#A3B1F8"
             app:civ_border_width="4dp"
+            app:layout_constraintEnd_toEndOf="@+id/image"
             app:layout_constraintStart_toStartOf="@id/image"
             app:layout_constraintTop_toTopOf="@id/image"
+            app:layout_constraintBottom_toBottomOf="@id/image"
             app:showWhenSuccess="@{viewModel.stadiumInformation}"
             tools:src="@tools:sample/avatars" />
 
@@ -52,25 +56,25 @@
             android:id="@+id/teamName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/margin4X"
             android:text="@{viewModel.teamInformation.toData().teamInformation.team.name}"
             android:textAllCaps="true"
-            android:textSize="@dimen/size5X"
-            app:layout_constraintBottom_toTopOf="@id/details_ViewPager"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/imageTeam"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.7"
+            android:textSize="@dimen/size4X"
+            android:fontFamily="@font/nunitob"
+            android:layout_marginBottom="@dimen/margin2X"
+            app:layout_constraintBottom_toBottomOf="@id/image"
+            app:layout_constraintEnd_toEndOf="@id/image"
+            app:layout_constraintStart_toStartOf="@id/image"
+            app:layout_constraintTop_toBottomOf="@id/imageTeam"
             app:showWhenSuccess="@{viewModel.stadiumInformation}"
             tools:text="LiverPool" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabLayoutFragments"
             style="@style/TabLayoutStyle"
-            android:layout_marginTop="@dimen/margin7X"
+            android:layout_marginTop="@dimen/margin0X"
             android:background="#61E5E5E5"
             app:layout_constraintBottom_toTopOf="@id/details_ViewPager"
-            app:layout_constraintTop_toBottomOf="@id/imageTeam"
+            app:layout_constraintTop_toBottomOf="@id/image"
             app:showWhenSuccess="@{viewModel.stadiumInformation}"
             tools:ignore="MissingConstraints" />
 
