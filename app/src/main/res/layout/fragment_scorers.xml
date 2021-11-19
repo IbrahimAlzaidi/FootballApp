@@ -21,7 +21,7 @@
             android:layout_height="40dp"
             android:layout_marginTop="@dimen/margin1X"
             android:background="@drawable/live_match_header"
-            android:elevation="@dimen/elevation1X"
+            android:elevation="@dimen/elevation0X"
             app:layout_constraintEnd_toEndOf="@id/topScoreRecycler"
             app:layout_constraintStart_toStartOf="@id/topScoreRecycler"
             app:layout_constraintTop_toTopOf="parent"
@@ -41,6 +41,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:text="Player"
+            android:elevation="@dimen/elevation0X"
+            android:textColor="@color/white"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@id/playerTitle"
             app:layout_constraintStart_toStartOf="parent"
@@ -53,6 +55,8 @@
             android:layout_height="wrap_content"
             android:text="Team"
             android:textSize="18sp"
+            android:elevation="@dimen/elevation0X"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="@id/player"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.73"
@@ -66,6 +70,8 @@
             android:layout_height="wrap_content"
             android:text="Goals"
             android:textSize="18sp"
+            android:elevation="@dimen/elevation0X"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="@id/playerTitle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/titleTeam"
@@ -84,6 +90,7 @@
 
         <com.example.loadinganimation.LoadingAnimation
             style="@style/ProgressBar.FootBall"
+            android:visibility="gone"
             app:showWhenLoading="@{viewModel.topScorers}"
             tools:ignore="MissingConstraints" />
 

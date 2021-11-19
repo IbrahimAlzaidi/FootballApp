@@ -5,7 +5,6 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.ImageView
-import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
@@ -87,11 +86,6 @@ fun setText(view: TextView, text: String?) {
     } else {
         view.text = text
     }
-}
-
-@BindingAdapter(value = ["app:progressApp"])
-fun ProgressBar.setProgress(text: String?) {
-    text?.subSequence(0, 1)?.also { this.progress = it[0].code }
 }
 
 @BindingAdapter(value = ["app:setScoreSeparator"])
