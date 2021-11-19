@@ -9,11 +9,9 @@ object Constant {
     const val MIN_ALPHA_VIEW_PAGER = 0.5f
     const val TEAM_ID_KEY = "teamId"
     const val LEAGUE_ID_KEY = "leagueId"
-    const val PLAYER_ID_KEY = "playerId"
     const val MATCH_ID_KEY = "matchId"
     const val MATCH_COUNT = 50
     const val TEAM_INFORMATION = "Team Information"
-    const val SQUAD_MEMBER = "Squad Member"
     const val LATEST_MATCH = "Latest Match"
     const val LIVE = "Live"
     const val MATCH_SCHEDULED = "Match Scheduled"

@@ -15,16 +15,45 @@
         android:layout_height="match_parent"
         tools:context=".ui.leagueDetails.LeagueDetailsFragment">
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/leagueImage"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
-            android:layout_margin="@dimen/margin3X"
-            android:elevation="@dimen/elevation0X"
-            app:ImageUrl="@{viewModel.leagueDetails.toData().standingTeamsInfo.get(0).league.logo}"
+        <View
+            android:id="@+id/viewHolder"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="#9E3E2AA2"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:showWhenSuccess="@{viewModel.leagueDetails}" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/teamHolder"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:alpha="0.6"
+            android:scaleType="centerCrop"
+            app:ImageUrl="@{viewModel.leagueDetails.toData().standingTeamsInfo.get(0).league.logo}"
+            app:brightness="1"
+            app:layout_constraintBottom_toBottomOf="@id/viewHolder"
+            app:layout_constraintEnd_toEndOf="@id/viewHolder"
+            app:layout_constraintStart_toStartOf="@id/viewHolder"
+            app:layout_constraintTop_toTopOf="@id/viewHolder"
+            app:saturation="0.1"
+            app:showWhenSuccess="@{viewModel.leagueDetails}"
+            tools:src="@tools:sample/avatars" />
+
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/leagueImage"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="@dimen/margin3X"
+            android:background="#6F7561D4"
+            android:elevation="@dimen/elevation0X"
+            app:ImageUrl="@{viewModel.leagueDetails.toData().standingTeamsInfo.get(0).league.logo}"
+            app:layout_constraintBottom_toBottomOf="@+id/viewHolder"
+            app:layout_constraintStart_toStartOf="@id/viewHolder"
+            app:layout_constraintTop_toTopOf="@id/viewHolder"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
             app:showWhenSuccess="@{viewModel.leagueDetails}"
             tools:src="@tools:sample/avatars" />
 
@@ -35,19 +64,34 @@
             android:elevation="@dimen/elevation0X"
             android:gravity="center"
             android:text="@{viewModel.leagueDetails.toData().standingTeamsInfo.get(0).league.name}"
+            android:textColor="@color/white"
             android:textSize="@dimen/size5X"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/leagueImage"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.1"
             app:layout_constraintStart_toEndOf="@id/leagueImage"
             app:layout_constraintTop_toTopOf="@id/leagueImage"
             app:showWhenSuccess="@{viewModel.leagueDetails}"
             tools:text="West Ham" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(viewModel.leagueDetails.toData().standingTeamsInfo.get(0).league.season)}"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@id/LeagueName"
+            app:layout_constraintTop_toBottomOf="@id/LeagueName"
+            app:showWhenLoading="@{viewModel.leagueDetails}"
+            tools:text="25-10-2017" />
+
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabLayoutFragments"
             style="@style/TabLayoutStyle"
+            android:background="#61E5E5E5"
             app:layout_constraintBottom_toTopOf="@id/myViewPager"
-            app:layout_constraintTop_toBottomOf="@id/leagueImage"
+            app:layout_constraintTop_toBottomOf="@id/viewHolder"
             app:showWhenSuccess="@{viewModel.leagueDetails}"
             tools:ignore="MissingConstraints" />
 

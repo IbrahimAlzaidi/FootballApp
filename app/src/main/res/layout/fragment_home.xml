@@ -13,7 +13,6 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#E5E5E5"
         tools:context=".ui.home.HomeFragment">
 
         <TextView
@@ -62,7 +61,7 @@
             style="@style/TabLayoutStyle"
             android:layout_marginHorizontal="@dimen/margin2X"
             android:layout_marginTop="@dimen/margin0X"
-            android:background="#E5E5E5"
+            android:background="#61E5E5E5"
             app:layout_constraintTop_toBottomOf="@id/recycle_view"
             app:showWhenSuccess="@{viewModel.leaguesInfo}"
             tools:ignore="MissingConstraints" />

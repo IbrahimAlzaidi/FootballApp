@@ -19,86 +19,95 @@
             android:id="@+id/playerTitle"
             android:layout_width="0dp"
             android:layout_height="40dp"
-            android:background="@drawable/live_match_header"
             android:layout_marginTop="@dimen/margin1X"
-            app:layout_constraintStart_toStartOf="@id/leagueRecycler"
+            android:background="@drawable/live_match_header"
             app:layout_constraintEnd_toEndOf="@id/leagueRecycler"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+            app:layout_constraintStart_toStartOf="@id/leagueRecycler"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <View
             android:layout_width="0dp"
             android:layout_height="2dp"
+            android:background="#FAF8F8"
             app:layout_constraintBottom_toBottomOf="@id/playerTitle"
-            app:layout_constraintStart_toStartOf="@id/leagueRecycler"
             app:layout_constraintEnd_toEndOf="@id/leagueRecycler"
-            android:background="#FAF8F8" />
+            app:layout_constraintStart_toStartOf="@id/leagueRecycler" />
+
         <TextView
-            android:id="@+id/player"
+            android:id="@+id/club"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
             android:text="Club"
+            android:textColor="@color/white"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@id/playerTitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/playerTitle" />
+
         <TextView
             android:id="@+id/matchPoint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="MP"
+            android:text="M"
+            android:textColor="@color/white"
             android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@id/club"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.62"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/player"
-            app:layout_constraintBottom_toBottomOf="@id/player"
-            />
+            app:layout_constraintTop_toTopOf="@id/club" />
+
         <TextView
             android:id="@+id/winTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="W"
+            android:textColor="@color/white"
             android:textSize="18sp"
-            app:layout_constraintStart_toEndOf="@id/matchPoint"
-            app:layout_constraintTop_toTopOf="@id/matchPoint"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="@id/matchPoint"
-            app:layout_constraintHorizontal_bias="0.09"
-            />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.10"
+            app:layout_constraintStart_toEndOf="@id/matchPoint"
+            app:layout_constraintTop_toTopOf="@id/matchPoint" />
+
         <TextView
             android:id="@+id/drawTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="D"
+            android:textColor="@color/white"
             android:textSize="18sp"
-            app:layout_constraintHorizontal_bias="0.18"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/winTitle"
-            app:layout_constraintTop_toTopOf="@id/matchPoint"
             app:layout_constraintBottom_toBottomOf="@id/matchPoint"
-            />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.10"
+            app:layout_constraintStart_toEndOf="@id/winTitle"
+            app:layout_constraintTop_toTopOf="@id/matchPoint" />
+
         <TextView
             android:id="@+id/loseTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="L"
+            android:textColor="@color/white"
             android:textSize="18sp"
-            app:layout_constraintHorizontal_bias="0.4"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/drawTitle"
-            app:layout_constraintTop_toTopOf="@id/matchPoint"
             app:layout_constraintBottom_toBottomOf="@id/matchPoint"
-            />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.18"
+            app:layout_constraintStart_toEndOf="@id/drawTitle"
+            app:layout_constraintTop_toTopOf="@id/matchPoint" />
 
         <TextView
             android:id="@+id/ptsTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Pt"
+            android:textColor="@color/white"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@id/matchPoint"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.36"
+            app:layout_constraintStart_toEndOf="@id/loseTitle"
             app:layout_constraintTop_toTopOf="@id/matchPoint" />
 
         <androidx.recyclerview.widget.RecyclerView
