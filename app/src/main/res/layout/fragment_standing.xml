@@ -51,7 +51,6 @@
             android:layout_height="wrap_content"
             android:text="M"
             android:textColor="@color/white"
-
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@id/club"
             app:layout_constraintEnd_toEndOf="parent"
@@ -103,9 +102,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Pt"
-
             android:textColor="@color/white"
-
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@id/matchPoint"
             app:layout_constraintEnd_toEndOf="parent"
