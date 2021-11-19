@@ -15,6 +15,7 @@
     <color name="gray_200">#DDDDDD</color>
     <color name="gray_100">#F5F5F5</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="gray">#F0F0F0</color>
 
     <!--brand-->
     <color name="brand_700">#3E2AA2</color>
