@@ -40,6 +40,7 @@ abstract class BaseFragment<VDB : ViewDataBinding, VM : BaseViewModel>(
         savedInstanceState: Bundle?,
     ): View? {
         _binding = DataBindingUtil.inflate(inflater, layoutResId, container, false)
+        ViewModelFactory.listOfViewModels.add(getViewModel())
         _viewModel = ViewModelProvider(this, ViewModelFactory()).get(getViewModel())
         _binding.apply {
             lifecycleOwner = this@BaseFragment.viewLifecycleOwner
