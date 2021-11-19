@@ -1,11 +1,14 @@
 package com.example.footballapp.util
 
-import com.example.footballapp.model.response.fixtureData.FixtureDataInfo
 import com.example.footballapp.model.response.lineup.DataPlayer
 import com.example.footballapp.model.response.lineup.LineupInfo
 import com.example.footballapp.model.response.lineup.SubstitutesPlayer
 import com.example.footballapp.model.response.matchStatistic.MatchResultData
 import com.example.footballapp.model.response.matchStatistic.MatchStatisticInfo
+import com.yarolegovich.discretescrollview.DSVOrientation
+import com.yarolegovich.discretescrollview.DiscreteScrollView
+import com.yarolegovich.discretescrollview.transform.Pivot
+import com.yarolegovich.discretescrollview.transform.ScaleTransformer
 
 fun List<MatchStatisticInfo?>.toMatchStatistic(): List<MatchResultData?> {
     val result = mutableListOf<MatchResultData?>()
@@ -55,4 +58,22 @@ fun List<LineupInfo?>.toSubstitutes(): List<SubstitutesPlayer?> {
         )
     }
     return result
+}
+
+fun DiscreteScrollView.setCustomRecyclerViewProperties() {
+    this.apply {
+        setOrientation(DSVOrientation.HORIZONTAL)
+        setOffscreenItems(2)
+        setOverScrollEnabled(true)
+        setItemTransitionTimeMillis(20)
+        setItemTransformer(
+            ScaleTransformer.Builder()
+                .setMaxScale(1.1f)
+                .setMinScale(0.8f)
+                .setPivotX(Pivot.X.CENTER)
+                .setPivotY(Pivot.Y.BOTTOM)
+                .build()
+        )
+        setSlideOnFling(true)
+    }
 }
