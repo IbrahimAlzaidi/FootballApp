@@ -21,7 +21,7 @@ class MatchesFragment :
 
     override fun getViewModel() = MatchesViewModel::class.java
     override fun onClickItem(id: Int, teamId: Int, leagueId: Int) {
-        navigate(LeagueDetailsFragmentDirections.actionLeagueDetailsFragmentToMatchDetailsFragment(
+        viewModel.navigate(LeagueDetailsFragmentDirections.actionLeagueDetailsFragmentToMatchDetailsFragment(
             id))
     }
 

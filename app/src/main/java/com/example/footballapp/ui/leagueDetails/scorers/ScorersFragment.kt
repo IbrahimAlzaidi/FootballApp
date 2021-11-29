@@ -28,7 +28,7 @@ class ScorersFragment : BaseFragment<FragmentScorersBinding, ScorersViewModel>
                 it
             )
         }?.let {
-            navigate(it
+            viewModel.navigate(it
             )
         }
     }

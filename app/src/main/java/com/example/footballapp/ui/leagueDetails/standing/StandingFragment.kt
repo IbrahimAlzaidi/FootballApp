@@ -27,7 +27,7 @@ class StandingFragment :
                 leagueId = it
             )
         }?.let {
-            navigate(
+            viewModel.navigate(
                 it
             )
         }

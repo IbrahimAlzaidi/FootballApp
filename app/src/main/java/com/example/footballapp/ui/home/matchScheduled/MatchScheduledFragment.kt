@@ -19,6 +19,6 @@ class MatchScheduledFragment : BaseFragment<FragmentMatchScheduledBinding, Match
 
     override fun getViewModel() = MatchScheduledViewModel::class.java
     override fun onClickItem(id: Int, teamId: Int, leagueId: Int) {
-        navigate(HomeFragmentDirections.actionHomeFragmentToClubDetailsFragment(teamId, leagueId))
+        viewModel.navigate(HomeFragmentDirections.actionHomeFragmentToClubDetailsFragment(teamId, leagueId))
     }
 }

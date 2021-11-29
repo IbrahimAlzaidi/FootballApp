@@ -19,6 +19,7 @@ class HomeFragment :
 
     override val fragmentTitles = listOf(LIVE, MATCH_SCHEDULED)
 
+
     override fun onStart() {
         super.onStart()
         val fragmentsList = listOf(LiveMatchFragment(), MatchScheduledFragment())
@@ -42,8 +43,7 @@ class HomeFragment :
             }
         }
     }
-
     override fun onClickItem(id: Int, teamId: Int, leagueId: Int) {
-        navigate(HomeFragmentDirections.actionHomeFragmentToLeagueDetailsFragment(leagueId))
+        viewModel.navigate(HomeFragmentDirections.actionHomeFragmentToLeagueDetailsFragment(leagueId))
     }
 }

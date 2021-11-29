@@ -1,4 +1,4 @@
-package com.example.footballapp.util
+package com.example.footballapp.model.domain
 
 import androidx.navigation.NavDirections
 

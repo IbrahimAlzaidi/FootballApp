@@ -18,7 +18,7 @@ class ClubMatchPlayedFragment: BaseFragment<FragmentClubMatchPlayedBinding, Club
         binding.currentMatch.adapter = currentTeamMatchAdapter
     }
     override fun onClickItem(id: Int, teamId: Int, leagueId: Int) {
-        navigate(ClubDetailsFragmentDirections.actionClubDetailsFragmentToMatchDetailsFragment(id))
+        viewModel.navigate(ClubDetailsFragmentDirections.actionClubDetailsFragmentToMatchDetailsFragment(id))
     }
     override fun getViewModel() = ClubMatchPlayedViewModel::class.java
 

@@ -39,7 +39,7 @@ class ClubInformationFragment :
                 )
             }
         }?.let {
-            navigate(
+            viewModel.navigate(
                 it
             )
         }

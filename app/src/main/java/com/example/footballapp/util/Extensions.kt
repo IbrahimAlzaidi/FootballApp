@@ -1,5 +1,11 @@
 package com.example.footballapp.util
 
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.LiveData
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment.findNavController
+import androidx.navigation.fragment.findNavController
+import com.example.footballapp.model.domain.NavigationController
 import com.example.footballapp.model.response.lineup.DataPlayer
 import com.example.footballapp.model.response.lineup.LineupInfo
 import com.example.footballapp.model.response.lineup.SubstitutesPlayer
@@ -76,4 +82,12 @@ fun DiscreteScrollView.setCustomRecyclerViewProperties() {
         )
         setSlideOnFling(true)
     }
+}
+
+fun LiveData<Event<NavigationController>>.observeEvent(owner: LifecycleOwner, navController: NavController){
+    this.observe(owner, { event ->
+        event?.getContentIfNotHandle()?.let { command ->
+            navController.navigate(command.directions)
+        }
+    })
 }

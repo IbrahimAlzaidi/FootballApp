@@ -8,23 +8,18 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavDirections
-import androidx.navigation.fragment.FragmentNavigator
-import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.example.footballapp.BR
+import com.example.footballapp.model.domain.NavigationController
 import com.example.footballapp.util.*
 
 abstract class BaseFragment<VDB : ViewDataBinding, VM : BaseViewModel>(
     @LayoutRes private val layoutResId: Int,
 ) : Fragment() {
-    abstract fun getViewModel(): Class<VM>
 
-    private val _navigationLiveData = MutableLiveData<Event<NavigationController>>()
-    private val navigationLiveData: LiveData<Event<NavigationController>> = _navigationLiveData
+    abstract fun getViewModel(): Class<VM>
 
     private lateinit var _binding: VDB
     protected val binding: VDB
@@ -46,24 +41,7 @@ abstract class BaseFragment<VDB : ViewDataBinding, VM : BaseViewModel>(
             lifecycleOwner = this@BaseFragment.viewLifecycleOwner
             setVariable(BR.viewModel, _viewModel)
         }
-        observeNavigation()
+        viewModel.navigationLiveData.observeEvent(viewLifecycleOwner, findNavController())
         return _binding.root
     }
-
-    fun navigate(direction: NavDirections) {
-        _navigationLiveData.value = Event(NavigationController(direction))
-    }
-
-    private fun observeNavigation() {
-        navigationLiveData.observe(viewLifecycleOwner, {
-            it?.getContentIfNotHandle()?.let { command ->
-                findNavController().navigate(
-                    command.directions,
-                    getExtra()
-                )
-            }
-        })
-    }
-
-    private fun getExtra(): FragmentNavigator.Extras = FragmentNavigatorExtras()
 }
