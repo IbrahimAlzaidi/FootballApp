@@ -9,10 +9,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import com.example.footballapp.BR
-import com.example.footballapp.model.domain.NavigationController
 import com.example.footballapp.util.*
 
 abstract class BaseFragment<VDB : ViewDataBinding, VM : BaseViewModel>(

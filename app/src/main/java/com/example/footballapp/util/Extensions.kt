@@ -3,6 +3,7 @@ package com.example.footballapp.util
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.navigation.NavController
+import androidx.navigation.NavDirections
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.footballapp.model.domain.NavigationController
@@ -84,10 +85,10 @@ fun DiscreteScrollView.setCustomRecyclerViewProperties() {
     }
 }
 
-fun LiveData<Event<NavigationController>>.observeEvent(owner: LifecycleOwner, navController: NavController){
+fun LiveData<Event<NavDirections>>.observeEvent(owner: LifecycleOwner, navController: NavController){
     this.observe(owner, { event ->
         event?.getContentIfNotHandle()?.let { command ->
-            navController.navigate(command.directions)
+            navController.navigate(command)
         }
     })
 }
